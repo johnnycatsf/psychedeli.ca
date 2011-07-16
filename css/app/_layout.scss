@@ -2,7 +2,14 @@
 header {
 	hgroup {
 		h1 {
-			
+			float: right;
+			font-family: $cooper;
+			font-size: 64px;
+		}
+		h2 {
+			float: left;
+			font-family: $futura;
+			font-size: 48px;
 		}
 	}
 }

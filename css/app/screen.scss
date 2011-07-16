@@ -1,10 +1,13 @@
-/* Welcome to Compass.
- * In this file you should write your main styles. (or centralize your imports)
- * Import this file using the following HTML or equivalent:
- * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/*
+ * Stylesheet build for screen readers, desktop web browsers and by default all internet devices.
+ */
 
+// Compass framework
 @import "compass/reset";
+
+// jQuery plugins and web fonts 
 @import "vendor/fonts/face";
-@import "interface";
+
+// Application layout and object styles
 @import "layout";
 @import "models/post";

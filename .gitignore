@@ -3,4 +3,5 @@ _site/
 *.tmproj
 Gemfile.lock
 **.DS_Store
+**/*.DS_Store
 css/*.css
