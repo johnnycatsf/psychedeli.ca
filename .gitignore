@@ -1,3 +1,5 @@
 _site/
+.sass_cache/
 *.tmproj
 Gemfile.lock
+**.DS_Store
