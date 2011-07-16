@@ -1,0 +1,33 @@
+// Blog Posts
+
+article {
+	// rounded-corner-top
+	
+	
+	
+	header {
+		border-bottom: 3px dotted black;
+		
+		h1 {
+			font-family: $;
+		}
+	}
+	
+	section {
+		
+	}
+	
+	footer {
+		#icons {
+			float: left;
+		}
+		
+		p {
+			text-align:right;
+			
+			time {
+
+			}		
+		}
+	}
+}

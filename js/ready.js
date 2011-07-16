@@ -4,5 +4,8 @@ require(['jquery', 'vendor/underscore', 'vendor/backbone'], function($) {
 		if ($.browser.msie && parseInt($.browser.version) > 9) {
 			alert('Update to IE 9 to view this site properly.');
 		}
+		
+		// Load models
+		require(['models/post']);
 	});
 });

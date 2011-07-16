@@ -7,3 +7,6 @@
 [submodule "src/jquery"]
 	path = src/jquery
 	url = https://github.com/jquery/jquery.git
+[submodule "src/compass"]
+	path = src/compass
+	url = https://github.com/chriseppstein/compass.git
