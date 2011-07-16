@@ -10,8 +10,6 @@ Now that FreeNAS has been updated to version 8 and everything is back to normal 
 
 There is no alternative. Boxee for Windows 7 is the only choice.
 
-✂------✂------✂------✂------✂------✂------✂------✂------✂------✂------
-
 # why all the trouble, can't you just get a boxee box?
 
 To be honest with you, I don't like TV very much. It allows me to be complacent and not get as much work done as I should be. Therefore, I don't believe it's quite the best thing for me to be sitting in front of, and I certainly don't enjoy paying for it. Unfortunately, the Boxee Box doesn't allow standard inputs, forcing anyone who wants the "easy solution" to purchase one. I own a standard definition TV with S-Video in. I'm not going to go out and pay at least $350 for something I don't even want to use. Instead, I'm going to spend an eighth of that money (on a video card) to build a computer that allows me to use a TV to take the focus off TV in the living room.

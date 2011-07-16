@@ -6,20 +6,7 @@ category: code
 
 ---
 
-Type: Blog Post (Markdown)
-Blog: psychedelica
-Link: http://psychedeli.ca/2011/04/18/converting-prototype-into-jquery
-Post: 14
-Title: 
-Format: none
-Date: 2011-04-18 03:53:43 -0400
-Pings: Off
-Comments: On
-Category: development
-
 Today is the day that I embark on my ugliest mission yet, that of converting the JavaScript framework for [Typo](http://typosphere.org/), the blog engine that I currently employ. Right now, it's using [Prototype.js](http://prototypejs.org/), but I'm going to convert it all to use [jQuery](http://jquery.com) instead. This is obviously something you don't want to do, but it's absolutely necessary if I'm going to continue developing this blog application. As of right now, I'm not happy with ANY of the blog engines out there, but Typo's definitely the lesser of all evils. This post examines the least obtrusive/annoying way to convert an application's JavaScript framework, and why *you* should (or shouldn't) do it.
-
-✂------✂------✂------✂------✂------✂------✂------✂------✂------✂------
 
 ## what's the big deal?
 I've been coding JavaScript for a long time. It was truly my first "programming language", because I don't really consider HTML a programming language since it doesn't really do much except describe data that already exists. I fondly remember the days of perusing [DynamicDrive](http://dynamicdrive.com) and [JavaScript Kit](http://javascriptkit.com) for new snippets of code to make my web sites flashier, more productive, or more functional. I was developing in JavaScript when there was no such thing as a "JavaScript framework", and I learned how to code Ajax using pure JavaScript (where you have to instantiate a separate `XmlHttpRequest` for every browser, and they all behaved differently!) So if I can do all that, what's all this hubbub about a stupid framework?

@@ -6,15 +6,6 @@ category: code
 tags: rant, git, visualization, rails
 
 ---
-Type: Blog Post (Markdown)
-Blog: psychedelica
-Link: http://psychedeli.ca/2011/04/10/fuck-gitorious
-Post: 12
-Title: fuck gitorious
-Format: none
-Date: 2011-04-10 20:24:29 -0400
-Pings: Off
-Comments: On
 
 After several weeks of labor all for nought, I've given up on using [gitorious](http://gitorious.org/) as my web-based git repo visualizer. All I want is [GitHub](http://github.com/) without paying the money, is that so much to ask for?? :)
 
