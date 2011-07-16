@@ -1,8 +1,16 @@
+---
+
+layout: post
+title: "the time has come: converting Prototype into jQuery"
+category: code
+
+---
+
 Type: Blog Post (Markdown)
 Blog: psychedelica
 Link: http://psychedeli.ca/2011/04/18/converting-prototype-into-jquery
 Post: 14
-Title: the time has come: converting Prototype into jQuery
+Title: 
 Format: none
 Date: 2011-04-18 03:53:43 -0400
 Pings: Off

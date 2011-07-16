@@ -1,17 +1,12 @@
-Type: Blog Post (Markdown)
-Blog: psychedelica
-Link: http://psychedeli.ca/2011/04/09/decisions-decisions
-Post: 10
-Title: decisions, decisions
-Format: none
-Date: 2011-04-09 23:23:19 -0400
-Pings: Off
-Comments: On
-Category: hardware
+---
+
+layout: post
+title: "decisions, decisions"
+category: code
+
+---
 
 Well I'm stuck in a bind. I can't seem to decide which operating system I want to run my all-powerful file server. A few days ago, my [wonderful sister][1] gifted me two computers, the Dell OptiPlex [GX270][2] and [GX280][3]. The basic difference between these two tried-and-true workhorses is the graphics card interface-the GX280 includes a PCI Express x16 slot whereas the GX270 is still using AGP-and of course the model number. Other than that, they use the same motherboard, same case design, and same basic layout. PERFECT for general hackery purposes...and running a Boxee...
-
-✂------✂------✂------✂------✂------✂------✂------✂------✂------✂------
 
 So my first endeavor with these machines is something I've been needing for a long time: a file server to host all of the house's media. Everyone who lives in my house utilizes the internet or computers mostly for their media needs, and we've been longing for a way to experience it on a bigger screen. But a problem arises: These machines do not have the ability to pump S-Video to my regular TV, so I'm gonna need to wait a couple days before actually going ahead and opening up the boxes. I also need SATA cables and a SATA-to-IDE converter because the Dell OptiPlex motherboards come with IDE by default! By using both the SATA connector and the IDE connector adapted to a SATA connection, I'll be able to run a software RAID-0 array, mirroring the contents of the 1TB of space inside the box and therefore providing a greater level of security and stability to the system as a whole. With all of the hits it will be getting, this is a crucial step in extending the server's lifespan. 
 

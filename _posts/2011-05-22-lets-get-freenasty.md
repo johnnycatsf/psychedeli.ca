@@ -1,12 +1,13 @@
-Title: let's get freeNASty up in here
-Format: Markdown
-Pings: On
-Comments: On
-Category: hardware
+---
+
+layout: post
+title: "Let's get FreeNASty up in here"
+category: hardware
+tags: freenas, freebsd, entertainment, hacking, python
+
+---
 
 Alright, it's finally time! After a long wait and some hardware hangups, I've finally completed the build of [a media fileserver and seedbox](http://psychedeli.ca/2011/04/09/decisions-decisions) for the residents of my house. I've installed [FreeNAS 8](http://freenas.org) as the operating system on a gifted Dell OptiPlex GX280 small form-factor computer, which operates as both a central place to store music and movies we (as a household) consume, but also as an always-running [BitTorrent seedbox](http://transmissionbt.com), [iTunes media library](http://fireflymediaserver.org), and [backup drive](http://www.apple.com/macosx/what-is-macosx/time-machine.html). This article isn't quite a how-to guide, more like an encouragement to go out and do the same. It wasn't very hard, especially because I had a pre-built box (basically) and had a decent knowledge of UNIX-based operating systems, especially FreeBSD!
-
-✂------✂------✂------✂------✂------✂------✂------✂------✂------✂------
 
 ## what and why
 

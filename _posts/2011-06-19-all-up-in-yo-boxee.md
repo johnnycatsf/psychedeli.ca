@@ -1,5 +1,10 @@
+---
+
 Title: all up in yo boxee
 Category: hardware
+
+---
+
 
 Now that FreeNAS has been updated to version 8 and everything is back to normal (well, I actually had to create a "jail" to run some 3rd-party apps...more on that junk later...), and my S-Video Out video card has been acquired, I'm now ready for the task of converting my Cable TV-based living room into a fully connected media center, complete with a BitTorrent-based automatic PVR and seedbox, DAAP/iTunes Library exposition on the local network, Netflix connect-ability, and a system that manages all of it through a standard definition television screen and a dead-simple remote control.
 

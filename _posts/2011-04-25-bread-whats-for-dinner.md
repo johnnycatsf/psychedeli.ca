@@ -1,17 +1,12 @@
-Type: Blog Post (Markdown)
-Blog: psychedelica
-Link: http://psychedeli.ca/2011/04/25/bread-its-whats-for-dinner
-Post: 16
-Title: bread. it's what's for dinner.
-Format: none
-Date: 2011-04-25 02:25:17 -0400
-Pings: Off
-Comments: On
-Category: development
+---
+
+layout: post
+title: "bread. it's what's for dinner."
+category: programming
+
+---
 
 The idea of having your own website simply to provide a stationary, nice-looking place for people to check out your band is going by the wayside. As Facebook, Soundcloud and MySpace make it ever easier to establish your band's online presence and connect with your fans, for free, an electronic press kit doesn't seem like something you should be concerning yourself with. But promotion is everything sometimes, and [it just got a lot easier](http://github.com/tubbo/bread)
-
-✂------✂------✂------✂------✂------✂------✂------✂------✂------✂------
 
 The fact is, bands and artists with a professionally-designed, up-to-date website appear more professional, and are treated more professionally by "the suits". So to make that part of the job a tad easier, I'm developing an electronic press kit for my band that [you can use as well](http://github.com/tubbo/bread). Be forewarned: this application is still in development and may be fucked up...I haven't tested it on a production level yet and won't get to until I can get <http://thewonderbars.com/> up and running!
 

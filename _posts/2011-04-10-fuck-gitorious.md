@@ -1,3 +1,11 @@
+---
+
+layout: post
+title: "fuck gitorious"
+category: code
+tags: rant, git, visualization, rails
+
+---
 Type: Blog Post (Markdown)
 Blog: psychedelica
 Link: http://psychedeli.ca/2011/04/10/fuck-gitorious
