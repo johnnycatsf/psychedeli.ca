@@ -1,1 +1,4 @@
 # psychedeli.ca blog configuration
+
+markdown: redcarpet
+pygments: true

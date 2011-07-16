@@ -3,7 +3,7 @@
 <head>
 	<title>{{ page.title }} | psychedeli.ca</title>
 	<link rel="stylesheet" href="/css/application.css" type="text/css" media="screen" title="psychedeli.ca" charset="utf-8">
-	<script src="/js/require.js" data-main="/js/application.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/js/vendor/jquery-require.js" data-main="/js/main.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
 	<header>
@@ -14,7 +14,7 @@
 		<h1 class="cooper">psychedeli.ca</h1>
 	</header>
 	
-	<section id="carousel">
+	<section id="posts">
 		{{ yield }}
 	</section>
 	
