@@ -1,15 +1,20 @@
 // Site Title
 header {
 	hgroup {
-		h1 {
+		h1 {	// psychedeli.ca
 			float: right;
 			font-family: $cooper;
 			font-size: 64px;
 		}
-		h2 {
+		h2 {	// 100% PURE BEARD
 			float: left;
+			@include rotate(45deg);
 			font-family: $futura;
 			font-size: 48px;
+			color: #FFF;
+			background: #CF0000;
+			border-top: 1px solid gold;
+			border-bottom: 1px solid gold;
 		}
 	}
 }
@@ -26,11 +31,15 @@ section {
 	}
 }
 
+// Sticky footer
 footer {
-	// jQuery.ticker polls every 
+	// jQuery.statusTicker polls the StatusExchange every  
 	#ticker {
 		
 	}
 	
-	// About 
+	// About
+	#about {
+		
+	}
 }

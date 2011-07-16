@@ -3,10 +3,13 @@
 article {
 	// title
 	header {
-		border-bottom:;
+		@include border-radius(4px, 4px);
+		border-bottom: 3px dotted #000;
 		
 		h1 {
-			
+			font-family: $brandon;
+			font-size: 36px;
+			@include single-text-shadow(#000, 4px, 4px, 1px);
 		}
 	}
 	
@@ -22,6 +25,10 @@ article {
 		}
 		p {
 			text-align:right;
+			
+			time {
+				font-weight:bold;
+			}
 		}
 	}
 }
