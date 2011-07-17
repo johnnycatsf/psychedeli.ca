@@ -10,3 +10,6 @@
 [submodule "src/compass"]
 	path = src/compass
 	url = https://github.com/chriseppstein/compass.git
+[submodule "src/json"]
+	path = src/json
+	url = git://github.com/douglascrockford/JSON-js.git

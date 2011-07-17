@@ -14,4 +14,7 @@
 
 // application
 @import "layout";
+	header hgroup h2 {
+		@include rotate(45deg);
+	}
 @import "models/post";

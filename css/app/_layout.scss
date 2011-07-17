@@ -8,7 +8,6 @@ header {
 		}
 		h2 {	// 100% PURE BEARD
 			float: left;
-			@include rotate(45deg);
 			font-family: $futura;
 			font-size: 48px;
 			color: #FFF;
