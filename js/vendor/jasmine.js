@@ -740,12 +740,11 @@ jasmine.Env.prototype.versionString = function() {
   }
 
   var version = this.version();
-  var versionString = version.major + "." + version.minor + "." + version.build;
-  if (version.release_candidate) {
-    versionString += ".rc" + version.release_candidate
+  var dotted_version = version.major + "." + version.minor + "." + version.build;
+  if (version.rc) {
+    dotted_version += ".rc" + version.rc;
   }
-  versionString += " revision " + version.revision;
-  return versionString;
+  return dotted_version + " revision " + version.revision;
 };
 
 /**
@@ -2472,6 +2471,6 @@ jasmine.version_= {
   "major": 1,
   "minor": 1,
   "build": 0,
-  "revision": 1310556152,
-  "release_candidate": 3
-};
+  "revision": 1308187385,
+  "rc": 1
+}

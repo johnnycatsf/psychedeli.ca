@@ -6,6 +6,6 @@ require(['jquery', 'vendor/underscore', 'vendor/backbone'], function($) {
 		}
 		
 		// Load models
-		require(['app/models/post', 'app/views/post']);
+		require(['app/models/post']);
 	});
 });
