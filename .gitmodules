@@ -13,3 +13,6 @@
 [submodule "src/json"]
 	path = src/json
 	url = git://github.com/douglascrockford/JSON-js.git
+[submodule "src/jasmine"]
+	path = src/jasmine
+	url = git://github.com/pivotal/jasmine.git
