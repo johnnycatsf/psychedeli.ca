@@ -18,12 +18,12 @@ describe('Post', function() {
 		expect(post.get('body')).toBeDefined();
 	});
 	
-	it('should be able to instantiate a Date from Post.created_at and Post.created_on', function() {
+	it('should instantiate a Date from Post.created_at and Post.created_on', function() {
 		var daPostDate = new Date(Date.parse(post.get('created_on')+' '+post.get('created_at')));
 		expect(post.date()).toEqual(daPostDate);
 	});
 	
-	it('should be able to produce an HTML5 datetime', function() {
+	it('should convert the Date into something suitable for HTML5 datetime', function() {
 		var daPostDate = post.date();
 		
 		var daPostMonth = ((daPostDate.getMonth()+1) < 10) ? '0'+(daPostDate.getMonth()+1) : daPostDate.getMonth()+1;
@@ -36,7 +36,7 @@ describe('Post', function() {
 		expect(post.dateTime()).toEqual(daPostDatetime);
 	});
 	
-	it('should be able to produce a human-readable date', function() {
+	it('should render the Date as something readable', function() {
 		var postDate = post.date();
 		
 		var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
