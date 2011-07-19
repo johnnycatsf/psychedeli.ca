@@ -4,7 +4,11 @@ var Post = Backbone.Model.extend({
 	  *
 	  * @returns {Date} the time at which this Post was created.
 	  */ 
-	date: function() { return new Date(Date.parse(this.get('created_on')+' '+this.get('created_at'))) },
+	date: function() { 
+		var created_on = (typeof post.get('created_on') != 'undefined') ? post.get('created_on') : '';
+		var created_at = (typeof post.get('created_at') != 'undefined') ? post.get('created_at') : '';
+		return new Date(Date.parse(created_on+' '+created_at)); 
+	},
 	
 	/**
 	  * Post date reformatted to be the datetime="" parameter in <time>.
