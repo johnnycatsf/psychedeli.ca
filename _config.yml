@@ -2,3 +2,4 @@
 
 markdown: redcarpet
 pygments: true
+permalink: pretty       # /category/YYYY/MM/DD/title

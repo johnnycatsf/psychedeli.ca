@@ -1,5 +1,6 @@
 describe('Post', function() {
 	var post;
+	var epochDate = new Date(0);
 	
 	beforeEach(function() {
 		post = new Post({
@@ -18,30 +19,29 @@ describe('Post', function() {
 		expect(post.get('body')).toBeDefined();
 	});
 	
-	it('should instantiate a Date from Post.created_at and Post.created_on', function() {
+	it('should instantiate a Date from Post.created_at and Post.created_on', function() {		
 		var created_on = (typeof post.get('created_on') != 'undefined') ? post.get('created_on') : '';
 		var created_at = (typeof post.get('created_at') != 'undefined') ? post.get('created_at') : '';
 		var daPostDate = new Date(Date.parse(created_on+' '+created_at));
 		
-		expect(post.date()).toEqual(daPostDate);
+		expect(post.get('date')).toEqual(daPostDate);
 	});
 	
 	it('should convert the Date into something suitable for HTML5 datetime', function() {
-		var daPostDate = post.date();
+		var postDate = post.get('date');
 		
-		var daPostMonth = ((daPostDate.getMonth()+1) < 10) ? '0'+(daPostDate.getMonth()+1) : daPostDate.getMonth()+1;
-		var daPostDay = (daPostDate.getDate() < 10) ? '0'+daPostDate.getDate() : daPostDate.getDate();
-		var daPostHours = (daPostDate.getHours() == 0) ? '00' : daPostDate.getHours();
-		var daPostMinutes = (daPostDate.getMinutes() == 0) ? '00' : daPostDate.getMinutes();
-		
-		var daPostDatetime = daPostDate.getFullYear()+'-'+daPostMonth+'-'+daPostDay+' '+daPostHours+':'+daPostMinutes;
-		
-		expect(post.dateTime()).toEqual(daPostDatetime);
+		var month = ((postDate.getMonth()+1) < 10) ? '0'+(postDate.getMonth()+1) : postDate.getMonth()+1;         
+		var day = (postDate.getDate() < 10) ? '0'+postDate.getDate() : postDate.getDate();                  
+		var hours = (postDate.getHours() == 0) ? '00' : postDate.getHours();                                 
+		var minutes = (postDate.getMinutes() == 0) ? '00' : postDate.getMinutes();                           
+
+		var datetime = postDate.getFullYear()+'-'+month+'-'+day+' '+hours+':'+minutes;      
+
+		expect(post.getDate()).toEqual(datetime);                                                              
 	});
 	
 	it('should render the Date as something readable by humans', function() {
-		var postDate = post.date();
-		
+		var postDate = post.get('date');
 		var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 		
 		var daMonth = months[postDate.getMonth()];

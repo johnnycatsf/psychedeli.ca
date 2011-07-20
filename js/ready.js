@@ -5,7 +5,7 @@ require(['jquery', 'vendor/underscore', 'vendor/backbone'], function($) {
 			alert('Update to IE 9 to view this site properly.');
 		}
 		
-		// Load models
-		require(['app/models/post']);
+		// Load application code
+		require(['app/models/post', 'app/views/article']);
 	});
 });
