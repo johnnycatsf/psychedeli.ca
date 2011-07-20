@@ -1,60 +1,27 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>psychedelica berserk</title>
-	<link href="css/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
-	<link href="css/print.css" media="print" rel="stylesheet" type="text/css" />
-	<script src="js/vendor/jquery-require.js" data-main="js/ready.js" type="text/javascript" charset="utf-8"></script>
-</head>
-<body>
-	<header>
-		<hgroup>
-			<h1>psychedeli.ca</h1>
-			<h2>100% PURE BEARD</h2>
-		</hgroup>
-	</header>
-	
-	<section id="posts">
-		<div class="left arrow">&nbsp;</div>
+---
+layout: application
+title: psychedeli.ca
+---
+<section id="posts">
+	<div class="left arrow">&nbsp;</div>
 
-		{% for post in site.posts %}
-			<article id="post{{ post.id }}">
-				<header>
-					<h1>{{ post.title }}</h1>
-				</header>
-				
-				<section>
-					{{ post.body }}
-				</section>
-				
-				<footer>
-					<!-- <div class="icons"></div> -->
-					<p>Posted in {{ post.category }} on <time>{{ post.date }}</time></p>
-					<p>Tags: {{ post.tags }}</p>
-				</footer>
-			</article>
-		{% endfor %}
+	{% for post in site.posts %}
+		<article>
+			<header>
+				<h1><a href="{{ post.id }}">{{ post.title }}</a></h1>
+			</header>
+			
+			<section>
+				{{ post.content }}
+			</section>
+			
+			<footer>
+				<!-- <div class="icons"></div> -->
+				<p>Posted in <span class="category">{{ post.category }}</span> on <time datetime="{{ post.date }}"></time></p>
+				<p>Tags: <span class="tags">{{ post.tags }}</span></p>
+			</footer>
+		</article>
+	{% endfor %}
 
-		<div class="right arrow">&nbsp;</div>
-	</section>
-	
-	<footer>
-		<div id="ticker"></div>
-		
-		<div id="about">
-			<h1>Hi!</h1>
-			<p>
-				My name is Tom, but most people just call me @tubbo.
-				This is my blog and personal site. It's a home for
-				my life, or lack thereof.
-			</p>
-			<p>
-				By day, I'm a programmer at <a href="http://aplusldesign.com">A + L DESIGN</a>,
-				but by night I lead my band <a href="http://thewonderbars.com">The Wonder Bars</a>
-				to almost certain death. You can check out more of my musical and programming
-				related experiments on the links to your left
-			</p>
-		</div>
-	</footer>
-</body>
-</html>
+	<div class="right arrow">&nbsp;</div>
+</section>

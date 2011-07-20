@@ -1,21 +1,56 @@
 // Posts are laid out as <article> tags, and when JavaScript is enabled act as a giant carousel.
 
 article {
+	width: 800px;
+	position: relative;
+	margin: 0 auto;
+	
 	// title
 	header {
 		@include border-radius(4px, 4px);
 		border-bottom: 3px dotted #000;
+		height: 50px;
+		padding-top: 38px;
 		
 		h1 {
 			font-family: $brandon;
 			font-size: 36px;
-			@include single-text-shadow(#000, 4px, 4px, 1px);
+			
+			a {
+				text-decoration:none;
+				
+				&:hover, &:active {
+					color: #000;
+				}
+				
+				&:link, &:visited {
+					color: #0000FF;
+				}
+			}
 		}
 	}
 	
 	// content
 	section {
+		width: 800px;
 		
+		
+		h2 {
+			font-size:16px;
+		}
+		p {
+			padding: 10px 0 10px 0;
+			line-height:18px;
+			
+			a {
+				&:hover, &:active {
+					text-decoration:underline;
+				}
+				&:link, &:visited {
+					text-decoration:none;
+				}
+			}
+		}
 	}
 	
 	// category & date identifier

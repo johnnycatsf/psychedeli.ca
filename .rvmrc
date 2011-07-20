@@ -1,0 +1,6 @@
+#!/bin/bash
+if [ -e '.rvmrc_custom' ]; then
+  source .rvmrc_custom;
+else
+  rvm --create use ruby-1.9.2-p180@psychedelica;
+fi

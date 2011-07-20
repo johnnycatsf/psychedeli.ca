@@ -2,7 +2,8 @@
 
 layout: post
 title: "the time has come: converting Prototype into jQuery"
-category: code
+category: programming
+date: 2011-04-17
 
 ---
 

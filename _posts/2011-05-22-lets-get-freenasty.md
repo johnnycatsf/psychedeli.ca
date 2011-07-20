@@ -4,6 +4,7 @@ layout: post
 title: "Let's get FreeNASty up in here"
 category: hardware
 tags: freenas, freebsd, entertainment, hacking, python
+date: 2011-05-22
 
 ---
 

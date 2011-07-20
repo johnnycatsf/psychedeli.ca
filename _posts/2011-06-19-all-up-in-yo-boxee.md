@@ -1,7 +1,9 @@
 ---
 
-Title: all up in yo boxee
-Category: hardware
+title: "all up in yo boxee"
+category: hardware
+tags: "boxee, windows, freenas, netflix, TV"
+date: 2011-06-19 
 
 ---
 

@@ -5,9 +5,11 @@ describe('Post', function() {
 	beforeEach(function() {
 		post = new Post({
 			title: 		'New Beginnings',
+			category: 	'general bullshit'
 			body: 		'blah blah blah', 
 			created_on: 'July 2, 2011',
-			created_at: '19:00'
+			created_at: '19:00',
+			element: 	$('<article></article>')
 		});
 	});
 	

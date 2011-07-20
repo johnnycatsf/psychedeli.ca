@@ -2,7 +2,9 @@
 
 layout: post
 title: "decisions, decisions"
-category: code
+category: programming
+date: 2011-04-09
+tags: "unix, operating system, hardware, boxee, freenas"
 
 ---
 

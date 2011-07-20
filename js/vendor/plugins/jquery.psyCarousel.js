@@ -56,6 +56,9 @@
 			// instantiate the PsyCarousel
 			var carousel = new PsyCarousel(self);
 			
+			// cache it in HTML
+			self.data('carousel', carousel);
+			
 			// bind events
 			self.find('.left.arrow').click(carousel.next);
 			self.find('.right.arrow').click(carousel.prev);

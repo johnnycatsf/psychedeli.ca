@@ -1,6 +1,7 @@
 source :rubygems
 
 gem 'jekyll'      # content management
+gem 'liquid'
 gem 'sass'        # stylesheet framework
 gem 'compass'
 gem 'redcarpet'   # markdown support

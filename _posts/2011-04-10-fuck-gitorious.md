@@ -2,9 +2,9 @@
 
 layout: post
 title: "fuck gitorious"
-category: code
-tags: rant, git, visualization, rails
-
+category: programming
+tags: "rant, git, visualization, rails"
+date: 2011-04-10
 ---
 
 After several weeks of labor all for nought, I've given up on using [gitorious](http://gitorious.org/) as my web-based git repo visualizer. All I want is [GitHub](http://github.com/) without paying the money, is that so much to ask for?? :)
