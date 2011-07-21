@@ -1,0 +1,18 @@
+[submodule "src/backbone"]
+	path = src/backbone
+	url = https://github.com/documentcloud/backbone.git
+[submodule "src/underscore"]
+	path = src/underscore
+	url = https://github.com/documentcloud/underscore.git
+[submodule "src/jquery"]
+	path = src/jquery
+	url = https://github.com/jquery/jquery.git
+[submodule "src/compass"]
+	path = src/compass
+	url = https://github.com/chriseppstein/compass.git
+[submodule "src/json"]
+	path = src/json
+	url = git://github.com/douglascrockford/JSON-js.git
+[submodule "src/jasmine"]
+	path = src/jasmine
+	url = git://github.com/pivotal/jasmine.git

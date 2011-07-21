@@ -1,0 +1,27 @@
+---
+layout: application
+title: psychedeli.ca
+---
+<section id="posts">
+	<div class="left arrow">&nbsp;</div>
+
+	{% for post in site.posts %}
+		<article>
+			<header>
+				<h1><a href="{{ post.id }}">{{ post.title }}</a></h1>
+			</header>
+			
+			<section>
+				{{ post.content }}
+			</section>
+			
+			<footer>
+				<!-- <div class="icons"></div> -->
+				<p>Posted in <span class="category">{{ post.category }}</span> on <time datetime="{{ post.date }}"></time></p>
+				<p>Tags: <span class="tags">{{ post.tags }}</span></p>
+			</footer>
+		</article>
+	{% endfor %}
+
+	<div class="right arrow">&nbsp;</div>
+</section>

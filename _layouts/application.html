@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>{{ page.title }} | psychedeli.ca</title>
-	<link rel="stylesheet" href="/css/application.css" type="text/css" media="screen" title="psychedeli.ca" charset="utf-8">
-	<script src="/js/require.js" data-main="/js/application.js" type="text/javascript" charset="utf-8"></script>
+	<title>{{ page.title }}</title>
+	<link href="css/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+	<link href="css/print.css" media="print" rel="stylesheet" type="text/css" />
+	<script src="js/vendor/jquery-require.js" data-main="js/ready.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
 	<header>
-		<canvas id="stripe" width="300" height="100">
-			<span class="consolas">100% PURE BEARD</span>
-		</canvas>
-		
-		<h1 class="cooper">psychedeli.ca</h1>
+		<hgroup>
+			<h1>psychedeli.ca</h1>
+			<h2>100% PURE BEARD</h2>
+		</hgroup>
 	</header>
 	
-	<section id="carousel">
-		{{ yield }}
-	</section>
+	{{ content }}
 	
 	<footer>
 		<div id="ticker"></div>

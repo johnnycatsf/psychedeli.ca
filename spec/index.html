@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+  "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<title>testing... | psychedeli.ca</title>
+	<link rel="shortcut icon" type="image/png" href="../img/jasmine_favicon.png">
+
+	<link rel="stylesheet" type="text/css" href="../css/vendor/jasmine.css">
+	<script type="text/javascript" src="../js/vendor/jasmine.js"></script>
+	<script type="text/javascript" src="../js/vendor/jasmine-html.js"></script>
+
+	<!-- include source files here... -->
+	<script src="../js/vendor/jquery-require.js" data-main="../js/ready.js" type="text/javascript" charset="utf-8"></script>
+	<!--<script src="/js/vendor/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/js/vendor/underscore.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/js/vendor/backbone.js" type="text/javascript" charset="utf-8"></script>
+		
+	<script src="/js/app/models/post.js" type="text/javascript" charset="utf-8"></script>-->
+	
+	<!-- include spec files here... -->
+	<script src="spec_helper.js" type="text/javascript" charset="utf-8"></script>
+	<script src="models/post_spec.js" type="text/javascript" charset="utf-8"></script>
+
+	<script type="text/javascript">
+	  (function() {
+	    var jasmineEnv = jasmine.getEnv();
+	    jasmineEnv.updateInterval = 1000;
+
+	    var trivialReporter = new jasmine.TrivialReporter();
+
+	    jasmineEnv.addReporter(trivialReporter);
+
+	    jasmineEnv.specFilter = function(spec) {
+	      return trivialReporter.specFilter(spec);
+	    };
+
+	    var currentWindowOnload = window.onload;
+
+	    window.onload = function() {
+	      if (currentWindowOnload) {
+	        currentWindowOnload();
+	      }
+	      execJasmine();
+	    };
+
+	    function execJasmine() {
+	      jasmineEnv.execute();
+	    }
+
+	  })();
+	</script>
+	<style type="text/css" media="screen">
+		header h1 { text-align:center; }
+		header p  { font-size:12px; text-align:center; margin-bottom:30px; }
+		header p a { font-weight:bold; text-decoration:none; }
+		header p a:hover { text-decoration:underline; }
+	</style>
+</head>
+
+<body>
+	<header>
+		<h1>psychedeli.ca continuous integration</h1>
+		<p>
+			These are all the tests for the Javascript code on <a href="http://psychedeli.ca">psychedeli.ca</a>. While the simple backend is generated and provided by 
+			<a href="http://jekyllrb.com">Jekyll</a>, I created the site's rich Ajax-powered UI using Backbone.js and jQuery. In addition to developing
+		</p>
+	</header>
+</body>
+</html>

@@ -1,1 +1,6 @@
 # psychedeli.ca blog configuration
+
+auto: true
+markdown: redcarpet
+pygments: true
+permalink: pretty       # /category/YYYY/MM/DD/title

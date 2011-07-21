@@ -1,0 +1,56 @@
+body {
+	font-family: Helvetica, sans-serif;
+}
+
+header {
+	height: 100px;
+	
+	hgroup {
+		h1 {	// psychedeli.ca
+			float: right;
+			font-family: $cooper;
+			font-size: 64px;
+			padding: 10px;
+		}
+		h2 {	// 100% PURE BEARD
+			float: left;
+			font-family: $futura;
+			font-size: 32px;
+			color: #FFF;
+			background: #CF0000;
+			border-top: 1px solid gold;
+			border-bottom: 1px solid gold;
+			margin-left: -9px;
+			margin-top: 55px;
+		}
+	}
+}
+
+section {
+	width: 955px;
+	position:relative;
+	margin: 0 auto;
+	
+	// Posts carousel on the home page
+	&#posts {
+		
+	}
+	
+	// A single Post in HTML view
+	&#post {
+		
+	}
+}
+
+// Sticky footer
+footer {
+	// jQuery.statusTicker polls the StatusExchange every  
+	#ticker {
+		
+	}
+	
+	// About
+	#about {
+		
+	}
+}

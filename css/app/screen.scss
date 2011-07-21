@@ -1,0 +1,20 @@
+/*
+ * Stylesheet build for screen readers, desktop web browsers and by default all internet devices.
+ */
+
+// framework
+@import "compass/reset";
+@import "compass/css3/border-radius";
+@import "compass/css3/transform";
+@import "compass/css3/text-shadow";
+
+// dependencies
+@import "../vendor/fonts/face";
+@import url("vendor/plugins/jquery.ticker.css");
+
+// application
+@import "layout";
+	header hgroup h2 {
+		@include rotate(-25deg);
+	}
+@import "models/post";

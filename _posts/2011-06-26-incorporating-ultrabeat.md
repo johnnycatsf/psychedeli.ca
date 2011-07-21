@@ -1,13 +1,13 @@
 ---
 
 title: "incorporating ultrabeat into my workflow"
-category: "composition"
+category: composition
 tags: "ultrabeat, logic, reason, ableton live, performing"
+date: 2011-06-26
 
 ---
-Thanks to [The Architech](http://www.facebook.com/pages/The-Architech/207961419245874) coming over and showing me some of the more interesting features of Ultrabeat, my drum composition has changed tremendously. I used to use ReDrum, a noble and wonderful little drum machine packaged into Reason, because of its familiar look-and-feel (its UI is modeled after the TR-909) and dead-simple feature set that was not only easy to comprehend, but easy to manipulate in a live setting. But composing in ReDrum has its drawbacks, and composing in Ultrabeat works better with the way I think drums ought to be composed in electronic music. However, this presents an interesting problem: since my live setup relies on Reason for drum beats, how am I going to get Ultrabeat patterns and sounds in Reason?
 
-✂------✂------✂------✂------✂------✂------✂------✂------✂------✂------
+Thanks to [The Architech](http://www.facebook.com/pages/The-Architech/207961419245874) coming over and showing me some of the more interesting features of Ultrabeat, my drum composition has changed tremendously. I used to use ReDrum, a noble and wonderful little drum machine packaged into Reason, because of its familiar look-and-feel (its UI is modeled after the TR-909) and dead-simple feature set that was not only easy to comprehend, but easy to manipulate in a live setting. But composing in ReDrum has its drawbacks, and composing in Ultrabeat works better with the way I think drums ought to be composed in electronic music. However, this presents an interesting problem: since my live setup relies on Reason for drum beats, how am I going to get Ultrabeat patterns and sounds in Reason?
 
 ## a little evangelism never hurt nobody right?
 

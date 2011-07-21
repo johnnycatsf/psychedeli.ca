@@ -3,6 +3,7 @@
 layout: post
 title: "bread. it's what's for dinner."
 category: programming
+date: 2011-04-25
 
 ---
 
