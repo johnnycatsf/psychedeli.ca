@@ -46,19 +46,6 @@ $brandon: 'BrandonGrotesqueBlack', Arial, sans-serif;
 }
 $neue-lt: 'HelveticaNeueLTStd45Light', Verdana, sans-serif;
 
-@font-face {
-    font-family: 'HelveticaNeueLTStd47LtCn';
-    src: url('vendor/fonts/helveticaneueltstd-ltcn-webfont.eot');
-    src: url('vendor/fonts/helveticaneueltstd-ltcn-webfont.eot?#iefix') format('embedded-opentype'),
-         url('vendor/fonts/helveticaneueltstd-ltcn-webfont.woff') format('woff'),
-         url('vendor/fonts/helveticaneueltstd-ltcn-webfont.ttf') format('truetype'),
-         url('vendor/fonts/helveticaneueltstd-ltcn-webfont.svg#') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-$neue-ltcn: 'HelveticaNeueLTStd47LtCn', Verdana, sans-serif;
-
 // Museo 500 as a counterpart to headlines
 @font-face {
     font-family: 'Museo500';

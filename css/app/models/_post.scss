@@ -13,18 +13,19 @@ article {
 		padding-top: 38px;
 		
 		h1 {
-			font-family: $brandon;
+			font-family:$museo;
 			font-size: 36px;
 			
 			a {
 				text-decoration:none;
+				color: #000;
 				
 				&:hover, &:active {
-					color: #000;
+					color: #0000FF;
 				}
 				
 				&:link, &:visited {
-					color: #0000FF;
+					color: #000;
 				}
 			}
 		}
@@ -36,11 +37,14 @@ article {
 		
 		
 		h2 {
-			font-size:16px;
+			font-size: 30px;
+			font-family: $brandon;
+			letter-spacing: 0.03em;
 		}
 		p {
 			padding: 10px 0 10px 0;
 			line-height:18px;
+			font-size: 14px;
 			
 			a {
 				&:hover, &:active {
@@ -63,6 +67,14 @@ article {
 			
 			time {
 				font-weight:bold;
+			}
+		}
+		.tags {
+			
+			a {
+				padding-left: 10px;
+				text-decoration: none;
+				color: #0000FF;
 			}
 		}
 	}

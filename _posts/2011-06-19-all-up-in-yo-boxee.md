@@ -12,11 +12,11 @@ Now that FreeNAS has been updated to version 8 and everything is back to normal 
 
 There is no alternative. Boxee for Windows 7 is the only choice.
 
-# why all the trouble, can't you just get a boxee box?
+## why all the trouble, can't you just get a boxee box?
 
 To be honest with you, I don't like TV very much. It allows me to be complacent and not get as much work done as I should be. Therefore, I don't believe it's quite the best thing for me to be sitting in front of, and I certainly don't enjoy paying for it. Unfortunately, the Boxee Box doesn't allow standard inputs, forcing anyone who wants the "easy solution" to purchase one. I own a standard definition TV with S-Video in. I'm not going to go out and pay at least $350 for something I don't even want to use. Instead, I'm going to spend an eighth of that money (on a video card) to build a computer that allows me to use a TV to take the focus off TV in the living room.
 
-# ok. so. what does it do?
+## ok. so. what does it do?
 
 I set out to build a system that everyone in the house could enjoy, because it would be built to their specifications. We came to an agreement and laid out a number of features the HTPC setup had to match:
 
@@ -26,7 +26,7 @@ I set out to build a system that everyone in the house could enjoy, because it w
 
 3. **Set-And-Forget PVR:** The only hacker in this house is me. That is, I'm the only guy who likes tinkering around with shit as well as experiencing the media that I can obtain through these methods. So basically, 
 
-# the tools
+## the tools
 
 - FreeNAS 8 (as explained in the last post)
 - A PC running Windows 7 with an S-Video Out card
