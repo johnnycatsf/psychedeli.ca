@@ -6,7 +6,7 @@ layout: nil
  
   <title>psychedeli.ca</title>
   <link href="http://coyled.com/"/>
-  <link type="application/atom+xml" rel="self" href="http://psychedeli.cam/atom.xml"/>
+  <link type="application/atom+xml" rel="self" href="http://psychedeli.cam/xml/feed.xml"/>
   <updated>{{ site.time | date_to_xmlschema }}</updated>
   <id>http://coyled.com/</id>
   <author>
