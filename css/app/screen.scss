@@ -10,7 +10,8 @@
 
 // dependencies
 @import "../vendor/fonts/face";
-@import url("vendor/plugins/jquery.ticker.css");
+@import "../vendor/plugins/jquery.ticker";
+@import "../vendor/plugins/jquery.facebox";
 
 // application
 @import "layout";

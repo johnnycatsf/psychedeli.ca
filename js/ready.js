@@ -2,8 +2,7 @@
   * Main JavaScript runtime. Includes the Backbone.js MVC framework, utility libraries jQuery and Underscore.js, and all external JavaScript plugins. Binds site-wide
   * actions and runs browser-specific initialization code (for IE 6/7/8 and mobile browsers).
   */
-require(['jquery', 'vendor/underscore', 'vendor/backbone'], function($) {
-	//'app/models/post'
+require(['jquery', 'vendor/underscore', 'vendor/backbone', 'vendor/plugins/jquery.facebox', 'vendor/plugins/jquery.linkifyTags'], function($) {
 	$(document).ready(function() {
 		// Page title helper
 		var pageTitle = $('title').html();
@@ -12,16 +11,11 @@ require(['jquery', 'vendor/underscore', 'vendor/backbone'], function($) {
 		}
 		
 		// Tags helper
-		$('.tags').each(function() {
-			var tagsArr = $(this).html().split(',');
-			
-			var tags='';
-			
-			_.each(tagsArr, function(tag) {
-				tags += '<a href="http://twitter.com/#!/search/'+tag+'">#'+tag+'</a>';
-			});
-			
-			$(this).html(tags);
+		$('.tags').linkifyTags();
+		
+		$('a[rel=modal]').facebox({
+			closeImage: 'img/closelabel.png',
+			loadingImage: 'img/loading.gif'
 		});
 		
 		// Special browser handling

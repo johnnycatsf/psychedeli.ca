@@ -5,7 +5,7 @@ describe('Post', function() {
 	beforeEach(function() {
 		post = new Post({
 			title: 		'New Beginnings',
-			category: 	'general bullshit'
+			category: 	'general bullshit',
 			body: 		'blah blah blah', 
 			created_on: 'July 2, 2011',
 			created_at: '19:00',
@@ -22,11 +22,21 @@ describe('Post', function() {
 	});
 	
 	it('should instantiate a Date from Post.created_at and Post.created_on', function() {		
-		var created_on = (typeof post.get('created_on') != 'undefined') ? post.get('created_on') : '';
-		var created_at = (typeof post.get('created_at') != 'undefined') ? post.get('created_at') : '';
-		var daPostDate = new Date(Date.parse(created_on+' '+created_at));
-		
-		expect(post.get('date')).toEqual(daPostDate);
+		if ((typeof post.get('created_on') != 'undefined') || (typeof post.get('created_at') != 'undefined')) {
+			var created_on = post.get('created_on');
+			var created_at = post.get('created_at');
+			var createdOnDate = new Date(created_on);
+			var timezone = createdOnDate.getTimezoneOffset()/60;
+			
+			var dateString = created_on+' '+created_at+' GMT-0'+timezone+'00';
+			
+			var postDate = new Date(dateString);
+
+			expect(post.get('date')).toEqual(postDate);
+		} else {
+			expect(post.get('date')).toThrow('Error: Properties Not Set');
+			//throw 'Error: Properties Not Set';
+		}
 	});
 	
 	it('should convert the Date into something suitable for HTML5 datetime', function() {
@@ -39,7 +49,7 @@ describe('Post', function() {
 
 		var datetime = postDate.getFullYear()+'-'+month+'-'+day+' '+hours+':'+minutes;      
 
-		expect(post.getDate()).toEqual(datetime);                                                              
+		expect(post.dateTime()).toEqual(datetime);                                                              
 	});
 	
 	it('should render the Date as something readable by humans', function() {

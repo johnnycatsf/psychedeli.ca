@@ -3,7 +3,7 @@
 layout: post
 title: "New Beginnings"
 category: general bullshit
-tags: "jekyll, ruby, simple, markdown"
+tags: "`jekyll, `ruby, #keep_it_simple_stupid, markdown"
 date: 2011-07-15
 
 ---
