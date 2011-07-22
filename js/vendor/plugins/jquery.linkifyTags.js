@@ -5,6 +5,8 @@
 	  *
 	  * Defaults to Google, or the value of `defaultEngine:`.
 	  *
+	  * @requires Underscore.js
+	  *
 	  * # - Twitter
 	  * $ - Stock symbol, searches on Google Finance
 	  * ` - GitHub
