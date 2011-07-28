@@ -41,18 +41,30 @@ article {
 			font-family: $brandon;
 			letter-spacing: 0.03em;
 		}
+		h3 {
+			font-size: 22px;
+			font-family: $brandon;
+			letter-spacing: 0.03em;
+		}
 		p {
 			padding: 10px 0 10px 0;
 			line-height:18px;
 			font-size: 14px;
 			
+			
 			a {
-				&:hover, &:active {
-					text-decoration:underline;
-				}
+				text-decoration:none;
+				
 				&:link, &:visited {
-					text-decoration:none;
+					color: #0000FF;
 				}
+				&:hover, &:active { color: #000022; }
+			}
+			
+			//a
+			
+			code {
+				font-family: 'Lucida Console';
 			}
 		}
 	}

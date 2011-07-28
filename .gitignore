@@ -1,4 +1,4 @@
-_site/
+public/
 .sass-cache/
 *.tmproj
 Gemfile.lock

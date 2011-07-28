@@ -1,6 +1,8 @@
 # psychedeli.ca blog configuration
 
 auto: true
+destination: ./public
 markdown: redcarpet
 pygments: true
 permalink: pretty       # /category/YYYY/MM/DD/title
+exclude: ['_drafts', 'Gemfile', 'Gemfile.lock', 'config.rb', 'src']
