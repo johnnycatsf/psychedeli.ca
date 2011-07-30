@@ -1,11 +1,9 @@
 // Posts are laid out as <article> tags, and when JavaScript is enabled act as a giant carousel.
 
 article {
-	width: 800px;
-	height: 600px;
+	width: 852px;
+	height: 700px;
 	position: relative;
-	margin: 0 auto;
-	overflow: auto;
 	
 	// title
 	header {
@@ -13,6 +11,7 @@ article {
 		border-bottom: 3px dotted #000;
 		height: 50px;
 		padding-top: 38px;
+		//width: 800px;
 		
 		h1 {
 			font-family:$museo;
@@ -35,8 +34,8 @@ article {
 	
 	// content
 	section {
-		width: 800px;
-		
+		width: 845px;
+		height: 570px;
 		
 		h2 {
 			font-size: 30px;
@@ -63,8 +62,6 @@ article {
 				&:hover, &:active { color: #000022; }
 			}
 			
-			//a
-			
 			code {
 				font-family: 'Lucida Console';
 			}
@@ -73,11 +70,18 @@ article {
 	
 	// category & date identifier
 	footer {
+		//width: 800px;
+		
+		:first-child {
+			padding-top:10px;
+		}
+		
 		#icons {
 			float:left;
 		}
 		p {
 			text-align:right;
+			font-size:12px;
 			
 			time {
 				font-weight:bold;
@@ -92,4 +96,8 @@ article {
 			}
 		}
 	}
+}
+
+#posts article {
+	float: left;
 }

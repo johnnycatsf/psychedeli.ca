@@ -12,7 +12,8 @@
 			self.data('carousel', this);
 			posts = {
 				collection: self.find('article'),
-				index: 0
+				index: 0,
+				active: $('article:first')
 			};
 		};
 		
@@ -33,6 +34,7 @@
 		  * @returns the <article> for the next post in the carousel
 		  */
 		this.next = function(event) {
+			console.log('next');
 			return goTo(posts.index++);
 		};
 		
@@ -40,6 +42,7 @@
 		  * Backtracks to the previous item in the carousel.
 		  */
 		this.prev = function(event) {
+			console.log('prev');
 			return goTo(posts.index--);
 		};
 		
@@ -53,15 +56,20 @@
 		return this.each(function() {
 			var self = $(this);
 			
+			console.log(self);
+			
 			// instantiate the PsyCarousel
 			var carousel = new PsyCarousel(self);
 			
 			// cache it in HTML
 			self.data('carousel', carousel);
 			
+			// enable the arrows if JS is enabled
+			$('.left.arrow, .right.arrow').show();
+			
 			// bind events
-			self.find('.left.arrow').click(carousel.next);
-			self.find('.right.arrow').click(carousel.prev);
+			self.find('.left.arrow').click(carousel.prev);
+			self.find('.right.arrow').click(carousel.next);
 		});
 	};
 })(jQuery)

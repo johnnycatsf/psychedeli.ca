@@ -1,0 +1,1 @@
+compass compile css/app/screen.scss && jekyll

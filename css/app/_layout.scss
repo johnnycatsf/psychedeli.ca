@@ -3,7 +3,7 @@ body {
 }
 
 header {
-	height: 100px;
+	height: 175px;
 	
 	hgroup {
 		h1 {	// psychedeli.ca
@@ -27,18 +27,40 @@ header {
 }
 
 section {
-	width: 955px;
-	position:relative;
+	position: relative;
+	overflow: hidden;
+	//width: 980px;
 	margin: 0 auto;
 	
 	// Posts carousel on the home page
 	&#posts {
+		article {
+			margin-left:64px;
+		}
 		
-	}
-	
-	// A single Post in HTML view
-	&#post {
-		
+		.arrow {
+			display:none;
+			float: left;
+			font-size: 96pt;
+			padding: 286px 0;
+			vertical-align: middle;
+			width: 64px;
+			position: absolute;
+			top: 0px;
+			z-index:2;
+			
+			&.left {
+				left: 0px;
+			}
+			&.right {
+				right: 0px;
+			}
+			
+			&:hover {
+				background: #CCC;
+				cursor: pointer;
+			}
+		}
 	}
 }
 

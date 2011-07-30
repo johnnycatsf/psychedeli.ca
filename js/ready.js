@@ -2,7 +2,17 @@
   * Main JavaScript runtime. Includes the Backbone.js MVC framework, utility libraries jQuery and Underscore.js, and all external JavaScript plugins. Binds site-wide
   * actions and runs browser-specific initialization code (for IE 6/7/8 and mobile browsers).
   */
-require(['jquery', 'vendor/underscore', 'vendor/backbone', 'vendor/plugins/jquery.facebox', 'vendor/plugins/jquery.linkifyTags'], function($) {
+var dependencies = [
+						'jquery', 
+						'vendor/underscore', 
+						'vendor/backbone', 
+						'vendor/plugins/jquery.facebox', 
+						'vendor/plugins/jquery.linkifyTags', 
+						'vendor/plugins/jquery.jScrollPane',
+						'vendor/plugins/jquery.mousewheel',
+						'vendor/plugins/jquery.psyCarousel',
+					];
+require(dependencies, function($) {
 	$(document).ready(function() {
 		// Page title helper
 		var pageTitle = $('title').html();
@@ -18,7 +28,11 @@ require(['jquery', 'vendor/underscore', 'vendor/backbone', 'vendor/plugins/jquer
 			loadingImage: 'img/loading.gif'
 		});
 		
-		$('article').jScrollPane();
+		$('article section').jScrollPane().hover(function() {
+			$(this).find('.jspDrag').fadeIn();
+		}, function() {
+			$(this).find('.jspDrag').fadeOut();
+		});
 		
 		// Special browser handling
 		var page = $('body');
@@ -38,6 +52,8 @@ require(['jquery', 'vendor/underscore', 'vendor/backbone', 'vendor/plugins/jquer
 				});
 				break;
 		}
+		
+		$('#posts').psyCarousel();
 		
 		/*
 		// instantiate each <article> as a Post
