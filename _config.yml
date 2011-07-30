@@ -1,6 +1,6 @@
 # psychedeli.ca blog configuration
 
-auto: true
+auto: false
 destination: ./public
 markdown: redcarpet
 pygments: true

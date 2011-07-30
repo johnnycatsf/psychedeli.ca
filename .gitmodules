@@ -16,3 +16,9 @@
 [submodule "src/jasmine"]
 	path = src/jasmine
 	url = git://github.com/pivotal/jasmine.git
+[submodule "src/facebox"]
+	path = src/facebox
+	url = git://github.com/defunkt/facebox.git
+[submodule "src/jScrollPane"]
+	path = src/jScrollPane
+	url = git://github.com/vitch/jScrollPane.git
