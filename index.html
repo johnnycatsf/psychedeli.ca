@@ -1,14 +1,14 @@
 ---
-layout: application
+layout: default
 title: psychedeli.ca
 ---
 <section id="posts">
 	<div class="left arrow">&laquo;</div>
 
 	{% for post in site.posts %}
-		<article>
+		<article id="{{ post.id }}">
 			<header>
-				<h1><a href="{{ post.id }}">{{ post.title }}</a></h1>
+				<h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
 			</header>
 			
 			<section>
@@ -16,7 +16,7 @@ title: psychedeli.ca
 			</section>
 			
 			<footer>
-				<p>Posted in <span class="category">{{ post.category }}</span> on <time datetime="{{ post.date }}"></time></p>
+				<p>Posted in <span class="category">{{ post.category }}</span> <time datetime="{{ post.date }}">on {{ post.date | date_to_string }}</time></p>
 				<p>Tags: <span class="tags">{{ post.tags }}</span> | <a href="comments.html?id={{ post.id }}" rel="modal">Comments</a></p>
 			</footer>
 		</article>

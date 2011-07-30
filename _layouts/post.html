@@ -1,5 +1,5 @@
 ---
-layout: application
+layout: default
 ---
 <section id="post">
 	<article>
@@ -13,7 +13,7 @@ layout: application
 
 		<footer>
 			<div class="text">
-				<p>Posted in {{ page.category }} on <time>{{ page.date }}</time>.</p>
+				<p>Posted in {{ page.category }} <time datetime="{{ page.date }}">on {{ page.date | date_to_string }}</time>.</p>
 				<p>Tags: {{ page.tags }} | <a href="comments.html?id={{ site.meta.absolute_baseurl }}{{ page.url }}" id="show-comments">Comments</p>
 			</div>
 		</footer>

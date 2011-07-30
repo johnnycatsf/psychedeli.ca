@@ -11,6 +11,7 @@ var dependencies = [
 						'vendor/plugins/jquery.jScrollPane',
 						'vendor/plugins/jquery.mousewheel',
 						'vendor/plugins/jquery.psyCarousel',
+						'vendor/plugins/prettyDate'
 					];
 require(dependencies, function($) {
 	$(document).ready(function() {
@@ -68,5 +69,10 @@ require(dependencies, function($) {
 			});
 		});
 		*/
+		
+		// Beautify dates.
+		$('time').each(function() {
+			$(this).prettyDate($(this).attr('datetime'));
+		});
 	});
 });

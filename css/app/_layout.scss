@@ -1,5 +1,6 @@
 body {
 	font-family: Helvetica, sans-serif;
+	background:#CCC;
 }
 
 header {
@@ -29,13 +30,13 @@ header {
 section {
 	position: relative;
 	overflow: hidden;
-	//width: 980px;
 	margin: 0 auto;
 	
 	// Posts carousel on the home page
 	&#posts {
 		article {
 			margin-left:64px;
+			margin: 0 auto;
 		}
 		
 		.arrow {
@@ -48,6 +49,7 @@ section {
 			position: absolute;
 			top: 0px;
 			z-index:2;
+			background:#FFF;
 			
 			&.left {
 				left: 0px;
@@ -57,7 +59,7 @@ section {
 			}
 			
 			&:hover {
-				background: #CCC;
+				background: #AAA;
 				cursor: pointer;
 			}
 		}

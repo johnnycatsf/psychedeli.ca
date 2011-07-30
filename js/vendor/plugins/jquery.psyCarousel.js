@@ -10,11 +10,14 @@
 		this.init = function(obj) {
 			self = obj;
 			self.data('carousel', this);
+			
 			posts = {
 				collection: self.find('article'),
 				index: 0,
 				active: false
 			};
+			
+			console.log(posts.collection.first());
 			
 			posts.collection.hide();
 			posts.collection.first().show();
@@ -28,8 +31,13 @@
 		  * @private
 		  */
 		function goTo(newIndex) {
-			posts.index = newIndex;
-			return posts.collection[posts.index];
+			if (newIndex >= posts.collection.length) {
+				posts.index = 0;
+			} else {
+				posts.index = newIndex;
+			}
+			
+			return $(posts.collection[posts.index]);
 		};
 		
 		/**
@@ -38,12 +46,14 @@
 		  * @param {Object} event - passed through by jQuery.click
 		  * @returns the <article> for the next post in the carousel
 		  */
-		this.next = function(event) {
-			var nextPost = goTo(posts.index++);
+		this.next = function(event) {	
+			var nextIndex = posts.index+1;
+			
+			var nextPost = goTo(nextIndex);
 			var currPost = posts.active;
 			
-			currPost.hide('slide', {direction: 'left'}, 800);
-			nextPost.show('slide', {direction: 'left'}, 800);
+			currPost.hide('slide');
+			nextPost.show('slide');
 			
 			posts.active = nextPost;
 			

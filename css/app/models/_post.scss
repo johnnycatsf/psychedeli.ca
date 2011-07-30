@@ -1,9 +1,15 @@
 // Posts are laid out as <article> tags, and when JavaScript is enabled act as a giant carousel.
 
 article {
-	width: 852px;
-	height: 700px;
+	width: 810px;
+	height: 640px;
 	position: relative;
+	background:#FFF;
+	padding: 20px;
+	
+	&* {
+		background:#FFF;
+	}
 	
 	// title
 	header {
@@ -11,7 +17,6 @@ article {
 		border-bottom: 3px dotted #000;
 		height: 50px;
 		padding-top: 38px;
-		//width: 800px;
 		
 		h1 {
 			font-family:$museo;
@@ -34,8 +39,8 @@ article {
 	
 	// content
 	section {
-		width: 845px;
-		height: 570px;
+		width: 810px;
+		height: 529px;
 		
 		h2 {
 			font-size: 30px;
@@ -70,7 +75,7 @@ article {
 	
 	// category & date identifier
 	footer {
-		//width: 800px;
+		border-top: 1px solid #CCC;
 		
 		:first-child {
 			padding-top:10px;
