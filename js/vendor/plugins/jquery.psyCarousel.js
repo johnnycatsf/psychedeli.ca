@@ -13,8 +13,13 @@
 			posts = {
 				collection: self.find('article'),
 				index: 0,
-				active: $('article:first')
+				active: false
 			};
+			
+			posts.collection.hide();
+			posts.collection.first().show();
+			
+			posts.active = posts.collection.first();
 		};
 		
 		/**
@@ -34,8 +39,15 @@
 		  * @returns the <article> for the next post in the carousel
 		  */
 		this.next = function(event) {
-			console.log('next');
-			return goTo(posts.index++);
+			var nextPost = goTo(posts.index++);
+			var currPost = posts.active;
+			
+			currPost.hide('slide', {direction: 'left'}, 800);
+			nextPost.show('slide', {direction: 'left'}, 800);
+			
+			posts.active = nextPost;
+			
+			event.preventDefault();
 		};
 		
 		/**
@@ -56,10 +68,10 @@
 		return this.each(function() {
 			var self = $(this);
 			
-			console.log(self);
-			
 			// instantiate the PsyCarousel
 			var carousel = new PsyCarousel(self);
+			
+			console.log($.version);
 			
 			// cache it in HTML
 			self.data('carousel', carousel);

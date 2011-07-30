@@ -1,5 +1,5 @@
 /** vim: et:ts=4:sw=4:sts=4
- * @license RequireJS 0.24.0 Copyright (c) 2010-2011, The Dojo Foundation All Rights Reserved.
+ * @license RequireJS 0.25.0 Copyright (c) 2010-2011, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
  * see: http://github.com/jrburke/requirejs for details
  */
@@ -8,10 +8,10 @@
   jQuery: false, clearInterval: false, setInterval: false, self: false,
   setTimeout: false, opera: false */
 
-var require, define;
+var requirejs, require, define;
 (function () {
     //Change this version number for each release.
-    var version = "0.24.0",
+    var version = "0.25.0",
         commentRegExp = /(\/\*([\s\S]*?)\*\/|\/\/(.*)$)/mg,
         cjsRequireRegExp = /require\(["']([^'"\s]+)["']\)/g,
         currDirRegExp = /^\.\//,
@@ -37,9 +37,11 @@ var require, define;
         globalDefQueue = [],
         interactiveScript = null,
         isDone = false,
+        checkLoadedDepth = 0,
         useInteractive = false,
         req, cfg = {}, currentlyAddingScript, s, head, baseElement, scripts, script,
-        src, subPath, mainScript, dataMain, i, scrollIntervalId, setReadyState, ctx;
+        src, subPath, mainScript, dataMain, i, scrollIntervalId, setReadyState, ctx,
+        jQueryCheck, checkLoadedTimeoutId;
 
     function isFunction(it) {
         return ostring.call(it) === "[object Function]";
@@ -63,6 +65,22 @@ var require, define;
             }
         }
         return req;
+    }
+
+    /**
+     * Constructs an error with a pointer to an URL with more information.
+     * @param {String} id the error ID that maps to an ID on a web page.
+     * @param {String} message human readable error.
+     * @param {Error} [err] the original error, if there is one.
+     *
+     * @returns {Error}
+     */
+    function makeError(id, msg, err) {
+        var e = new Error(msg + '\nhttp://requirejs.org/docs/errors.html#' + id);
+        if (err) {
+            e.originalError = err;
+        }
+        return e;
     }
 
     /**
@@ -90,28 +108,54 @@ var require, define;
             pkgs[pkgObj.name] = {
                 name: pkgObj.name,
                 location: location || pkgObj.name,
-                lib: pkgObj.lib || "lib",
                 //Remove leading dot in main, so main paths are normalized,
                 //and remove any trailing .js, since different package
                 //envs have different conventions: some use a module name,
                 //some use a file name.
-                main: (pkgObj.main || "lib/main")
+                main: (pkgObj.main || "main")
                       .replace(currDirRegExp, '')
                       .replace(jsSuffixRegExp, '')
             };
         }
     }
 
-    //Check for an existing version of require. If so, then exit out. Only allow
-    //one version of require to be active in a page. However, allow for a require
-    //config object, just exit quickly if require is an actual function.
-    if (typeof require !== "undefined") {
-        if (isFunction(require)) {
+    /**
+     * jQuery 1.4.3-1.5.x use a readyWait/ready() pairing to hold DOM
+     * ready callbacks, but jQuery 1.6 supports a holdReady() API instead.
+     * At some point remove the readyWait/ready() support and just stick
+     * with using holdReady.
+     */
+    function jQueryHoldReady($, shouldHold) {
+        if ($.holdReady) {
+            $.holdReady(shouldHold);
+        } else if (shouldHold) {
+            $.readyWait += 1;
+        } else {
+            $.ready(true);
+        }
+    }
+
+    if (typeof define !== "undefined") {
+        //If a define is already in play via another AMD loader,
+        //do not overwrite.
+        return;
+    }
+
+    if (typeof requirejs !== "undefined") {
+        if (isFunction(requirejs)) {
+            //Do not overwrite and existing requirejs instance.
             return;
         } else {
-            //assume it is a config object.
-            cfg = require;
+            cfg = requirejs;
+            requirejs = undefined;
         }
+    }
+
+    //Allow for a require config object
+    if (typeof require !== "undefined" && !isFunction(require)) {
+        //assume it is a config object.
+        cfg = require;
+        require = undefined;
     }
 
     /**
@@ -287,9 +331,9 @@ var require, define;
                     if (req.toModuleUrl) {
                         //Special logic required for a particular engine,
                         //like Node.
-                        url = req.toModuleUrl(context, name, parentModuleMap);
+                        url = req.toModuleUrl(context, normalizedName, parentModuleMap);
                     } else {
-                        url = context.nameToUrl(name, null, parentModuleMap);
+                        url = context.nameToUrl(normalizedName, null, parentModuleMap);
                     }
 
                     //Store the URL mapping for later.
@@ -366,7 +410,8 @@ var require, define;
             mixin(modRequire, {
                 nameToUrl: makeContextModuleFunc(context.nameToUrl, relModuleMap),
                 toUrl: makeContextModuleFunc(context.toUrl, relModuleMap),
-                isDefined: makeContextModuleFunc(context.isDefined, relModuleMap),
+                defined: makeContextModuleFunc(context.requireDefined, relModuleMap),
+                specified: makeContextModuleFunc(context.requireSpecified, relModuleMap),
                 ready: req.ready,
                 isBrowser: req.isBrowser
             });
@@ -481,7 +526,7 @@ var require, define;
         }
 
         function execManager(manager) {
-            var i, ret, waitingCallbacks,
+            var i, ret, waitingCallbacks, err,
                 cb = manager.callback,
                 fullName = manager.fullName,
                 args = [],
@@ -497,29 +542,55 @@ var require, define;
                     }
                 }
 
-                ret = req.execCb(fullName, manager.callback, args);
+                try {
+                    ret = req.execCb(fullName, manager.callback, args, defined[fullName]);
+                } catch (e) {
+                    err = e;
+                }
 
                 if (fullName) {
-                    //If using exports and the function did not return a value,
-                    //and the "module" object for this definition function did not
-                    //define an exported value, then use the exports object.
-                    if (manager.usingExports && ret === undefined && (!manager.cjsModule || !("exports" in manager.cjsModule))) {
+                    //If setting exports via "module" is in play,
+                    //favor that over return value and exports. After that,
+                    //favor a non-undefined return value over exports use.
+                    if (manager.cjsModule && manager.cjsModule.exports !== undefined) {
+                        ret = defined[fullName] = manager.cjsModule.exports;
+                    } else if (ret === undefined && manager.usingExports) {
+                        //exports already set the defined value.
                         ret = defined[fullName];
                     } else {
-                        if (manager.cjsModule && "exports" in manager.cjsModule) {
-                            ret = defined[fullName] = manager.cjsModule.exports;
-                        } else {
-                            if (fullName in defined && !manager.usingExports) {
-                                return req.onError(new Error(fullName + " has already been defined"));
-                            }
-                            defined[fullName] = ret;
-                        }
+                        //Use the return value from the function.
+                        defined[fullName] = ret;
                     }
                 }
             } else if (fullName) {
                 //May just be an object definition for the module. Only
                 //worry about defining if have a module name.
                 ret = defined[fullName] = cb;
+            }
+
+            //Clean up waiting. Do this before error calls, and before
+            //calling back waitingCallbacks, so that bookkeeping is correct
+            //in the event of an error and error is reported in correct order,
+            //since the waitingCallbacks will likely have errors if the
+            //onError function does not throw.
+            if (waiting[manager.waitId]) {
+                delete waiting[manager.waitId];
+                manager.isDone = true;
+                context.waitCount -= 1;
+                if (context.waitCount === 0) {
+                    //Clear the wait array used for cycles.
+                    waitAry = [];
+                }
+            }
+
+            if (err) {
+                err = makeError('defineerror', 'Error evaluating ' +
+                                'module "' + fullName + '" at location "' +
+                                (fullName ? makeModuleMap(fullName).url : '') + '":\n' +
+                                err + '\nfileName:' + (err.fileName || err.sourceURL) +
+                                '\nlineNumber: ' + (err.lineNumber || err.line), err);
+                err.moduleName = fullName;
+                return req.onError(err);
             }
 
             if (fullName) {
@@ -531,17 +602,6 @@ var require, define;
                         waitingCallbacks[i].onDep(fullName, ret);
                     }
                     delete managerCallbacks[fullName];
-                }
-            }
-
-            //Clean up waiting.
-            if (waiting[manager.waitId]) {
-                delete waiting[manager.waitId];
-                manager.isDone = true;
-                context.waitCount -= 1;
-                if (context.waitCount === 0) {
-                    //Clear the wait array used for cycles.
-                    waitAry = [];
                 }
             }
 
@@ -580,8 +640,11 @@ var require, define;
 
             if (fullName) {
                 //If module already defined for context, or already loaded,
-                //then leave.
-                if (fullName in defined || loaded[fullName] === true) {
+                //then leave. Also leave if jQuery is registering but it does
+                //not match the desired version number in the config.
+                if (fullName in defined || loaded[fullName] === true ||
+                    (fullName === "jquery" && config.jQuery &&
+                     config.jQuery !== callback().fn.jquery)) {
                     return;
                 }
 
@@ -589,10 +652,13 @@ var require, define;
                 //as part of a layer, where onScriptLoad is not fired
                 //for those cases. Do this after the inline define and
                 //dependency tracing is done.
-                //Also check if auto-registry of jQuery needs to be skipped.
                 specified[fullName] = true;
                 loaded[fullName] = true;
-                context.jQueryDef = (fullName === "jquery");
+
+                //If module is jQuery set up delaying its dom ready listeners.
+                if (fullName === "jquery" && callback) {
+                    jQueryCheck(callback());
+                }
             }
 
             //Add the dependencies to the deps field, and register for callbacks
@@ -622,7 +688,8 @@ var require, define;
                         //CommonJS module spec 1.1
                         manager.cjsModule = cjsMod = manager.deps[depName] = {
                             id: name,
-                            uri: name ? context.nameToUrl(name, null, relModuleMap) : undefined
+                            uri: name ? context.nameToUrl(name, null, relModuleMap) : undefined,
+                            exports: defined[fullName]
                         };
                         cjsMod.setExports = makeSetExports(cjsMod);
                     } else if (depName in defined && !(depName in waiting)) {
@@ -656,46 +723,57 @@ var require, define;
         }
 
         /**
-         * Convenience method to call main for a require.def call that was put on
+         * Convenience method to call main for a define call that was put on
          * hold in the defQueue.
          */
         function callDefMain(args) {
             main.apply(null, args);
             //Mark the module loaded. Must do it here in addition
-            //to doing it in require.def in case a script does
-            //not call require.def
+            //to doing it in define in case a script does
+            //not call define
             loaded[args[0]] = true;
         }
 
         /**
-         * As of jQuery 1.4.3, it supports a readyWait property that will hold off
+         * jQuery 1.4.3+ supports ways to hold off calling
          * calling jQuery ready callbacks until all scripts are loaded. Be sure
-         * to track it if readyWait is available. Also, since jQuery 1.4.3 does
+         * to track it if the capability exists.. Also, since jQuery 1.4.3 does
          * not register as a module, need to do some global inference checking.
          * Even if it does register as a module, not guaranteed to be the precise
          * name of the global. If a jQuery is tracked for this context, then go
          * ahead and register it as a module too, if not already in process.
          */
-        function jQueryCheck(jqCandidate) {
+        jQueryCheck = function (jqCandidate) {
             if (!context.jQuery) {
                 var $ = jqCandidate || (typeof jQuery !== "undefined" ? jQuery : null);
-                if ($ && "readyWait" in $) {
-                    context.jQuery = $;
 
-                    //Manually create a "jquery" module entry if not one already
-                    //or in process.
-                    callDefMain(["jquery", [], function () {
-                        return jQuery;
-                    }]);
+                if ($) {
+                    //If a specific version of jQuery is wanted, make sure to only
+                    //use this jQuery if it matches.
+                    if (config.jQuery && $.fn.jquery !== config.jQuery) {
+                        return;
+                    }
 
-                    //Increment jQuery readyWait if ncecessary.
-                    if (context.scriptCount) {
-                        $.readyWait += 1;
-                        context.jQueryIncremented = true;
+                    if ("holdReady" in $ || "readyWait" in $) {
+                        context.jQuery = $;
+
+                        //Manually create a "jquery" module entry if not one already
+                        //or in process. Note this could trigger an attempt at
+                        //a second jQuery registration, but does no harm since
+                        //the first one wins, and it is the same value anyway.
+                        callDefMain(["jquery", [], function () {
+                            return jQuery;
+                        }]);
+
+                        //Ask jQuery to hold DOM ready callbacks.
+                        if (context.scriptCount) {
+                            jQueryHoldReady($, true);
+                            context.jQueryIncremented = true;
+                        }
                     }
                 }
             }
-        }
+        };
 
         function forceExec(manager, traced) {
             if (manager.isDone) {
@@ -783,15 +861,19 @@ var require, define;
             }
             if (expired && noLoads) {
                 //If wait time expired, throw error of unloaded modules.
-                err = new Error("require.js load timeout for modules: " + noLoads);
+                err = makeError("timeout", "Load timeout for modules: " + noLoads);
                 err.requireType = "timeout";
                 err.requireModules = noLoads;
                 return req.onError(err);
             }
             if (stillLoading || context.scriptCount) {
-                //Something is still waiting to load. Wait for it.
-                if (isBrowser || isWebWorker) {
-                    setTimeout(checkLoaded, 50);
+                //Something is still waiting to load. Wait for it, but only
+                //if a timeout is not already in effect.
+                if ((isBrowser || isWebWorker) && !checkLoadedTimeoutId) {
+                    checkLoadedTimeoutId = setTimeout(function () {
+                        checkLoadedTimeoutId = 0;
+                        checkLoaded();
+                    }, 50);
                 }
                 return undefined;
             }
@@ -810,9 +892,20 @@ var require, define;
                     forceExec(manager, {});
                 }
 
-                checkLoaded();
-                return undefined;
+                //Only allow this recursion to a certain depth. Only
+                //triggered by errors in calling a module in which its
+                //modules waiting on it cannot finish loading, or some circular
+                //dependencies that then may add more dependencies.
+                //The value of 5 is a bit arbitrary. Hopefully just one extra
+                //pass, or two for the case of circular dependencies generating
+                //more work that gets resolved in the sync node case.
+                if (checkLoadedDepth < 5) {
+                    checkLoadedDepth += 1;
+                    checkLoaded();
+                }
             }
+
+            checkLoadedDepth = 0;
 
             //Check for DOM ready, and nothing is waiting across contexts.
             req.checkReadyState();
@@ -841,8 +934,8 @@ var require, define;
 
             load = function (ret) {
                 //Allow the build process to register plugin-loaded dependencies.
-                if (require.onPluginLoad) {
-                    require.onPluginLoad(context, pluginName, name, ret);
+                if (req.onPluginLoad) {
+                    req.onPluginLoad(context, pluginName, name, ret);
                 }
 
                 execManager({
@@ -871,7 +964,9 @@ var require, define;
                 if (hasInteractive) {
                     useInteractive = false;
                 }
-                eval(text);
+
+                req.exec(text);
+
                 if (hasInteractive) {
                     useInteractive = true;
                 }
@@ -894,7 +989,8 @@ var require, define;
             }
 
             var pluginName = dep.prefix,
-                fullName = dep.fullName;
+                fullName = dep.fullName,
+                urlFetched = context.urlFetched;
 
             //Do not bother if the dependency has already been specified.
             if (specified[fullName] || loaded[fullName]) {
@@ -935,7 +1031,10 @@ var require, define;
                     pluginsQueue[pluginName].push(dep);
                 }
             } else {
-                req.load(context, fullName, dep.url);
+                if (!urlFetched[dep.url]) {
+                    req.load(context, fullName, dep.url);
+                    urlFetched[dep.url] = true;
+                }
             }
         }
 
@@ -959,7 +1058,7 @@ var require, define;
             while (defQueue.length) {
                 args = defQueue.shift();
                 if (args[0] === null) {
-                    return req.onError(new Error('Mismatched anonymous require.def modules'));
+                    return req.onError(makeError('mismatch', 'Mismatched anonymous define() module: ' + args[args.length - 1]));
                 } else {
                     callDefMain(args);
                 }
@@ -1114,12 +1213,16 @@ var require, define;
                 }
             },
 
-            isDefined: function (moduleName, relModuleMap) {
+            requireDefined: function (moduleName, relModuleMap) {
                 return makeModuleMap(moduleName, relModuleMap).fullName in defined;
             },
 
+            requireSpecified: function (moduleName, relModuleMap) {
+                return makeModuleMap(moduleName, relModuleMap).fullName in specified;
+            },
+
             require: function (deps, callback, relModuleMap) {
-                var moduleName, ret, moduleMap;
+                var moduleName, fullName, moduleMap;
                 if (typeof deps === "string") {
                     //Synchronous access to one module. If require.get is
                     //available (as in the Node adapter), prefer that.
@@ -1136,15 +1239,15 @@ var require, define;
 
                     //Normalize module name, if it contains . or ..
                     moduleMap = makeModuleMap(moduleName, relModuleMap);
+                    fullName = moduleMap.fullName;
 
-                    ret = defined[moduleMap.fullName];
-                    if (ret === undefined) {
-                        return req.onError(new Error("require: module name '" +
+                    if (!(fullName in defined)) {
+                        return req.onError(makeError("notloaded", "Module name '" +
                                     moduleMap.fullName +
                                     "' has not been loaded yet for context: " +
                                     contextName));
                     }
-                    return ret;
+                    return defined[fullName];
                 }
 
                 main(null, deps, callback, relModuleMap);
@@ -1153,6 +1256,10 @@ var require, define;
                 //then resume the dependency processing.
                 if (!context.requireWait) {
                     while (!context.scriptCount && context.paused.length) {
+                        //For built layers, there can be some defined
+                        //modules waiting for intake into the context,
+                        //in particular module plugins. Take them.
+                        context.takeGlobalQueue();
                         resume();
                     }
                 }
@@ -1193,11 +1300,11 @@ var require, define;
                         args[0] = moduleName;
                         break;
                     } else if (args[0] === moduleName) {
-                        //Found matching require.def call for this script!
+                        //Found matching define call for this script!
                         break;
                     } else {
-                        //Some other named require.def call, most likely the result
-                        //of a build layer that included many require.def calls.
+                        //Some other named define call, most likely the result
+                        //of a build layer that included many define calls.
                         callDefMain(args);
                         args = null;
                     }
@@ -1215,7 +1322,7 @@ var require, define;
                 }
 
                 //Mark the script as loaded. Note that this can be different from a
-                //moduleName that maps to a require.def call. This line is important
+                //moduleName that maps to a define call. This line is important
                 //for traditional browser scripts.
                 loaded[moduleName] = true;
 
@@ -1264,62 +1371,47 @@ var require, define;
                 var paths, pkgs, pkg, pkgPath, syms, i, parentModule, url,
                     config = context.config;
 
-                if (moduleName.indexOf("./") === 0 || moduleName.indexOf("../") === 0) {
-                    //A relative ID, just map it relative to relModuleMap's url
-                    syms = relModuleMap && relModuleMap.url ? relModuleMap.url.split('/') : [];
-                    //Pop off the file name.
-                    if (syms.length) {
-                        syms.pop();
-                    }
-                    syms = syms.concat(moduleName.split('/'));
-                    trimDots(syms);
-                    url = syms.join('/') +
-                          (ext ? ext :
-                          (req.jsExtRegExp.test(moduleName) ? "" : ".js"));
+                //Normalize module name if have a base relative module name to work from.
+                moduleName = normalize(moduleName, relModuleMap && relModuleMap.fullName);
+
+                //If a colon is in the URL, it indicates a protocol is used and it is just
+                //an URL to a file, or if it starts with a slash or ends with .js, it is just a plain file.
+                //The slash is important for protocol-less URLs as well as full paths.
+                if (req.jsExtRegExp.test(moduleName)) {
+                    //Just a plain path, not module name lookup, so just return it.
+                    //Add extension if it is included. This is a bit wonky, only non-.js things pass
+                    //an extension, this method probably needs to be reworked.
+                    url = moduleName + (ext ? ext : "");
                 } else {
+                    //A module that needs to be converted to a path.
+                    paths = config.paths;
+                    pkgs = config.pkgs;
 
-                    //Normalize module name if have a base relative module name to work from.
-                    moduleName = normalize(moduleName, relModuleMap);
-
-                    //If a colon is in the URL, it indicates a protocol is used and it is just
-                    //an URL to a file, or if it starts with a slash or ends with .js, it is just a plain file.
-                    //The slash is important for protocol-less URLs as well as full paths.
-                    if (req.jsExtRegExp.test(moduleName)) {
-                        //Just a plain path, not module name lookup, so just return it.
-                        //Add extension if it is included. This is a bit wonky, only non-.js things pass
-                        //an extension, this method probably needs to be reworked.
-                        url = moduleName + (ext ? ext : "");
-                    } else {
-                        //A module that needs to be converted to a path.
-                        paths = config.paths;
-                        pkgs = config.pkgs;
-
-                        syms = moduleName.split("/");
-                        //For each module name segment, see if there is a path
-                        //registered for it. Start with most specific name
-                        //and work up from it.
-                        for (i = syms.length; i > 0; i--) {
-                            parentModule = syms.slice(0, i).join("/");
-                            if (paths[parentModule]) {
-                                syms.splice(0, i, paths[parentModule]);
-                                break;
-                            } else if ((pkg = pkgs[parentModule])) {
-                                //If module name is just the package name, then looking
-                                //for the main module.
-                                if (moduleName === pkg.name) {
-                                    pkgPath = pkg.location + '/' + pkg.main;
-                                } else {
-                                    pkgPath = pkg.location + '/' + pkg.lib;
-                                }
-                                syms.splice(0, i, pkgPath);
-                                break;
+                    syms = moduleName.split("/");
+                    //For each module name segment, see if there is a path
+                    //registered for it. Start with most specific name
+                    //and work up from it.
+                    for (i = syms.length; i > 0; i--) {
+                        parentModule = syms.slice(0, i).join("/");
+                        if (paths[parentModule]) {
+                            syms.splice(0, i, paths[parentModule]);
+                            break;
+                        } else if ((pkg = pkgs[parentModule])) {
+                            //If module name is just the package name, then looking
+                            //for the main module.
+                            if (moduleName === pkg.name) {
+                                pkgPath = pkg.location + '/' + pkg.main;
+                            } else {
+                                pkgPath = pkg.location;
                             }
+                            syms.splice(0, i, pkgPath);
+                            break;
                         }
-
-                        //Join the path parts together, then figure out if baseUrl is needed.
-                        url = syms.join("/") + (ext || ".js");
-                        url = (url.charAt(0) === '/' || url.match(/^\w+:/) ? "" : config.baseUrl) + url;
                     }
+
+                    //Join the path parts together, then figure out if baseUrl is needed.
+                    url = syms.join("/") + (ext || ".js");
+                    url = (url.charAt(0) === '/' || url.match(/^\w+:/) ? "" : config.baseUrl) + url;
                 }
 
                 return config.urlArgs ? url +
@@ -1350,7 +1442,7 @@ var require, define;
      * on a require that are not standardized), and to give a short
      * name for minification/local scope use.
      */
-    req = require = function (deps, callback) {
+    req = requirejs = function (deps, callback) {
 
         //Find the right context, use default
         var contextName = defContextName,
@@ -1381,6 +1473,21 @@ var require, define;
         }
 
         return context.require(deps, callback);
+    };
+
+    /**
+     * Export require as a global, but only if it does not already exist.
+     */
+    if (typeof require === "undefined") {
+        require = req;
+    }
+
+    /**
+     * Global require.toUrl(), to match global require, mostly useful
+     * for debugging/work in the global space.
+     */
+    req.toUrl = function (moduleNamePlusExt) {
+        return contexts[defContextName].toUrl(moduleNamePlusExt);
     };
 
     req.version = version;
@@ -1428,9 +1535,8 @@ var require, define;
      * @param {Object} url the URL to the module.
      */
     req.load = function (context, moduleName, url) {
-        var contextName = context.contextName,
-            urlFetched = context.urlFetched,
-            loaded = context.loaded;
+        var loaded = context.loaded;
+
         isDone = false;
 
         //Only set loaded to false for tracking if it has not already been set.
@@ -1438,18 +1544,15 @@ var require, define;
             loaded[moduleName] = false;
         }
 
-        if (!urlFetched[url]) {
-            context.scriptCount += 1;
-            req.attach(url, contextName, moduleName);
-            urlFetched[url] = true;
+        context.scriptCount += 1;
+        req.attach(url, context, moduleName);
 
-            //If tracking a jQuery, then make sure its readyWait
-            //is incremented to prevent its ready callbacks from
-            //triggering too soon.
-            if (context.jQuery && !context.jQueryIncremented) {
-                context.jQuery.readyWait += 1;
-                context.jQueryIncremented = true;
-            }
+        //If tracking a jQuery, then make sure its ready callbacks
+        //are put on hold to prevent its ready callbacks from
+        //triggering too soon.
+        if (context.jQuery && !context.jQueryIncremented) {
+            jQueryHoldReady(context.jQuery, true);
+            context.jQueryIncremented = true;
         }
     };
 
@@ -1508,12 +1611,11 @@ var require, define;
                     });
 
                 //May be a CommonJS thing even without require calls, but still
-                //could use exports, and such, so always add those as dependencies.
-                //This is a bit wasteful for RequireJS modules that do not need
-                //an exports or module object, but erring on side of safety.
+                //could use exports, and module. Avoid doing exports and module
+                //work though if it just needs require.
                 //REQUIRES the function to expect the CommonJS variables in the
                 //order listed below.
-                deps = ["require", "exports", "module"].concat(deps);
+                deps = (callback.length === 1 ? ["require"] : ["require", "exports", "module"]).concat(deps);
             }
         }
 
@@ -1522,7 +1624,7 @@ var require, define;
         if (useInteractive) {
             node = currentlyAddingScript || getInteractiveScript();
             if (!node) {
-                return req.onError(new Error("ERROR: No matching script interactive for " + callback));
+                return req.onError(makeError("interactive", "No matching script interactive for " + callback));
             }
             if (!name) {
                 name = node.getAttribute("data-requiremodule");
@@ -1543,7 +1645,17 @@ var require, define;
 
     define.amd = {
         multiversion: true,
-        plugins: true
+        plugins: true,
+        jQuery: true
+    };
+
+    /**
+     * Executes the text. Normally just uses eval, but can be modified
+     * to use a more environment specific call.
+     * @param {String} text the text to execute/evaluate.
+     */
+    req.exec = function (text) {
+        return eval(text);
     };
 
     /**
@@ -1553,8 +1665,8 @@ var require, define;
      *
      * @private
      */
-    req.execCb = function (name, callback, args) {
-        return callback.apply(null, args);
+    req.execCb = function (name, callback, args, exports) {
+        return callback.apply(exports, args);
     };
 
     /**
@@ -1602,17 +1714,19 @@ var require, define;
      * environment. Right now only supports browser loading,
      * but can be redefined in other environments to do the right thing.
      * @param {String} url the url of the script to attach.
-     * @param {String} contextName the name of the context that wants the script.
+     * @param {Object} context the context that wants the script.
      * @param {moduleName} the name of the module that is associated with the script.
      * @param {Function} [callback] optional callback, defaults to require.onScriptLoad
      * @param {String} [type] optional type, defaults to text/javascript
      */
-    req.attach = function (url, contextName, moduleName, callback, type) {
-        var node, loaded, context;
+    req.attach = function (url, context, moduleName, callback, type) {
+        var node, loaded;
         if (isBrowser) {
             //In the browser so use a script tag
             callback = callback || req.onScriptLoad;
-            node = document.createElement("script");
+            node = context && context.config && context.config.xhtml ?
+                    document.createElementNS("http://www.w3.org/1999/xhtml", "html:script") :
+                    document.createElement("script");
             node.type = type || "text/javascript";
             node.charset = "utf-8";
             //Use async so Gecko does not block on executing the script if something
@@ -1627,7 +1741,9 @@ var require, define;
             //plugin
             node.async = !s.skipAsync[url];
 
-            node.setAttribute("data-requirecontext", contextName);
+            if (context) {
+                node.setAttribute("data-requirecontext", context.contextName);
+            }
             node.setAttribute("data-requiremodule", moduleName);
 
             //Set up load listener. Test attachEvent first because IE9 has
@@ -1641,9 +1757,9 @@ var require, define;
             if (node.attachEvent && !isOpera) {
                 //Probably IE. IE (at least 6-8) do not fire
                 //script onload right after executing the script, so
-                //we cannot tie the anonymous require.def call to a name.
+                //we cannot tie the anonymous define call to a name.
                 //However, IE reports the script as being in "interactive"
-                //readyState at the time of the require.def call.
+                //readyState at the time of the define call.
                 useInteractive = true;
                 node.attachEvent("onreadystatechange", callback);
             } else {
@@ -1652,7 +1768,7 @@ var require, define;
             node.src = url;
 
             //For some cache cases in IE 6-8, the script executes before the end
-            //of the appendChild execution, so to tie an anonymous require.def
+            //of the appendChild execution, so to tie an anonymous define
             //call to the module name (which is stored on the node), hold on
             //to a reference to this node, but clear after the DOM insertion.
             currentlyAddingScript = node;
@@ -1670,7 +1786,6 @@ var require, define;
             //are in play, the expectation that a build has been done so that
             //only one script needs to be loaded anyway. This may need to be
             //reevaluated if other use cases become common.
-            context = contexts[contextName];
             loaded = context.loaded;
             loaded[moduleName] = false;
 
@@ -1779,14 +1894,13 @@ var require, define;
                 }
             }
 
-            //If jQuery with readyWait is being tracked, updated its
-            //readyWait count.
+            //If jQuery with DOM ready delayed, release it now.
             contexts = s.contexts;
             for (prop in contexts) {
                 if (!(prop in empty)) {
                     context = contexts[prop];
                     if (context.jQueryIncremented) {
-                        context.jQuery.ready(true);
+                        jQueryHoldReady(context.jQuery, false);
                         context.jQueryIncremented = false;
                     }
                 }
@@ -1883,7 +1997,7 @@ var require, define;
     }
 }());
 /*!
- * jQuery JavaScript Library v1.6.1
+ * jQuery JavaScript Library v1.6.2
  * http://jquery.com/
  *
  * Copyright 2011, John Resig
@@ -1895,7 +2009,7 @@ var require, define;
  * Copyright 2011, The Dojo Foundation
  * Released under the MIT, BSD, and GPL Licenses.
  *
- * Date: Thu May 12 15:04:36 2011 -0400
+ * Date: Thu Jun 30 14:16:56 2011 -0400
  */
 (function( window, undefined ) {
 
@@ -1948,6 +2062,14 @@ var jQuery = function( selector, context ) {
 	ropera = /(opera)(?:.*version)?[ \/]([\w.]+)/,
 	rmsie = /(msie) ([\w.]+)/,
 	rmozilla = /(mozilla)(?:.*? rv:([\w.]+))?/,
+
+	// Matches dashed string for camelizing
+	rdashAlpha = /-([a-z])/ig,
+
+	// Used by jQuery.camelCase as callback to replace()
+	fcamelCase = function( all, letter ) {
+		return letter.toUpperCase();
+	},
 
 	// Keep a UserAgent string for use with jQuery.browser
 	userAgent = navigator.userAgent,
@@ -2088,7 +2210,7 @@ jQuery.fn = jQuery.prototype = {
 	selector: "",
 
 	// The current version of jQuery being used
-	jquery: "1.6.1",
+	jquery: "1.6.2",
 
 	// The default length of a jQuery object is 0
 	length: 0,
@@ -2487,6 +2609,12 @@ jQuery.extend({
 		}
 	},
 
+	// Converts a dashed string to camelCased string;
+	// Used by both the css and data modules
+	camelCase: function( string ) {
+		return string.replace( rdashAlpha, fcamelCase );
+	},
+
 	nodeName: function( elem, name ) {
 		return elem.nodeName && elem.nodeName.toUpperCase() === name.toUpperCase();
 	},
@@ -2683,7 +2811,7 @@ jQuery.extend({
 	},
 
 	// Mutifunctional method to get and set values to a collection
-	// The value/s can be optionally by executed if its a function
+	// The value/s can optionally be executed if it's a function
 	access: function( elems, key, value, exec, fn, pass ) {
 		var length = elems.length;
 
@@ -2814,7 +2942,6 @@ function doScrollCheck() {
 	jQuery.ready();
 }
 
-// Expose jQuery to the global object
 return jQuery;
 
 })();
@@ -3031,7 +3158,9 @@ jQuery.support = (function() {
 		support,
 		fragment,
 		body,
-		bodyStyle,
+		testElementParent,
+		testElement,
+		testElementStyle,
 		tds,
 		events,
 		eventName,
@@ -3125,11 +3254,10 @@ jQuery.support = (function() {
 	}
 
 	if ( !div.addEventListener && div.attachEvent && div.fireEvent ) {
-		div.attachEvent( "onclick", function click() {
+		div.attachEvent( "onclick", function() {
 			// Cloning a node shouldn't copy over any
 			// bound event handlers (IE does this)
 			support.noCloneEvent = false;
-			div.detachEvent( "onclick", click );
 		});
 		div.cloneNode( true ).fireEvent( "onclick" );
 	}
@@ -3154,22 +3282,30 @@ jQuery.support = (function() {
 	// Figure out if the W3C box model works as expected
 	div.style.width = div.style.paddingLeft = "1px";
 
-	// We use our own, invisible, body
-	body = document.createElement( "body" );
-	bodyStyle = {
+	body = document.getElementsByTagName( "body" )[ 0 ];
+	// We use our own, invisible, body unless the body is already present
+	// in which case we use a div (#9239)
+	testElement = document.createElement( body ? "div" : "body" );
+	testElementStyle = {
 		visibility: "hidden",
 		width: 0,
 		height: 0,
 		border: 0,
-		margin: 0,
-		// Set background to avoid IE crashes when removing (#9028)
-		background: "none"
+		margin: 0
 	};
-	for ( i in bodyStyle ) {
-		body.style[ i ] = bodyStyle[ i ];
+	if ( body ) {
+		jQuery.extend( testElementStyle, {
+			position: "absolute",
+			left: -1000,
+			top: -1000
+		});
 	}
-	body.appendChild( div );
-	documentElement.insertBefore( body, documentElement.firstChild );
+	for ( i in testElementStyle ) {
+		testElement.style[ i ] = testElementStyle[ i ];
+	}
+	testElement.appendChild( div );
+	testElementParent = body || documentElement;
+	testElementParent.insertBefore( testElement, testElementParent.firstChild );
 
 	// Check if a disconnected checkbox will retain its checked
 	// value of true after appended to the DOM (IE6/7)
@@ -3228,8 +3364,8 @@ jQuery.support = (function() {
 	}
 
 	// Remove the body element we added
-	body.innerHTML = "";
-	documentElement.removeChild( body );
+	testElement.innerHTML = "";
+	testElementParent.removeChild( testElement );
 
 	// Technique from Juriy Zaytsev
 	// http://thinkweb2.com/projects/prototype/detecting-event-support-without-browser-sniffing/
@@ -3252,6 +3388,9 @@ jQuery.support = (function() {
 			support[ i + "Bubbles" ] = isSupported;
 		}
 	}
+
+	// Null connected elements to avoid leaks in IE
+	testElement = fragment = select = opt = body = marginDiv = div = input = null;
 
 	return support;
 })();
@@ -3370,7 +3509,10 @@ jQuery.extend({
 			return thisCache[ internalKey ] && thisCache[ internalKey ].events;
 		}
 
-		return getByName ? thisCache[ jQuery.camelCase( name ) ] : thisCache;
+		return getByName ? 
+			// Check for both converted-to-camel and non-converted data property names
+			thisCache[ jQuery.camelCase( name ) ] || thisCache[ name ] :
+			thisCache;
 	},
 
 	removeData: function( elem, name, pvt /* Internal Use Only */ ) {
@@ -3766,7 +3908,7 @@ var rclass = /[\n\t\r]/g,
 	rfocusable = /^(?:button|input|object|select|textarea)$/i,
 	rclickable = /^a(?:rea)?$/i,
 	rboolean = /^(?:autofocus|autoplay|async|checked|controls|defer|disabled|hidden|loop|multiple|open|readonly|required|scoped|selected)$/i,
-	rinvalidChar = /\:/,
+	rinvalidChar = /\:|^on/,
 	formHook, boolHook;
 
 jQuery.fn.extend({
@@ -3796,30 +3938,31 @@ jQuery.fn.extend({
 	},
 
 	addClass: function( value ) {
+		var classNames, i, l, elem,
+			setClass, c, cl;
+
 		if ( jQuery.isFunction( value ) ) {
-			return this.each(function(i) {
-				var self = jQuery(this);
-				self.addClass( value.call(this, i, self.attr("class") || "") );
+			return this.each(function( j ) {
+				jQuery( this ).addClass( value.call(this, j, this.className) );
 			});
 		}
 
 		if ( value && typeof value === "string" ) {
-			var classNames = (value || "").split( rspace );
+			classNames = value.split( rspace );
 
-			for ( var i = 0, l = this.length; i < l; i++ ) {
-				var elem = this[i];
+			for ( i = 0, l = this.length; i < l; i++ ) {
+				elem = this[ i ];
 
 				if ( elem.nodeType === 1 ) {
-					if ( !elem.className ) {
+					if ( !elem.className && classNames.length === 1 ) {
 						elem.className = value;
 
 					} else {
-						var className = " " + elem.className + " ",
-							setClass = elem.className;
+						setClass = " " + elem.className + " ";
 
-						for ( var c = 0, cl = classNames.length; c < cl; c++ ) {
-							if ( className.indexOf( " " + classNames[c] + " " ) < 0 ) {
-								setClass += " " + classNames[c];
+						for ( c = 0, cl = classNames.length; c < cl; c++ ) {
+							if ( !~setClass.indexOf( " " + classNames[ c ] + " " ) ) {
+								setClass += classNames[ c ] + " ";
 							}
 						}
 						elem.className = jQuery.trim( setClass );
@@ -3832,24 +3975,25 @@ jQuery.fn.extend({
 	},
 
 	removeClass: function( value ) {
-		if ( jQuery.isFunction(value) ) {
-			return this.each(function(i) {
-				var self = jQuery(this);
-				self.removeClass( value.call(this, i, self.attr("class")) );
+		var classNames, i, l, elem, className, c, cl;
+
+		if ( jQuery.isFunction( value ) ) {
+			return this.each(function( j ) {
+				jQuery( this ).removeClass( value.call(this, j, this.className) );
 			});
 		}
 
 		if ( (value && typeof value === "string") || value === undefined ) {
-			var classNames = (value || "").split( rspace );
+			classNames = (value || "").split( rspace );
 
-			for ( var i = 0, l = this.length; i < l; i++ ) {
-				var elem = this[i];
+			for ( i = 0, l = this.length; i < l; i++ ) {
+				elem = this[ i ];
 
 				if ( elem.nodeType === 1 && elem.className ) {
 					if ( value ) {
-						var className = (" " + elem.className + " ").replace(rclass, " ");
-						for ( var c = 0, cl = classNames.length; c < cl; c++ ) {
-							className = className.replace(" " + classNames[c] + " ", " ");
+						className = (" " + elem.className + " ").replace( rclass, " " );
+						for ( c = 0, cl = classNames.length; c < cl; c++ ) {
+							className = className.replace(" " + classNames[ c ] + " ", " ");
 						}
 						elem.className = jQuery.trim( className );
 
@@ -3868,9 +4012,8 @@ jQuery.fn.extend({
 			isBool = typeof stateVal === "boolean";
 
 		if ( jQuery.isFunction( value ) ) {
-			return this.each(function(i) {
-				var self = jQuery(this);
-				self.toggleClass( value.call(this, i, self.attr("class"), stateVal), stateVal );
+			return this.each(function( i ) {
+				jQuery( this ).toggleClass( value.call(this, i, this.className, stateVal), stateVal );
 			});
 		}
 
@@ -3924,7 +4067,13 @@ jQuery.fn.extend({
 					return ret;
 				}
 
-				return (elem.value || "").replace(rreturn, "");
+				ret = elem.value;
+
+				return typeof ret === "string" ? 
+					// handle most common string cases
+					ret.replace(rreturn, "") : 
+					// handle cases where value is null/undef or number
+					ret == null ? "" : ret;
 			}
 
 			return undefined;
@@ -4070,20 +4219,23 @@ jQuery.extend({
 			notxml = nType !== 1 || !jQuery.isXMLDoc( elem );
 
 		// Normalize the name if needed
-		name = notxml && jQuery.attrFix[ name ] || name;
+		if ( notxml ) {
+			name = jQuery.attrFix[ name ] || name;
 
-		hooks = jQuery.attrHooks[ name ];
+			hooks = jQuery.attrHooks[ name ];
 
-		if ( !hooks ) {
-			// Use boolHook for boolean attributes
-			if ( rboolean.test( name ) &&
-				(typeof value === "boolean" || value === undefined || value.toLowerCase() === name.toLowerCase()) ) {
+			if ( !hooks ) {
+				// Use boolHook for boolean attributes
+				if ( rboolean.test( name ) ) {
 
-				hooks = boolHook;
+					hooks = boolHook;
 
-			// Use formHook for forms and if the name contains certain characters
-			} else if ( formHook && (jQuery.nodeName( elem, "form" ) || rinvalidChar.test( name )) ) {
-				hooks = formHook;
+				// Use formHook for forms and if the name contains certain characters
+				} else if ( formHook && name !== "className" &&
+					(jQuery.nodeName( elem, "form" ) || rinvalidChar.test( name )) ) {
+
+					hooks = formHook;
+				}
 			}
 		}
 
@@ -4101,8 +4253,8 @@ jQuery.extend({
 				return value;
 			}
 
-		} else if ( hooks && "get" in hooks && notxml ) {
-			return hooks.get( elem, name );
+		} else if ( hooks && "get" in hooks && notxml && (ret = hooks.get( elem, name )) !== null ) {
+			return ret;
 
 		} else {
 
@@ -4166,6 +4318,25 @@ jQuery.extend({
 						0 :
 						undefined;
 			}
+		},
+		// Use the value property for back compat
+		// Use the formHook for button elements in IE6/7 (#1954)
+		value: {
+			get: function( elem, name ) {
+				if ( formHook && jQuery.nodeName( elem, "button" ) ) {
+					return formHook.get( elem, name );
+				}
+				return name in elem ?
+					elem.value :
+					null;
+			},
+			set: function( elem, value, name ) {
+				if ( formHook && jQuery.nodeName( elem, "button" ) ) {
+					return formHook.set( elem, value, name );
+				}
+				// Does not return so that setAttribute is also used
+				elem.value = value;
+			}
 		}
 	},
 
@@ -4195,10 +4366,11 @@ jQuery.extend({
 		var ret, hooks,
 			notxml = nType !== 1 || !jQuery.isXMLDoc( elem );
 
-		// Try to normalize/fix the name
-		name = notxml && jQuery.propFix[ name ] || name;
-		
-		hooks = jQuery.propHooks[ name ];
+		if ( notxml ) {
+			// Fix name and attach hooks
+			name = jQuery.propFix[ name ] || name;
+			hooks = jQuery.propHooks[ name ];
+		}
 
 		if ( value !== undefined ) {
 			if ( hooks && "set" in hooks && (ret = hooks.set( elem, value, name )) !== undefined ) {
@@ -4225,7 +4397,7 @@ jQuery.extend({
 boolHook = {
 	get: function( elem, name ) {
 		// Align boolean attributes with corresponding properties
-		return elem[ jQuery.propFix[ name ] || name ] ?
+		return jQuery.prop( elem, name ) ?
 			name.toLowerCase() :
 			undefined;
 	},
@@ -4240,30 +4412,12 @@ boolHook = {
 			propName = jQuery.propFix[ name ] || name;
 			if ( propName in elem ) {
 				// Only set the IDL specifically if it already exists on the element
-				elem[ propName ] = value;
+				elem[ propName ] = true;
 			}
 
 			elem.setAttribute( name, name.toLowerCase() );
 		}
 		return name;
-	}
-};
-
-// Use the value property for back compat
-// Use the formHook for button elements in IE6/7 (#1954)
-jQuery.attrHooks.value = {
-	get: function( elem, name ) {
-		if ( formHook && jQuery.nodeName( elem, "button" ) ) {
-			return formHook.get( elem, name );
-		}
-		return elem.value;
-	},
-	set: function( elem, value, name ) {
-		if ( formHook && jQuery.nodeName( elem, "button" ) ) {
-			return formHook.set( elem, value, name );
-		}
-		// Does not return so that setAttribute is also used
-		elem.value = value;
 	}
 };
 
@@ -4274,7 +4428,7 @@ if ( !jQuery.support.getSetAttribute ) {
 	jQuery.attrFix = jQuery.propFix;
 	
 	// Use this for any attribute on a form in IE6/7
-	formHook = jQuery.attrHooks.name = jQuery.valHooks.button = {
+	formHook = jQuery.attrHooks.name = jQuery.attrHooks.title = jQuery.valHooks.button = {
 		get: function( elem, name ) {
 			var ret;
 			ret = elem.getAttributeNode( name );
@@ -4377,8 +4531,7 @@ jQuery.each([ "radio", "checkbox" ], function() {
 
 
 
-var hasOwn = Object.prototype.hasOwnProperty,
-	rnamespaces = /\.(.*)$/,
+var rnamespaces = /\.(.*)$/,
 	rformElems = /^(?:textarea|input|select)$/i,
 	rperiod = /\./g,
 	rspaces = / /g,
@@ -4722,7 +4875,7 @@ jQuery.event = {
 		event.target = elem;
 
 		// Clone any incoming data and prepend the event, creating the handler arg list
-		data = data ? jQuery.makeArray( data ) : [];
+		data = data != null ? jQuery.makeArray( data ) : [];
 		data.unshift( event );
 
 		var cur = elem,
@@ -5028,34 +5181,27 @@ jQuery.Event.prototype = {
 // Checks if an event happened on an element within another element
 // Used in jQuery.event.special.mouseenter and mouseleave handlers
 var withinElement = function( event ) {
-	// Check if mouse(over|out) are still within the same parent element
-	var parent = event.relatedTarget;
 
-	// set the correct event type
+	// Check if mouse(over|out) are still within the same parent element
+	var related = event.relatedTarget,
+		inside = false,
+		eventType = event.type;
+
 	event.type = event.data;
 
-	// Firefox sometimes assigns relatedTarget a XUL element
-	// which we cannot access the parentNode property of
-	try {
+	if ( related !== this ) {
 
-		// Chrome does something similar, the parentNode property
-		// can be accessed but is null.
-		if ( parent && parent !== document && !parent.parentNode ) {
-			return;
+		if ( related ) {
+			inside = jQuery.contains( this, related );
 		}
 
-		// Traverse up the tree
-		while ( parent && parent !== this ) {
-			parent = parent.parentNode;
-		}
+		if ( !inside ) {
 
-		if ( parent !== this ) {
-			// handle event if we actually just moused on to a non sub-element
 			jQuery.event.handle.apply( this, arguments );
-		}
 
-	// assuming we've left the element since we most likely mousedover a xul element
-	} catch(e) { }
+			event.type = eventType;
+		}
+	}
 },
 
 // In case of event delegation, we only need to rename the event.type,
@@ -7774,8 +7920,21 @@ function cloneFixAttributes( src, dest ) {
 }
 
 jQuery.buildFragment = function( args, nodes, scripts ) {
-	var fragment, cacheable, cacheresults,
-		doc = (nodes && nodes[0] ? nodes[0].ownerDocument || nodes[0] : document);
+	var fragment, cacheable, cacheresults, doc;
+
+  // nodes may contain either an explicit document object,
+  // a jQuery collection or context object.
+  // If nodes[0] contains a valid object to assign to doc
+  if ( nodes && nodes[0] ) {
+    doc = nodes[0].ownerDocument || nodes[0];
+  }
+
+  // Ensure that an attr object doesn't incorrectly stand in as a document object
+	// Chrome and Firefox seem to allow this to occur and will throw exception
+	// Fixes #8950
+	if ( !doc.createDocumentFragment ) {
+		doc = document;
+	}
 
 	// Only cache "small" (1/2 KB) HTML strings that are associated with the main document
 	// Cloning options loses the selected state, so don't cache them
@@ -7856,7 +8015,7 @@ function fixDefaultChecked( elem ) {
 function findInputs( elem ) {
 	if ( jQuery.nodeName( elem, "input" ) ) {
 		fixDefaultChecked( elem );
-	} else if ( elem.getElementsByTagName ) {
+	} else if ( "getElementsByTagName" in elem ) {
 		jQuery.grep( elem.getElementsByTagName("input"), fixDefaultChecked );
 	}
 }
@@ -7904,6 +8063,8 @@ jQuery.extend({
 				}
 			}
 		}
+
+		srcElements = destElements = null;
 
 		// Return the cloned set
 		return clone;
@@ -8085,10 +8246,8 @@ function evalScript( i, elem ) {
 
 
 
-
 var ralpha = /alpha\([^)]*\)/i,
 	ropacity = /opacity=([^)]*)/,
-	rdashAlpha = /-([a-z])/ig,
 	// fixed for IE9, see #8346
 	rupper = /([A-Z]|^ms)/g,
 	rnumpx = /^-?\d+(?:px)?$/i,
@@ -8102,11 +8261,7 @@ var ralpha = /alpha\([^)]*\)/i,
 	curCSS,
 
 	getComputedStyle,
-	currentStyle,
-
-	fcamelCase = function( all, letter ) {
-		return letter.toUpperCase();
-	};
+	currentStyle;
 
 jQuery.fn.css = function( name, value ) {
 	// Setting 'undefined' is a no-op
@@ -8141,13 +8296,14 @@ jQuery.extend({
 
 	// Exclude the following css properties to add px
 	cssNumber: {
-		"zIndex": true,
+		"fillOpacity": true,
 		"fontWeight": true,
-		"opacity": true,
-		"zoom": true,
 		"lineHeight": true,
+		"opacity": true,
+		"orphans": true,
 		"widows": true,
-		"orphans": true
+		"zIndex": true,
+		"zoom": true
 	},
 
 	// Add in properties whose names you wish to fix before
@@ -8182,6 +8338,8 @@ jQuery.extend({
 			// convert relative number strings (+= or -=) to relative numbers. #7345
 			if ( type === "string" && rrelNum.test( value ) ) {
 				value = +value.replace( rrelNumFilter, "" ) + parseFloat( jQuery.css( elem, name ) );
+				// Fixes bug #9237
+				type = "number";
 			}
 
 			// If a number was passed in, add 'px' to the (except for certain CSS properties)
@@ -8248,10 +8406,6 @@ jQuery.extend({
 		for ( name in options ) {
 			elem.style[ name ] = old[ name ];
 		}
-	},
-
-	camelCase: function( string ) {
-		return string.replace( rdashAlpha, fcamelCase );
 	}
 });
 
@@ -8265,44 +8419,21 @@ jQuery.each(["height", "width"], function( i, name ) {
 
 			if ( computed ) {
 				if ( elem.offsetWidth !== 0 ) {
-					val = getWH( elem, name, extra );
-
+					return getWH( elem, name, extra );
 				} else {
 					jQuery.swap( elem, cssShow, function() {
 						val = getWH( elem, name, extra );
 					});
 				}
 
-				if ( val <= 0 ) {
-					val = curCSS( elem, name, name );
-
-					if ( val === "0px" && currentStyle ) {
-						val = currentStyle( elem, name, name );
-					}
-
-					if ( val != null ) {
-						// Should return "auto" instead of 0, use 0 for
-						// temporary backwards-compat
-						return val === "" || val === "auto" ? "0px" : val;
-					}
-				}
-
-				if ( val < 0 || val == null ) {
-					val = elem.style[ name ];
-
-					// Should return "auto" instead of 0, use 0 for
-					// temporary backwards-compat
-					return val === "" || val === "auto" ? "0px" : val;
-				}
-
-				return typeof val === "string" ? val : val + "px";
+				return val;
 			}
 		},
 
 		set: function( elem, value ) {
 			if ( rnumpx.test( value ) ) {
 				// ignore negative width and height values #1599
-				value = parseFloat(value);
+				value = parseFloat( value );
 
 				if ( value >= 0 ) {
 					return value + "px";
@@ -8425,27 +8556,50 @@ if ( document.documentElement.currentStyle ) {
 curCSS = getComputedStyle || currentStyle;
 
 function getWH( elem, name, extra ) {
-	var which = name === "width" ? cssWidth : cssHeight,
-		val = name === "width" ? elem.offsetWidth : elem.offsetHeight;
 
-	if ( extra === "border" ) {
-		return val;
+	// Start with offset property
+	var val = name === "width" ? elem.offsetWidth : elem.offsetHeight,
+		which = name === "width" ? cssWidth : cssHeight;
+
+	if ( val > 0 ) {
+		if ( extra !== "border" ) {
+			jQuery.each( which, function() {
+				if ( !extra ) {
+					val -= parseFloat( jQuery.css( elem, "padding" + this ) ) || 0;
+				}
+				if ( extra === "margin" ) {
+					val += parseFloat( jQuery.css( elem, extra + this ) ) || 0;
+				} else {
+					val -= parseFloat( jQuery.css( elem, "border" + this + "Width" ) ) || 0;
+				}
+			});
+		}
+
+		return val + "px";
 	}
 
-	jQuery.each( which, function() {
-		if ( !extra ) {
-			val -= parseFloat(jQuery.css( elem, "padding" + this )) || 0;
-		}
+	// Fall back to computed then uncomputed css if necessary
+	val = curCSS( elem, name, name );
+	if ( val < 0 || val == null ) {
+		val = elem.style[ name ] || 0;
+	}
+	// Normalize "", auto, and prepare for extra
+	val = parseFloat( val ) || 0;
 
-		if ( extra === "margin" ) {
-			val += parseFloat(jQuery.css( elem, "margin" + this )) || 0;
+	// Add padding, border, margin
+	if ( extra ) {
+		jQuery.each( which, function() {
+			val += parseFloat( jQuery.css( elem, "padding" + this ) ) || 0;
+			if ( extra !== "padding" ) {
+				val += parseFloat( jQuery.css( elem, "border" + this + "Width" ) ) || 0;
+			}
+			if ( extra === "margin" ) {
+				val += parseFloat( jQuery.css( elem, extra + this ) ) || 0;
+			}
+		});
+	}
 
-		} else {
-			val -= parseFloat(jQuery.css( elem, "border" + this + "Width" )) || 0;
-		}
-	});
-
-	return val;
+	return val + "px";
 }
 
 if ( jQuery.expr && jQuery.expr.filters ) {
@@ -9841,8 +9995,8 @@ var elemdisplay = {},
 	],
 	fxNow,
 	requestAnimationFrame = window.webkitRequestAnimationFrame ||
-	    window.mozRequestAnimationFrame ||
-	    window.oRequestAnimationFrame;
+		window.mozRequestAnimationFrame ||
+		window.oRequestAnimationFrame;
 
 jQuery.fn.extend({
 	show: function( speed, easing, callback ) {
@@ -10156,14 +10310,14 @@ jQuery.extend({
 		// Queueing
 		opt.old = opt.complete;
 		opt.complete = function( noUnmark ) {
+			if ( jQuery.isFunction( opt.old ) ) {
+				opt.old.call( this );
+			}
+
 			if ( opt.queue !== false ) {
 				jQuery.dequeue( this );
 			} else if ( noUnmark !== false ) {
 				jQuery._unmark( this );
-			}
-
-			if ( jQuery.isFunction( opt.old ) ) {
-				opt.old.call( this );
 			}
 		};
 
@@ -10237,7 +10391,7 @@ jQuery.fx.prototype = {
 		if ( t() && jQuery.timers.push(t) && !timerId ) {
 			// Use requestAnimationFrame instead of setInterval if available
 			if ( requestAnimationFrame ) {
-				timerId = 1;
+				timerId = true;
 				raf = function() {
 					// When timerId gets set to null at any point, this stops
 					if ( timerId ) {
@@ -10400,7 +10554,8 @@ function defaultDisplay( nodeName ) {
 
 	if ( !elemdisplay[ nodeName ] ) {
 
-		var elem = jQuery( "<" + nodeName + ">" ).appendTo( "body" ),
+		var body = document.body,
+			elem = jQuery( "<" + nodeName + ">" ).appendTo( body ),
 			display = elem.css( "display" );
 
 		elem.remove();
@@ -10414,14 +10569,15 @@ function defaultDisplay( nodeName ) {
 				iframe.frameBorder = iframe.width = iframe.height = 0;
 			}
 
-			document.body.appendChild( iframe );
+			body.appendChild( iframe );
 
 			// Create a cacheable copy of the iframe document on first call.
-			// IE and Opera will allow us to reuse the iframeDoc without re-writing the fake html
-			// document to it, Webkit & Firefox won't allow reusing the iframe document
+			// IE and Opera will allow us to reuse the iframeDoc without re-writing the fake HTML
+			// document to it; WebKit & Firefox won't allow reusing the iframe document.
 			if ( !iframeDoc || !iframe.createElement ) {
 				iframeDoc = ( iframe.contentWindow || iframe.contentDocument ).document;
-				iframeDoc.write( "<!doctype><html><body></body></html>" );
+				iframeDoc.write( ( document.compatMode === "CSS1Compat" ? "<!doctype html>" : "" ) + "<html><body>" );
+				iframeDoc.close();
 			}
 
 			elem = iframeDoc.createElement( nodeName );
@@ -10430,7 +10586,7 @@ function defaultDisplay( nodeName ) {
 
 			display = jQuery.css( elem, "display" );
 
-			document.body.removeChild( iframe );
+			body.removeChild( iframe );
 		}
 
 		// Store the correct default display
@@ -10751,22 +10907,24 @@ function getWindow( elem ) {
 
 
 
-// Create innerHeight, innerWidth, outerHeight and outerWidth methods
+// Create width, height, innerHeight, innerWidth, outerHeight and outerWidth methods
 jQuery.each([ "Height", "Width" ], function( i, name ) {
 
 	var type = name.toLowerCase();
 
 	// innerHeight and innerWidth
-	jQuery.fn["inner" + name] = function() {
-		return this[0] ?
-			parseFloat( jQuery.css( this[0], type, "padding" ) ) :
+	jQuery.fn[ "inner" + name ] = function() {
+		var elem = this[0];
+		return elem && elem.style ?
+			parseFloat( jQuery.css( elem, type, "padding" ) ) :
 			null;
 	};
 
 	// outerHeight and outerWidth
-	jQuery.fn["outer" + name] = function( margin ) {
-		return this[0] ?
-			parseFloat( jQuery.css( this[0], type, margin ? "margin" : "border" ) ) :
+	jQuery.fn[ "outer" + name ] = function( margin ) {
+		var elem = this[0];
+		return elem && elem.style ?
+			parseFloat( jQuery.css( elem, type, margin ? "margin" : "border" ) ) :
 			null;
 	};
 
@@ -10816,6 +10974,7 @@ jQuery.each([ "Height", "Width" ], function( i, name ) {
 });
 
 
+// Expose jQuery to the global object
 window.jQuery = window.$ = jQuery;
 })(window);
 

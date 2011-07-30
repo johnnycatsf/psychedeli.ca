@@ -22,3 +22,6 @@
 [submodule "src/jScrollPane"]
 	path = src/jScrollPane
 	url = git://github.com/vitch/jScrollPane.git
+[submodule "src/require-jquery"]
+	path = src/require-jquery
+	url = git://github.com/jrburke/require-jquery.git
