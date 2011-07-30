@@ -71,8 +71,6 @@
 			// instantiate the PsyCarousel
 			var carousel = new PsyCarousel(self);
 			
-			console.log($.version);
-			
 			// cache it in HTML
 			self.data('carousel', carousel);
 			
