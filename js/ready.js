@@ -18,6 +18,8 @@ require(['jquery', 'vendor/underscore', 'vendor/backbone', 'vendor/plugins/jquer
 			loadingImage: 'img/loading.gif'
 		});
 		
+		$('article').jScrollPane();
+		
 		// Special browser handling
 		var page = $('body');
 		switch (true) {
