@@ -4,6 +4,7 @@
   */
 var dependencies = [
 						'jquery', 
+						'vendor/jquery-ui',
 						'vendor/underscore', 
 						'vendor/backbone', 
 						'vendor/plugins/jquery.facebox', 
