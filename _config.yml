@@ -5,4 +5,4 @@ destination: ./public
 markdown: redcarpet
 pygments: true
 permalink: pretty       # /category/YYYY/MM/DD/title
-exclude: ['_drafts', 'Gemfile', 'Gemfile.lock', 'config.rb', 'recompile', 'src']
+exclude: ['_drafts', 'Gemfile', 'Gemfile.lock', 'config.rb', 'gen', 'tmp', 'src']
