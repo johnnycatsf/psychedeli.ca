@@ -29,18 +29,10 @@ header {
 
 section {
 	position: relative;
-	//height: 640px;
-	//margin: 0 auto;
 	
 	// Posts carousel on the home page
 	&#posts {
-		article {
-			margin-left:64px;
-			float: left;
-			//
-			//			@include clearfix;
-			//			@include pie-clearfix;
-		}
+		height: 640px;
 		
 		.arrow {
 			display:none;
@@ -50,7 +42,7 @@ section {
 			vertical-align: middle;
 			width: 64px;
 			position: absolute;
-			top: 0px;
+			top: 10px;
 			z-index:2;
 			background:#CCC;
 			

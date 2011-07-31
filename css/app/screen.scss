@@ -9,9 +9,11 @@
 @import "compass/css3/text-shadow";
 @import "compass/utilities/general/clearfix";
 
-// dependencies
+// foundation
 @import "../vendor/fonts/face";
 @import "../vendor/themes/smoothness/jquery-ui";
+
+// plugins
 @import "../vendor/plugins/jquery.ticker";
 @import "../vendor/plugins/jquery.facebox";
 @import "../vendor/plugins/jquery.jScrollPane";

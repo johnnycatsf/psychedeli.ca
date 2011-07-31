@@ -17,11 +17,31 @@
 				active: false
 			};
 			
-			posts.collection.css({display:'none'});
-			posts.collection.first().show().animate({left: '0px'});
+			posts.collection.css({
+				display:'none'
+			});
 			
 			posts.active = posts.collection.first();
+			posts.active.css({
+				display: 'block',
+				marginLeft: $(window).width()-posts.active.width()-(posts.active.width()/2)
+			}).addClass('active');
+			
+			var leftMargin = parseInt(posts.active.css('margin-left').split('px').join(''));
+			
+			if (leftMargin < 0) {
+				posts.active.css('margin-left', '64px');
+			}
+			
+			$('body').css('overflow', 'hidden');
 		};
+		
+		/**
+		  * Retrieves the active Post
+		  */
+		this.activePost = function() {
+			return posts.active;
+		}
 		
 		/**
 		  * Goes to a specific index in the carousel array.
@@ -29,6 +49,8 @@
 		  * @private
 		  */
 		function goTo(newIndex) {
+			posts.collection = self.find('article');
+			
 			if (newIndex >= posts.collection.length) {
 				posts.index = 0;
 			} else if (newIndex < 0) {
@@ -51,16 +73,26 @@
 			
 			var nextPost = goTo(nextIndex);
 			var currPost = posts.active;
+			var currMargin = currPost.css('margin-left');
 			
 			nextPost.show();
 			
-			/*currPost.animate({left:'-810px'}, function() {
-				currPost.hide();
-			});*/
+			nextPost.animate({marginLeft: currMargin});
+			currPost.animate({marginLeft: '-786px'}, function() {
+				currPost.css({display:'none'});
+				var currClone = currPost.clone();
+				console.log(currClone);
+				currPost.remove();
+				self.append(currClone);
+				posts.collection = self.find('article');
+			});
 			
-			//nextPost.show().animate({left: '64px'});
-			
-			//posts.active = nextPost;
+			posts.collection.removeClass('active');
+			posts.active = nextPost;
+			posts.active.css({
+				display: 'block',
+				marginLeft: $(window).width()-posts.active.width()-(posts.active.width()/2)
+			}).addClass('active');
 			
 			event.preventDefault();
 		};
@@ -98,14 +130,32 @@
 			// cache it in HTML
 			self.data('carousel', carousel);
 			
-			$('body > section').css('height', '640px');
+			self.css({
+				width: '2000px',
+				height: '650px'
+			});
 			
 			// enable the arrows if JS is enabled
 			$('.left.arrow, .right.arrow').show();
 			
 			// bind events
 			self.find('.left.arrow').click(carousel.prev);
-			self.find('.right.arrow').click(carousel.next);
+			self.find('.right.arrow').click(carousel.next).css({
+				right: self.width()-$(window).width()
+			});
+			
+			$(window).resize(function() {
+				self.find('.right.arrow').css({
+					right: self.width()-$(window).width()
+				});
+				var pos = $(window).width()-carousel.activePost().width()-(carousel.activePost().width()/2);
+				carousel.activePost().css({ margin: '0px 0px 0px '+pos+'px' });
+			});
+			
+			self.find('article').css({
+				float: 'left',
+				display: 'inline-block'
+			});
 		});
 	};
 })(jQuery)

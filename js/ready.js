@@ -1,3 +1,12 @@
+// Prototypal inheritance
+if (typeof Object.create !== 'function') {
+	Object.create = function(o) {
+		function F() {}
+		F.prototype = o;
+		return new F();
+	};
+}
+
 /**
   * Main JavaScript runtime. Includes the Backbone.js MVC framework, utility libraries jQuery and Underscore.js, and all external JavaScript plugins. Binds site-wide
   * actions and runs browser-specific initialization code (for IE 6/7/8 and mobile browsers).

@@ -4,7 +4,8 @@ title: psychedeli.ca
 ---
 <section id="posts">
 	<div class="left arrow">&laquo;</div>
-
+	<div class="right arrow">&raquo;</div>
+	
 	{% for post in site.posts %}
 		<article id="{{ post.id }}">
 			<header>
@@ -21,7 +22,4 @@ title: psychedeli.ca
 			</footer>
 		</article>
 	{% endfor %}
-	<div style="clear:both"></div>
-	
-	<div class="right arrow">&raquo;</div>
 </section>
