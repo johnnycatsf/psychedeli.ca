@@ -3,9 +3,9 @@
 article {
 	width: 810px;
 	height: 640px;
-	position: relative;
 	background:#FFF;
 	padding: 20px;
+	display: inline-block;
 	
 	&* {
 		background:#FFF;

@@ -17,10 +17,8 @@
 				active: false
 			};
 			
-			console.log(posts.collection.first());
-			
-			posts.collection.hide();
-			posts.collection.first().show();
+			posts.collection.css({display:'none'});
+			posts.collection.first().show().animate({left: '0px'});
 			
 			posts.active = posts.collection.first();
 		};
@@ -33,6 +31,8 @@
 		function goTo(newIndex) {
 			if (newIndex >= posts.collection.length) {
 				posts.index = 0;
+			} else if (newIndex < 0) {
+				posts.index = posts.collection.length;
 			} else {
 				posts.index = newIndex;
 			}
@@ -52,10 +52,15 @@
 			var nextPost = goTo(nextIndex);
 			var currPost = posts.active;
 			
-			currPost.hide('slide');
-			nextPost.show('slide');
+			nextPost.show();
 			
-			posts.active = nextPost;
+			/*currPost.animate({left:'-810px'}, function() {
+				currPost.hide();
+			});*/
+			
+			//nextPost.show().animate({left: '64px'});
+			
+			//posts.active = nextPost;
 			
 			event.preventDefault();
 		};
@@ -64,8 +69,17 @@
 		  * Backtracks to the previous item in the carousel.
 		  */
 		this.prev = function(event) {
-			console.log('prev');
-			return goTo(posts.index--);
+			var nextIndex = posts.index-1;
+			
+			var prevPost = goTo(nextIndex);
+			var currPost = posts.active;
+			
+			prevPost.hide('slide');
+			currPost.show('slide');
+			
+			posts.active = prevPost;
+			
+			event.preventDefault();
 		};
 		
 		this.init(element);
@@ -83,6 +97,8 @@
 			
 			// cache it in HTML
 			self.data('carousel', carousel);
+			
+			$('body > section').css('height', '640px');
 			
 			// enable the arrows if JS is enabled
 			$('.left.arrow, .right.arrow').show();

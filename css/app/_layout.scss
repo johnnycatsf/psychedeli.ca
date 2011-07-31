@@ -29,14 +29,17 @@ header {
 
 section {
 	position: relative;
-	overflow: hidden;
-	margin: 0 auto;
+	//height: 640px;
+	//margin: 0 auto;
 	
 	// Posts carousel on the home page
 	&#posts {
 		article {
 			margin-left:64px;
-			margin: 0 auto;
+			float: left;
+			//
+			//			@include clearfix;
+			//			@include pie-clearfix;
 		}
 		
 		.arrow {
@@ -49,7 +52,7 @@ section {
 			position: absolute;
 			top: 0px;
 			z-index:2;
-			background:#FFF;
+			background:#CCC;
 			
 			&.left {
 				left: 0px;
@@ -62,6 +65,10 @@ section {
 				background: #AAA;
 				cursor: pointer;
 			}
+		}
+		
+		.clear {
+			clear: both;
 		}
 	}
 }

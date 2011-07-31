@@ -11,7 +11,7 @@ var dependencies = [
 						'vendor/plugins/jquery.jScrollPane',
 						'vendor/plugins/jquery.mousewheel',
 						'vendor/plugins/jquery.psyCarousel',
-						'vendor/plugins/prettyDate'
+						'vendor/plugins/pretty'
 					];
 require(dependencies, function($) {
 	$(document).ready(function() {
