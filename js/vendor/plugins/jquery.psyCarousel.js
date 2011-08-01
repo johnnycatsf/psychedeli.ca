@@ -1,3 +1,13 @@
+/**
+  * psyCarousel
+  *
+  * A carousel plugin for `<article>`s. Expects barebones markup, a block-level element with a series of `<article>` elements as children. It adds left and right arrows that 
+  * stick to either side of the page and cycle through each `<article>` left-to-right or right-to-left, endlessly. When JavaScript is disabled, the `<article>`s should be 
+  * displayed like normal block elements, but if psyCarousel() is invoked on the container and JavaScript is available, it will change the styles of each object to fit its
+  * needs. Some styles have been hard-set in the app/models/_post.scss stylesheet.
+  *
+  * @author Tom Scott <http://psychedeli.ca/>
+  */
 (function($) {
 	var PsyCarousel = function(element) {
 		var self, posts;
@@ -18,13 +28,21 @@
 			};
 			
 			posts.collection.css({
-				display:'none'
+				display:'none',
+				height: '660px'
 			});
 			
+			posts.collection.find('section').css({
+				minHeight: '0',
+				height: '529px',
+				margin: '0'
+			});
+			
+			// active post is the only one shown
 			posts.active = posts.collection.first();
 			posts.active.css({
 				display: 'block',
-				marginLeft: $(window).width()-posts.active.width()-(posts.active.width()/2)
+				marginLeft: ($(window).width()-posts.active.width()-(posts.active.width()/2))-10
 			}).addClass('active');
 			
 			var leftMargin = parseInt(posts.active.css('margin-left').split('px').join(''));
@@ -37,11 +55,18 @@
 		};
 		
 		/**
-		  * Retrieves the active Post
+		  * Retrieves the active post.
 		  */
-		this.activePost = function() {
+		this.getActivePost = function() {
 			return posts.active;
-		}
+		};
+		
+		/**
+		  * Retrieves all posts.
+		  */
+		this.getAllPosts = function() {
+			return posts;
+		};
 		
 		/**
 		  * Goes to a specific index in the carousel array.
@@ -73,18 +98,14 @@
 			
 			var nextPost = goTo(nextIndex);
 			var currPost = posts.active;
-			var currMargin = currPost.css('margin-left');
+			var currMargin = parseInt(currPost.css('margin-left').split('px').join(''));
+			var currWidth = posts.active.width();
 			
 			nextPost.show();
 			
 			nextPost.animate({marginLeft: currMargin});
-			currPost.animate({marginLeft: '-786px'}, function() {
+			currPost.animate({marginLeft: Math.abs(currMargin+currWidth+$(window).width()) }, function() {
 				currPost.css({display:'none'});
-				var currClone = currPost.clone();
-				console.log(currClone);
-				currPost.remove();
-				self.append(currClone);
-				posts.collection = self.find('article');
 			});
 			
 			posts.collection.removeClass('active');
@@ -105,11 +126,11 @@
 			
 			var prevPost = goTo(nextIndex);
 			var currPost = posts.active;
+			var currMargin = parseInt(currPost.css('margin-left').split('px').join(''));
+			var currWidth = currPost.width();
 			
-			prevPost.hide('slide');
-			currPost.show('slide');
-			
-			posts.active = prevPost;
+			currPost.animate({marginLeft: currMargin+currWidth+$(window).width() });
+			prevPost.animate({marginLeft: '64px'});
 			
 			event.preventDefault();
 		};
@@ -130,32 +151,30 @@
 			// cache it in HTML
 			self.data('carousel', carousel);
 			
-			self.css({
-				width: '2000px',
-				height: '650px'
-			});
+			// make style changes
+			self.css({ width: '2000px', height: '650px' })
+				.find('article').css({ float: 'left', display: 'inline-block' });
 			
 			// enable the arrows if JS is enabled
-			$('.left.arrow, .right.arrow').show();
+			$('<div class="left arrow">&laquo;</div>, <div class="right arrow">&raquo;</div>').prependTo('#posts').show();
 			
 			// bind events
 			self.find('.left.arrow').click(carousel.prev);
-			self.find('.right.arrow').click(carousel.next).css({
-				right: self.width()-$(window).width()
-			});
+			self.find('.right.arrow').click(carousel.next)
+									 .css({ right: self.width()-$(window).width() });
 			
 			$(window).resize(function() {
 				self.find('.right.arrow').css({
 					right: self.width()-$(window).width()
 				});
-				var pos = $(window).width()-carousel.activePost().width()-(carousel.activePost().width()/2);
-				carousel.activePost().css({ margin: '0px 0px 0px '+pos+'px' });
+				
+				carousel.activePost = carousel.getActivePost();
+				
+				var pos = ($(window).width()-carousel.activePost.width())/2;
+				carousel.activePost.css({ margin: '0px 0px 0px '+pos+'px' });
 			});
 			
-			self.find('article').css({
-				float: 'left',
-				display: 'inline-block'
-			});
+			self;
 		});
 	};
 })(jQuery)

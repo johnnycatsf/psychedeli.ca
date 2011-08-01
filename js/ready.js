@@ -39,11 +39,7 @@ require(dependencies, function($) {
 			loadingImage: 'img/loading.gif'
 		});
 		
-		$('article section').jScrollPane().hover(function() {
-			$(this).find('.jspDrag').fadeIn();
-		}, function() {
-			$(this).find('.jspDrag').fadeOut();
-		});
+		$('article section').jScrollPane();
 		
 		// Special browser handling
 		var page = $('body');

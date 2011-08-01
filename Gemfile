@@ -1,5 +1,7 @@
 source :rubygems
 
+gem 'rack'
+gem 'rack-contrib'
 gem 'jekyll'      # content management
 gem 'liquid'
 gem 'sass'        # stylesheet framework
