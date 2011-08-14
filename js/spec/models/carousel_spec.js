@@ -1,23 +1,17 @@
 describe('Carousel', function() {
-	var subject = Object.create(PsyCarousel);
+	var subjectContainer = $('<section id="posts"></section>').appendTo('body');
+	var subjectItems = new Array();
 	
-	it('should instantiate properly', function() {
-		expect(subject.init()).toBeTruthy();
+	for (var c=0; c <= 3; c++) {
+		subjectItems.push($('<article id="article'+c+'"></article>').appendTo('#posts'));
+	}
+	var subject = new Carousel({
+		container: 	subjectContainer,
+		items: 		subjectItems,
+		revolving: 	true, 
 	});
 	
-	it('should be revolving', function() {
-		expect(subject.config.revolving).toBeTruthy();
-	});
-	
-	it('should proceed to the next element', function() {
-		var lastElement = subject.items.current;
-		expect(subject.next()).toBeTruthy();
-		expect(subject.items.current).toNotEqual(lastElement);
-	});
-	
-	it('should go back to the last element', function() {
-		var lastElement = subject.items.current;
-		expect(subject.prev()).toBeTruthy();
-		expect(subject.items.current).toNotEqual(lastElement);
+	it('should start out at position 1', function() {
+		expect(subject.show()).toBeTruthy();
 	});
 });
