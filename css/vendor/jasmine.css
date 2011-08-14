@@ -164,3 +164,9 @@ body {
   margin: 5px 0;
   padding: 2px 0 2px 10px;
 }
+
+/* psychedeli.ca overrides */
+header h1 { text-align:center; }
+header p  { font-size:12px; text-align:center; margin-bottom:30px; }
+header p a { font-weight:bold; text-decoration:none; }
+header p a:hover { text-decoration:underline; }

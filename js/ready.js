@@ -20,7 +20,7 @@ var dependencies = [
 						'vendor/plugins/jquery.linkifyTags', 
 						'vendor/plugins/jquery.jScrollPane',
 						'vendor/plugins/jquery.mousewheel',
-						'vendor/plugins/jquery.psyCarousel',
+						'vendor/plugins/jquery.articleCarousel',
 						'vendor/plugins/pretty'
 					];
 require(dependencies, function($) {
@@ -60,7 +60,7 @@ require(dependencies, function($) {
 				break;
 		}
 		
-		$('#posts').psyCarousel();
+		//$('#posts').articleCarousel();
 		
 		/*
 		// instantiate each <article> as a Post

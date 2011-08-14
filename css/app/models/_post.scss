@@ -5,7 +5,7 @@ article {
 	//height: 660px;
 	background:#FFF;
 	padding: 20px;
-	margin: 10px auto;
+	margin: 35px auto;
 	
 	&* {
 		background:#FFF;
@@ -16,7 +16,7 @@ article {
 		@include border-radius(4px, 4px);
 		border-bottom: 3px dotted #000;
 		height: 50px;
-		padding-top: 38px;
+		//padding-top: 38px;
 		
 		h1 {
 			font-family:$museo;
