@@ -1,19 +1,22 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-  "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-	<base href="http://blog.dev/" />
+	<base href="http://blog.dev/">
 	<title>testing... | psychedeli.ca</title>
-	<link rel="shortcut icon" type="image/png" href="img/jasmine_favicon.png" />
-	<link rel="stylesheet" type="text/css" href="css/vendor/jasmine.css" />
-	<!--<script src="../js/vendor/require-jquery.js" data-main="ready_spec.js" type="text/javascript" charset="utf-8"></script>-->
+	<link rel="shortcut icon" type="image/png" href="img/jasmine_favicon.png">
+	<link rel="stylesheet" type="text/css" href="css/vendor/jasmine.css">
 	
-	<script src="js/vendor/jasmine.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/vendor/jasmine-html.js" type="text/javascript" charset="utf-8"></script>
+	<!-- library dependencies -->
+	<script src="js/vendor/backbone.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/vendor/underscore.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/vendor/jquery.js" type="text/javascript" charset="utf-8"></script>
 	
+	<!-- application javascripts -->
 	<script src="js/app/models/carousel.js" type="text/javascript" charset="utf-8"></script>
 	
+	<!-- testing framework -->
+	<script src="js/vendor/jasmine.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/vendor/jasmine-html.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/spec/spec_helper.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/spec/models/carousel_spec.js" type="text/javascript" charset="utf-8"></script>
 	
@@ -33,7 +36,7 @@
 
 		window.onload = function() {
 			if (currentWindowOnload) {
-			currentWindowOnload();
+				currentWindowOnload();
 			}
 			execJasmine();
 		};
