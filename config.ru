@@ -1,6 +1,12 @@
+#
+# dependencies
+#
 require 'rack'
 require 'rack/contrib/try_static'
 
+#
+# frontend
+#
 use Rack::TryStatic,
   :root => 'pub',
   :urls => %w[/],

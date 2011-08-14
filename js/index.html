@@ -2,16 +2,21 @@
   "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+	<base href="http://blog.dev/" />
 	<title>testing... | psychedeli.ca</title>
-	<link rel="shortcut icon" type="image/png" href="../img/jasmine_favicon.png">
-	<link rel="stylesheet" type="text/css" href="../css/vendor/jasmine.css">
+	<link rel="shortcut icon" type="image/png" href="img/jasmine_favicon.png" />
+	<link rel="stylesheet" type="text/css" href="css/vendor/jasmine.css" />
 	<!--<script src="../js/vendor/require-jquery.js" data-main="ready_spec.js" type="text/javascript" charset="utf-8"></script>-->
-	<script src="../js/vendor/jasmine.js" type="text/javascript" charset="utf-8"></script>
-	<script src="../js/vendor/jasmine-html.js" type="text/javascript" charset="utf-8"></script>
-	<script src="../js/vendor/jquery.js" type="text/javascript" charset="utf-8"></script>
-	<script src="../js/vendor/plugins/jquery.articleCarousel.js" type="text/javascript" charset="utf-8"></script>
-	<script src="spec_helper.js" type="text/javascript" charset="utf-8"></script>
-	<script src="plugins/psy_carousel_spec.js" type="text/javascript" charset="utf-8"></script>
+	
+	<script src="js/vendor/jasmine.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/vendor/jasmine-html.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/vendor/jquery.js" type="text/javascript" charset="utf-8"></script>
+	
+	<script src="js/app/models/carousel.js" type="text/javascript" charset="utf-8"></script>
+	
+	<script src="js/spec/spec_helper.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/spec/models/carousel_spec.js" type="text/javascript" charset="utf-8"></script>
+	
 	<script type="text/javascript" charset="utf-8">
 		var jasmineEnv = jasmine.getEnv();
 		jasmineEnv.updateInterval = 1000;
