@@ -1,10 +1,5 @@
 var Carousel = Backbone.Collection.extend({
 	model: Post,
-	defaults: {
-		index: 0,
-		currentItem: null,
-		revolving: false
-	},
 	
 	/**
 	  * Show the current item.
@@ -70,4 +65,4 @@ var Carousel = Backbone.Collection.extend({
 			return (nextIndex <= this.get('items').length-1) ? this.go(nextIndex) : this.show();
 		}
 	}
-});
+}, { revolving: false });
