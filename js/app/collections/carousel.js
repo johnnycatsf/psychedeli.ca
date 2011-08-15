@@ -1,8 +1,7 @@
-var Carousel = Backbone.Model.extend({
+var Carousel = Backbone.Collection.extend({
+	model: Post,
 	defaults: {
-		container: {},
 		index: 0,
-		items: new Array(),
 		currentItem: null,
 		revolving: false
 	},
