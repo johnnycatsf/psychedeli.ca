@@ -32,7 +32,9 @@ require(dependencies, function($) {
 		
 		/**
 		  * Alters the page title and creates an ArticleCarousel which takes all of the <article>s in #posts and turns them into a stepwise carousel that's activated
-		  * by click, touch and keyboard.
+		  * by click, touch and keyboard. Executed on the DOM ready, when this app is "launched".
+		  *
+		  * @constructor
 		  */
 		initialize: function() {
 			// Page title helper
