@@ -24,9 +24,16 @@ var dependencies = [
 						'vendor/plugins/pretty'
 					];
 require(dependencies, function($) {
-	var AppView = Backbone.View.extend({
+	/**
+	  * Main application definition.
+	  */ 
+	var Psychedelica = Backbone.View.extend({
 		el: $(document),
 		
+		/**
+		  * Alters the page title and creates an ArticleCarousel which takes all of the <article>s in #posts and turns them into a stepwise carousel that's activated
+		  * by click, touch and keyboard.
+		  */
 		initialize: function() {
 			// Page title helper
 			var pageTitle = $('title').html();
@@ -45,25 +52,19 @@ require(dependencies, function($) {
 
 			// Custom scrollbars
 			$('article section').jScrollPane();
-
-			// Special browser handling
-			var page = $('body');
-			switch (true) {
-				// Anyone under IE 9 gets a warning
-				case (page.hasClass('ie') && !page.hasClass('ie9')):
-					alert('Update to IE 9 to view this site properly.');
-					break;
-
-				// Mobile devices get special touch actions (like swiping)
-				case (page.hasClass('ios') || page.hasClass('android')):
-					require(['vendor/jquery-mobile'], function($) {
-						var postsCarousel = $('#posts').data('carousel');
-
-						$('#posts').bind('swipeleft', postsCarousel.next)
-								   .bind('swiperight', postsCarousel.prev);
-					});
-					break;
+			
+			// Carousel for browsers that support JavaScript
+			if ($('#posts').length > 0) {
+				var carousel = new ArticleCarousel({
+					el: $('#posts'),
+					articles: $('#posts article')
+				});
 			}
 		}
+	});
+	
+	// Load the app on DOM ready
+	$(document).ready(function() {
+		var app = new Psychedelica();
 	});
 });

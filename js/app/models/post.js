@@ -1,8 +1,60 @@
+/**
+  * A Post is the Backbone representation of an <article> on the page. It generally makes the Carousel easier to work with when dealing solely with Backbone models rather than
+  * actual HTML elements. You can create a Post programatically, or you can pass in a jQuery object to 
+  *
+  * @author Tom Scott
+  * @package PsyCarousel
+  */
 var Post = Backbone.Model.extend({
 	defaults: {
-		title: 'Post Title',
-		body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin elementum risus vel turpis fermentum ultrices. Suspendisse a dolor sit amet erat tempus venenatis eu nec enim. Duis mollis neque sem. Aenean nec neque et mauris malesuada ultrices. Aliquam erat volutpat. Nulla facilisi. Cras semper dui vel diam auctor in interdum massa tempor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla malesuada nulla nec ante rhoncus tristique. Fusce nec tellus arcu. Ut id enim quis tortor commodo consectetur non et risus. Praesent nec leo magna. Maecenas rutrum, eros a facilisis laoreet, enim orci fermentum quam, in scelerisque felis tellus luctus turpis. Nunc luctus, ipsum sed luctus rhoncus, quam turpis tincidunt nulla, sit amet adipiscing libero nulla sed leo. Vestibulum lobortis dui convallis nisl accumsan eu interdum odio porta. Duis dapibus tincidunt porttitor.',
-		date: '2011-07-03 16:00 PM GMT-5',
-		tags: '#pex, #summer, #festival'
+		src: $(),
+		title: '',
+		body: '',
+		date: '',
+		category: '',
+		tags: ''
+	},
+	
+	/**
+	  * Allows for setup of the Post using a source <article> element which assumes the following HTML syntax:
+	  *
+	  * <article id="{Relative Post URL}">
+	  *		<header>
+	  *			<h1>{Post Title}</h1>
+	  *		</header>
+	  *
+	  *		<section>
+	  *			{Post Content}
+	  *		</section>
+	  *
+	  *		<footer>
+	  *			<span class="category">{post_category}</span>
+	  *			<span class="tags">{Post, Tags}</span>
+	  *			<time datetime="{Post Date in GMT format}"></time>
+	  *		</footer>
+	  * </article>
+	  *
+	  * @constructor
+	  */
+	initialize: function() {
+		var self = this.get('src');
+		
+		// if src isn't an empty jQuery object, set up the Post from an <article> object
+		if (element != $()) {
+			this.set({
+				title: self.find('header > h1').text(),
+				body: self.find('section').html(),
+				date: self.find('footer > time').attr('datetime')
+				category: self.find('footer > .category').text(),
+				tags: self.find('footer > .tags').text()
+			});
+		}
+	},
+	
+	/**
+	  * Renders this Post as HTML.
+	  */
+	html: function() {
+		
 	}
 });

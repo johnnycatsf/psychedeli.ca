@@ -1,46 +1,41 @@
 describe('Carousel', function() {
-	var subjects = (function() { var i = new Array(); for (var c=0; c <= 3; c++) { i.push(new Post()) } return i; })();
-	var carousel = new Carousel(subjects, {
-		revolving: 	false
-	});
+	var posts = (function() { var a=new Array(); for(var i=0; i <= 4; i++) { var p=new Post({src:$('<article id="article'+i+'"></article>')}); a.push(p); } return a; })();
 	
-	it('should start out at position 1', function() {
-		expect(carousel.show()).toBe(subjects[0]);
-	});
-	
-	it('should move to position 3', function() {
-		expect(carousel.go(2)).toBe(subjects[2]);
-	});
-	
-	it('should move forward one position', function() {
-		expect(carousel.next()).toBe(subjects[3]);
-	});
-	
-	it('should not be able to go forward anymore', function() {
-		expect(carousel.next()).toBe(subjects[3]);
-	});
-		
-	it('should go back one position', function() {
-		expect(carousel.prev()).toBe(subjects[2]);
-	});
-	
-	it('should fail when trying to move to an off-array position', function() {
-		expect(carousel.go(9)).toBeFalsy();
-	});
-	
-	it('should cycle from the first to last position when revolving is turned on', function() {
-		carousel.set({
-			index: 0, 
-			revolving: true
+	beforeEach(function() {
+		var carousel = new Carousel(posts, {
+			position: 3
 		});
-		expect(carousel.prev()).toBe(subjects[subjects.length-1]);
 	});
 	
-	it('should cycle from the last to first position when revolving is turned on', function() {
-		carousel.set({
-			index: subjects.length-1, 
-			revolving: true
-		});
-		expect(carousel.next()).toBe(subjects[0]);
+	it('should not be revolving by default', function() {
+		expect(carousel.revolving).toBeFalsy();
+	});
+	
+	it('should be able to move backward one step', function() {
+		expect(carousel.prev()).toEqual(articles[2]);
+	});
+	
+	it('should be able to move forward one step', function() {
+		expect(carousel.next()).toEqual(articles[4]);
+	});
+	
+	it('should not be able to move backward past the first article when not revolving', function() {
+		carousel.position = 0;
+		expect(carousel.prev()).toBeFalsy();
+	});
+	
+	it('should not be able to move forward past the last article when not revolving', function() {
+		carousel.position = 4;
+		expect(carousel.next()).toBeFalsy();
+	});
+	
+	it('should go back to the first article when it reaches the end, and is revolving', function() {
+		carousel.position = 4;
+		expect(carousel.next()).toEqual(articles[0]);
+	});
+	
+	it('should keep track of the current index', function() {
+		carousel.next();
+		expect(carousel.position).toEqual(4);
 	});
 });

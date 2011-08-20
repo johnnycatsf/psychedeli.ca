@@ -1,68 +1,48 @@
+/**
+  * A Carousel is a collection of Posts. It can move back and forward stepwise, and keeps track of the current position and Post.
+  *
+  * @author Tom Scott
+  * @package PsyCarousel
+  */ 
 var Carousel = Backbone.Collection.extend({
 	model: Post,
+	revolving: false,
+	position: 0,
 	
 	/**
-	  * Show the current item.
+	  * Goes backward one step.
 	  *
-	  * @returns {DOMElement} the currently visible item
-	  */
-	show: function() {
-		var items = this.get('items');
-		var index = this.get('index');
-		
-		if (items[index].length) {
-			return items[index];
-		} else {
-			return false;
-		}
-	},
-	
-	/**
-	  * Jumps to a specific point in the array.
-	  *
-	  * @returns the new currently visible DOMElement, or `false` if it doesn't exist.
-	  */
-	go: function(newIndex) {
-		var currIndex = this.get('index');
-		var items = this.get('items');
-
-		if (typeof items[newIndex] != 'undefined') {
-			this.set({ index: newIndex });
-			return this.show();
-		} else {
-			return false;
-		}
-	},
-	
-	/**
-	  * Goes back one step.
-	  *
-	  * @returns the item previous to the current item
+	  * @returns the next Post in the Carousel, or `false` if not `revolving`
 	  */
 	prev: function() {
-		var currIndex = this.get('index');
-		var prevIndex = this.get('index') - 1;
-		 
-		if (this.get('revolving') == true) {
-			return (prevIndex > 0) ? this.go(prevIndex) : this.go(this.get('items').length-1);
+		if (this.revolving) {
+			this.position = (this.position + 1) <= this.length) ? this.position + 1 : 0; 
+			return this.models[this.position];
 		} else {
-			return (prevIndex > 0) ? this.go(prevIndex) : this.show();
+			if ((this.position + 1) <= this.length) {
+				this.position++;
+				return this.models[this.position];
+			} else {
+				return false;
+			}
 		}
 	},
 	
 	/**
 	  * Goes forward one step.
 	  *
-	  * @returns the next item up from the current item
+	  * @returns the next Post in the Carousel, or `false` if not `revolving`
 	  */
 	next: function() {
-		var currIndex = this.get('index');
-		var nextIndex = this.get('index') + 1;
-		
-		if (this.get('revolving') == true) {
-			return (nextIndex <= this.get('items').length-1) ? this.go(nextIndex) : this.go(0);
+		if (this.revolving) {
+			this.position = (this.position - 1) >= 0) ? this.position - 1 : this.length;
 		} else {
-			return (nextIndex <= this.get('items').length-1) ? this.go(nextIndex) : this.show();
+			if ((this.position - 1) >= 0) {
+				this.position--;
+				return this.models[this.position];
+			} else {
+				return false;
+			}
 		}
 	}
-}, { revolving: false });
+});
