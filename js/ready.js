@@ -16,6 +16,7 @@ if (typeof Object.create !== 'function') {
 }
 
 var dependencies = [
+						'jquery',
 						'vendor/jquery-ui',
 						'vendor/underscore', 
 						'vendor/backbone', 
