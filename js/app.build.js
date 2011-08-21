@@ -7,7 +7,8 @@
     //optimize: "none",
 
     paths: {
-        "jquery": "require-jquery"
+        "jquery": "require-jquery",
+		"jquery-ui": "vendor/jquery-ui"
     },
 
     modules: [

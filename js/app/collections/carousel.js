@@ -16,7 +16,7 @@ var Carousel = Backbone.Collection.extend({
 	  */
 	prev: function() {
 		if (this.revolving) {
-			this.position = (this.position + 1) <= this.length) ? this.position + 1 : 0; 
+			this.position = ((this.position + 1) <= this.length) ? this.position + 1 : 0; 
 			return this.models[this.position];
 		} else {
 			if ((this.position + 1) <= this.length) {
@@ -35,7 +35,7 @@ var Carousel = Backbone.Collection.extend({
 	  */
 	next: function() {
 		if (this.revolving) {
-			this.position = (this.position - 1) >= 0) ? this.position - 1 : this.length;
+			this.position = ((this.position - 1) >= 0) ? this.position - 1 : this.length;
 		} else {
 			if ((this.position - 1) >= 0) {
 				this.position--;

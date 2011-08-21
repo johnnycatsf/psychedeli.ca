@@ -1,20 +1,18 @@
 describe('Post', function() {
-	beforeEach(function() {
-		var post = new Post({
-			src: $('<article id="article1">'+"\n"
-				  +'	<header>'+"\n"
-				  +'		<h1>Post Title</h1>'+"\n"
-				  +'	</header>'+"\n"
-				  +'	<section>'+"\n"
-				  +'		Content of the Post'+"\n"
-				  +'	</section>'+"\n"
-				  +'	<footer>'+"\n"
-				  +'		<p>Posted in <span class="category">general_bullshit</span> <time datetime="2011-07-15 00:00:00 -0400">on 15 Jul 2011</time></p>'+"\n"
-				  +'		<p>Tags: <span class="tags"></span> | <a href="comments.html?id=/general_bullshit/2011/07/15/a-new-beginning" rel="modal">Comments</a></p>'+"\n"
-				  +'	</footer>'+"\n"
-				  +');
-		})
-	})
+	var post = new Post({
+		src: $('<article id="article1">'+"\n"
+			  +'	<header>'+"\n"
+			  +'		<h1>Post Title</h1>'+"\n"
+			  +'	</header>'+"\n"
+			  +'	<section>'+"\n"
+			  +'		Content of the Post'+"\n"
+			  +'	</section>'+"\n"
+			  +'	<footer>'+"\n"
+			  +'		<p>Posted in <span class="category">general_bullshit</span> <time datetime="2011-07-15 00:00:00 -0400">on 15 Jul 2011</time></p>'+"\n"
+			  +'		<p>Tags: <span class="tags"></span> | <a href="comments.html?id=/general_bullshit/2011/07/15/a-new-beginning" rel="modal">Comments</a></p>'+"\n"
+			  +'	</footer>'+"\n"
+			  +'</article>')
+	});
 	
 	it('should prune its content from the <article>s on the page');
 	

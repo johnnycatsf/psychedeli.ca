@@ -5,51 +5,28 @@
 	<title>testing... | psychedeli.ca</title>
 	<link rel="shortcut icon" type="image/png" href="../img/jasmine_favicon.png">
 	<link rel="stylesheet" type="text/css" href="../css/vendor/jasmine.css">
-	
-	<!-- library dependencies -->
+	<script src="vendor/require-jquery.js" type="text/javascript" charset="utf-8" data-main="spec-ready.js"></script>
+	<!--
+	// library dependencies
 	<script src="vendor/underscore.js" type="text/javascript" charset="utf-8"></script>
 	<script src="vendor/backbone.js" type="text/javascript" charset="utf-8"></script>
 	<script src="vendor/jquery.js" type="text/javascript" charset="utf-8"></script>
 	
-	<!-- application javascripts -->
+	// application javascripts
 	<script src="app/models/post.js" type="text/javascript" charset="utf-8"></script>
 	<script src="app/collections/carousel.js" type="text/javascript" charset="utf-8"></script>
 	<script src="app/views/article_carousel.js" type="text/javascript" charset="utf-8"></script>
 	
-	<!-- testing framework -->
+	// testing framework
 	<script src="vendor/jasmine.js" type="text/javascript" charset="utf-8"></script>
 	<script src="vendor/jasmine-html.js" type="text/javascript" charset="utf-8"></script>
 	<script src="vendor/sinon.js" type="text/javascript" charset="utf-8"></script>
 	<script src="spec/_spec_helper.js" type="text/javascript" charset="utf-8"></script>
 	<script src="spec/models/post_spec.js" type="text/javascript" charset="utf-8"></script>
 	<script src="spec/collections/carousel_spec.js" type="text/javascript" charset="utf-8"></script>
-	<script src="spec/views/article_carousel_spec.js" type="text/javascript" charset="utf-8"></script>
+	<script src="spec/views/article_carousel_spec.js" type="text/javascript" charset="utf-8"></script>-->
 		
 	<script type="text/javascript" charset="utf-8">
-		// initialize jasmine
-		var jasmineEnv = jasmine.getEnv();
-		jasmineEnv.updateInterval = 1000;
-
-		var trivialReporter = new jasmine.TrivialReporter();
-
-		jasmineEnv.addReporter(trivialReporter);
-
-		jasmineEnv.specFilter = function(spec) {
-			return trivialReporter.specFilter(spec);
-		};
-
-		var currentWindowOnload = window.onload;
-
-		$(function() {
-			if (currentWindowOnload) {
-				currentWindowOnload();
-			}
-			execJasmine();
-		});
-
-		function execJasmine() {
-			jasmineEnv.execute();
-		}
 	</script>
 </head>
 

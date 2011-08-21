@@ -40,11 +40,11 @@ var Post = Backbone.Model.extend({
 		var self = this.get('src');
 		
 		// if src isn't an empty jQuery object, set up the Post from an <article> object
-		if (element != $()) {
+		if (self != $()) {
 			this.set({
 				title: self.find('header > h1').text(),
 				body: self.find('section').html(),
-				date: self.find('footer > time').attr('datetime')
+				date: self.find('footer > p > time').attr('datetime'),
 				category: self.find('footer > .category').text(),
 				tags: self.find('footer > .tags').text()
 			});
