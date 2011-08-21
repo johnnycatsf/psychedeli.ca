@@ -17,39 +17,37 @@ if (typeof Object.create !== 'function') {
 
 var dependencies = [
 						'jquery',
-						'vendor/jquery-ui',
-						'vendor/underscore', 
-						'vendor/backbone', 
+						'vendor/jquery-ui', 
 						'vendor/plugins/jquery.facebox', 
 						'vendor/plugins/jquery.linkifyTags', 
 						'vendor/plugins/jquery.jScrollPane',
 						'vendor/plugins/jquery.mousewheel',
+						'vendor/plugins/mWheelIntent',
 						'vendor/plugins/pretty'
 					];
 require(dependencies, function($) {
+	var backbone = [
+		'vendor/underscore', 
+		'vendor/backbone'
+	];
 	
-	// Page title helper
-	var pageTitle = $('title').html();
-	if (pageTitle != 'psychedeli.ca') {
-		$('title').html(pageTitle+' | psychedeli.ca');
-	}
+	require(backbone, function() {
+		// Page title helper
+		var pageTitle = $('title').html();
+		if (pageTitle != 'psychedeli.ca') {
+			$('title').html(pageTitle+' | psychedeli.ca');
+		}
 
-	// Tags helper
-	$('.tags').linkifyTags();
+		// Tags helper
+		$('.tags').linkifyTags();
 
-	// Modal dialog helper (comments)
-	$('a[rel=modal]').facebox({
-		closeImage: 'img/closelabel.png',
-		loadingImage: 'img/loading.gif'
-	});
-
-	// Custom scrollbars
-	$('article section').jScrollPane();
-	
-	// Carousel for browsers that support JavaScript
-	if ($('#posts').length > 0) {
-		var carousel = new ArticleCarousel({
-			el: $('#posts')
+		// Modal dialog helper (comments)
+		$('a[rel=modal]').facebox({
+			closeImage: 'img/closelabel.png',
+			loadingImage: 'img/loading.gif'
 		});
-	}
+
+		// Custom scrollbars
+		$('article section').jScrollPane();
+	});
 });
