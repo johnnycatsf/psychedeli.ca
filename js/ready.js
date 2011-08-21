@@ -22,7 +22,7 @@ var dependencies = [
 						'vendor/plugins/jquery.linkifyTags', 
 						'vendor/plugins/jquery.jScrollPane',
 						'vendor/plugins/jquery.mousewheel',
-						'vendor/plugins/mWheelIntent',
+						'vendor/plugins/mwheelIntent',
 						'vendor/plugins/pretty'
 					];
 require(dependencies, function($) {
