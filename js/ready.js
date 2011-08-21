@@ -26,28 +26,21 @@ var dependencies = [
 						'vendor/plugins/pretty'
 					];
 require(dependencies, function($) {
-	var backbone = [
-		'vendor/underscore', 
-		'vendor/backbone'
-	];
-	
-	require(backbone, function() {
-		// Page title helper
-		var pageTitle = $('title').html();
-		if (pageTitle != 'psychedeli.ca') {
-			$('title').html(pageTitle+' | psychedeli.ca');
-		}
+	// Page title helper
+	var pageTitle = $('title').html();
+	if (pageTitle != 'psychedeli.ca') {
+		$('title').html(pageTitle+' | psychedeli.ca');
+	}
 
-		// Tags helper
-		$('.tags').linkifyTags();
+	// Tags helper
+	$('.tags').linkifyTags();
 
-		// Modal dialog helper (comments)
-		$('a[rel=modal]').facebox({
-			closeImage: 'img/closelabel.png',
-			loadingImage: 'img/loading.gif'
-		});
-
-		// Custom scrollbars
-		$('article section').jScrollPane();
+	// Modal dialog helper (comments)
+	$('a[rel=modal]').facebox({
+		closeImage: 'img/closelabel.png',
+		loadingImage: 'img/loading.gif'
 	});
+
+	// Custom scrollbars
+	$('article section').jScrollPane();
 });
