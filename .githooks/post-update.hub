@@ -1,0 +1,11 @@
+#!/bin/sh
+
+echo
+echo "**** Pulling changes into Prime"
+echo
+
+cd $HOME/www || exit
+unset GIT_DIR
+git pull origin master
+
+exec git-update-server-info
