@@ -25,7 +25,7 @@ We're currently recording our first album! Aaron and Jules and I are prepared to
 
 ## i'll be seeing you
 
-Well, that's about it. I'm committed to writing more in this thing about my experiences, as I think it would be a good idea for my own mental health if I could get a lot of these feelings off my chest.. 
+Well, that's about it. I'm committed to writing more in this thing about my future experiences, as I think it would be a good idea for my own mental health if I could get a lot of these feelings off my chest.
 
 [1]: http://jekyllrb.com/
 [2]: http://burningman.com/
