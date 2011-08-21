@@ -4,7 +4,7 @@ echo
 echo "**** Pulling changes into Prime"
 echo
 
-cd $HOME/www || exit
+cd /var/apps/blog/ || exit
 unset GIT_DIR
 git pull origin master
 
