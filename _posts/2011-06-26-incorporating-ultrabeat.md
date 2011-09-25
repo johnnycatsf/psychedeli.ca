@@ -1,7 +1,7 @@
 ---
 
 title: "incorporating ultrabeat into my workflow"
-category: composition
+category: music
 tags: "ultrabeat, logic, reason, ableton live, performing"
 date: 2011-06-26
 

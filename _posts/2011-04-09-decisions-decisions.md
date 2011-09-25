@@ -2,7 +2,7 @@
 
 layout: post
 title: "decisions, decisions"
-category: programming
+category: code
 date: 2011-04-09
 tags: "unix, operating system, hardware, boxee, freenas"
 
@@ -20,7 +20,9 @@ This is actually a good thing, because it gives me a bit more time to decide on 
 
 Right now, my best option is **[FreeNAS][6]**, it's a distribution of [FreeBSD][7] (an OS I know and love) that's specially formulated to act as a network storage device. Precisely what I'm looking for! It's even bundled with a [DAAP server][7] and [NFS][8] so the Boxee can be "tricked" into thinking /Zappa *is actually a part of its own local filesystem*. The possibilities are endless, allowing for seamless integration of the data on these disks to the entire network here at 1913.
 
-I think my choice has been made. 
+I think my choice has been made.
+
+**UPDATE:** My FreeNAS file server is running smoothly, fully jailed. Story at 11.
 
 [1]: http://geekwitch.livejournal.com/
 [2]: http://support.dell.com/support/edocs/systems/opgx270/en/ug/index.htm
@@ -29,3 +31,4 @@ I think my choice has been made.
 [5]: http://oracle.com
 [6]: http://freenas.org
 [7]: http://en.wikipedia.org/wiki/Firefly_Media_Server
+[8]: http://psychedeli.ca/code/2011/09/25/hell-yeah-freenas

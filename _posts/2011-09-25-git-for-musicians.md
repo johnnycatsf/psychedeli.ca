@@ -2,7 +2,7 @@
 
 layout: post
 title: git for cavemen...i mean...musicians
-category: composition
+category: music
 date: 2011-09-25
 tags: #git, #collaboration
 

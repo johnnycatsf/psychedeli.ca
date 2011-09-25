@@ -2,7 +2,7 @@
 
 layout: post
 title: a new beginning
-category: general_bullshit
+category: gbs
 date: 2011-08-20
 tags: burning man, jekyll, ruby, javascript, wonder bars
 
