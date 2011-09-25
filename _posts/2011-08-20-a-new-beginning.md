@@ -4,7 +4,7 @@ layout: post
 title: a new beginning
 category: general_bullshit
 date: 2011-08-20
-tags: burning man, jekyll, ruby, javascript, site news, wonder bars
+tags: burning man, jekyll, ruby, javascript, wonder bars
 
 ---
 
