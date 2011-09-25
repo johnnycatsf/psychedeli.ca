@@ -1,10 +1,10 @@
 ---
 
 layout: post
-title: git for cavemen...i mean...musicians
+title: "git for cavemen...i mean...musicians"
 category: music
 date: 2011-09-25
-tags: #git, #collaboration
+tags: "#git,#collaboration"
 
 ---
 
@@ -26,21 +26,19 @@ That's where [Git][1] comes in. Git is a [version control][3] system written by 
 
 In version control, the folder you're working in is called the "repository". A repository is basically a folder with data in it that a version control system keeps track of. Early version control systems used to store all of the repository's metadata (like configuration or change history) on a remote server, and force all clients to remain in sync with that server. Git, however, is [distributed][2], which means you get all of the repository's extra data when you download it. This is useful because you can make changes, commit and branch from the repository (allowing you to basically work) without communicating with a server at all. So you can do a lot of work offline, like in an airplane or anywhere else you can't get internet access, and still be able to save (or "commit") your changes to the repository. When you do get internet access, you can just "push" your changes to the remote server for backup purposes.
 
-Perhaps the most powerful feature of Git, however, is **branching**. Branching is a concept in version control where you basically take the most current version of a source code and copy all of its contents to a separate folder, forming a new "branch" of the code. This allows you to make changes and do work without affecting the main codebase, which may be at a stable point and your work may interfere with that stability. With high-performance, large applications, this is a major concern and branching must work properly for their applications to maintain stability. In the Git universe, all copies of the repository are a "branch". Except in rare, advanced circumstances, you are always working in a branch of the repository. The default branch is always called "master", it is by default the version of the files downloaded to your computer when you clone a repository. There are ways to configure 
+Perhaps the most powerful feature of Git, however, is **branching**. Branching is a concept in version control where you basically take the most current version of a source code and copy all of its contents to a separate folder, forming a new "branch" of the code. This allows you to make changes and do work without affecting the main codebase, which may be at a stable point and your work may interfere with that stability. With high-performance, large applications, this is a major concern and branching must work properly for their applications to maintain stability. In the Git universe, all copies of the repository are a "branch". Except in rare, advanced circumstances, you are always working in a branch of the repository. The default branch is always called "master", it is by default the version of the files downloaded to your computer when you clone a repository.
 
-## git and you
+With Git, two collaborating musicians working independently on the same project can create personal branches of the track and push them to the main remote server. Then, when they meet for a live collaboration, they can download each other's branches and with a single command switch between the two to see which sounds better. Deleting the branch is just as easy as creating it, so you can save disk space by deleting old branches you don't work with anymore. 
 
-So why do you need to know this? 
+## git going
 
-## get it going
+Git is pretty easy to install, but the only requirement is [Xcode][5]. You'll have to buy it from the [Mac App Store][6], and it costs $3.99. Most of us developers already have it, so if you are a developer of any language check your **/Developer** folder, you may already have it.
 
-Git is pretty easy to install, but the only requirement is [Xcode][]. You'll have to buy it from the Mac App Store, and it costs $3.99. Most of us developers already have it, so if you are a developer of any language check your **/Developer** folder, you may already have it.
+Now that you have Xcode installed, you can install git as a package. This is the easiest and cleanest way of installing command-line *NIX programs for Mac. First, install **brew**. Brew (or Homebrew) is a [package manager][7] for Mac OS, which means with a command-line interface you can update and install new (or old) versions of command line software such as Git. Makes it a lot easier to maintain the software over time. Open up "Terminal" (it's in your Utilities folder) and paste this into the prompt:
 
-Now that you have Xcode installed, it's time to install the actual programs. First, install **brew**. Brew (or Homebrew) is a [package manager][] for Mac OS, which means with a command-line interface you can update and install new (or old) versions of command line software such as Git. Makes it a lot easier to maintain the software over time. Open up "Terminal" (it's in your Utilities folder) and paste this into the prompt:
+> `/usr/bin/ruby -e "$(curl -fsSL https://raw.github.com/gist/323731)"`
 
-`/usr/bin/ruby -e "$(curl -fsSL https://raw.github.com/gist/323731)"`
-
-This will install Homebrew to the folder **/usr/local**, so you don't need to enter your password every time you install something. Enter your password here when it prompts you, and read [this document][7] to understand more about how Homebrew installs to your computer.
+This will install Homebrew to the folder **/usr/local**, so you don't need to enter your password every time you install something. Enter your password here when it prompts you, and read [this document][8] to understand more about how Homebrew installs to your computer.
 
 Now that you have Homebrew installed, all you have to do to install git is:
 
@@ -50,13 +48,35 @@ It will download and install the source package and tell you when it's done. To 
 
 `git --version`
 
-You should get a response along the lines of `git version 1.7.6`. It definitely _shouldn't_ be an error. 
+You should get a response along the lines of:
+
+`git version 1.7.6`
 
 ## put your git to work
 
+Now that you have Git installed, you need to start creating repositories. Which means you need to change the directory you're working in. To do this, type cd "&lt;path&gt;". The way I have my music organized, I have to type `cd "~/Music/Logic/Wonder Bars/Life Comes Around/"`. There will be no response if this worked. If it didn't, you probably spelled the path wrong.
 
+Now that you're in the proper directory, you have to set up the repo. To do this, type:
+
+`git init`
+
+That's it. You should get a response that looks like `Initialized new git repository in /Users/tubbo/Music/Logic/Wonder Bars/Life Comes Around/.git/`.
+
+Now that you created the repository, you need to add all of your files to it. Git assumes nothing by default (except default settings you lay out in `~/.gitconfig`), so you need to tell it which files to track and which ones to ignore (optionally). Right now, you're gonna add 'em all! Type:
+
+`git add *`
+
+This may take a minute, there are a lot of big files! Type the following to "commit" these files into the repository
+
+`git commit -am "initial commit"`
+
+This may also take a minute. But now, your changes have been saved in the repo forever. And as long as you don't delete the .git/ folder inside your repo, these changes will be accessible by simply "checking out" this first commit. Isn't that lovely? 
 
 [1]: http://git-scm.com
 [2]: http://en.wikipedia.org/wiki/Distributed_version_control_system
 [3]: http://en.wikipedia.org/wiki/Version_control_system
 [4]: http://linustorvalds.com
+[5]: http://developer.apple.com/xcode/
+[6]: http://itunes.apple.com/us/app/xcode/id448457090?mt=12
+[7]: http://en.wikipedia.org/wiki/Package_management_system
+[8]: https://github.com/mxcl/homebrew/wiki/installation

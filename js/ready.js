@@ -17,13 +17,14 @@ if (typeof Object.create !== 'function') {
 
 var dependencies = [
 						'jquery',
-						'vendor/jquery-ui', 
-						'vendor/plugins/jquery.facebox', 
-						'vendor/plugins/jquery.linkifyTags', 
-						'vendor/plugins/jquery.jScrollPane',
-						'vendor/plugins/jquery.mousewheel',
-						'vendor/plugins/mwheelIntent',
-						'vendor/plugins/pretty'
+						'lib/jquery-ui',
+						'lib/less.js',
+						'lib/plugins/jquery.facebox', 
+						'lib/plugins/jquery.linkifyTags', 
+						'lib/plugins/jquery.jScrollPane',
+						'lib/plugins/jquery.mousewheel',
+						'lib/plugins/mwheelIntent',
+						'lib/plugins/pretty'
 					];
 require(dependencies, function($) {
 	// Page title helper
