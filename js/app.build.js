@@ -8,7 +8,7 @@
 
     paths: {
         "jquery": "require-jquery",
-		"jquery-ui": "vendor/jquery-ui"
+		"jquery-ui": "lib/jquery-ui"
     },
 
     modules: [
