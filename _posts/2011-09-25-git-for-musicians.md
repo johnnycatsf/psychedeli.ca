@@ -70,7 +70,11 @@ This may take a minute, there are a lot of big files! Type the following to "com
 
 `git commit -am "initial commit"`
 
-This may also take a minute. But now, your changes have been saved in the repo forever. And as long as you don't delete the .git/ folder inside your repo, these changes will be accessible by simply "checking out" this first commit. Isn't that lovely? 
+This may also take a minute. But now, your changes have been saved in the repo forever. And as long as you don't delete the .git/ folder inside your repo, these changes will be accessible by simply "checking out" this first commit. Isn't that lovely?
+
+## updates
+
+I will update this article with sequels and stuff, in the meantime if you have anything you want to learn more about, post it in the comments and I'll be happy to write something about it. 
 
 [1]: http://git-scm.com
 [2]: http://en.wikipedia.org/wiki/Distributed_version_control_system

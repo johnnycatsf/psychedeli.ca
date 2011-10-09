@@ -18,7 +18,7 @@ if (typeof Object.create !== 'function') {
 var dependencies = [
 						'jquery',
 						'lib/jquery-ui',
-						'lib/less.js',
+						'lib/less',
 						'lib/plugins/jquery.facebox', 
 						'lib/plugins/jquery.linkifyTags', 
 						'lib/plugins/jquery.jScrollPane',

@@ -1,26 +1,15 @@
 // Posts are laid out as <article> tags, and when JavaScript is enabled act as a giant carousel.
 
 article {
-	width: 810px;
-	//height: 660px;
-	background:#FFF;
-	padding: 20px;
-	margin: 35px auto;
 	
 	&* {
-		background:#FFF;
+
 	}
 	
 	// title
-	header {
-		@include border-radius(4px, 4px);
-		border-bottom: 3px dotted #000;
-		height: 50px;
-		//padding-top: 38px;
-		
+	header {		
 		h1 {
-			font-family:$museo;
-			font-size: 36px;
+			//font-family:$museo;
 			
 			a {
 				text-decoration:none;
@@ -38,19 +27,15 @@ article {
 	}
 	
 	// content
-	section {
-		width: 810px;
-		//height: 529px;
-		
+	section {		
 		h2 {
-			font-size: 30px;
 			font-family: $brandon;
-			letter-spacing: 0.03em;
+			//letter-spacing: 0.03em;
 		}
 		h3 {
-			font-size: 22px;
+			//font-size: 22px;
 			font-family: $brandon;
-			letter-spacing: 0.03em;
+			//letter-spacing: 0.03em;
 		}
 		p {
 			padding: 10px 0 10px 0;
@@ -67,9 +52,9 @@ article {
 				&:hover, &:active { color: #000022; }
 			}
 			
-			code {
-				font-family: 'Lucida Console';
-			}
+//			code {
+//				font-family: 'Lucida Console';
+//			}
 		}
 	}
 	

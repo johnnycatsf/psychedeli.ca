@@ -3,17 +3,15 @@
  */
 
 // framework
-@import "compass/reset", "compass/css3/border-radius", "compass/css3/transform", "compass/css3/text-shadow", "compass/utilities/general/clearfix";
+@import "../lib/bootstrap/bootstrap";
+@import "compass/utilities/general/clearfix";
 
 // foundation
 @import "../lib/fonts/face";
 
 // plugins
-@import "../lib/plugins/jquery.ticker", "../lib/plugins/jquery.facebox", "../lib/plugins/jquery.jscrollpane";
+//@import "../lib/plugins/jquery.ticker", "../lib/plugins/jquery.facebox", "../lib/plugins/jquery.jscrollpane";
 
 // application
 @import "layout";
-	header hgroup h2 {
-		@include rotate(-25deg);
-	}
 @import "models/post";

@@ -25,3 +25,6 @@
 [submodule "src/require-jquery"]
 	path = src/require-jquery
 	url = git://github.com/jrburke/require-jquery.git
+[submodule "css/lib/bootstrap"]
+	path = css/lib/bootstrap
+	url = https://github.com/twitter/bootstrap.git
