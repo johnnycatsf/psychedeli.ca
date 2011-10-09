@@ -1,0 +1,11 @@
+#ticker {
+	/* the whole ticker object */
+	overflow: hidden;
+}
+#ticker ul {
+	/* list of status messages */
+}
+#ticker ul li {
+	/* status message */
+	float: left;
+}
