@@ -12,6 +12,17 @@ header {
 			font-family: $cooper;
 			font-size: 64px;
 			padding: 10px;
+			
+			a {
+				text-decoration:none;
+				
+				&:link, &:visited {
+					color:#000;
+				}
+				&:hover, &:active {
+					color:#000253;
+				}
+			}
 		}
 		h2 {	// 100% PURE BEARD
 			float: left;

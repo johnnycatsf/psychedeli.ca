@@ -3,7 +3,7 @@ layout: default
 ---
 <section id="post">
 	<article>
-		<header class="page-header">
+		<header>
 			<h1>{{ page.title }}</h1>
 		</header>
 
@@ -13,7 +13,7 @@ layout: default
 
 		<footer>
 			<div class="text">
-				<p>Posted in {{ page.category }} <time datetime="{{ page.date }}">on {{ page.date | date_to_string }}</time>.</p>
+				<p>Posted in {{ page.category }} <time datetime="{{ page.time | date_to_xmlschema }}">on {{ page.time | date_to_string }}</time>.</p>
 				<p>Tags: {{ page.tags }} | <a href="comments.html?id={{ site.meta.absolute_baseurl }}{{ page.url }}" id="show-comments">Comments</p>
 			</div>
 		</footer>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<base href="http://blog.dev/">
 	<title>{{ page.title }}</title>
 	<link href="/css/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 	<link href="/css/print.css" media="print" rel="stylesheet" type="text/css">
@@ -9,22 +10,23 @@
 <body>
 	<div class="container">
 		<header>
-			<hgroup class="row">
-				<h1 class="span-one-third">psychedeli.ca</h1>
-				<h2 class="span-two-thirds">100% PURE BEARD</h2>
+			<hgroup>
+				<h1><a href="/">psychedeli.ca</a></h1>
+				<h2>100% PURE BEARD</h2>
 			</hgroup>
 		</header>
 
 		{{ content }}
-
+		
+		<!--
 		<footer>
 			<div id="ticker">
 				<h2>News Feed</h2>
-				<!-- <ul>
+				<ul>
 					<li><img src="img/icons/twitter.png" class="icon"> @tubbo Nope. Because I played your trashy girlfriend. How quickly you've forgotten, Rooster. - Twitter</li>
 					<li><img src="img/icons/facebook.png" class="icon"> Tom Scott just commented on a post on his profile. - Facebook</li>
 					<li><img src="img/icons/github.png" class="icon"> News Story Three - GitHub</li>
-				</ul>  -->
+				</ul>
 			</div>
 			<div id="about">
 				<h2>Hi!</h2>
@@ -41,6 +43,7 @@
 				</p>
 			</div>
 		</footer>
+		-->
 	</div>
 </body>
 </html>

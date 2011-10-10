@@ -3,13 +3,13 @@
  */
 
 // framework
-@import "compass/reset", "compass/css3/border-radius", "compass/css3/transform", "compass/css3/text-shadow", "compass/utilities/general/clearfix";
+@import "compass/reset", "compass/css3/border-radius", "compass/css3/transform", "compass/css3/text-shadow", "compass/utilities/general/clearfix", "../lib/pygments";
 
 // foundation
-@import "../vendor/fonts/face";
+@import "../lib/fonts/face";
 
 // plugins
-@import "../vendor/plugins/jquery.ticker", "../vendor/plugins/jquery.facebox", "../vendor/plugins/jquery.jscrollpane";
+@import "../lib/plugins/jquery.ticker", "../lib/plugins/jquery.facebox", "../lib/plugins/jquery.jscrollpane";
 
 // application
 @import "layout";

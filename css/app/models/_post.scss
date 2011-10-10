@@ -1,7 +1,7 @@
 // Posts are laid out as <article> tags, and when JavaScript is enabled act as a giant carousel.
 
 article {
-	width: 810px;
+	//width: 810px;
 	//height: 660px;
 	background:#FFF;
 	padding: 20px;
@@ -66,9 +66,13 @@ article {
 				}
 				&:hover, &:active { color: #000022; }
 			}
-			
+		}
+		pre {
+			background-color:#EEE;
+						
 			code {
-				font-family: 'Lucida Console';
+				font-size: 12px;
+				font-family: 'Lucida Console', Courier, fixed;
 			}
 		}
 	}

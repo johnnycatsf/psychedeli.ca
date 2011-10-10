@@ -1,9 +1,9 @@
 ---
 
 layout: post
-title: "the role of ajax calls in a ruby on rails application"
+title: "the role of the ajax call"
 category: code
-date: 2011-09-25
+date: 2011-10-08
 tags: "#ajax, #javascript, #rails"
 
 ---
@@ -20,35 +20,39 @@ This was an example in PHP, but Ruby on Rails also suffers from this potential d
 
 We decided to solve this by changing the way we wrote Ajax requests in the CMS. It was much more efficient to use Ajax as a static data transfer mechanism, rather than a means of transferring logic code between files. So instead of getting back `<script>` tags with code in it, we got back JSON data and used that to execute that segment of JavaScript code. PHP makes this easy, as it allows any Array to be encoded into valid JSON. So what we did was respond with something like this
 	
-	<?php
-		header('Cache-Control: no-cache, must-revalidate');
-		header('Content-type: application/json');
-	 	$response = array(
-				'status' => "success",
-				'markup' => '<div class="success">Successfully saved changes to the file.</div>
-			);
-	 	echo(json_encode($response));
-	?>
+{% highlight php %}	
+<?php
+	header('Cache-Control: no-cache, must-revalidate');
+	header('Content-type: application/json');
+ 	$response = array(
+			'status' => "success",
+			'markup' => '<div class="success">Successfully saved changes to the file.</div>'
+		);
+ 	echo(json_encode($response));
+?>
+{% endhighlight %}
 	
 Instead of merely `echo`ing that HTML in a String, we are wrapping it with JSON and returning that. Notice that you need [special HTTP headers][phpjson] to return a valid JSON response, some browsers attempt to guess based on the content but you can't really rely on that. To ensure that the browser is interpreting this response as JSON, you must specify the HTTP `Content-Type` as **application/json**. I've also included a `Cache-Control` directive which forces the browser to reload the content every time it loads. This ensures that browsers won't cache these requests, and therefore your data. 
 
 So now, we can write some JavaScript to process that data. We like to use the [jQuery.form][jqform] plugin [at the office][aplusl]...
 
-	<script>
-		$('#saveForm').ajaxSubmit({
-			url: 'ajax/saveChanges.php',
-			dataType: 'json',
-			success: function(response, xhr, status) {
-				$('#status').append(response.markup).slideDown(400);
-				setTimeout(function() { $('#status').slideUp(400); }, 5000);
-			}
-		});
-	</script>
+{% highlight javascript %}
+$('#saveForm').ajaxSubmit({
+	url: 'ajax/saveChanges.php',
+	dataType: 'json',
+	success: function(response, xhr, status) {
+		$('#status').append(response.markup).slideDown(400);
+		setTimeout(function() { $('#status').slideUp(400); }, 5000);
+	}
+});
+{% endhighlight %}
 
 That extension to the [jQuery][jq] library simply submits a form asynchronously, and its `options` Object lets you bind actions to the various `jQuery.ajax` callbacks. 
 
 
 ## A little philosophy
+
+So now you know the code, but it's time to learn about why exactly I chose to do it this way.
 
 ### Ajax is for transferring data, not logic
 
