@@ -3,7 +3,7 @@
 layout: post
 title: "git for cavemen...i mean...musicians"
 category: music
-date: 2011-09-25
+date: 2011-10-16
 tags: "#git,#collaboration"
 
 ---
@@ -54,23 +54,49 @@ You should get a response along the lines of:
 
 ## put your git to work
 
-Now that you have Git installed, you need to start creating repositories. Which means you need to change the directory you're working in. To do this, type cd "&lt;path&gt;". The way I have my music organized, I have to type `cd "~/Music/Logic/Wonder Bars/Life Comes Around/"`. There will be no response if this worked. If it didn't, you probably spelled the path wrong.
+Now that you have Git installed, you need to start creating repositories. Which means you need to change the directory you're working in. To do this, type `cd "&lt;path&gt;"`. The way I have my music organized, I have to type `cd "~/Music/Logic/Wonder Bars/Life Comes Around/"`. There will be no response if this worked. If it didn't, you probably spelled the path wrong. 
+
+###If you'd like to follow along, I would advise you to create a new Logic project with nothing in it. It will prevent anything from getting corrupted or lost in the process of doing the actions in this tutorial.
 
 Now that you're in the proper directory, you have to set up the repo. To do this, type:
 
-`git init`
+	git init
 
 That's it. You should get a response that looks like `Initialized new git repository in /Users/tubbo/Music/Logic/Wonder Bars/Life Comes Around/.git/`.
 
 Now that you created the repository, you need to add all of your files to it. Git assumes nothing by default (except default settings you lay out in `~/.gitconfig`), so you need to tell it which files to track and which ones to ignore (optionally). Right now, you're gonna add 'em all! Type:
 
-`git add *`
+	git add *
 
 This may take a minute, there are a lot of big files! Type the following to "commit" these files into the repository
 
-`git commit -am "initial commit"`
+	git commit -am "initial commit"
 
-This may also take a minute. But now, your changes have been saved in the repo forever. And as long as you don't delete the .git/ folder inside your repo, these changes will be accessible by simply "checking out" this first commit. Isn't that lovely?
+This may also take a minute. But now, your changes have been saved in the repo forever. And as long as you don't delete the .git/ folder inside your repo, these changes will be accessible by simply "checking out" this first commit. Isn't that lovely? Don't close out of the Terminal just yet, you'll be needing it this whole time.
+
+## committing your changes
+
+After doing some work in your project, you may want to save your place. What I like to do is commit every time I save changes in my project. So after you save, open the Terminal again and type
+
+	git commit -am "added drums"
+	
+See how fast that was? Git doesn't have to communicate with the outside world at all to save a history of your changes in Logic.
+
+## back that thang up
+
+Git can also be used to back up your music to a remote server. The best way to do this (and to foster collaboration) is to use a remote server management tool like [Gitolite][9]. However, this can be somewhat challenging to maintain and get started with if you're not already a hacker, so I propose that you sign up for a shared git hosting account (such as [GitHub][10] or [Bitbucket][11], both free) to make that part of your life easier. You can purchase private repository space on both of those sites, wherein you can configure access to the repository for other account holders. However, if you keep all of your repositories public, they will be hosted for free. This was obviously designed with free software in mind, and while I believe music producers should be taking cues from the open source movement, I also know that it's very easy to steal an idea and release it quickly. This is why I suggested in the last section to use an empty project, as this tutorial is more about the personal use of Git rather than its remote server administration. I'll get to that in the future.
+
+In any case, let's assume that you signed up for a [GitHub][10] account. Create a new repository and copy down the `Git URL` from the new page (click the "Clipboard" icon next to the input field to copy its contents to the clipboard). This follows the following syntax: `git@github.com:<your-username>/<your-project>.git`. **Make sure it follows that syntax, or else you won't be able to push your updates.**
+
+Next, open up your Terminal and type
+	
+	git remote add origin <your-git-url>
+	
+Which should look something like
+
+	git remote add origin git@github.com:tubbo/a-very-nice-banger.git
+	
+So now you have a "remote" set up. This is a place that git can securely copy your local repository's history and files, and maintain a relationship with it that 
 
 ## updates
 
@@ -84,3 +110,6 @@ I will update this article with sequels and stuff, in the meantime if you have a
 [6]: http://itunes.apple.com/us/app/xcode/id448457090?mt=12
 [7]: http://en.wikipedia.org/wiki/Package_management_system
 [8]: https://github.com/mxcl/homebrew/wiki/installation
+[9]: http://sitaramc.github.com/gitolite/
+[10]: http://github.com/
+[11]: http://bitbucket.com/
