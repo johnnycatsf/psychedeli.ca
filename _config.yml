@@ -14,3 +14,19 @@ exclude:
     - gen
     - tmp
     - src
+    
+# StatusExchange configuration
+sx:
+    facebook:
+        access_token:
+        user_id:
+    twitter:
+        app:
+            token:
+            secret:
+        usr:
+            token:
+            secret:
+    github:
+        api_key:
+    
