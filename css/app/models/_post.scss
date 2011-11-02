@@ -5,7 +5,7 @@ article {
 	//height: 660px;
 	background:#FFF;
 	padding: 20px;
-	margin: 35px auto;
+	margin: 35px 50px;
 	
 	&* {
 		background:#FFF;
@@ -38,10 +38,7 @@ article {
 	}
 	
 	// content
-	section {
-		width: 810px;
-		//height: 529px;
-		
+	section {		
 		h2 {
 			font-size: 30px;
 			font-family: $brandon;
