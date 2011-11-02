@@ -74,9 +74,30 @@
 		
 		// Poll the API and transition Blips
 		var polling = setInterval(function() {
-			// Poll Facebook and add all of its 
+			// Facebook 
 			$.ajax({
-				
+				url: 'https://graph.facebook.com/tubbo/feed',
+				type: 'GET',
+				data: {
+					access_token: config.facebook.usr.token,
+					limit: 5
+				},
+				dataType: 'json',
+				success: function(response) {
+					_.each(response.data, function(status) {
+						var blip = new Blip({
+							service: "facebook",
+							message: (typeof status.story != 'undefined') ? status.story : status.message,
+							location: (typeof status.link != 'undefined') ? status.link : "https://www.facebook.com/"+status.type+".php?id="+status.id
+						});
+						Ticker.add(blip);
+					})
+				}
+			});
+			
+			// Twitter
+			$.ajax({
+				url: 'https://api.twitter.com/'
 			})
 		}, config.pollEvery);
 		
