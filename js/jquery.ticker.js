@@ -49,8 +49,8 @@
 			pollEvery: 5000,
 			changeEvery: 5000
 			twitter: {
-				handle: ''
-				access: ''
+				handle: '',
+				access: '',
 				secret: ''
 			},
 			facebook: {
@@ -76,7 +76,7 @@
 		var polling = setInterval(function() {
 			// Facebook 
 			$.ajax({
-				url: 'https://graph.facebook.com/tubbo/feed',
+				url: 'http://graph.facebook.com/tubbo/feed',
 				type: 'GET',
 				data: {
 					access_token: config.facebook.usr.token,
@@ -85,20 +85,37 @@
 				dataType: 'json',
 				success: function(response) {
 					_.each(response.data, function(status) {
-						var blip = new Blip({
-							service: "facebook",
-							message: (typeof status.story != 'undefined') ? status.story : status.message,
-							location: (typeof status.link != 'undefined') ? status.link : "https://www.facebook.com/"+status.type+".php?id="+status.id
-						});
-						Ticker.add(blip);
-					})
+						Ticker.add(new Blip({
+							service: 	'facebook',
+							message: 	(typeof status.story != 'undefined') 	? status.story 	: status.message,
+							location: 	(typeof status.link != 'undefined') 	? status.link 	: 'https://www.facebook.com/'+status.type+'.php?id='+status.id
+						}));
+					});
 				}
 			});
 			
 			// Twitter
 			$.ajax({
-				url: 'https://api.twitter.com/'
-			})
+				url: 'http://api.twitter.com/1/statuses/user_timeline.json',
+				type: 'GET',
+				data: {
+					screen_name: config.twitter.handle,
+					include_rts: 1,
+					page: 1,
+					include_entities: 1,
+					callback: '?'
+				},
+				dataType: 'jsonp',
+				success: function(tweets) {
+					_.each(tweets, function(tweet) {
+						Ticker.add(new Blip({
+							service: 'twitter',
+							message: tweet.text,
+							location: 'https://twitter.com/tubbo/status/'+tweet.id
+						}));
+					});
+				}
+			});
 		}, config.pollEvery);
 		
 		var changing = setInterval(function() {
