@@ -72,6 +72,14 @@ article {
 				font-family: 'Lucida Console', Courier, fixed;
 			}
 		}
+		blockquote {
+			border-left: 2px solid #ccc;
+			background: #eef;
+			
+			p {
+				padding: 10px 25px;
+			}
+		}
 	}
 	
 	// category & date identifier
