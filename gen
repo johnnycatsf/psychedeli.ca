@@ -1,1 +1,13 @@
-compass compile css/app/screen.scss && compass compile css/app/print.scss && jekyll
+#!/bin/bash
+#
+# psychedeli.ca blog generator
+
+# javascripts
+uglifyjs js/jquery.js js/jquery.facebox.js js/functions.js js/ready.js > js/application.js;
+
+# stylesheets
+compass compile css/app/screen.scss; 
+compass compile css/app/print.scss;
+
+# content
+jekyll
