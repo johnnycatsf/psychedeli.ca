@@ -3,14 +3,16 @@
 #
 require 'rack'
 require 'rack/contrib/try_static'
-require './lib/status_exchange'
+require 'status_exchange'
 require 'sprockets'
 
 # Sprockets asset management
-map '/assets' do
+map '/f' do
   assets = Sprockets::Environment.new
   assets.append_path 'css'
   assets.append_path 'js'
+  assets.append_path 'img'
+  assets.append_path 'swf'
   run assets
 end
 
