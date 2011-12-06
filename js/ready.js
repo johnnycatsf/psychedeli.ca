@@ -7,7 +7,7 @@ $(document).ready(function() {
 	
 	$('#ticker').ticker({
 		twitter: {
-			handle: '',
+			handle: '', 
 			access: '',
 			secret: ''
 		},
@@ -28,4 +28,6 @@ $(document).ready(function() {
 			secret: '8fd5add2d75e5bb461567b8b4bf7b4ff'
 		}
 	});
-})
+	
+	$('.tags a').linkifyTags();
+});

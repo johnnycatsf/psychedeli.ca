@@ -1,37 +1,43 @@
 # StatusExchange
 # ==============
 #
-# StatusExchange is a Sinatra app that responds to '/status.json' with the latest updates from the following platforms:
+# StatusExchange is a Rack app that spits out JSON with the latest updates from the following social platforms:
 #
-# - Facebook
 # - Twitter
-# - Last.FM
-# - Spotify
+# - Facebook
 # - GitHub
 #
 # Author:: Tom Scott
 # Homepage:: http://psychedeli.ca/
 
-require 'sinatra'
 require 'twitter'
 require 'mogli'
 
-CONFIG = YAML::load_file('_config.yml')
-
-twitter = Twitter.new
-
-# Twitter.configure do |config|
-#   config.consumer_key = CONFIG['twitter']['app']['token']
-#   config.consumer_secret = CONFIG['twitter']['app']['secret']
-#   config.oauth_token = CONFIG['twitter']['usr']['token']
-#   config.oauth_token_secret = CONFIG['twitter']['usr']['secret']
-# end
-
-class StatusExchange < Sinatra::Base
-  get '/status.json' do
-    facebook_client = Mogli::Client.new(CONFIG['facebook']['access_token'])
-
-    facebook = Mogli::User.find('me', facebook_client)
-    twitter = Twitter.user_timeline('tubbo')
+class StatusExchange
+  # Called at load
+  def initialize(app)
+    @app = app
+    @message = message
+    @statuses = []
+  end
+  
+  # Runtime
+  def call(env)
+    # get the last 10 status messages from Twitter
+    Twitter.user_timeline('tubbo').each do |tweet|
+      @statuses << { message: tweet.text, date: tweet.created_at, type: 'twitter' }
+    end
+    
+    # get the last 10 timeline posts from Facebook
+    facebook = Mogli::Client.new(facebook_access_token)
+    my = Mogli::User.find('me', facebook)
+    my.posts.each do |status|
+      @statuses << { message: status.text || status.post, date: status.timestamp, type: 'facebook' }
+    end
+    
+    # get the last 10 activity posts from GitHub
+    
+    # respond as JSON
+    [ 200, {'Content-Type' => 'application/json'}, @statuses.to_json ]
   end
 end

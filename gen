@@ -3,7 +3,7 @@
 # psychedeli.ca blog generator
 
 # javascripts
-uglifyjs js/jquery.js js/jquery.facebox.js js/functions.js js/ready.js > js/application.js;
+uglifyjs --no-copyright js/jquery.js js/jquery.facebox.js js/jquery.linkifyTags.js js/functions.js js/ready.js > js/application.js;
 echo "uglified to js/application.js";
 
 # stylesheets

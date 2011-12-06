@@ -43,7 +43,9 @@ section {
 	
 	// Posts carousel on the home page
 	&#posts {
-		height: 640px;
+		//height: 640px;
+		width: 940px;
+		float: right;
 		
 		.arrow {
 			display:none;

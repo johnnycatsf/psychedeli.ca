@@ -1,16 +1,22 @@
 source :rubygems
 
+# backend
 gem 'rack'
 gem 'rack-contrib'
-gem 'jekyll'      # content management
+gem 'jekyll'
+gem 'sprockets'
+
+# frontend
 gem 'liquid'
-gem 'sass'        # stylesheet framework
+gem 'sass'
 gem 'compass'
-gem 'redcarpet'   # markdown support
-gem 'jasmine'     # javascript BDD testing
+gem 'redcarpet'
+
+# development
 gem 'rb-fsevent'
 gem 'deadweight'
+
 # status exchange
-gem 'sinatra'
+gem 'yajl-ruby'
 gem 'twitter'
-gem 'mogli'
+#gem 'mogli'

@@ -3,7 +3,8 @@
  */
 
 // framework
-@import "compass/reset", "compass/css3/border-radius", "compass/css3/transform", "compass/css3/text-shadow", "compass/utilities/general/clearfix", "../lib/pygments";
+@import "compass/reset", "compass/css3/border-radius", "compass/css3/transform", "compass/css3/text-shadow", "compass/utilities/general/clearfix";
+@import "../lib/pygments";
 
 // foundation
 @import "../lib/fonts/face";

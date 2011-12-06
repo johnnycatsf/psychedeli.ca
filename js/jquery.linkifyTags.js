@@ -1,3 +1,4 @@
+console.log('linkifyTags loaded');
 (function($) {
 	/**
 	  * Takes a comma-separated list of tags and determines what search engine to place them under based on the tag symbol, then optionally removes that symbol (`clean:true`).
