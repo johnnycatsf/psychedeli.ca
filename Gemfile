@@ -4,6 +4,7 @@ source :rubygems
 gem 'rack'
 gem 'rack-contrib'
 gem 'jekyll'
+gem 'rack-jekyll'
 gem 'sprockets'
 
 # frontend
@@ -19,4 +20,4 @@ gem 'deadweight'
 # status exchange
 gem 'yajl-ruby'
 gem 'twitter'
-#gem 'mogli'
+gem 'mogli'

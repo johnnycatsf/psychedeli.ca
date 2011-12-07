@@ -2,12 +2,12 @@
 # dependencies
 #
 require 'rack'
-require 'rack/contrib/try_static'
-require 'status_exchange'
+require 'rack/jekyll'
+require File.join(File.dirname(__FILE__), 'lib', 'status_exchange')
 require 'sprockets'
 
 # Sprockets asset management
-map '/f' do
+map '/files' do
   assets = Sprockets::Environment.new
   assets.append_path 'css'
   assets.append_path 'js'
@@ -24,6 +24,5 @@ end
 
 # The static Jekyll site
 map '/' do
-  run Rack::TryStatic, :root => 'pub', :urls => %w[/], :try => ['.html', 'index.html', '/index.html']
-  run lambda { [404, {'Content-Type' => 'text/html'}, ['404: Request Not Found']]}  # otherwise 404
+  run Rack::Jekyll.new(:destination => 'pub')
 end
