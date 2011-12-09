@@ -12,7 +12,6 @@ map '/files' do
   assets.append_path 'css'
   assets.append_path 'js'
   assets.append_path 'img'
-  assets.append_path 'swf'
   run assets
 end
 
@@ -23,6 +22,4 @@ map '/status.json' do
 end
 
 # The static Jekyll site
-map '/' do
-  run Rack::Jekyll.new(:destination => 'pub')
-end
+run Rack::Jekyll.new
