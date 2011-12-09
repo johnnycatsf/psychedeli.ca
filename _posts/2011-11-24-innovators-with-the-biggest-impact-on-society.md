@@ -3,8 +3,8 @@
 layout: post
 title: "innovators with the biggest impact on society"
 category: gbs
-date: 2011-10-16
-tags: "#git,#collaboration"
+date: 2011-11-24
+tags: "Tim Berners-Lee, Steve Jobs, Bill Gates"
 
 ---
 

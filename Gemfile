@@ -1,7 +1,7 @@
 source :rubygems
 
 # backend
-gem 'rack'
+gem 'rack', '1.2.1'
 gem 'rack-contrib'
 gem 'jekyll'
 gem 'rack-jekyll'
