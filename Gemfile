@@ -1,10 +1,10 @@
 source :rubygems
 
 # backend
-gem 'rack', '1.2.1'
+gem 'rack'
 gem 'rack-contrib'
 gem 'jekyll'
-gem 'rack-jekyll'
+gem 'rack-jekyll', :git => 'git://github.com/tubbo/rack-jekyll.git'
 gem 'sprockets'
 
 # frontend
