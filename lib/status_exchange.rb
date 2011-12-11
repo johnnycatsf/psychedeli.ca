@@ -22,11 +22,11 @@ class StatusExchange
     end
     
     # get the last 10 timeline posts from Facebook
-    facebook = Mogli::Client.new(facebook_access_token)
-    my = Mogli::User.find('me', facebook)
-    my.posts.each do |status|
-      statuses << { message: status.text || status.post, date: status.timestamp, type: 'facebook' }
-    end
+    # facebook = Mogli::Client.new(facebook_access_token)
+    # my = Mogli::User.find('me', facebook)
+    # my.posts.each do |status|
+    #   statuses << { message: status.text || status.post, date: status.timestamp, type: 'facebook' }
+    # end
     
     # get the last 10 activity posts from GitHub
     
