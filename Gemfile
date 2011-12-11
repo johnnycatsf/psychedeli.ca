@@ -4,7 +4,7 @@ source :rubygems
 gem 'rack'
 gem 'rack-contrib'
 gem 'jekyll'
-gem 'rack-jekyll'
+gem 'rack-jekyll', :git => 'git://github.com/tubbo/rack-jekyll.git'
 gem 'sprockets'
 
 # frontend
