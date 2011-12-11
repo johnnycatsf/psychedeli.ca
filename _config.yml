@@ -14,8 +14,4 @@ exclude:
     - gen
     - tmp
     - src
-    - css
-    - js
-    - swf
-    - img
-    
+    - swf    
