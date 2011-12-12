@@ -8,7 +8,7 @@ gem 'rack-jekyll', :git => 'git://github.com/tubbo/rack-jekyll.git'
 gem 'sprockets'
 
 # frontend
-gem 'liquid'
+gem 'liquid', '2.2.2'
 gem 'sass'
 gem 'compass'
 gem 'redcarpet'
