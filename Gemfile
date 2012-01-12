@@ -21,3 +21,6 @@ gem 'deadweight'
 gem 'yajl-ruby'
 gem 'twitter'
 gem 'mogli'
+
+# deployment
+gem 'capistrano'
