@@ -19,3 +19,9 @@ exclude:
     - cfg
     - html
     - bin
+    - .rvmrc
+    - Capfile
+    - config.ru
+    - psychedelica.gemspec
+    - .gitignore
+    - .gitmodules

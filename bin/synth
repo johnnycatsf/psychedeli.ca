@@ -29,7 +29,7 @@ class Synth < Thor
 
 	desc "content", "Generate HTML content with Jekyll."
 	def content
-		run 'jekyll'
+		run 'jekyll --config cfg/jekyll.yml'
 	end
 end
 
