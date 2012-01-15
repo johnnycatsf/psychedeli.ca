@@ -1,16 +1,36 @@
-#!/bin/bash
-#
-# = synth
-#
-# The psychedeli.ca blog generator. Compresses and minifies JavaScript files,
+#!/usr/bin/env ruby
 
-# javascripts
-uglifyjs --no-copyright js/jquery.js js/jquery.facebox.js js/jquery.linkifyTags.js js/functions.js js/ready.js > js/application.js;
-echo "uglified to js/application.js";
+require 'rubygems'
+require 'thor'
 
-# stylesheets
-compass compile css/app/screen.scss;
-compass compile css/app/print.scss;
+class Synth < Thor
+	include Thor::Actions
 
-# content
-jekyll
+	desc "javascripts", "Uglify and place javascripts."
+	def javascripts
+		files = %w[jquery jquery.facebox jquery.linkifyTags functions ready]
+
+		javascripts = ""
+		files.each do |file|
+			javascripts += "js/#{file}.js "
+		end
+
+		run %Q[uglifyjs --no-copyright #{javascripts} > js/application.js]
+	end
+
+	desc "stylesheets", "Compile and compress stylesheets with Compass."
+	def stylesheets
+		files = %w[screen print]
+
+		files.each do |stylesheet|
+			run %Q[compass compile css/app/#{stylesheet}.scss]
+		end
+	end
+
+	desc "content", "Generate HTML content with Jekyll."
+	def content
+		run 'jekyll'
+	end
+end
+
+Synth.start

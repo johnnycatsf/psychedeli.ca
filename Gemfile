@@ -6,6 +6,7 @@ gem 'rack-contrib'
 gem 'jekyll'
 #gem 'rack-jekyll', :git => 'git://github.com/tubbo/rack-jekyll.git'
 gem 'sprockets'
+gem 'thor'
 
 # frontend
 gem 'liquid', '2.2.2'

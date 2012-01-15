@@ -11,9 +11,6 @@ class StaticAge
   def call(env)
     options = env[:options]
     @site = Jekyll::Site.new(options)
-  end
-
-  def compile_site
-    @site.process
+    [200, {"Content-Type" => 'text/html'}, @site.process]
   end
 end
