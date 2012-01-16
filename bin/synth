@@ -16,7 +16,7 @@ require 'thor'
 require 'uglifier'
 require 'sass'
 require 'yaml'
-#require 'jekyll'
+require 'jekyll'
 
 class Synth < Thor
 	include Thor::Actions
