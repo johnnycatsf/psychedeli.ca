@@ -4,7 +4,7 @@ source :rubygems
 gem 'rack'
 gem 'rack-contrib'
 gem 'jekyll', git: 'git://github.com/tubbo/jekyll.git'
-#gem 'rack-jekyll', :git => 'git://github.com/tubbo/rack-jekyll.git'
+gem 'rack-jekyll', #git: 'git://github.com/tubbo/rack-jekyll.git'
 gem 'sprockets'
 gem 'thor'
 

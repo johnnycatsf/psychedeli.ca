@@ -3,6 +3,7 @@
 #
 require 'rack'
 require 'rack/contrib'
+require 'rack/jekyll'
 require File.join(File.dirname(__FILE__), 'lib', 'status_exchange')
 
 # The StatusExchange ticker service is available at /status.json
@@ -12,6 +13,4 @@ map '/status.json' do
 end
 
 # Serve the static Jekyll site
-map '/' do
-  run Rack::Static, urls: ['/'], root: 'pub'
-end
+run Rack::Jekyll.new(destination: 'pub')
