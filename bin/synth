@@ -17,7 +17,6 @@ require 'thor'
 require 'uglifier'
 require 'sass'
 require 'yaml'
-require 'jekyll'
 
 class Synth < Thor
 	include Thor::Actions
@@ -58,15 +57,7 @@ class Synth < Thor
 
 	desc "content", 	"Generates the post and layout content with Jekyll."
 	def content
-		say "Validating YAML configuration overrides"
-		overrides = YAML::load_file(File.join(Dir.pwd, 'cfg', 'jekyll.yml'))
-		say "..done"
-
-		say "Compiling Jekyll site..."
-		config = Jekyll.configuration(overrides)
-		site = Jekyll.new(config)
-		site.process
-		say "..done"
+		run 'bundle exec jekyll'
 	end
 
 	desc "site", "Generates the entire site."

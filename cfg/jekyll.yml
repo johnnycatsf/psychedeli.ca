@@ -1,9 +1,9 @@
 # psychedeli.ca blog configuration
 
 auto: false
-layouts: html
-posts: doc
-destination: pub
+layouts: ./html
+posts: ./doc
+destination: ./pub
 markdown: redcarpet
 pygments: true
 permalink: pretty       # /category/YYYY/MM/DD/title
