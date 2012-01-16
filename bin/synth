@@ -27,8 +27,10 @@ class Synth < Thor
 		end
 	end
 
-	desc "content", "Generate HTML content with Jekyll."
-	def content
+	desc "site", "Generates the entire site, including HTML content with Jekyll."
+	def site
+		invoke :javascripts
+		invoke :stylesheets
 		run 'jekyll --config cfg/jekyll.yml'
 	end
 end
