@@ -12,6 +12,7 @@
 # Homepage:: http://psychedeli.ca/
 
 require 'rubygems'
+require 'bundler'
 require 'thor'
 require 'uglifier'
 require 'sass'
