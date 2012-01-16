@@ -13,6 +13,9 @@ gem 'liquid', '2.2.2'
 gem 'sass'
 gem 'compass'
 gem 'redcarpet'
+gem 'uglifier'
+gem 'execjs'
+gem 'therubyracer'
 
 # development
 gem 'rb-fsevent'

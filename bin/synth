@@ -1,37 +1,78 @@
 #!/usr/bin/env ruby
+#
+# = synth
+#
+# Synthesizes the blog. Runs Uglify to compile and minify JavaScripts,
+# then runs Sass to compile stylesheets, and finally runs Jekyll to
+# compile the Markdown-formatted posts with the static HTML.
+#
+# Please run this in the root directory of the psychedeli.ca installation.
+#
+# Author:: Tom Scott
+# Homepage:: http://psychedeli.ca/
 
 require 'rubygems'
 require 'thor'
+require 'uglifier'
+require 'sass'
+require 'yaml'
+#require 'jekyll'
 
 class Synth < Thor
 	include Thor::Actions
 
-	desc "javascripts", "Uglify and place javascripts."
+	desc "javascripts", "Compiles and minifies all .js files located in js/ with Uglify."
 	def javascripts
-		files = %w[jquery jquery.facebox jquery.linkifyTags functions ready]
+		@javascripts = ""
 
-		javascripts = ""
-		files.each do |file|
-			javascripts += "js/#{file}.js "
+		say "Compressing JavaScript files..."
+		Dir.glob(File.join(Dir.pwd, 'js', '*.js')) do |js_file|
+			@javascripts += Uglifier.compile(File.join(Dir.pwd, 'js', js_file)) unless js_file == 'application.js'
 		end
+		say "..done"
 
-		run %Q[uglifyjs --no-copyright #{javascripts} > js/application.js]
+		say "Compiling JavaScripts together..."
+		File.read(File.join(Dir.pwd, 'js', 'application.js')) do |f|
+			f.write(@javascripts)
+		end
+		say "..done"
 	end
 
-	desc "stylesheets", "Compile and compress stylesheets with Compass."
+	desc "stylesheets", "Compile and compress stylesheets in css/ with Sass."
 	def stylesheets
-		files = %w[screen print]
+		@stylesheets = ""
 
-		files.each do |stylesheet|
-			run %Q[compass compile css/app/#{stylesheet}.scss]
+		say "Compiling SCSS to CSS..."
+		Dir.glob(File.join(Dir.pwd, 'css', '*.scss')) do |css_file|
+			@stylesheets += Sass.compile_file(File.join(Dir.pwd, 'css', css_file))
 		end
+		say "..done"
+
+		say "Compiling CSS together..."
+		File.read(File.join(Dir.pwd, 'css', 'screen.css')) do |f|
+			f.write(@stylesheets)
+		end
+		say "..done"
 	end
 
-	desc "site", "Generates the entire site, including HTML content with Jekyll."
+	desc "content", 	"Generates the post and layout content with Jekyll."
+	def content
+		say "Validating YAML configuration overrides"
+		overrides = YAML::load_file(File.join(Dir.pwd, 'cfg', 'jekyll.yml'))
+		say "..done"
+
+		say "Compiling Jekyll site..."
+		config = Jekyll.configuration(overrides)
+		site = Jekyll.new(config)
+		site.process
+		say "..done"
+	end
+
+	desc "site", "Generates the entire site."
 	def site
 		invoke :javascripts
 		invoke :stylesheets
-		run 'jekyll --config cfg/jekyll.yml'
+		invoke :content
 	end
 end
 
