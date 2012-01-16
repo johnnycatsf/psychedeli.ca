@@ -6,4 +6,4 @@ else
 fi
 
 # Add the binary to our PATH
-PATH=$HOME/Sites/blog/bin
+PATH=$HOME/Sites/blog/bin:$PATH
