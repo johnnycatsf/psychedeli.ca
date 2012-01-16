@@ -13,5 +13,5 @@ end
 
 # Serve the static Jekyll site
 map '/' do
-  run Rack::Static, root: 'pub'
+  run Rack::Static, urls: ['/'], root: 'pub'
 end
