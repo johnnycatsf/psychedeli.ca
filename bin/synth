@@ -11,12 +11,18 @@
 # Author:: Tom Scott
 # Homepage:: http://psychedeli.ca/
 
+require 'pathname'
+
+ENV['BUNDLE_GEMFILE'] ||= File.expand_path("../../Gemfile", Pathname.new(__FILE__).realpath)
+
 require 'rubygems'
-require 'bundler'
+require 'bundler/setup'
+
 require 'thor'
+require 'yaml'
+require 'jekyll'
 require 'uglifier'
 require 'sass'
-require 'yaml'
 
 class Synth < Thor
 	include Thor::Actions
@@ -57,11 +63,11 @@ class Synth < Thor
 
 	desc "content", 	"Generates the post and layout content with Jekyll."
 	def content
-		run 'bundle exec jekyll'
+		config = YAML::load_file(File.join(Dir.pwd, 'cfg', 'jekyll.yml'))
 	end
 
-	desc "site", "Generates the entire site."
-	def site
+	desc "all", "Generates the entire site."
+	def all
 		invoke :javascripts
 		invoke :stylesheets
 		invoke :content
