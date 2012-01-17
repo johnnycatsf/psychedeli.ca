@@ -3,7 +3,7 @@ source :rubygems
 # backend
 gem 'rack'
 gem 'rack-contrib'
-gem 'jekyll' #, git: 'git://github.com/tubbo/jekyll.git'
+gem 'jekyll', git: 'git://github.com/tubbo/jekyll.git'
 gem 'sprockets'
 gem 'thor'
 

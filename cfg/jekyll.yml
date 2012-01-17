@@ -1,8 +1,11 @@
 # psychedeli.ca blog configuration
+#
+# paths are relative from the app root directory
 
 auto: false
 layouts: ./html
 posts: ./doc
+source: ./
 destination: ./pub
 markdown: redcarpet
 pygments: true

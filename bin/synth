@@ -63,8 +63,22 @@ class Synth < Thor
 
 	desc "content", 	"Generates the post and layout content with Jekyll."
 	def content
-		config = YAML::load_file(File.join(Dir.pwd, 'cfg', 'jekyll.yml'))
-	end
+		from_yaml = YAML::load_file(File.join(Dir.pwd, 'cfg', 'jekyll.yml'))
+    config = Jekyll.configuration(from_yaml)
+    site = site = Jekyll::Site.new(config)
+
+    # Mimic the Jekyll binary output
+    say "Building site: #{source} -> #{destination}"
+    begin
+      site.process
+    rescue Jekyll::FatalException => e
+      say "ERROR: YOUR SITE COULD NOT BE BUILT:"
+      say "------------------------------------"
+      say e.message
+      exit 1
+    end
+    say "Successfully generated site: #{source} -> #{destination}"
+  end
 
 	desc "all", "Generates the entire site."
 	def all
