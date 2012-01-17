@@ -5,7 +5,6 @@
 auto: false
 layouts: ./html
 posts: ./doc
-source: ./
 destination: ./pub
 markdown: redcarpet
 pygments: true
@@ -28,3 +27,6 @@ exclude:
     - psychedelica.gemspec
     - .gitignore
     - .gitmodules
+    - psychedeli.ca.sublime-project
+    - psychedeli.ca.sublime-workspace
+    - lib

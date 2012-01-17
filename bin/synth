@@ -23,6 +23,7 @@ require 'yaml'
 require 'jekyll'
 require 'uglifier'
 require 'sass'
+require 'fileutils'
 
 class Synth < Thor
 	include Thor::Actions
@@ -63,21 +64,29 @@ class Synth < Thor
 
 	desc "content", 	"Generates the post and layout content with Jekyll."
 	def content
-		from_yaml = YAML::load_file(File.join(Dir.pwd, 'cfg', 'jekyll.yml'))
-    config = Jekyll.configuration(from_yaml)
-    site = site = Jekyll::Site.new(config)
+    # options = {
+    #   'config_file' => "cfg/jekyll.yml"
+    # }
+    # config = Jekyll.configuration(options)
+    # site = Jekyll::Site.new(config)
 
-    # Mimic the Jekyll binary output
-    say "Building site: #{source} -> #{destination}"
-    begin
-      site.process
-    rescue Jekyll::FatalException => e
-      say "ERROR: YOUR SITE COULD NOT BE BUILT:"
-      say "------------------------------------"
-      say e.message
-      exit 1
-    end
-    say "Successfully generated site: #{source} -> #{destination}"
+    # source = config['source']
+    # destination = config['destination']
+    # FileUtils.mkdir_p(destination)
+
+    # # Mimic the Jekyll binary output
+    # say "Building site: #{source} -> #{destination}"
+    # begin
+    #   site.process
+    # rescue Jekyll::FatalException => e
+    #   say "ERROR: YOUR SITE COULD NOT BE BUILT:"
+    #   say "------------------------------------"
+    #   say e.message
+    #   exit 1
+    # end
+    # say "Successfully generated site: #{source} -> #{destination}"
+
+    run "bundle exec jekyll --config cfg/jekyll.yml"
   end
 
 	desc "all", "Generates the entire site."
