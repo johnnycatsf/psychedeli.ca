@@ -1,25 +1,15 @@
 #
 # dependencies
 #
-require 'rack'
-require 'rack/jekyll'
-require File.join(File.dirname(__FILE__), 'lib', 'status_exchange')
-require 'sprockets'
 
-# Sprockets asset management
-map '/files' do
-  assets = Sprockets::Environment.new
-  assets.append_path 'css'
-  assets.append_path 'js'
-  assets.append_path 'img'
-  run assets
-end
+require "rack/jekyll"
 
-# StatusExchange ticker service
-map '/status.json' do
-  status_exchange = StatusExchange.new
-  run status_exchange
-end
+run Rack::Jekyll.new(:destination => 'pub')
 
-# The static Jekyll site
-run Rack::Jekyll.new
+#require File.join(File.dirname(__FILE__), 'lib', 'status_exchange')
+
+# The StatusExchange ticker service is available at /status.json
+# map '/status.json' do
+#   status_exchange = StatusExchange.new
+#   run status_exchange
+# end

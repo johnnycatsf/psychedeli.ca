@@ -1,6 +1,7 @@
 public*
 .sass-cache/
 *.tmproj
+*.sublime*
 Gemfile.lock
 **.DS_Store
 **/*.DS_Store

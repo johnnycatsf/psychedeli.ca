@@ -1,16 +1,100 @@
-#!/bin/bash
+#!/usr/bin/env ruby
 #
 # = synth
 #
-# The psychedeli.ca blog generator. Compresses and minifies JavaScript files,
+# Synthesizes the blog. Runs Uglify to compile and minify JavaScripts,
+# then runs Sass to compile stylesheets, and finally runs Jekyll to
+# compile the Markdown-formatted posts with the static HTML.
+#
+# Please run this in the root directory of the psychedeli.ca installation.
+#
+# Author:: Tom Scott
+# Homepage:: http://psychedeli.ca/
 
-# javascripts
-uglifyjs --no-copyright js/jquery.js js/jquery.facebox.js js/jquery.linkifyTags.js js/functions.js js/ready.js > js/application.js;
-echo "uglified to js/application.js";
+require 'pathname'
 
-# stylesheets
-compass compile css/app/screen.scss;
-compass compile css/app/print.scss;
+ENV['BUNDLE_GEMFILE'] ||= File.expand_path("../../Gemfile", Pathname.new(__FILE__).realpath)
 
-# content
-jekyll
+require 'rubygems'
+require 'bundler/setup'
+
+require 'thor'
+require 'yaml'
+require 'jekyll'
+require 'uglifier'
+require 'sass'
+require 'fileutils'
+
+class Synth < Thor
+	include Thor::Actions
+
+	desc "javascripts", "Compiles and minifies all .js files located in js/ with Uglify."
+	def javascripts
+		@javascripts = ""
+
+		say "Compressing JavaScript files..."
+		Dir.glob(File.join(Dir.pwd, 'js', '*.js')) do |js_file|
+			@javascripts += Uglifier.compile(File.join(Dir.pwd, 'js', js_file)) unless js_file == 'application.js'
+		end
+		say "..done"
+
+		say "Compiling JavaScripts together..."
+		File.read(File.join(Dir.pwd, 'js', 'application.js')) do |f|
+			f.write(@javascripts)
+		end
+		say "..done"
+	end
+
+	desc "stylesheets", "Compile and compress stylesheets in css/ with Sass."
+	def stylesheets
+		@stylesheets = ""
+
+		say "Compiling SCSS to CSS..."
+		Dir.glob(File.join(Dir.pwd, 'css', '*.scss')) do |css_file|
+			@stylesheets += Sass.compile_file(File.join(Dir.pwd, 'css', css_file))
+		end
+		say "..done"
+
+		say "Compiling CSS together..."
+		File.read(File.join(Dir.pwd, 'css', 'screen.css')) do |f|
+			f.write(@stylesheets)
+		end
+		say "..done"
+	end
+
+	desc "content", 	"Generates the post and layout content with Jekyll."
+	def content
+    # options = {
+    #   'config_file' => "cfg/jekyll.yml"
+    # }
+    # config = Jekyll.configuration(options)
+    # site = Jekyll::Site.new(config)
+
+    # source = config['source']
+    # destination = config['destination']
+    # FileUtils.mkdir_p(destination)
+
+    # # Mimic the Jekyll binary output
+    # say "Building site: #{source} -> #{destination}"
+    # begin
+    #   site.process
+    # rescue Jekyll::FatalException => e
+    #   say "ERROR: YOUR SITE COULD NOT BE BUILT:"
+    #   say "------------------------------------"
+    #   say e.message
+    #   exit 1
+    # end
+    # say "Successfully generated site: #{source} -> #{destination}"
+
+    run "bundle exec jekyll --config cfg/jekyll.yml"
+  end
+
+	desc "all", "Generates the entire site."
+	def all
+		invoke :javascripts
+		invoke :stylesheets
+		invoke :content
+	end
+end
+
+Synth.start

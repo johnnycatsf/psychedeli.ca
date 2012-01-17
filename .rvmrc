@@ -4,3 +4,6 @@ if [ -e '.rvmrc_custom' ]; then
 else
   rvm --create use 1.9.3@psychedelica;
 fi
+
+# Add the binary to our PATH
+PATH=$HOME/Sites/blog/bin:$PATH
