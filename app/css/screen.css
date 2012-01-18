@@ -1,0 +1,938 @@
+/*
+ * Stylesheet build for screen readers, desktop web browsers and by default all internet devices.
+ */
+/* line 17, ../../../.rvm/gems/ruby-1.9.3-p0@psychedelica/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* line 20, ../../../.rvm/gems/ruby-1.9.3-p0@psychedelica/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+body {
+  line-height: 1;
+}
+
+/* line 22, ../../../.rvm/gems/ruby-1.9.3-p0@psychedelica/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 24, ../../../.rvm/gems/ruby-1.9.3-p0@psychedelica/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 26, ../../../.rvm/gems/ruby-1.9.3-p0@psychedelica/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 28, ../../../.rvm/gems/ruby-1.9.3-p0@psychedelica/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 101, ../../../.rvm/gems/ruby-1.9.3-p0@psychedelica/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 30, ../../../.rvm/gems/ruby-1.9.3-p0@psychedelica/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 114, ../../../.rvm/gems/ruby-1.9.3-p0@psychedelica/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 1, lib/pygments.scss */
+.x {
+  display: none;
+}
+
+/* line 2, lib/pygments.scss */
+.hll {
+  background-color: #ffffcc;
+}
+
+/* line 3, lib/pygments.scss */
+.c {
+  color: #408080;
+  font-style: italic;
+}
+
+/* Comment */
+/* line 4, lib/pygments.scss */
+.err {
+  border: 1px solid #FF0000;
+}
+
+/* Error */
+/* line 5, lib/pygments.scss */
+.k {
+  color: #008000;
+  font-weight: bold;
+}
+
+/* Keyword */
+/* line 6, lib/pygments.scss */
+.o {
+  color: #666666;
+}
+
+/* Operator */
+/* line 7, lib/pygments.scss */
+.cm {
+  color: #408080;
+  font-style: italic;
+}
+
+/* Comment.Multiline */
+/* line 8, lib/pygments.scss */
+.cp {
+  color: #BC7A00;
+}
+
+/* Comment.Preproc */
+/* line 9, lib/pygments.scss */
+.c1 {
+  color: #408080;
+  font-style: italic;
+}
+
+/* Comment.Single */
+/* line 10, lib/pygments.scss */
+.cs {
+  color: #408080;
+  font-style: italic;
+}
+
+/* Comment.Special */
+/* line 11, lib/pygments.scss */
+.gd {
+  color: #A00000;
+}
+
+/* Generic.Deleted */
+/* line 12, lib/pygments.scss */
+.ge {
+  font-style: italic;
+}
+
+/* Generic.Emph */
+/* line 13, lib/pygments.scss */
+.gr {
+  color: #FF0000;
+}
+
+/* Generic.Error */
+/* line 14, lib/pygments.scss */
+.gh {
+  color: #000080;
+  font-weight: bold;
+}
+
+/* Generic.Heading */
+/* line 15, lib/pygments.scss */
+.gi {
+  color: #00A000;
+}
+
+/* Generic.Inserted */
+/* line 16, lib/pygments.scss */
+.go {
+  color: #808080;
+}
+
+/* Generic.Output */
+/* line 17, lib/pygments.scss */
+.gp {
+  color: #000080;
+  font-weight: bold;
+}
+
+/* Generic.Prompt */
+/* line 18, lib/pygments.scss */
+.gs {
+  font-weight: bold;
+}
+
+/* Generic.Strong */
+/* line 19, lib/pygments.scss */
+.gu {
+  color: #800080;
+  font-weight: bold;
+}
+
+/* Generic.Subheading */
+/* line 20, lib/pygments.scss */
+.gt {
+  color: #0040D0;
+}
+
+/* Generic.Traceback */
+/* line 21, lib/pygments.scss */
+.kc {
+  color: #008000;
+  font-weight: bold;
+}
+
+/* Keyword.Constant */
+/* line 22, lib/pygments.scss */
+.kd {
+  color: #008000;
+  font-weight: bold;
+}
+
+/* Keyword.Declaration */
+/* line 23, lib/pygments.scss */
+.kn {
+  color: #008000;
+  font-weight: bold;
+}
+
+/* Keyword.Namespace */
+/* line 24, lib/pygments.scss */
+.kp {
+  color: #008000;
+}
+
+/* Keyword.Pseudo */
+/* line 25, lib/pygments.scss */
+.kr {
+  color: #008000;
+  font-weight: bold;
+}
+
+/* Keyword.Reserved */
+/* line 26, lib/pygments.scss */
+.kt {
+  color: #B00040;
+}
+
+/* Keyword.Type */
+/* line 27, lib/pygments.scss */
+.m {
+  color: #666666;
+}
+
+/* Literal.Number */
+/* line 28, lib/pygments.scss */
+.s {
+  color: #BA2121;
+}
+
+/* Literal.String */
+/* line 29, lib/pygments.scss */
+.na {
+  color: #7D9029;
+}
+
+/* Name.Attribute */
+/* line 30, lib/pygments.scss */
+.nb {
+  color: #008000;
+}
+
+/* Name.Builtin */
+/* line 31, lib/pygments.scss */
+.nc {
+  color: #0000FF;
+  font-weight: bold;
+}
+
+/* Name.Class */
+/* line 32, lib/pygments.scss */
+.no {
+  color: #880000;
+}
+
+/* Name.Constant */
+/* line 33, lib/pygments.scss */
+.nd {
+  color: #AA22FF;
+}
+
+/* Name.Decorator */
+/* line 34, lib/pygments.scss */
+.ni {
+  color: #999999;
+  font-weight: bold;
+}
+
+/* Name.Entity */
+/* line 35, lib/pygments.scss */
+.ne {
+  color: #D2413A;
+  font-weight: bold;
+}
+
+/* Name.Exception */
+/* line 36, lib/pygments.scss */
+.nf {
+  color: #0000FF;
+}
+
+/* Name.Function */
+/* line 37, lib/pygments.scss */
+.nl {
+  color: #A0A000;
+}
+
+/* Name.Label */
+/* line 38, lib/pygments.scss */
+.nn {
+  color: #0000FF;
+  font-weight: bold;
+}
+
+/* Name.Namespace */
+/* line 39, lib/pygments.scss */
+.nt {
+  color: #008000;
+  font-weight: bold;
+}
+
+/* Name.Tag */
+/* line 40, lib/pygments.scss */
+.nv {
+  color: #19177C;
+}
+
+/* Name.Variable */
+/* line 41, lib/pygments.scss */
+.ow {
+  color: #AA22FF;
+  font-weight: bold;
+}
+
+/* Operator.Word */
+/* line 42, lib/pygments.scss */
+.w {
+  color: #bbbbbb;
+}
+
+/* Text.Whitespace */
+/* line 43, lib/pygments.scss */
+.mf {
+  color: #666666;
+}
+
+/* Literal.Number.Float */
+/* line 44, lib/pygments.scss */
+.mh {
+  color: #666666;
+}
+
+/* Literal.Number.Hex */
+/* line 45, lib/pygments.scss */
+.mi {
+  color: #666666;
+}
+
+/* Literal.Number.Integer */
+/* line 46, lib/pygments.scss */
+.mo {
+  color: #666666;
+}
+
+/* Literal.Number.Oct */
+/* line 47, lib/pygments.scss */
+.sb {
+  color: #BA2121;
+}
+
+/* Literal.String.Backtick */
+/* line 48, lib/pygments.scss */
+.sc {
+  color: #BA2121;
+}
+
+/* Literal.String.Char */
+/* line 49, lib/pygments.scss */
+.sd {
+  color: #BA2121;
+  font-style: italic;
+}
+
+/* Literal.String.Doc */
+/* line 50, lib/pygments.scss */
+.s2 {
+  color: #BA2121;
+}
+
+/* Literal.String.Double */
+/* line 51, lib/pygments.scss */
+.se {
+  color: #BB6622;
+  font-weight: bold;
+}
+
+/* Literal.String.Escape */
+/* line 52, lib/pygments.scss */
+.sh {
+  color: #BA2121;
+}
+
+/* Literal.String.Heredoc */
+/* line 53, lib/pygments.scss */
+.si {
+  color: #BB6688;
+  font-weight: bold;
+}
+
+/* Literal.String.Interpol */
+/* line 54, lib/pygments.scss */
+.sx {
+  color: #008000;
+}
+
+/* Literal.String.Other */
+/* line 55, lib/pygments.scss */
+.sr {
+  color: #BB6688;
+}
+
+/* Literal.String.Regex */
+/* line 56, lib/pygments.scss */
+.s1 {
+  color: #BA2121;
+}
+
+/* Literal.String.Single */
+/* line 57, lib/pygments.scss */
+.ss {
+  color: #19177C;
+}
+
+/* Literal.String.Symbol */
+/* line 58, lib/pygments.scss */
+.bp {
+  color: #008000;
+}
+
+/* Name.Builtin.Pseudo */
+/* line 59, lib/pygments.scss */
+.vc {
+  color: #19177C;
+}
+
+/* Name.Variable.Class */
+/* line 60, lib/pygments.scss */
+.vg {
+  color: #19177C;
+}
+
+/* Name.Variable.Global */
+/* line 61, lib/pygments.scss */
+.vi {
+  color: #19177C;
+}
+
+/* Name.Variable.Instance */
+/* line 62, lib/pygments.scss */
+.il {
+  color: #666666;
+}
+
+/* Literal.Number.Integer.Long */
+@font-face {
+  font-family: 'CooperStdBlack';
+  src: url("lib/fonts/lib/fonts/cooperblackstd-webfont.eot");
+  src: url("lib/fonts/cooperblackstd-webfont.eot?#iefix") format("embedded-opentype"), url("lib/fonts/cooperblackstd-webfont.woff") format("woff"), url("lib/fonts/cooperblackstd-webfont.ttf") format("truetype"), url("lib/fonts/cooperblackstd-webfont.svg#CooperStdBlack") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'BrandonGrotesqueBlack';
+  src: url("lib/fonts/brandon_blk-webfont.eot");
+  src: url("lib/fonts/brandon_blk-webfont.eot?#iefix") format("embedded-opentype"), url("lib/fonts/brandon_blk-webfont.woff") format("woff"), url("lib/fonts/brandon_blk-webfont.ttf") format("truetype"), url("lib/fonts/brandon_blk-webfont.svg#BrandonGrotesqueBlack") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HelveticaNeueLTStd45Light';
+  src: url("lib/fonts/helveticaneueltstd-lt-webfont.eot");
+  src: url("lib/fonts/helveticaneueltstd-lt-webfont.eot?#iefix") format("embedded-opentype"), url("lib/fonts/helveticaneueltstd-lt-webfont.woff") format("woff"), url("lib/fonts/helveticaneueltstd-lt-webfont.ttf") format("truetype"), url("lib/fonts/helveticaneueltstd-lt-webfont.svg#HelveticaNeueLTStd45Light") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Museo500';
+  src: url("lib/fonts/museo500-regular-webfont.eot");
+  src: url("lib/fonts/museo500-regular-webfont.eot?#iefix") format("embedded-opentype"), url("lib/fonts/museo500-regular-webfont.woff") format("woff"), url("lib/fonts/museo500-regular-webfont.ttf") format("truetype"), url("lib/fonts/museo500-regular-webfont.svg#Museo500") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'FuturaMedium';
+  src: url("lib/fonts/futura-medium-webfont.eot");
+  src: url("lib/fonts/futura-medium-webfont.eot?#iefix") format("embedded-opentype"), url("lib/fonts/futura-medium-webfont.woff") format("woff"), url("lib/fonts/futura-medium-webfont.ttf") format("truetype"), url("lib/fonts/futura-medium-webfont.svg#FuturaMedium") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* line 1, lib/plugins/_jquery.ticker.scss */
+#ticker {
+  /* the whole ticker object */
+  overflow: hidden;
+}
+
+/* line 5, lib/plugins/_jquery.ticker.scss */
+#ticker ul {
+  /* list of status messages */
+}
+
+/* line 8, lib/plugins/_jquery.ticker.scss */
+#ticker ul li {
+  /* status message */
+  float: left;
+}
+
+/* line 1, lib/plugins/_jquery.facebox.scss */
+#facebox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  text-align: left;
+}
+
+/* line 10, lib/plugins/_jquery.facebox.scss */
+#facebox .popup {
+  position: relative;
+  border: 3px solid rgba(0, 0, 0, 0);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 18px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0 0 18px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.4);
+}
+
+/* line 21, lib/plugins/_jquery.facebox.scss */
+#facebox .content {
+  display: table;
+  width: 550px;
+  padding: 10px;
+  background: #fff;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+/* line 31, lib/plugins/_jquery.facebox.scss */
+#facebox .content > p:first-child {
+  margin-top: 0;
+}
+
+/* line 34, lib/plugins/_jquery.facebox.scss */
+#facebox .content > p:last-child {
+  margin-bottom: 0;
+}
+
+/* line 38, lib/plugins/_jquery.facebox.scss */
+#facebox .close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  padding: 2px;
+  background: #fff;
+}
+
+/* line 45, lib/plugins/_jquery.facebox.scss */
+#facebox .close img {
+  opacity: 0.3;
+}
+
+/* line 48, lib/plugins/_jquery.facebox.scss */
+#facebox .close:hover img {
+  opacity: 1.0;
+}
+
+/* line 52, lib/plugins/_jquery.facebox.scss */
+#facebox .loading {
+  text-align: center;
+}
+
+/* line 56, lib/plugins/_jquery.facebox.scss */
+#facebox .image {
+  text-align: center;
+}
+
+/* line 60, lib/plugins/_jquery.facebox.scss */
+#facebox img {
+  border: 0;
+  margin: 0;
+}
+
+/* line 65, lib/plugins/_jquery.facebox.scss */
+#facebox_overlay {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+}
+
+/* line 73, lib/plugins/_jquery.facebox.scss */
+.facebox_hide {
+  z-index: -100;
+}
+
+/* line 77, lib/plugins/_jquery.facebox.scss */
+.facebox_overlayBG {
+  background-color: #000;
+  z-index: 99;
+}
+
+/*
+ * CSS Styles that are needed by jScrollPane for it to operate correctly.
+ *
+ * Include this stylesheet in your site or copy and paste the styles below into your stylesheet - jScrollPane
+ * may not operate correctly without them.
+ */
+/* line 9, lib/plugins/_jquery.jscrollpane.scss */
+.jspContainer {
+  overflow: hidden;
+  position: relative;
+}
+
+/* line 15, lib/plugins/_jquery.jscrollpane.scss */
+.jspPane {
+  position: absolute;
+}
+
+/* line 20, lib/plugins/_jquery.jscrollpane.scss */
+.jspVerticalBar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 16px;
+  height: 100%;
+  background: red;
+}
+
+/* line 30, lib/plugins/_jquery.jscrollpane.scss */
+.jspHorizontalBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 16px;
+  background: red;
+}
+
+/* line 41, lib/plugins/_jquery.jscrollpane.scss */
+.jspVerticalBar *,
+.jspHorizontalBar * {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 47, lib/plugins/_jquery.jscrollpane.scss */
+.jspCap {
+  display: none;
+}
+
+/* line 52, lib/plugins/_jquery.jscrollpane.scss */
+.jspHorizontalBar .jspCap {
+  float: left;
+}
+
+/* line 57, lib/plugins/_jquery.jscrollpane.scss */
+.jspTrack {
+  background: #dde;
+  position: relative;
+}
+
+/* line 63, lib/plugins/_jquery.jscrollpane.scss */
+.jspDrag {
+  background: #bbd;
+  position: relative;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+
+/* line 73, lib/plugins/_jquery.jscrollpane.scss */
+.jspHorizontalBar .jspTrack,
+.jspHorizontalBar .jspDrag {
+  float: left;
+  height: 100%;
+}
+
+/* line 79, lib/plugins/_jquery.jscrollpane.scss */
+.jspArrow {
+  background: #50506d;
+  text-indent: -20000px;
+  display: block;
+  cursor: pointer;
+}
+
+/* line 87, lib/plugins/_jquery.jscrollpane.scss */
+.jspArrow.jspDisabled {
+  cursor: default;
+  background: #80808d;
+}
+
+/* line 93, lib/plugins/_jquery.jscrollpane.scss */
+.jspVerticalBar .jspArrow {
+  height: 16px;
+}
+
+/* line 98, lib/plugins/_jquery.jscrollpane.scss */
+.jspHorizontalBar .jspArrow {
+  width: 16px;
+  float: left;
+  height: 100%;
+}
+
+/* line 105, lib/plugins/_jquery.jscrollpane.scss */
+.jspVerticalBar .jspArrow:focus {
+  outline: none;
+}
+
+/* line 110, lib/plugins/_jquery.jscrollpane.scss */
+.jspCorner {
+  background: #eeeef4;
+  float: left;
+  height: 100%;
+}
+
+/* Yuk! CSS Hack for IE6 3 pixel bug :( */
+/* line 118, lib/plugins/_jquery.jscrollpane.scss */
+* html .jspCorner {
+  margin: 0 -3px 0 0;
+}
+
+/* line 1, app/_layout.scss */
+body {
+  font-family: Helvetica, sans-serif;
+  background: #CCC;
+}
+
+/* line 6, app/_layout.scss */
+header {
+  height: 175px;
+}
+/* line 10, app/_layout.scss */
+header hgroup h1 {
+  float: right;
+  font-family: "CooperStdBlack", Tahoma, Helvetica, sans-serif;
+  font-size: 64px;
+  padding: 10px;
+}
+/* line 16, app/_layout.scss */
+header hgroup h1 a {
+  text-decoration: none;
+}
+/* line 19, app/_layout.scss */
+header hgroup h1 a:link, header hgroup h1 a:visited {
+  color: #000;
+}
+/* line 22, app/_layout.scss */
+header hgroup h1 a:hover, header hgroup h1 a:active {
+  color: #000253;
+}
+/* line 27, app/_layout.scss */
+header hgroup h2 {
+  float: left;
+  font-family: "FuturaMedium", Arial, sans-serif;
+  font-size: 32px;
+  color: #FFF;
+  background: #CF0000;
+  border-top: 1px solid gold;
+  border-bottom: 1px solid gold;
+  margin-left: -9px;
+  margin-top: 55px;
+}
+
+/* line 41, app/_layout.scss */
+section {
+  position: relative;
+}
+/* line 45, app/_layout.scss */
+section#posts {
+  width: 940px;
+  float: right;
+}
+/* line 50, app/_layout.scss */
+section#posts .arrow {
+  display: none;
+  float: left;
+  font-size: 96pt;
+  padding: 286px 0;
+  vertical-align: middle;
+  width: 64px;
+  position: absolute;
+  top: 10px;
+  z-index: 2;
+  background: #CCC;
+}
+/* line 62, app/_layout.scss */
+section#posts .arrow.left {
+  left: 0px;
+}
+/* line 65, app/_layout.scss */
+section#posts .arrow.right {
+  right: 0px;
+}
+/* line 69, app/_layout.scss */
+section#posts .arrow:hover {
+  background: #AAA;
+  cursor: pointer;
+}
+/* line 75, app/_layout.scss */
+section#posts .clear {
+  clear: both;
+}
+
+/* line 17, app/screen.scss */
+header hgroup h2 {
+  -moz-transform: rotate(-25deg);
+  -webkit-transform: rotate(-25deg);
+  -o-transform: rotate(-25deg);
+  -ms-transform: rotate(-25deg);
+  transform: rotate(-25deg);
+}
+
+/* line 3, app/models/_post.scss */
+article {
+  background: #FFF;
+  padding: 20px;
+  margin: 35px 50px;
+}
+/* line 10, app/models/_post.scss */
+article* {
+  background: #FFF;
+}
+/* line 15, app/models/_post.scss */
+article header {
+  -webkit-border-radius: 4px 4px;
+  -moz-border-radius: 4px / 4px;
+  -o-border-radius: 4px / 4px;
+  -ms-border-radius: 4px / 4px;
+  -khtml-border-radius: 4px / 4px;
+  border-radius: 4px / 4px;
+  border-bottom: 3px dotted #000;
+  height: 50px;
+}
+/* line 21, app/models/_post.scss */
+article header h1 {
+  font-family: "Museo500", Times, serif;
+  font-size: 36px;
+}
+/* line 25, app/models/_post.scss */
+article header h1 a {
+  text-decoration: none;
+  color: #000;
+}
+/* line 29, app/models/_post.scss */
+article header h1 a:hover, article header h1 a:active {
+  color: #0000FF;
+}
+/* line 33, app/models/_post.scss */
+article header h1 a:link, article header h1 a:visited {
+  color: #000;
+}
+/* line 42, app/models/_post.scss */
+article section h2 {
+  font-size: 30px;
+  font-family: "BrandonGrotesqueBlack", Arial, sans-serif;
+  letter-spacing: 0.03em;
+}
+/* line 47, app/models/_post.scss */
+article section h3 {
+  font-size: 22px;
+  font-family: "BrandonGrotesqueBlack", Arial, sans-serif;
+  letter-spacing: 0.03em;
+}
+/* line 52, app/models/_post.scss */
+article section p {
+  padding: 10px 0 10px 0;
+  line-height: 18px;
+  font-size: 14px;
+}
+/* line 58, app/models/_post.scss */
+article section p a {
+  text-decoration: none;
+}
+/* line 61, app/models/_post.scss */
+article section p a:link, article section p a:visited {
+  color: #0000FF;
+}
+/* line 64, app/models/_post.scss */
+article section p a:hover, article section p a:active {
+  color: #000022;
+}
+/* line 67, app/models/_post.scss */
+article section pre {
+  background-color: #EEE;
+}
+/* line 70, app/models/_post.scss */
+article section pre code {
+  font-size: 12px;
+  font-family: 'Lucida Console', Courier, fixed;
+}
+/* line 75, app/models/_post.scss */
+article section blockquote {
+  border-left: 2px solid #ccc;
+  background: #eef;
+}
+/* line 79, app/models/_post.scss */
+article section blockquote p {
+  padding: 10px 25px;
+}
+/* line 86, app/models/_post.scss */
+article footer {
+  border-top: 1px solid #CCC;
+}
+/* line 89, app/models/_post.scss */
+article footer :first-child {
+  padding-top: 10px;
+}
+/* line 93, app/models/_post.scss */
+article footer #icons {
+  float: left;
+}
+/* line 96, app/models/_post.scss */
+article footer p {
+  text-align: right;
+  font-size: 12px;
+}
+/* line 100, app/models/_post.scss */
+article footer p time {
+  font-weight: bold;
+}
+/* line 106, app/models/_post.scss */
+article footer .tags a {
+  padding-left: 10px;
+  text-decoration: none;
+  color: #0000FF;
+}

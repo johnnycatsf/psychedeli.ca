@@ -3,9 +3,10 @@
 # paths are relative from the app root directory
 
 auto: false
-layouts: ./html
-posts: ./doc
-destination: ./pub
+source: ./app
+layouts: ./app/html
+posts: ./app/doc
+destination: ./app/pub
 markdown: redcarpet
 pygments: true
 permalink: pretty       # /category/YYYY/MM/DD/title
