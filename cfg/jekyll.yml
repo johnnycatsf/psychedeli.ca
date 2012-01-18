@@ -6,7 +6,7 @@ auto: false
 source: ./app
 layouts: ./app/html
 posts: ./app/doc
-destination: ./app/pub
+destination: ./pub
 markdown: redcarpet
 pygments: true
 permalink: pretty       # /category/YYYY/MM/DD/title
