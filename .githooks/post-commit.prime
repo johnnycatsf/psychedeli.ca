@@ -1,7 +1,0 @@
-#!/bin/sh
-
-echo
-echo "**** pushing changes to Hub"
-echo
-
-git push origin
