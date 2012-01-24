@@ -27,3 +27,4 @@ gem 'mogli'
 
 # deployment
 gem 'capistrano'
+gem 'heroku'
