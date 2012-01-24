@@ -15,7 +15,7 @@ role :db, domain, :primary => true
 
 # == Application
 #
-# Where to put the application once it reaches the server, and what it's called
+# Where to put the application once it reaches the server, and what it's called.
 set :application, "blog"
 set :deploy_to, "/home/#{user}/src/#{application}"
 
@@ -34,7 +34,7 @@ set :git_enable_submodules, 1
 
 # == Passenger
 #
-# psychedeli.ca is powered by Passenger. Here's a deploy task that makes#
+# psychedeli.ca is powered by Passenger. Here's a deploy task that makes
 # restarting a bit easier.
 namespace :passenger do
   desc "Restart Application"
