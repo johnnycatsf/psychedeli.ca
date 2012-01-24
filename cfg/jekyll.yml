@@ -4,8 +4,8 @@
 
 auto: false
 source: ./app
-layouts: ./app/html
-posts: ./app/doc
+layouts: html
+posts: doc
 destination: ./pub
 markdown: redcarpet
 pygments: true

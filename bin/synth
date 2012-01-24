@@ -30,62 +30,43 @@ class Synth < Thor
 
 	desc "javascripts", "Compiles and minifies all .js files located in js/ with Uglify."
 	def javascripts
-		@javascripts = ""
+		javascripts = ""
 
-		say "Compressing JavaScript files..."
+		say "[uglifier] Compiling JavaScripts..."
 		Dir.glob(File.join(Dir.pwd, 'js', '*.js')) do |js_file|
-			@javascripts += Uglifier.compile(File.join(Dir.pwd, 'js', js_file)) unless js_file == 'application.js'
+      unless js_file == 'application.js'
+			   javascripts += Uglifier.compile(File.join(Dir.pwd, 'js', js_file))
+      end
 		end
-		say "..done"
+		say "[uglifier] ..done"
 
-		say "Compiling JavaScripts together..."
+		say "Building master JavaScript..."
 		File.read(File.join(Dir.pwd, 'js', 'application.js')) do |f|
-			f.write(@javascripts)
+			f.write(javascripts)
 		end
-		say "..done"
+		say "[uglifier] ..done"
 	end
 
 	desc "stylesheets", "Compile and compress stylesheets in css/ with Sass."
 	def stylesheets
-		@stylesheets = ""
+		stylesheets = ""
 
-		say "Compiling SCSS to CSS..."
+		say "[sass] Compiling Sass stylesheets..."
 		Dir.glob(File.join(Dir.pwd, 'css', '*.scss')) do |css_file|
-			@stylesheets += Sass.compile_file(File.join(Dir.pwd, 'css', css_file))
+			stylesheets += Sass.compile_file(File.join(Dir.pwd, 'css', css_file))
 		end
-		say "..done"
+		say "[sass] ..done"
 
-		say "Compiling CSS together..."
+		say "[sass] Building master stylesheet..."
 		File.read(File.join(Dir.pwd, 'css', 'screen.css')) do |f|
-			f.write(@stylesheets)
+			f.write(stylesheets)
 		end
-		say "..done"
+		say "[sass] ..done"
 	end
 
 	desc "content", 	"Generates the post and layout content with Jekyll."
 	def content
-    # options = {
-    #   'config_file' => "cfg/jekyll.yml"
-    # }
-    # config = Jekyll.configuration(options)
-    # site = Jekyll::Site.new(config)
-
-    # source = config['source']
-    # destination = config['destination']
-    # FileUtils.mkdir_p(destination)
-
-    # # Mimic the Jekyll binary output
-    # say "Building site: #{source} -> #{destination}"
-    # begin
-    #   site.process
-    # rescue Jekyll::FatalException => e
-    #   say "ERROR: YOUR SITE COULD NOT BE BUILT:"
-    #   say "------------------------------------"
-    #   say e.message
-    #   exit 1
-    # end
-    # say "Successfully generated site: #{source} -> #{destination}"
-
+    say "[jekyll] Compiling static content..."
     run "bundle exec jekyll --config cfg/jekyll.yml"
   end
 
