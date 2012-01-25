@@ -44,7 +44,7 @@ module Jekyll
     priority :low
 
     # Domain that you are generating the sitemap for - update this to match your site.
-    BASE_URL = 'http://recursive-design.com'
+    BASE_URL = 'http://psychedeli.ca'
 
     # Generates the sitemap.xml file.
     #
@@ -58,7 +58,7 @@ module Jekyll
       end
 
       # Write the contents of sitemap.xml.
-      File.open(File.join(site_folder, 'sitemap.xml'), 'w') do |f|
+      File.open(File.join(site_folder, 'xml', 'sitemap.xml'), 'w') do |f|
         f.write(generate_header())
         f.write(generate_content(site))
         f.write(generate_footer())
@@ -66,7 +66,7 @@ module Jekyll
       end
 
       # Add a static file entry for the zip file, otherwise Site::cleanup will remove it.
-      site.static_files << Jekyll::StaticSitemapFile.new(site, site.dest, '/', 'sitemap.xml')
+      site.static_files << Jekyll::StaticSitemapFile.new(site, site.dest, '/xml/', 'sitemap.xml')
     end
 
     private
