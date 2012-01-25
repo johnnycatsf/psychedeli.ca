@@ -28,3 +28,4 @@ gem 'mogli'
 # deployment
 gem 'capistrano'
 gem 'heroku'
+gem 'jammit'
