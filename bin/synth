@@ -71,7 +71,9 @@ class Synth < Thor
   end
 
 	desc "all", "Generates the entire site."
+	method_option :clobber
 	def all
+		invoke :destroy if options[:clobber]
 		invoke :javascripts
 		invoke :stylesheets
 		invoke :content
