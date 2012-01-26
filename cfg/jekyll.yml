@@ -1,12 +1,9 @@
-# psychedeli.ca blog configuration
-#
-# paths are relative from the app root directory
-
 auto: false
 source: ./app
-layouts: html
+layouts: html # relative from the source dir
 posts: doc
 destination: ./pub
+plugins: ./lib/plugins
 markdown: redcarpet
 pygments: true
 permalink: pretty       # /category/YYYY/MM/DD/title
