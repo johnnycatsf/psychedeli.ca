@@ -11,23 +11,4 @@ markdown: redcarpet
 pygments: true
 permalink: pretty       # /category/YYYY/MM/DD/title
 exclude:
-    - Gemfile
-    - Gemfile.lock
-    - config.rb
-    - conaru
-    - gen
-    - tmp
-    - src
-    - swf
-    - cfg
     - html
-    - bin
-    - .rvmrc
-    - Capfile
-    - config.ru
-    - psychedelica.gemspec
-    - .gitignore
-    - .gitmodules
-    - psychedeli.ca.sublime-project
-    - psychedeli.ca.sublime-workspace
-    - lib

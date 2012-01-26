@@ -11,7 +11,7 @@
 set :user, "necromancer"
 set :domain, "psychedeli.ca"
 server domain, :app, :web
-role :db, domain, :primary => true
+# role :db, domain, :primary => true
 
 # == Application
 #
@@ -26,7 +26,7 @@ set :deploy_to, "/home/#{user}/src/#{application}"
 # on SSH for communication.
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
-set :repository, "git@psychedeli.ca:code/blog.git"
+set :repository, "git@github.com:tubbo/psychedeli.ca.git"
 set :scm, "git"
 set :user, "necromancer"
 set :use_sudo, true
@@ -35,10 +35,12 @@ set :git_enable_submodules, 1
 # == Passenger
 #
 # psychedeli.ca is powered by Passenger. Here's a deploy task that makes
-# restarting a bit easier.
+# restarting a bit easier. This deploy task, since it's run after every
+# deployment, also resynths the blog before restarting the server.
 namespace :passenger do
-  desc "Restart Application"
+  desc "Restart and recompile"
   task :restart do
+    run "bundle exec synth"
     run "touch #{current_path}/tmp/restart.txt"
   end
 end
