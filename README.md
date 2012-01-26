@@ -10,10 +10,12 @@ I wanted a bit more customization out of Jekyll to design my own folder structur
 
 Jekyll is also working with the `GenerateSitemap` and `SassConverter` 3rd-party plugins, as well as a custom plugin I wrote called `Enclosure`, which extends [Liquid][liq] to
 
-Middleware
-----------
+StatusExchange
+--------------
 
-There are a couple Rack apps on the stack as well, for serving little bits of dynamic content
+An aggregator of status update feeds from places like Twitter, Facebook, GitHub and Last.FM. This app coalesces all of your various feeds together, sorts them by time, then outputs it to a JSON file in a standard fashion. This allows [a jQuery plugin][ticker] to easily read and display the status messages as if they all came from the same place.
+
+StatusExchange lives in the Rack middleware stack, and responds when a client requests `GET http://psychedeli.ca/status.json`.
 
 [sass]: http://sass-lang.com
 [jq]: http://jquery.com

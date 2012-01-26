@@ -6,7 +6,7 @@
 # then runs Sass to compile stylesheets, and finally runs Jekyll to
 # compile the Markdown-formatted posts with the static HTML.
 #
-# Please run this in the root directory of the psychedeli.ca installation.
+# Please run this in the root directory of the psychedeli.ca installation!
 #
 # Author:: Tom Scott
 # Homepage:: http://psychedeli.ca/
