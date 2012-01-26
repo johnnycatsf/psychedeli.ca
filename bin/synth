@@ -76,6 +76,12 @@ class Synth < Thor
 		invoke :stylesheets
 		invoke :content
 	end
+
+	desc "destroy", "Destroys all generated static content"
+	def destroy
+		run "rm -rf pub/*"
+		say "All data in pub/ has been deleted."
+	end
 end
 
 Synth.start
