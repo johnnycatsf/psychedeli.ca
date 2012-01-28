@@ -4,7 +4,12 @@
 
 require "rack/jekyll"
 
-run Rack::Jekyll.new(:destination => 'pub')
+map '/filez' do
+
+
+map '/' do
+  run Rack::Static.new(:public => 'pub')
+end
 
 #require File.join(File.dirname(__FILE__), 'lib', 'status_exchange')
 
