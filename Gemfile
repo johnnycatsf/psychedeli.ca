@@ -26,6 +26,7 @@ group :status_exchange do
   gem 'yajl-ruby'
   gem 'twitter'
   gem 'mogli'
+  gem 'ratom'
 end
 
 group :deployment do
