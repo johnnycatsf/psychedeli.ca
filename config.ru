@@ -12,33 +12,34 @@
 #
 # Author:: Tom Scott
 
-require 'pathname'
-
-ENV['BUNDLE_GEMFILE'] ||= File.expand_path("../../Gemfile", Pathname.new(__FILE__).realpath)
 $LOAD_PATH << './lib'
 
 require 'rubygems'
-require 'bundler/setup'
+require 'status_exchange'
+require 'sprockets'
+require 'rack/contrib'
 
-# == Main application
-#
-# Uses Rack::Static to serve static files in the pub/ directory, which is where
-# Jekyll stores all its contents.
+use Rack::EY::Solo::DomainRedirect                # redirects www.psychedeli.ca to psychedeli.ca
 
-require 'rack/static'
-
-map '/' do
-  run Rack::Static.new(:public => "#{Dir.pwd}/pub")
+map '/ass' do
+  environment = Sprockets::Environment.new
+  environment.append_path 'app/css'
+  environment.append_path 'app/js'
+  environment.append_path 'app/img'
+  run environment
 end
 
-# == StatusExchange
-#
-# A status message feed server. Outputs aggregated statuses from Facebook,
-# Twitter, Last.FM and GitHub into a single feed which is both simple and
-# efficient to parse from a JavaScript client.
-
-require 'status_exchange'
-
 map '/status.json' do
-  run StatusExchange.new
+  status_exchange_config = YAML::load_file(File.join(Dir.pwd, 'cfg', 'status_exchange.yml'))
+
+  run StatusExchange, status_exchange_config
+end
+
+map '/' do
+  use Rack::TryStatic,
+    root: 'pub',
+    urls: %w[/].
+    try: ['.html', 'index.html', '/index.html']
+
+  run lambda { [404, {'Content-Type' => 'text/html'}, ['Not Found']]}
 end

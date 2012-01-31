@@ -1,30 +1,46 @@
-# StatusExchange
-# ==============
+# = StatusExchange
 #
-# StatusExchange is a Rack app that spits out JSON with the latest updates from the following social platforms:
+# A Rack app that provides an aggregate status message feed from a number of
+# social networks. Status messages from Facebook, Twitter, Soundcloud and
+# GitHub are sorted by date into a single JSON array which is both simple
+# and efficient to parse from a JavaScript client. It was designed for use
+# with the jQuery.ticker plugin in use on the frontend of +psychedeli.ca+.
+#
+# == Supported services
 #
 # - Twitter
 # - Facebook
 # - GitHub
+#
+# == Configuration
+#
+# Reads from cfg/status_exchange.yml
 #
 # Author:: Tom Scott
 # Homepage:: http://psychedeli.ca/
 
 require 'twitter'
 require 'mogli'
+require 'soundcloud'
 require 'atom'
+require 'date'
+require 'json'
 
 class StatusExchange
-  def initialize(config)
-    @twitter = Struct.new(tweets: Twitter.user_timeline('tubbo'))
+  def initialize(application, options)
+    @config = options[:config]
+    @mount = options[:url]
+    @app = application
 
-    fb_client = Mogli::Client.new(CFG['facebook']['access_token'])
+    @twitter = Struct.new(tweets: Twitter.user_timeline(@config['twitter']['user_name']))
+
+    fb_client = Mogli::Client.new(@config['facebook']['access_token'])
     @facebook = Mogli::User.find('me', facebook)
 
-    sc_client = Soundcloud.new(:client_id => CFG['soundcloud']['client_id'])
-    @soundcloud = sc_client.get('/resolve', url: 'http://soundcloud.com/wonderbars')
+    sc_client = Soundcloud.new(:client_id => @config['soundcloud']['client_id'])
+    @soundcloud = sc_client.get('/resolve', url: "http://soundcloud.com/#{@config['soundcloud']['user_name']}")
 
-    @github = Atom::Feed.load_feed(URI.parse("https://github.com/tubbo.atom"))
+    @github = Atom::Feed.load_feed(URI.parse("https://github.com/#{@config['github']['user_name']}.atom"))
   end
 
   def call(env)
@@ -74,10 +90,10 @@ class StatusExchange
       }
     end
 
-    statuses << soundcloud_statuses
+    # sort by date
     statuses.sort {|this_status,next_status| this_status.date <=> next_status.date }
 
-    # respond as JSON
+    # return as JSON
     [ 200, {'Content-Type' => 'application/json'}, statuses.to_json ]
   end
 end
