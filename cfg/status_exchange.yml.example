@@ -1,0 +1,12 @@
+twitter:
+  user_name:
+
+facebook:
+  access_token:
+
+soundcloud:
+  client_id:
+  user_name:
+
+github:
+  user_name:
