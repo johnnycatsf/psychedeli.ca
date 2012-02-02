@@ -4,7 +4,7 @@ group :application do
   # backend
   gem 'rack', :require => false
   gem 'rack-contrib', :require => false
-  gem 'jekyll', git: 'git://github.com/tubbo/jekyll.git', :require => false
+  gem 'jekyll', git: 'git://github.com/tubbo/jekyll.git', branch: 'feature/custom-dirs', :require => false
   gem 'sprockets', :require => false
   gem 'thor', :require => false
 
