@@ -9,7 +9,7 @@ group :application do
   gem 'thor', :require => false
 
   # frontend
-  gem 'liquid', '2.2.2', :require => false
+  gem 'liquid', :require => false
   gem 'sass'
   gem 'compass', :require => false
   gem 'redcarpet', :require => false

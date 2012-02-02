@@ -52,7 +52,7 @@ class Synth < Thor
 		stylesheets = ""
 
 		say "[sass] Compiling Sass stylesheets..."
-		Dir.glob(File.join(Dir.pwd, 'app', 'css', '*.scss')) do |css_file|
+		Dir.glob('*.scss') do |css_file|
 			stylesheets += Sass.compile_file(File.join(Dir.pwd, 'css', css_file))
 		end
 		say "[sass] ..done"
@@ -84,6 +84,8 @@ class Synth < Thor
 		run "rm -rf pub/*"
 		say "All data in pub/ has been deleted."
 	end
+
+	default_task :all
 end
 
 Synth.start
