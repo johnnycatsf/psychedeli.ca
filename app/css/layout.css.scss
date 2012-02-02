@@ -1,3 +1,9 @@
+$cooper: 'CooperStdBlack', Tahoma, Helvetica, sans-serif;
+$brandon: 'BrandonGrotesqueBlack', Arial, sans-serif;
+$neue-lt: 'HelveticaNeueLTStd45Light', Verdana, sans-serif;
+$museo: 'Museo500', Times, serif;
+$futura: 'FuturaMedium', Arial, sans-serif;
+
 body {
 	font-family: Helvetica, sans-serif;
 	background:#CCC;
@@ -5,17 +11,17 @@ body {
 
 header {
 	height: 175px;
-	
+
 	hgroup {
 		h1 {	// psychedeli.ca
 			float: right;
 			font-family: $cooper;
 			font-size: 64px;
 			padding: 10px;
-			
+
 			a {
 				text-decoration:none;
-				
+
 				&:link, &:visited {
 					color:#000;
 				}
@@ -40,13 +46,13 @@ header {
 
 section {
 	position: relative;
-	
+
 	// Posts carousel on the home page
 	&#posts {
 		//height: 640px;
 		width: 940px;
 		float: right;
-		
+
 		.arrow {
 			display:none;
 			float: left;
@@ -58,20 +64,20 @@ section {
 			top: 10px;
 			z-index:2;
 			background:#CCC;
-			
+
 			&.left {
 				left: 0px;
 			}
 			&.right {
 				right: 0px;
 			}
-			
+
 			&:hover {
 				background: #AAA;
 				cursor: pointer;
 			}
 		}
-		
+
 		.clear {
 			clear: both;
 		}
@@ -80,13 +86,13 @@ section {
 
 // Sticky footer
 footer {
-	// jQuery.statusTicker polls the StatusExchange every  
+	// jQuery.statusTicker polls the StatusExchange every
 	#ticker {
-		
+
 	}
-	
+
 	// About
 	#about {
-		
+
 	}
 }

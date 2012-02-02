@@ -28,7 +28,7 @@ require 'json'
 
 class StatusExchange
   def initialize(application, options)
-    @config = options[:config]
+    @config = options[:config] || YAML::load_file(File.expand_path('./cfg/status_exchange.yml'))
     @mount = options[:url]
     @app = application
 

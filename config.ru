@@ -17,28 +17,30 @@ $LOAD_PATH << './lib'
 require 'rubygems'
 require 'status_exchange'
 require 'sprockets'
-require 'rack/contrib'
+require 'rack/contrib/try_static'
 
-use Rack::EY::Solo::DomainRedirect                # redirects www.psychedeli.ca to psychedeli.ca
+#use Rack::EY::Solo::DomainRedirect                # redirects www.psychedeli.ca to psychedeli.ca
 
-map '/ass' do
-  environment = Sprockets::Environment.new
-  environment.append_path 'app/css'
-  environment.append_path 'app/js'
-  environment.append_path 'app/img'
-  run environment
+map '/css' do
+  stylesheet_environment = Sprockets::Environment.new
+  stylesheet_environment.append_path 'app/css'
+  run stylesheet_environment
+end
+
+map '/js' do
+  javascript_environment = Sprockets::Environment.new
+  javascript_environment.append_path 'app/js'
+  run javascript_environment
 end
 
 map '/status.json' do
-  status_exchange_config = YAML::load_file(File.join(Dir.pwd, 'cfg', 'status_exchange.yml'))
-
-  run StatusExchange, status_exchange_config
+  run StatusExchange
 end
 
 map '/' do
   use Rack::TryStatic,
     root: 'pub',
-    urls: %w[/].
+    urls: %w[/],
     try: ['.html', 'index.html', '/index.html']
 
   run lambda { [404, {'Content-Type' => 'text/html'}, ['Not Found']]}

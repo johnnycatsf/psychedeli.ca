@@ -1,9 +1,12 @@
 ---
 layout: post
-title: "working with jekyll: a crash course in writing a real ruby program"
+title: "working with jekyll"
 category: code
 date: 2012-01-28
 ---
+
+a crash course in writing a real ruby program
+=============================================
 
 Well it's a new year, and I got a [new job][elocal]. Been wearing some new clothes, working on new music, and generally trying to step into the next phase of my life. [My band][bars] should be releasing its debut album in a couple months, and there are several major gigs coming up that we'll be playing which should prove to be a seriously good time.
 
@@ -16,9 +19,16 @@ So I tasked myself to make Jekyll a little more configurable. After [forking the
 Hacking Jekyll
 --------------
 
-I wanted to design my app's folder structure in a certain way. For starters, I'm already using 3-character folder names for every one of my
+I wanted to design [my blog's folder structure][src] in a certain way. For starters, I'm already using 3-character folder names for any custom directories that weren't being preprocessed by Jekyll. I wanted the content rendering engine to be just one part of how the entire app operates, as I have also added Sprockets for asset preprocessing and a Rack app or two for some realtime custom content. For that, I needed to put the whole shebang on Rack, and with [Rack::TryStatic][static], that was made trivial.
+
+[My fork][tubbo/jekyll] now includes [a branch][custom-dirs] called **feature/custom-dirs**, which include support for two new config options, `posts:` and `layouts:`, which define which folders (underneath `source:` that is) you wish to hold Markdown and HTML content, respectively. They replace the formerly forced-upon conventions of using the **_posts/** and **_layouts/** directories with custom defined folders, for ultimate control of the folder structure. In addition, this fork has the added `--config [FILE]` option to the Jekyll binary, which is invoked using the [synth binary][synth] in the [blog repo][src].
 
 [elocal]: http://elocal.com
 [bars]: http://soundcloud.com/wonderbars
 [jekyll]: http://jekyllrb.com
 [tubbo/jekyll]: http://github.com/tubbo/jekyll
+[custom-dirs]: https://github.com/tubbo/jekyll/tree/feature/custom-dirs
+[src]: http://github.com/tubbo/psychedeli.ca
+[ass]: https://github.com/sstephenson/sprockets
+[static]: https://github.com/gmarik/rack-try_static
+[synth]: https://github.com/tubbo/psychedeli.ca/blob/master/bin/synth

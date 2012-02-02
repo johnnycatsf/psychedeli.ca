@@ -1,63 +1,66 @@
 // Posts are laid out as <article> tags, and when JavaScript is enabled act as a giant carousel.
 
+$cooper: 'CooperStdBlack', Tahoma, Helvetica, sans-serif;
+$brandon: 'BrandonGrotesqueBlack', Arial, sans-serif;
+$neue-lt: 'HelveticaNeueLTStd45Light', Verdana, sans-serif;
+$museo: 'Museo500', Times, serif;
+$futura: 'FuturaMedium', Arial, sans-serif;
+
 article {
 	//width: 810px;
 	//height: 660px;
 	background:#FFF;
 	padding: 20px;
 	margin: 35px 50px;
-	
+
 	&* {
 		background:#FFF;
 	}
-	
+
 	// title
 	header {
-		@include border-radius(4px, 4px);
+		//@include border-radius(4px, 4px);
 		border-bottom: 3px dotted #000;
 		height: 50px;
 		//padding-top: 38px;
-		
+
 		h1 {
 			font-family:$museo;
 			font-size: 36px;
-			
+
 			a {
 				text-decoration:none;
 				color: #000;
-				
+
 				&:hover, &:active {
 					color: #0000FF;
 				}
-				
+
 				&:link, &:visited {
 					color: #000;
 				}
 			}
 		}
 	}
-	
+
 	// content
-	section {		
-		h2 {
-			font-size: 30px;
+	section {
+		h1, h2, h3 {
 			font-family: $brandon;
 			letter-spacing: 0.03em;
 		}
-		h3 {
-			font-size: 22px;
-			font-family: $brandon;
-			letter-spacing: 0.03em;
-		}
+		h1 { font-size: 36px; }
+		h2 { font-size: 30px; }
+		h3 { font-size: 22px; }
+
 		p {
 			padding: 10px 0 10px 0;
 			line-height:18px;
 			font-size: 14px;
-			
-			
+
 			a {
 				text-decoration:none;
-				
+
 				&:link, &:visited {
 					color: #0000FF;
 				}
@@ -66,7 +69,7 @@ article {
 		}
 		pre {
 			background-color:#EEE;
-						
+
 			code {
 				font-size: 12px;
 				font-family: 'Lucida Console', Courier, fixed;
@@ -75,34 +78,34 @@ article {
 		blockquote {
 			border-left: 2px solid #ccc;
 			background: #eef;
-			
+
 			p {
 				padding: 10px 25px;
 			}
 		}
 	}
-	
+
 	// category & date identifier
 	footer {
 		border-top: 1px solid #CCC;
-		
+
 		:first-child {
 			padding-top:10px;
 		}
-		
+
 		#icons {
 			float:left;
 		}
 		p {
 			text-align:right;
 			font-size:12px;
-			
+
 			time {
 				font-weight:bold;
 			}
 		}
 		.tags {
-			
+
 			a {
 				padding-left: 10px;
 				text-decoration: none;

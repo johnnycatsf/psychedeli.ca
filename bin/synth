@@ -4,9 +4,7 @@
 #
 # Synthesizes the blog. Runs Uglify to compile and minify JavaScripts,
 # then runs Sass to compile stylesheets, and finally runs Jekyll to
-# compile the Markdown-formatted posts with the static HTML.
-#
-# Please run this in the root directory of the psychedeli.ca installation!
+# generate the static HTML from Markdown-formatted posts.
 #
 # Author:: Tom Scott
 # Homepage:: http://psychedeli.ca/
@@ -33,7 +31,7 @@ class Synth < Thor
 		javascripts = ""
 
 		say "[uglifier] Compiling JavaScripts..."
-		Dir.glob(File.join(Dir.pwd, 'app', 'js', '*.js')) do |js_file|
+		Dir.glob(File.join(File.expand_path('./app/js/'), '*.js')) do |js_file|
       unless js_file == 'application.js'
 			   javascripts += Uglifier.compile(File.join(Dir.pwd, 'js', js_file))
       end
@@ -41,7 +39,7 @@ class Synth < Thor
 		say "[uglifier] ..done"
 
 		say "Building master JavaScript..."
-		File.read(File.join(Dir.pwd, 'app', 'js', 'application.js')) do |f|
+		File.read(File.expand_path('./app/js/application.js')) do |f|
 			f.write(javascripts)
 		end
 		say "[uglifier] ..done"
@@ -52,13 +50,13 @@ class Synth < Thor
 		stylesheets = ""
 
 		say "[sass] Compiling Sass stylesheets..."
-		Dir.glob('*.scss') do |css_file|
-			stylesheets += Sass.compile_file(File.join(Dir.pwd, 'css', css_file))
+		Dir.glob(File.join(File.expand_path('./app/css'), '*.scss')) do |css_file|
+			stylesheets += Sass.compile_file(css_file)
 		end
 		say "[sass] ..done"
 
 		say "[sass] Building master stylesheet..."
-		File.read(File.join(Dir.pwd, 'app', 'css', 'screen.css')) do |f|
+		File.read(File.expand_path('./app/css/screen.css')) do |f|
 			f.write(stylesheets)
 		end
 		say "[sass] ..done"

@@ -27,6 +27,7 @@ group :status_exchange do
   gem 'twitter'
   gem 'mogli'
   gem 'ratom'
+  gem 'soundcloud'
 end
 
 group :deployment do
