@@ -33,11 +33,8 @@ map '/js' do
   run javascript_environment
 end
 
-map '/status.json' do
-  run StatusExchange
-end
-
 map '/' do
+  use StatusExchange, url: '/status'
   use Rack::TryStatic,
     root: 'pub',
     urls: %w[/],
