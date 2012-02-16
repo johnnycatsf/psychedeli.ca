@@ -18,9 +18,9 @@ set :deploy_to, "/home/#{user}/src/#{application}"
 role :web, "psychedeli.ca"
 
 namespace :rack do
-  desc "Restart the server"
+  desc "Restart the server and recompile the app"
   task :restart do
-    run "cd #{deploy_to}/current && /usr/bin/env rake compile RAILS_ENV=production"
+    run "cd #{deploy_to}/current && /usr/bin/env rake compile"
     run "touch #{current_path}/tmp/restart.txt"
   end
 end
