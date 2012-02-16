@@ -1,0 +1,10 @@
+@import "compass";
+@include global-reset;
+@include reset-html5;
+
+@import "octopress/custom/colors";
+@import "octopress/custom/fonts";
+@import "octopress/custom/layout";
+@import "octopress/base";
+@import "octopress/partials";
+@import "octopress/custom/styles";
