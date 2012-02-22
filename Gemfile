@@ -3,7 +3,7 @@ source :rubygems
 # backend
 gem 'rack', :require => false
 gem 'rack-contrib', :require => false
-gem 'jekyll', git: 'git://github.com/tubbo/jekyll.git', branch: 'feature/custom-dirs', :require => false
+gem 'jekyll', :require => false, path: "vendor/jekyll" #git: 'git://github.com/tubbo/jekyll.git', branch: 'feature/custom-dirs'
 gem 'sprockets', :require => false
 gem 'rake'
 
