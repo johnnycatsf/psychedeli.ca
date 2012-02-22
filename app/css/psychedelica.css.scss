@@ -1,0 +1,20 @@
+// /*
+//  * Stylesheet manifest for screen readers, desktop web browsers and by default all internet devices.
+//  *
+//  *= require vendor/fonts/face
+//  *= require_tree vendor/plugins
+//  *= require_tree vendor/themes
+//  *= require vendor/pygments
+//  *= require_tree whitebread
+//  */
+
+@import "vendor/fonts/face";
+@import "vendor/plugins/jquery.facebox";
+@import "vendor/pygments";
+
+@import "compass";
+@include global-reset;
+@include reset-html5;
+
+@import "psychedelica/layout";
+@import "psychedelica/posts";

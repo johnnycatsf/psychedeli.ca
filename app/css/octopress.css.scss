@@ -1,3 +1,7 @@
+@import "vendor/fonts/face";
+@import "vendor/plugins/jquery.facebox";
+@import "vendor/pygments";
+
 @import "compass";
 @include global-reset;
 @include reset-html5;
