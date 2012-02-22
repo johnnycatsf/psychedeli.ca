@@ -11,7 +11,7 @@ gem 'rake'
 gem 'liquid', :require => false
 gem 'sass'
 gem 'compass', :require => false
-gem 'redcarpet', :require => false
+gem 'redcarpet', git: 'git://github.com/tanoku/redcarpet.git'
 gem 'uglifier'
 gem 'execjs', :require => false
 gem 'therubyracer', :require => false
