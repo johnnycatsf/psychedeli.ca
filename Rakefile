@@ -2,7 +2,7 @@ require 'rubygems'
 require 'rake'
 require 'rake/clean'
 
-desc "Compiles the application"
+desc "Compiles the application with Jekyll"
 task :compile do
   # refresh and compile the static dir
   system 'rm -rf pub/*'
