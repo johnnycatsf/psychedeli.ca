@@ -1,8 +1,7 @@
 load 'deploy' if respond_to?(:namespace) # cap2 differentiator
 
-# Uncomment if you are using Rails' asset pipeline
-# load 'deploy/assets'
+# Keep tasks in a central location so they can be picked up by both Capistrano and Rake
+Dir[File.dirname(__FILE__) + '/lib/tasks/*.rake'].each {|file| require file }
 
-#Dir['vendor/gems/*/recipes/*.rb','vendor/plugins/*/recipes/*.rb'].each { |plugin| load(plugin) }
-
-load 'cfg/deploy' # remove this line to skip loading any of the default tasks
+# Deploy configuration lives in
+load 'cfg/deploy'
