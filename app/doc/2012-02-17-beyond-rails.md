@@ -28,3 +28,6 @@ I wanted to design [my blog's folder structure][src] in a certain way. For start
 [sx]: https://github.com/tubbo/psychedeli.ca/blob/master/lib/status_exchange.rb
 [tpw]: http://tom.preston-werner.com/
 [contrib]: https://github.com/mojombo/jekyll/wiki/contribute
+[sinatra]: http://sinatrarb.com
+[camping]: http://camping.rubyforge.org/
+[typo]: http://typosphere.org

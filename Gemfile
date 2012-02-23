@@ -3,7 +3,7 @@ source :rubygems
 # backend
 gem 'rack', :require => false
 gem 'rack-contrib', :require => false
-gem 'jekyll', :require => false, path: "vendor/jekyll" #git: 'git://github.com/tubbo/jekyll.git', branch: 'feature/custom-dirs'
+gem 'jekyll', :require => false, git: 'git://github.com/tubbo/jekyll.git', branch: 'feature/custom-dirs'
 gem 'sprockets', :require => false
 gem 'rake'
 
@@ -11,7 +11,7 @@ gem 'rake'
 gem 'liquid', :require => false
 gem 'sass'
 gem 'compass', :require => false
-gem 'redcarpet', git: 'git://github.com/tanoku/redcarpet.git'
+gem 'redcarpet', '~> 1.17.2'
 gem 'uglifier'
 gem 'execjs', :require => false
 gem 'therubyracer', :require => false
