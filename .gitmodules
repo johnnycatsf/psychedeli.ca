@@ -1,3 +1,0 @@
-[submodule "vendor/jekyll"]
-	path = vendor/jekyll
-	url = git@github.com:tubbo/jekyll.git
