@@ -1,3 +1,7 @@
 /*
- *= require psychedelica
+ *= require vendor/fonts
+ *= require vendor/pygments
+ *= require vendor/jquery.facebox
+ *= require psychedelica/layout
+ *= require psychedelica/posts
  */

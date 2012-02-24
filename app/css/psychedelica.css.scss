@@ -1,13 +1,6 @@
-// Main theme for psychedeli.ca
+// @import "compass";
+// @include global-reset;
+// @include reset-html5;
 
-@import "vendor/fonts/face";
-@import "vendor/plugins/jquery.facebox";
-@import "vendor/pygments";
-@import "vendor/ribbon";
-
-@import "compass";
-@include global-reset;
-@include reset-html5;
-
-@import "psychedelica/layout";
-@import "psychedelica/posts";
+@import "psychedelica/layout.css";
+@import "psychedelica/posts.css";
