@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "beyond rails: developing my blog from scratch with ruby"
+title: "beyond rails: blogging from scratch"
 category: code
 date: 2012-01-28
 ---
