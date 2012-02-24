@@ -3,6 +3,8 @@ source :rubygems
 # Framework
 gem 'rack', :require => false
 gem 'rack-contrib', :require => false
+gem 'jekyll', :require => false, :git => 'git://github.com/tubbo/jekyll.git', :branch => 'feature/custom-dirs'
+gem 'sprockets', :require => false
 gem 'rake'
 
 # Asset pipeline
