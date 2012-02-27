@@ -16,6 +16,7 @@ $LOAD_PATH << './lib'
 
 require 'rubygems'
 require 'status_exchange'
+require 'autocorrect'
 require 'sprockets'
 require 'rack/contrib/try_static'
 
