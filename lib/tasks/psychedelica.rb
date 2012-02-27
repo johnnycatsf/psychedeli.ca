@@ -1,3 +1,5 @@
+require 'rake/testtask'
+
 desc "Compiles the application with Jekyll"
 task :compile do
   puts "Compiling blog content..."
@@ -8,6 +10,9 @@ task :compile do
   system 'cp cfg/.htaccess pub/.htaccess'
   system 'cp cfg/robots.txt pub/robots.txt'
 end
+# Defaults to `compile`
+task :default => :compile
+
 
 desc "Restarts the Rack stack"
 task :restart do
@@ -16,8 +21,10 @@ task :restart do
   puts "done"
 end
 
+
+
 desc "Runs all of the tests for psychedeli.ca"
-task :test do
-  puts "Running tests..."
-  puts "No tests have been written for psychedeli.ca yet"
+Rake::TestTask.new do |t|
+  t.libs << 'test'
+  t.pattern = 'test/**/*_test.rb'
 end
