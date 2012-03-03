@@ -1,5 +1,3 @@
-require '../lib/tasks'
-
 set :user, "necromancer"
 set :domain, "psychedeli.ca"
 server domain, :web

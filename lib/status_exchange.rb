@@ -25,6 +25,7 @@ require 'soundcloud'
 require 'atom'
 require 'date'
 require 'json'
+require 'yaml'
 
 class StatusExchange
   def initialize(application, options)
@@ -35,15 +36,15 @@ class StatusExchange
 
   def call(env)
     if env['PATH_INFO'] == @mount
-      twitter = Struct.new(tweets: Twitter.user_timeline(@config['twitter']['user_name']))
+      twitter = Twitter.user_timeline(@config['twitter']['user_name'])
 
-      fb_client = Mogli::Client.new(@config['facebook']['access_token'])
-      facebook = Mogli::User.find('me', facebook)
+      # fb_client = Mogli::Client.new(@config['facebook']['access_token'])
+      # facebook = Mogli::User.find('me', facebook)
 
-      sc_client = Soundcloud.new(:client_id => @config['soundcloud']['client_id'])
-      soundcloud = sc_client.get('/resolve', url: "http://soundcloud.com/#{@config['soundcloud']['user_name']}")
+      # sc_client = Soundcloud.new(:client_id => @config['soundcloud']['client_id'])
+      # soundcloud = sc_client.get('/resolve', url: "http://soundcloud.com/#{@config['soundcloud']['user_name']}")
 
-      github = Atom::Feed.load_feed(URI.parse("https://github.com/#{@config['github']['user_name']}.atom"))
+      # github = Atom::Feed.load_feed(URI.parse("https://github.com/#{@config['github']['user_name']}.atom"))
 
       tweets.each do |tweet|
         statuses << {
@@ -54,42 +55,42 @@ class StatusExchange
         }
       end
 
-      facebook.posts.each do |post|
-        statuses << {
-          message: post.story,
-          date: DateTime.parse(post.created_time),
-          link: post.link,
-          type: 'facebook'
-        }
-      end
+      # facebook.posts.each do |post|
+      #   statuses << {
+      #     message: post.story,
+      #     date: DateTime.parse(post.created_time),
+      #     link: post.link,
+      #     type: 'facebook'
+      #   }
+      # end
 
-      github.each_entry do |entry|
-        statuses << {
-          message: entry.title,
-          date: DateTime.parse(entry.updated),
-          link: entry.link,
-          type: 'github'
-        }
-      end
+      # github.each_entry do |entry|
+      #   statuses << {
+      #     message: entry.title,
+      #     date: DateTime.parse(entry.updated),
+      #     link: entry.link,
+      #     type: 'github'
+      #   }
+      # end
 
-      soundcloud.tracks.each do |track|
-        statuses << {
-          message: "posted #{track.title} on Soundcloud.",
-          date: DateTime.parse(track.created_at),
-          link: track.permalink_url,
-          type: 'soundcloud'
-        }
-      end
+      # soundcloud.tracks.each do |track|
+      #   statuses << {
+      #     message: "posted #{track.title} on Soundcloud.",
+      #     date: DateTime.parse(track.created_at),
+      #     link: track.permalink_url,
+      #     type: 'soundcloud'
+      #   }
+      # end
 
-      soundcloud.comments.each do |comment|
-        commented_track = @sc_client.get('/track', id: comment.track_id)
-        statuses << {
-          message: "commented on #{commented_track.title}",
-          date: DateTime.parse(comment.created_at),
-          link: commented_track.permalink_url,
-          type: 'soundcloud'
-        }
-      end
+      # soundcloud.comments.each do |comment|
+      #   commented_track = @sc_client.get('/track', id: comment.track_id)
+      #   statuses << {
+      #     message: "commented on #{commented_track.title}",
+      #     date: DateTime.parse(comment.created_at),
+      #     link: commented_track.permalink_url,
+      #     type: 'soundcloud'
+      #   }
+      # end
 
       # sort by date
       statuses.sort {|this_status,next_status| this_status.date <=> next_status.date }
