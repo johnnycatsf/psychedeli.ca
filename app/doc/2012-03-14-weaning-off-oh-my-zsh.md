@@ -3,6 +3,7 @@ layout: post
 title: "weaning off oh my zsh"
 category: code
 date: 2012-03-08
+tags: shell, zsh, git, gitflow, productivity
 ---
 
 Since December 2011, I've been working with [ZSH][zsh], an alternate shell for *NIX-based operating systems which has conventions similar to [BASH][bash], ZSH adds a number of more modern features to the standard shell fare, such as more customization options for your prompt and extendable autocompletion. To get started on it, I've employed the lovely [Oh My ZSH][omz] framework which helps to organize your ZSH settings (`.zshrc`) and use functionality developed by others so you can explore the wonderful possibilities of this awesome shell.
