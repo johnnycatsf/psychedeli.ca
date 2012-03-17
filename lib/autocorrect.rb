@@ -5,6 +5,6 @@ class Autocorrect
   end
 
   def call(env)
-    lambda {[404, {'Content-Type' => 'text/html'}, ['Not Found']]}
+    [404, {'Content-Type' => 'text/html'}, ['Not Found']]
   end
 end

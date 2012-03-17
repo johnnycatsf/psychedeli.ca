@@ -5,6 +5,7 @@ $brandon: 'BrandonGrotesqueBlack', Arial, sans-serif;
 $neue-lt: 'HelveticaNeueLTStd45Light', Verdana, sans-serif;
 $museo: 'Museo500', Times, serif;
 $futura: 'FuturaMedium', Arial, sans-serif;
+$georgia: 'Georgia', Times, serif;
 
 article {
 	//width: 810px;
@@ -57,6 +58,7 @@ article {
 			padding: 10px 0 10px 0;
 			line-height:18px;
 			font-size: 14px;
+			font-family: $georgia;
 
 			a {
 				text-decoration:none;
