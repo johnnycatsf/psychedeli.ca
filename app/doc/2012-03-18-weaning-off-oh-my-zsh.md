@@ -2,7 +2,7 @@
 layout: post
 title: "weaning off oh my zsh"
 category: code
-date: 2012-03-08
+date: 2012-03-18
 tags: shell, zsh, git, gitflow, productivity
 ---
 
