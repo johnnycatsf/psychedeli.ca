@@ -29,7 +29,7 @@ gem 'soundcloud'
 
 # Development tools
 group :development do
-  gem 'deadweight', :require => false
+  gem 'unicorn', :require => false
 end
 group :deployment do
   gem 'capistrano', :require => false

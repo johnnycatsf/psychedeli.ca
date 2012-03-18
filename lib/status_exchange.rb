@@ -30,32 +30,19 @@ require 'yaml'
 class StatusExchange
   attr_reader :statuses
 
-  def initialize(application, options)
+  def initialize application=nil, options={}
     @config = options[:config] || YAML::load_file(File.expand_path('./cfg/status_exchange.yml'))
-    @mount = options[:url]
+    @mount = options[:url] || '/status'
     @app = application
     @statuses = [] # an array of status messages
   end
 
-  def call(env)
+  def call env
+    headers = {
+      "Content-Type" => "application/json"
+    }
+
     if env['PATH_INFO'] == @mount
-      # fb_client = Mogli::Client.new(@config['facebook']['access_token'])
-      # facebook = Mogli::User.find('me', facebook)
-
-      # sc_client = Soundcloud.new(:client_id => @config['soundcloud']['client_id'])
-      # soundcloud = sc_client.get('/resolve', url: "http://soundcloud.com/#{@config['soundcloud']['user_name']}")
-
-      # github = Atom::Feed.load_feed(URI.parse("https://github.com/#{@config['github']['user_name']}.atom"))
-
-      # tweets.each do |tweet|
-      #   @statuses << {
-      #     message: tweet.text,
-      #     #date: tweet.created_at,
-      #     link: "https://twitter.com/tubbo/status/#{tweet.id}",
-      #     type: 'twitter'
-      #   }
-      # end
-
       @statuses = tweets.reduce([]) {|tweets, tweet|
         tweets << {
           message: tweet.text,
@@ -64,53 +51,17 @@ class StatusExchange
         }
       }
 
-      # facebook.posts.each do |post|
-      #   @statuses << {
-      #     message: post.story,
-      #     date: DateTime.parse(post.created_time),
-      #     link: post.link,
-      #     type: 'facebook'
-      #   }
-      # end
-
-      # github.each_entry do |entry|
-      #   @statuses << {
-      #     message: entry.title,
-      #     date: DateTime.parse(entry.updated),
-      #     link: entry.link,
-      #     type: 'github'
-      #   }
-      # end
-
-      # soundcloud.tracks.each do |track|
-      #   @statuses << {
-      #     message: "posted #{track.title} on Soundcloud.",
-      #     date: DateTime.parse(track.created_at),
-      #     link: track.permalink_url,
-      #     type: 'soundcloud'
-      #   }
-      # end
-
-      # soundcloud.comments.each do |comment|
-      #   commented_track = @sc_client.get('/track', id: comment.track_id)
-      #   @statuses << {
-      #     message: "commented on #{commented_track.title}",
-      #     date: DateTime.parse(comment.created_at),
-      #     link: commented_track.permalink_url,
-      #     type: 'soundcloud'
-      #   }
-      # end
-
       # sort by date
       @statuses.sort {|this_status,next_status| this_status[:date] <=> next_status[:date] }
 
-      statuses_as_json = [{:statuses => @statuses}.to_json]
-
-      # return as JSON
-      [ 200, {'Content-Type' => 'application/json'}, statuses_as_json ]
+      status = 200
+      body = [{:statuses => @statuses}.to_json]
     else
-      @app.call(env)
+      status, headers, body = @app.call env
     end
+
+    # always respond
+    [status, headers, body]
   end
 
   def tweets

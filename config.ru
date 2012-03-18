@@ -19,6 +19,7 @@ require 'status_exchange'
 require 'autocorrect'
 require 'sprockets'
 require 'rack/contrib/try_static'
+require 'rack/contrib/not_found'
 
 #use Rack::EY::Solo::DomainRedirect                # redirects www.psychedeli.ca to psychedeli.ca
 
@@ -35,10 +36,10 @@ map '/js' do
 end
 
 map '/' do
-  use StatusExchange, url: '/status'
-  run Rack::TryStatic,
+  #use StatusExchange
+  use Rack::TryStatic,
     root: 'pub',
     urls: %w[/],
     try: ['.html', 'index.html', '/index.html']
-  run lambda { [404, {'Content-Type' => 'text/html'}, ['Not Found']] }
+  run Rack::NotFound
 end
