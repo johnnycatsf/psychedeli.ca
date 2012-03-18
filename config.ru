@@ -40,5 +40,5 @@ map '/' do
     root: 'pub',
     urls: %w[/],
     try: ['.html', 'index.html', '/index.html']
-  #run Autocorrect
+  run lambda { [404, {'Content-Type' => 'text/html'}, ['Not Found']] }
 end
