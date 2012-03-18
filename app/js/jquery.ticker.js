@@ -13,7 +13,7 @@ $(function() {
       dataType: 'json',
       success: function(response) {
         if (response.statuses.length) {
-          _.each(statuses, function(status) {
+          _.each(response.statuses, function(status) {
             console.log(status.message+" <"+status.link+"> ["+status.date+"]");
           });
         }

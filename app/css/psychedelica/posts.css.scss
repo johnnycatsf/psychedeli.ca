@@ -5,7 +5,7 @@ $brandon: 'BrandonGrotesqueBlack', Arial, sans-serif;
 $neue-lt: 'HelveticaNeueLTStd45Light', Verdana, sans-serif;
 $museo: 'Museo500', Times, serif;
 $futura: 'FuturaMedium', Arial, sans-serif;
-$georgia: 'Georgia', Times, serif;
+$georgia: Georgia, 'Georgia', Times, serif;
 
 article {
 	//width: 810px;
@@ -57,16 +57,20 @@ article {
 		p {
 			padding: 10px 0 10px 0;
 			line-height:18px;
-			font-size: 14px;
+			font-size: 15px;
 			font-family: $georgia;
 
 			a {
 				text-decoration:none;
+				font-weight: bold;
 
 				&:link, &:visited {
 					color: #0000FF;
 				}
-				&:hover, &:active { color: #000022; }
+				&:hover, &:active {
+					color: #000022;
+					text-decoration:underline;
+				}
 			}
 		}
 		pre {
