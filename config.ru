@@ -36,9 +36,9 @@ end
 
 map '/' do
   use StatusExchange, url: '/status'
-  use Rack::TryStatic,
+  run Rack::TryStatic,
     root: 'pub',
     urls: %w[/],
     try: ['.html', 'index.html', '/index.html']
-  run Autocorrect
+  #run Autocorrect
 end
