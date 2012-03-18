@@ -28,6 +28,8 @@ require 'json'
 require 'yaml'
 
 class StatusExchange
+  attr_reader :statuses
+
   def initialize(application, options)
     @config = options[:config] || YAML::load_file(File.expand_path('./cfg/status_exchange.yml'))
     @mount = options[:url]
@@ -37,8 +39,6 @@ class StatusExchange
 
   def call(env)
     if env['PATH_INFO'] == @mount
-      tweets = Twitter.user_timeline(@config['twitter']['user_name'])
-
       # fb_client = Mogli::Client.new(@config['facebook']['access_token'])
       # facebook = Mogli::User.find('me', facebook)
 
@@ -102,12 +102,18 @@ class StatusExchange
       # end
 
       # sort by date
-      # @statuses.sort {|this_status,next_status| this_status[:date] <=> next_status[:date] }
+      @statuses.sort {|this_status,next_status| this_status[:date] <=> next_status[:date] }
+
+      statuses_as_json = [{:statuses => @statuses}.to_json]
 
       # return as JSON
-      [ 200, {'Content-Type' => 'application/json'}, @statuses.to_json ]
+      [ 200, {'Content-Type' => 'application/json'}, statuses_as_json ]
     else
       @app.call(env)
     end
+  end
+
+  def tweets
+    Twitter.user_timeline(@config['twitter']['user_name'])
   end
 end

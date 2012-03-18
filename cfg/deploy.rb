@@ -16,4 +16,4 @@ set :deploy_to, "/home/#{user}/src/#{application}"
 role :web, "psychedeli.ca"
 
 # Always restart the app after deployment
-after 'deploy:update_code', 'deploy:to_production'
+after 'deploy:update_code', 'deploy:update_content'
