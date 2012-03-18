@@ -1,2 +1,2 @@
 #!/bin/bash
-rvm --create use 1.9.3-p125-perf@psychedelica
+rvm --create use 1.9.3-p125@psychedelica
