@@ -17,6 +17,10 @@ module StatusExchange
       end
     end
 
+    def is_defined?
+      !!@config[:vanity_url]
+    end
+
     def profile
       @graph.get_object(@config[:vanity_url]).symbolize_keys!
     end

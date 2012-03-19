@@ -46,7 +46,15 @@ As is the convention with most Rack servers, this runs `touch tmp/restart.txt`. 
 
 ### rake test
 
-An extension of `Rake::TestTask`, this runs the [MiniTest][mt] suite in `test/` which runs the specs for Autocorrect and StatusExchange.
+An extension of `Rake::TestTask`, this runs the [MiniTest][mt] suite in `test/` which runs the currently developed tests for StatusExchange.
+
+### rake configure
+
+This task copies the server configuration such as `.htaccess` and `robots.txt` from the **cfg/** directory and places it in **pub/**. It is normally invoked immediately after `rake compile` has completed.
+
+### rake install {path}
+
+This monolithic task "installs" the static app to `{path}` by copying the entire **lib/** directory, **config.ru**, and compiling the app to its child **pub/** directory. It then copies over all relevant files from **cfg/** that are needed for the daily operations of the web server. If left blank, it installs the app into **build/**.
 
 [sass]: http://sass-lang.com
 [jq]: http://jquery.com

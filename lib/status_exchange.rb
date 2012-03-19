@@ -21,8 +21,12 @@
 #
 # == Configuration
 #
-# StatusExchange reads its configuration from the file <tt>status_exchange.yml</tt>
-# located in <bb>cfg/</b>
+# StatusExchange reads its configuration from an external YAML file, located at
+# <tt>cfg/status_exchange.yml</tt>. An example file is provided in that folder,
+# meant for you to rename and configure with your own registered app settings.
+# You will need to register your own app for Soundcloud and Facebook, and
+# provide personal authentication details in order to configure StatusExchange
+# properly.
 #
 # Author:: Tom Scott
 # Homepage:: http://psychedeli.ca/

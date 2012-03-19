@@ -9,9 +9,6 @@ module StatusExchange
       @mount = options[:url] || '/status'
       @app = application
       @statuses = [] # an array of status messages
-
-      @twitter = StatusExchange::TwitterClient.new
-      @facebook = StatusExchange::FacebookClient.new
     end
 
     def call env
@@ -21,21 +18,25 @@ module StatusExchange
         status = 200
         headers = {"Content-Type" => "application/json"}
 
-        @twitter.tweets.each {|tweet|
-          @statuses << {
-            message: tweet.text,
-            date: tweet.created_at,
-            service: 'twitter'
+        if twitter.is_defined?
+          twitter.tweets.each {|tweet|
+            @statuses << {
+              message: tweet.text,
+              date: tweet.created_at,
+              service: 'twitter'
+            }
           }
-        }
+        end
 
-        @facebook.posts.each {|post|
-          @statuses << {
-            message: post.message || post.story,
-            date: post.date,
-            service: 'facebook'
+        if facebook.is_defined?
+          facebook.posts.each {|post|
+            @statuses << {
+              message: post.message || post.story,
+              date: post.date,
+              service: 'facebook'
+            }
           }
-        }
+        end
 
         body = @statuses.to_json
       else
@@ -43,6 +44,14 @@ module StatusExchange
       end
 
       [status, headers, body]
+    end
+
+    def twitter
+      StatusExchange::TwitterClient.new
+    end
+
+    def facebook
+      StatusExchange::FacebookClient.new
     end
   end
 end
