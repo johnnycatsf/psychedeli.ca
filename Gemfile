@@ -38,10 +38,14 @@ group :deployment do
   gem 'jammit', :require => false
 end
 group :test do
-  gem 'minitest'
-  gem 'mini_shoulda'
   gem 'turn'
+  gem 'minitest'                      # At least v2.0.2 if using MiniShoulda.
+  gem 'mini_specunit'                 # The goods! Force MiniTest::Spec instead of MiniTest::Unit.
+  gem 'mini_shoulda'                  # A small Shoulda syntax on top of MiniTest::Spec.
+  gem 'simplecov', :require => false  # Test coverage in Ruby 1.9
   gem 'rack-test'
   gem 'vcr'
-  gem 'webmock'
+  gem 'mocha'
+  gem 'webmock', '1.7.0'
+  gem 'watchr'
 end

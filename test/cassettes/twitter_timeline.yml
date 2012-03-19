@@ -17,46 +17,46 @@
       message: OK
     headers:
       date:
-      - Mon, 19 Mar 2012 00:19:54 GMT
+      - Mon, 19 Mar 2012 01:11:48 GMT
       status:
       - 200 OK
+      x-ratelimit-remaining:
+      - '149'
+      x-transaction-mask:
+      - a6183ffa5f8ca943ff1b53b5644ef114fd7b66ab
+      x-runtime:
+      - '1.34656'
+      x-transaction:
+      - a2edc7fc3536fa9e
+      content-type:
+      - application/json; charset=utf-8
+      x-ratelimit-limit:
+      - '150'
+      cache-control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
       x-frame-options:
       - SAMEORIGIN
       pragma:
       - no-cache
-      x-ratelimit-limit:
-      - '150'
       etag:
       - ! '"e068df54f91e2acd7ba1786fa777acc4"'
+      last-modified:
+      - Mon, 19 Mar 2012 01:11:47 GMT
+      x-ratelimit-reset:
+      - '1332123107'
+      x-mid:
+      - 536833b20601f35c2dfe6b5fd58c633009255cad
       expires:
       - Tue, 31 Mar 1981 05:00:00 GMT
-      x-ratelimit-reset:
-      - '1332117760'
-      x-transaction:
-      - 2e04400bf5f4f4b1
       x-ratelimit-class:
       - api
-      last-modified:
-      - Mon, 19 Mar 2012 00:19:54 GMT
-      x-mid:
-      - 0631bb0df4a7e62639e4bfa923082f40820e3abe
-      content-type:
-      - application/json; charset=utf-8
-      x-ratelimit-remaining:
-      - '143'
-      x-transaction-mask:
-      - a6183ffa5f8ca943ff1b53b5644ef114fd7b66ab
-      cache-control:
-      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
-      x-runtime:
-      - '0.13084'
       set-cookie:
-      - k=10.35.59.127.1332116394634126; path=/; expires=Mon, 26-Mar-12 00:19:54 GMT;
-        domain=.twitter.com
-      - guest_id=v1%3A133211639463835012; domain=.twitter.com; path=/; expires=Wed,
-        19-Mar-2014 12:19:54 GMT
-      - _twitter_sess=BAh7CCIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%250ASGFzaHsABjoKQHVzZWR7ADoPY3JlYXRlZF9hdGwrCJASUyg2AToHaWQiJWYx%250AZWQ3MjM3MWY2ZjEzMWUxNWUyM2QwM2JlODFmZTE1--f6a84ccf3fd4e36b2bb816cc841cfe8e655641b5;
+      - _twitter_sess=BAh7CDoPY3JlYXRlZF9hdGwrCNaRgig2AToHaWQiJTYwNzBiMDNlMTUzZmQ1%250ANDQyMmI2ODI5MjliMmI1Y2I4IgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVy%250AOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsA--9c030d0c8f35e07241a5a07a7acc3cd7d1b5d60d;
         domain=.twitter.com; path=/; HttpOnly
+      - guest_id=v1%3A133211950741266629; domain=.twitter.com; path=/; expires=Wed,
+        19-Mar-2014 13:11:47 GMT
+      - k=10.34.122.134.1332119507409850; path=/; expires=Mon, 26-Mar-12 01:11:47
+        GMT; domain=.twitter.com
       vary:
       - Accept-Encoding
       content-encoding:

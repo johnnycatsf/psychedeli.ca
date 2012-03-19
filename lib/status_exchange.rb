@@ -27,53 +27,53 @@ require 'json'
 require 'yaml'
 require 'active_support/all'
 
+require 'rack/contrib/not_found'
 require 'status_exchange/facebook_client'
+require 'status_exchange/twitter_client'
 
-class StatusExchange
-  attr_reader :statuses
+module StatusExchange
+  class << self
+    attr_reader :statuses
 
-  def initialize application=nil, options={}
-    @config = options[:config] || YAML::load_file(File.expand_path('./cfg/status_exchange.yml'))
-    @mount = options[:url] || '/status'
-    @app = application
-    @statuses = [] # an array of status messages
+    def initialize application=nil, options={}
+      @config = options[:config] || YAML::load_file(File.expand_path('./cfg/status_exchange.yml'))
+      @mount = options[:url] || '/status'
+      @app = application
+      @headers = {"Content-Type" => "application/json"}
+      @statuses = [] # an array of status messages
 
-    @config.symbolize_keys!
-  end
+      @config.symbolize_keys!
 
-  def call env
-    headers = {
-      "Content-Type" => "application/json"
-    }
-
-    if env['PATH_INFO'] == @mount
-      @statuses = last_five_twitter_tweets.reduce([]) {|tweets, tweet|
-        tweets << {
-          message: tweet.text,
-          date: tweet.created_at,
-          link: "https://twitter.com/tubbo/status/#{tweet.id}"
-        }
-      }
-
-      # sort by date
-      @statuses.sort {|this_status,next_status| this_status[:date] <=> next_status[:date] }
-
-      status = 200
-      body = [{:statuses => @statuses}.to_json]
-    else
-      status, headers, body = @app.call env
+      @twitter = StatusExchange::TwitterClient.new @config[:twitter]
+      @facebook = StatusExchange::FacebookClient.new @config[:facebook]
     end
 
-    # always respond
-    [status, headers, body]
-  end
+    # For testing support. Returns a new instance of StatusExchange with Rack::NotFound chained.
+    def self.test_app
+      new Rack::NotFound.new('pub/index.html')
+    end
 
-  def last_five_twitter_tweets
-    Twitter.user_timeline(@config[:twitter]['user_name'])
-  end
+    def self.call env
+      if env['PATH_INFO'] == @mount
+        @statuses = @twitter.tweets.reduce([]) {|tweets, tweet|
+          tweets << {
+            message: tweet.text,
+            date: tweet.created_at,
+            link: "https://twitter.com/tubbo/status/#{tweet.id}"
+          }
+        }
 
-  def last_five_facebook_posts
-    facebook = StatusExchange::FacebookClient.new @config[:facebook]
-    facebook.status_messages(limit: 5)
+        # sort by date
+        @statuses.sort {|this_status,next_status| this_status[:date] <=> next_status[:date] }
+
+        status = 200
+        body = [{:statuses => @statuses}.to_json]
+      else
+        status, @headers, body = @app.call env
+      end
+
+      # always respond
+      [status, @headers, body]
+    end
   end
 end

@@ -8,7 +8,7 @@ require 'status_exchange'
 # Test suite
 require 'minitest/autorun'
 require 'mini_shoulda'
-require 'active_support/test_case'
+require 'active_support/all'
 require 'rack/test'
 require 'turn'
 
@@ -27,5 +27,7 @@ ENV['DOT'] and Turn.config.format = :dot
 
 # Global test controller
 class ActiveSupport::TestCase
-
+  def yaml_config
+    YAML::load_file(File.expand_path('./cfg/status_exchange.yml')).symbolize_keys!
+  end
 end
