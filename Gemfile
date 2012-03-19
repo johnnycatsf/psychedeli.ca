@@ -38,7 +38,7 @@ group :deployment do
   gem 'jammit', :require => false
 end
 group :test do
-  gem 'turn'
+  gem 'turn', :require => false
   gem 'minitest', :require => false
   gem 'mini_specunit', :require => false
   gem 'mini_shoulda', :require => false
@@ -49,4 +49,7 @@ group :test do
   gem 'webmock', '1.7.0', :require => false
   gem 'watchr', :require => false
   gem 'rack-test', :require => false
+  gem 'actionpack', :require => false
+  gem 'capybara', :require => false
+  gem 'capybara_minitest_spec', :require => false
 end

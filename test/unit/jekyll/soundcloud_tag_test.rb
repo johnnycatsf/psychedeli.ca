@@ -1,6 +1,6 @@
 require 'jekyll'
 require 'test_helper'
 
-class Jekyll::SoundcloudTagTest < ActiveSupport::TestCase
+class Jekyll::SoundcloudTagTest < UnitTest
 
 end

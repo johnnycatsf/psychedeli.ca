@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class StatusExchange::TwitterClientTest < ActiveSupport::TestCase
+class StatusExchange::TwitterClientTest < UnitTest
   setup do
     @twitter = StatusExchange::TwitterClient.new
   end

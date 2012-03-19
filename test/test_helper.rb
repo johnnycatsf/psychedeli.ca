@@ -3,28 +3,37 @@ ENV['RACK_ENV'] = "test"
 # The classes we are testing
 $:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
 require 'status_exchange'
-# require 'autocorrect'
 
-# Test suite
-require 'minitest/autorun'
-require 'mini_shoulda'
-require 'active_support/all'
-require 'rack/test'
 require 'turn'
+require 'minitest/autorun'
 
-# HTTP mocking
+require 'active_support/all'
+require 'mini_shoulda'
 require 'vcr'
 require 'webmock'
+
+require 'action_dispatch'
+require 'rack/test'
+require 'capybara'
+
 VCR.config do |c|
   c.cassette_library_dir = File.expand_path './test/cassettes/'
   c.stub_with :webmock
 end
 
+class UnitTest < ActiveSupport::TestCase
 
-# Test output configuration
+end
+
+class IntegrationTest < ActiveSupport::TestCase
+  include Rack::Test::Methods
+  include Capybara::DSL
+
+  teardown do
+    Capybara.reset_sessions!
+    Capybara.use_default_driver
+  end
+end
+
 ENV['BAR'] and Turn.config.format = :progress
 ENV['DOT'] and Turn.config.format = :dot
-
-# Global test controller
-class ActiveSupport::TestCase; end
-class ActiveSupport::FunctionalTestCase < ActiveSupport::TestCase; end

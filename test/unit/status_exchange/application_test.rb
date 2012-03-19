@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class StatusExchange::ApplicationTest < ActiveSupport::TestCase
+class StatusExchange::ApplicationTest < UnitTest
   setup do
     @app = StatusExchange::Application.new
   end

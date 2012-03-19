@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class StatusExchange::FacebookClientTest < ActiveSupport::TestCase
+class StatusExchange::FacebookClientTest < UnitTest
   setup do
     @facebook = StatusExchange::FacebookClient.new
   end
