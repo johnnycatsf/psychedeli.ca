@@ -5,7 +5,7 @@ require 'rack/contrib/not_found'
 
 module StatusExchange
   class Application
-    def initialize application=nil, options={}
+    def initialize application, options={}
       @mount = options[:url] || '/status'
       @app = application
       @statuses = [] # an array of status messages

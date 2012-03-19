@@ -12,7 +12,6 @@ require 'mini_shoulda'
 require 'vcr'
 require 'webmock'
 
-require 'action_dispatch'
 require 'rack/test'
 require 'capybara'
 
@@ -27,10 +26,9 @@ end
 
 class IntegrationTest < ActiveSupport::TestCase
   include Rack::Test::Methods
-  include ActionDispatch::Assertions::ResponseAssertions
+  # include ActionDispatch::Assertions::ResponseAssertions
 
   setup { @request = Rack::MockRequest.new }
-  teardown { Capybara.reset_sessions! }
 end
 
 ENV['BAR'] and Turn.config.format = :progress

@@ -2,7 +2,11 @@ require 'test_helper'
 
 class StatusExchange::ApplicationTest < UnitTest
   setup do
-    @app = StatusExchange::Application.new
+    @app = StatusExchange::Application.new Rack::NotFound.new('pub/index.html')
+  end
+
+  test "instantiates a new json aggregator" do
+    refute_empty @app.call Rack::MockRequest.new
   end
 
   context "requests to /status" do
