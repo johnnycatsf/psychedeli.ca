@@ -1,6 +1,6 @@
+//=require underscore
 //=require jquery
-//=require jquery-ui
-//=require jquery.linkifyTags
+//=require jquery.ticker
 //=require pretty
 //=require functions
 //=require ready

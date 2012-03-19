@@ -1,8 +1,22 @@
+require 'rack/contrib/not_found'
 require 'test_helper'
 
-describe StatusExchange do
-  it "parses twitter for the top 5 latest tweets"
-  it "parses facebook for the top 5 latest status messages"
-  it "parses github for the top 5 latest activity"
-  it "returns it all as a JSON feed"
+class StatusExchangeTest < ActiveSupport::TestCase
+  setup do
+    @app = StatusExchange.new(Rack::NotFound.new('pub/index.html'))
+  end
+
+  test "gets the top five latest tweets from twitter" do
+    VCR.use_cassette "twitter" do
+      refute_empty @app.last_five_twitter_tweets, "Must return tweets"
+    end
+  end
+
+  # test "gets the top five latest status messages from facebook" do
+  #   refute_empty @app.last_five_facebook_posts, "Must return Facebook status messages"
+  # end
+
+  # test "gets the top five entries to the github timeline" do
+  #   skip
+  # end
 end

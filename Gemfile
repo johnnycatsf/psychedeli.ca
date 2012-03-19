@@ -6,6 +6,7 @@ gem 'rack-contrib', :require => false
 gem 'jekyll', :require => false, :git => 'git://github.com/tubbo/jekyll.git', :branch => 'feature/custom-dirs'
 gem 'sprockets', :require => false
 gem 'rake'
+gem 'activesupport', :require => false
 
 # Asset pipeline
 gem 'sprockets', :require => false
@@ -23,13 +24,13 @@ gem 'liquid', :require => false
 # StatusExchange
 gem 'yajl-ruby'
 gem 'twitter'
-gem 'mogli'
+gem 'koala'
 gem 'ratom'
 gem 'soundcloud'
 
 # Development tools
 group :development do
-  gem 'deadweight', :require => false
+  gem 'unicorn', :require => false
 end
 group :deployment do
   gem 'capistrano', :require => false
@@ -38,6 +39,9 @@ group :deployment do
 end
 group :test do
   gem 'minitest'
-  gem 'shoulda'
+  gem 'mini_shoulda'
+  gem 'turn'
+  gem 'rack-test'
   gem 'vcr'
+  gem 'webmock'
 end

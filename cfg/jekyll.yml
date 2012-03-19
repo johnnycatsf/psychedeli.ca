@@ -7,3 +7,8 @@ plugins: ./lib/plugins
 markdown: redcarpet
 pygments: true
 permalink: pretty       # /category/YYYY/MM/DD/title
+exclude:
+- html
+- doc
+- css
+- js

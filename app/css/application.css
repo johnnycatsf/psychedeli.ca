@@ -2,6 +2,7 @@
  *= require vendor/fonts
  *= require vendor/pygments
  *= require vendor/jquery.facebox
+ *= require vendor/ribbon
  *= require psychedelica/layout
  *= require psychedelica/posts
  */

@@ -19,8 +19,7 @@ require 'status_exchange'
 require 'autocorrect'
 require 'sprockets'
 require 'rack/contrib/try_static'
-
-#use Rack::EY::Solo::DomainRedirect                # redirects www.psychedeli.ca to psychedeli.ca
+require 'rack/contrib/not_found'
 
 map '/css' do
   stylesheet_environment = Sprockets::Environment.new
@@ -35,10 +34,7 @@ map '/js' do
 end
 
 map '/' do
-  use StatusExchange, url: '/status'
-  use Rack::TryStatic,
-    root: 'pub',
-    urls: %w[/],
-    try: ['.html', 'index.html', '/index.html']
-  run Autocorrect
+  use StatusExchange
+  use Rack::TryStatic, root: 'pub', urls: %w[/], try: ['.html', 'index.html', '/index.html']
+  run Rack::NotFound.new 'pub/index.html'
 end
