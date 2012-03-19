@@ -13,7 +13,6 @@ end
 # Defaults to `compile`
 task :default => :compile
 
-
 desc "Restarts the Rack stack"
 task :restart do
   puts "Restarting the server..."
@@ -21,10 +20,17 @@ task :restart do
   puts "done"
 end
 
+desc "Installs dependencies to the proper gemset"
+task :setup do
+  puts "Installing runtime dependencies..."
+  run "cd #{deploy_to}/current && source .rvmrc"
+  run "bundle install"
+end
 
 
 desc "Runs all of the tests for psychedeli.ca"
 Rake::TestTask.new do |t|
+  puts "Running all tests..."
   t.libs << 'test'
   t.pattern = 'test/**/*_test.rb'
 end

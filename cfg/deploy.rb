@@ -1,3 +1,5 @@
+require './lib/tasks/psychedelica.rake'
+
 set :user, "necromancer"
 set :domain, "psychedeli.ca"
 server domain, :web
@@ -15,12 +17,5 @@ set :application, "blog"
 set :deploy_to, "/home/#{user}/src/#{application}"
 role :web, "psychedeli.ca"
 
-namespace :rack do
-  desc "Restart the server and recompile the app"
-  task :restart do
-    run "cd #{deploy_to}/current && /usr/bin/env rake compile"
-    run "touch #{current_path}/tmp/restart.txt"
-  end
-end
-
-after 'deploy:update_code', 'rack:restart'  # Always restart the app after deployment
+before 'deploy:update_code', 'setup'
+after 'deploy:update_code', 'restart'  # Always restart the app after deployment
