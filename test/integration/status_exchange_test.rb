@@ -1,13 +1,20 @@
 require 'test_helper'
 
-class StatusExchangeTest < IntegrationTest
-  include Rack::Test::Methods
+class RoutingTest < IntegrationTest
+  context "GET /" do
+    should "render the home page" do
+      get "/"
+      assert_response :success
+      assert_select 'section#posts', @request.body
+    end
+  end
 
-  setup { @app = StatusExchange::Application.new }
-
-  context "requests to /status get routed to StatusExchange" do
-    visit "/status"
-    assert_equal "http://example.org/status", last_request.url
-    assert last_response.ok?
+  context "GET /status" do
+    should "render an aggregate social network status message feed sorted by date" do
+      get "/status"
+      assert_equal "http://blog.dev/status", @request.url
+      assert last_response.ok?
+      assert_response :success
+    end
   end
 end

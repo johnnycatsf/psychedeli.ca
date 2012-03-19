@@ -27,12 +27,10 @@ end
 
 class IntegrationTest < ActiveSupport::TestCase
   include Rack::Test::Methods
-  include Capybara::DSL
+  include ActionDispatch::Assertions::ResponseAssertions
 
-  teardown do
-    Capybara.reset_sessions!
-    Capybara.use_default_driver
-  end
+  setup { @request = Rack::MockRequest.new }
+  teardown { Capybara.reset_sessions! }
 end
 
 ENV['BAR'] and Turn.config.format = :progress
