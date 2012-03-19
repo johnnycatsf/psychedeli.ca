@@ -33,7 +33,7 @@ require 'status_exchange/twitter_client'
 
 module StatusExchange
   class << self
-    attr_reader :statuses
+    attr_reader :statuses, :headers
 
     def initialize application=nil, options={}
       @config = options[:config] || YAML::load_file(File.expand_path('./cfg/status_exchange.yml'))
@@ -54,26 +54,6 @@ module StatusExchange
     end
 
     def self.call env
-      if env['PATH_INFO'] == @mount
-        @statuses = @twitter.tweets.reduce([]) {|tweets, tweet|
-          tweets << {
-            message: tweet.text,
-            date: tweet.created_at,
-            link: "https://twitter.com/tubbo/status/#{tweet.id}"
-          }
-        }
-
-        # sort by date
-        @statuses.sort {|this_status,next_status| this_status[:date] <=> next_status[:date] }
-
-        status = 200
-        body = [{:statuses => @statuses}.to_json]
-      else
-        status, @headers, body = @app.call env
-      end
-
-      # always respond
-      [status, @headers, body]
     end
   end
 end
