@@ -20,12 +20,14 @@
 # Homepage:: http://psychedeli.ca/
 
 require 'twitter'
-require 'mogli'
-require 'soundcloud'
-require 'atom'
+require 'koala'
+
 require 'date'
 require 'json'
 require 'yaml'
+require 'active_support/all'
+
+require 'status_exchange/facebook_client'
 
 class StatusExchange
   attr_reader :statuses
@@ -35,6 +37,8 @@ class StatusExchange
     @mount = options[:url] || '/status'
     @app = application
     @statuses = [] # an array of status messages
+
+    @config.symbolize_keys!
   end
 
   def call env
@@ -43,7 +47,7 @@ class StatusExchange
     }
 
     if env['PATH_INFO'] == @mount
-      @statuses = tweets.reduce([]) {|tweets, tweet|
+      @statuses = last_five_twitter_tweets.reduce([]) {|tweets, tweet|
         tweets << {
           message: tweet.text,
           date: tweet.created_at,
@@ -64,7 +68,12 @@ class StatusExchange
     [status, headers, body]
   end
 
-  def tweets
-    Twitter.user_timeline(@config['twitter']['user_name'])
+  def last_five_twitter_tweets
+    Twitter.user_timeline(@config[:twitter]['user_name'])
+  end
+
+  def last_five_facebook_posts
+    facebook = StatusExchange::FacebookClient.new @config[:facebook]
+    facebook.status_messages(limit: 5)
   end
 end
