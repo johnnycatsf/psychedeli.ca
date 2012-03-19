@@ -7,7 +7,7 @@ module StatusExchange
   class Application
     def initialize application=nil, options={}
       @mount = options[:url] || '/status'
-      @app = application || Rack::NotFound.new("pub/index.html")
+      @app = application
       @statuses = [] # an array of status messages
 
       @twitter = StatusExchange::TwitterClient.new

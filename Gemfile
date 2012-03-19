@@ -48,4 +48,5 @@ group :test do
   gem 'mocha'
   gem 'webmock', '1.7.0'
   gem 'watchr'
+  gem 'rack-test'
 end

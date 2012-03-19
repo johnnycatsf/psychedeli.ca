@@ -8,7 +8,7 @@ class StatusExchange::ApplicationTest < ActiveSupport::TestCase
   context "requests to /status" do
     should "respond successfully" do
       refute_empty @app.call({
-        'PATH_QUERY' => "/status"
+        'PATH_INFO' => "/status"
       })[2]
     end
   end

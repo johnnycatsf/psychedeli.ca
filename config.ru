@@ -33,7 +33,7 @@ map '/js' do
 end
 
 map '/' do
-  use StatusExchange::Application
+  use StatusExchange::Application, url: "/status.json"
   use Rack::TryStatic, root: 'pub', urls: %w[/], try: ['.html', 'index.html', '/index.html']
   run Rack::NotFound.new 'pub/index.html'
 end
