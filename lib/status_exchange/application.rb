@@ -15,7 +15,9 @@ module StatusExchange
     end
 
     def call env
-      if @mount == env['PATH_QUERY']
+      request = Rack::Request.new env
+
+      if request.get? && @mount == request.path_info
         status = 200
         headers = {"Content-Type" => "application/json"}
 

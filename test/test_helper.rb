@@ -26,5 +26,5 @@ ENV['BAR'] and Turn.config.format = :progress
 ENV['DOT'] and Turn.config.format = :dot
 
 # Global test controller
-class ActiveSupport::TestCase
-end
+class ActiveSupport::TestCase; end
+class ActiveSupport::FunctionalTestCase < ActiveSupport::TestCase; end
