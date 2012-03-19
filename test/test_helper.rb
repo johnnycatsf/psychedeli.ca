@@ -30,4 +30,7 @@ class ActiveSupport::TestCase
   def yaml_config
     YAML::load_file(File.expand_path('./cfg/status_exchange.yml')).symbolize_keys!
   end
+  def cfg
+    yaml_config
+  end
 end
