@@ -3,8 +3,8 @@ module StatusExchange
   require 'koala'
 
   class FacebookClient
-    def initialize config
-      @config = config.symbolize_keys!
+    def initialize
+      @config = StatusExchange.config[:facebook].symbolize_keys
       @graph = Koala::Facebook::API.new @config[:access_token]
     end
 

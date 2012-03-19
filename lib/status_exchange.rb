@@ -19,41 +19,14 @@
 # Author:: Tom Scott
 # Homepage:: http://psychedeli.ca/
 
-require 'twitter'
-require 'koala'
-
-require 'date'
-require 'json'
-require 'yaml'
-require 'active_support/all'
-
-require 'rack/contrib/not_found'
 require 'status_exchange/facebook_client'
 require 'status_exchange/twitter_client'
+require 'status_exchange/application'
 
 module StatusExchange
   class << self
-    attr_reader :statuses, :headers
-
-    def initialize application=nil, options={}
-      @config = options[:config] || YAML::load_file(File.expand_path('./cfg/status_exchange.yml'))
-      @mount = options[:url] || '/status'
-      @app = application
-      @headers = {"Content-Type" => "application/json"}
-      @statuses = [] # an array of status messages
-
-      @config.symbolize_keys!
-
-      @twitter = StatusExchange::TwitterClient.new @config[:twitter]
-      @facebook = StatusExchange::FacebookClient.new @config[:facebook]
-    end
-
-    # For testing support. Returns a new instance of StatusExchange with Rack::NotFound chained.
-    def self.test_app
-      new Rack::NotFound.new('pub/index.html')
-    end
-
-    def self.call env
+    def config
+      YAML::load_file(File.expand_path('./cfg/status_exchange.yml')).symbolize_keys!
     end
   end
 end

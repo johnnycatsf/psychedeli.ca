@@ -16,7 +16,6 @@ $LOAD_PATH << './lib'
 
 require 'rubygems'
 require 'status_exchange'
-require 'autocorrect'
 require 'sprockets'
 require 'rack/contrib/try_static'
 require 'rack/contrib/not_found'
@@ -34,7 +33,7 @@ map '/js' do
 end
 
 map '/' do
-  use StatusExchange
+  use StatusExchange::Application
   use Rack::TryStatic, root: 'pub', urls: %w[/], try: ['.html', 'index.html', '/index.html']
   run Rack::NotFound.new 'pub/index.html'
 end

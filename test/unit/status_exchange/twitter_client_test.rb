@@ -2,7 +2,7 @@ require 'test_helper'
 
 class StatusExchange::TwitterClientTest < ActiveSupport::TestCase
   setup do
-    @twitter = StatusExchange::TwitterClient.new yaml_config[:twitter]
+    @twitter = StatusExchange::TwitterClient.new
   end
 
   context "connecting to the twitter api" do

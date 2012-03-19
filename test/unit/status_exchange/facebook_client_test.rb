@@ -2,7 +2,7 @@ require 'test_helper'
 
 class StatusExchange::FacebookClientTest < ActiveSupport::TestCase
   setup do
-    @facebook = StatusExchange::FacebookClient.new cfg[:facebook]
+    @facebook = StatusExchange::FacebookClient.new
   end
 
   context "connecting to the facebook graph api" do

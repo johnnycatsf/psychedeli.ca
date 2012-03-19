@@ -3,8 +3,8 @@ require 'twitter'
 
 module StatusExchange
   class TwitterClient
-    def initialize with_config
-      @config = with_config.symbolize_keys
+    def initialize
+      @config = StatusExchange.config[:twitter].symbolize_keys
     end
 
     def tweets

@@ -1,11 +1,19 @@
 require 'test_helper'
 
 class StatusExchange::ApplicationTest < ActiveSupport::TestCase
-  setup { @app = StatusExchange.new }
+  setup do
+    @app = StatusExchange::Application.new
+  end
 
   context "requests to /status" do
-    should "respond with json" do
-      assert_equal "application/json", @app.headers["Content-Type"]
+    should "respond successfully" do
+      refute_empty @app.call({
+        'PATH_QUERY' => "/status"
+      })[2]
     end
+  end
+
+  context "any other request" do
+    should "be relayed to the next rack application"
   end
 end
