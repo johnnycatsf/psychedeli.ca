@@ -35,5 +35,5 @@ end
 map '/' do
   use StatusExchange::Application
   use Rack::TryStatic, root: 'pub', urls: %w[/], try: ['.html', 'index.html', '/index.html']
-  run Rack::NotFound.new 'pub/404.html'
+  run Rack::NotFound.new 'pub/index.html'
 end
