@@ -18,13 +18,18 @@ set :deploy_to, "/home/#{user}/src/#{application}"
 role :web, "psychedeli.ca"
 
 namespace :deploy do
-  desc "Restart the server and recompile the app"
   task :update_content do
-    system "cd #{current_release}; rm -rf pub/*"
-    system "cd #{current_release}; bundle exec jekyll --config=cfg/jekyll.yml"
+    run "cd #{release_path}; rm -rf pub/*"
+    run "cd #{release_path}; bundle exec jekyll --config=cfg/jekyll.yml"
+    configure_status_exchange
   end
+
+  task :configure_status_exchange do
+    run "ln -nfs #{shared_path}/cfg/status_exchange.yml #{release_path}/cfg/status_exchange.yml"
+  end
+
   task :restart do
-    system "cd #{current_release}; touch tmp/restart.txt"
+    run "cd #{release_path}; touch tmp/restart.txt"
   end
 end
 
