@@ -32,4 +32,5 @@ Rake::TestTask.new do |t|
   t.pattern = 'test/**/*_test.rb'
 end
 
-task :default => :compile
+task :default => [:compile, :test]
+
