@@ -46,7 +46,7 @@ group :test do
   gem 'rack-test', :require => false
   gem 'vcr', :require => false
   gem 'mocha', :require => false
-  gem 'webmock', '1.7.0', :require => false
+  gem 'webmock', '~> 1.8.0', :require => false
   gem 'watchr', :require => false
   gem 'rack-test', :require => false
   gem 'actionpack', :require => false
