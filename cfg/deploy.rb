@@ -15,7 +15,6 @@ ssh_options[:forward_agent] = true
 
 set :repository, "git@github.com:tubbo/psychedeli.ca.git"
 set :scm, "git"
-set :user, "necromancer"
 set :use_sudo, true
 set :git_enable_submodules, 1
 
@@ -24,6 +23,10 @@ set :deploy_to, "/home/#{user}/src/#{application}"
 role :web, "psychedeli.ca"
 
 namespace :deploy do
+  task :bundle do
+    run "cd #{release_path}; bundle install"
+  end
+
   task :update_content do
     run "cd #{release_path}; rm -rf pub/*"
     run "cd #{release_path}; bundle exec jekyll --config=cfg/jekyll.yml"
@@ -40,4 +43,5 @@ namespace :deploy do
 end
 
 # Always restart the app after deployment
-after 'deploy:update_code', 'deploy:update_content'
+after 'deploy:update_code', 'deploy:bundle'
+after 'deploy:bundle', 'deploy:update_content'
