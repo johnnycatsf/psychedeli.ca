@@ -15,9 +15,9 @@ require 'webmock'
 require 'rack/test'
 require 'capybara'
 
-VCR.config do |c|
+VCR.configure do |c|
   c.cassette_library_dir = File.expand_path './test/cassettes/'
-  c.stub_with :webmock
+  c.hook_into :webmock
 end
 
 class UnitTest < ActiveSupport::TestCase
