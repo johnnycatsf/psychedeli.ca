@@ -8,6 +8,9 @@ set :rvm_ruby_string, '1.9.2'
 set :rvm_type, :user  # Don't use system-wide RVM
 set :user, "necromancer"
 set :domain, "psychedeli.ca"
+set :use_sudo, true
+
+
 server domain, :web
 
 default_run_options[:pty] = true
@@ -15,7 +18,6 @@ ssh_options[:forward_agent] = true
 
 set :repository, "git@github.com:tubbo/psychedeli.ca.git"
 set :scm, "git"
-set :use_sudo, true
 set :git_enable_submodules, 1
 
 set :application, "blog"
