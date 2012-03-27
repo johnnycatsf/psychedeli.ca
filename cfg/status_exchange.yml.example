@@ -1,12 +1,42 @@
+# = StatusExchange Configuration
+#
+# This is the configuration file for StatusExchange, a Rack-based status
+# message aggregator.
+
+# == Twitter
+#
+# As long as your Twitter feed is public, all you have to do is put your
+# user name here and we'll do the rest.
 twitter:
   user_name:
 
+# == Facebook
+#
+# Register your app at <http://developers.facebook.com>, then input those
+# details into <tt>app_id</tt> and <tt>app_secret</tt>. Next, obtain an
+# access token from that same site and place it in <tt>access_token</tt>.
+#
+# You can optionally use your own profile or a Facebook page to read from.
+# Set your <tt>vanity_url</tt> to the URL that is in the address bar when
+# you're on your own Facebook profile.
 facebook:
+  app_id:
+  app_secret:
   access_token:
+  vanity_url:
 
+# == Soundcloud
+#
+# Soundcloud also requires application registration at
+# <http://developers.soundcloud.com>. Paste your <tt>client_id</tt> in here
+# and specify the <tt>user_name</tt> you want StatusExchange to look up.
 soundcloud:
   client_id:
   user_name:
 
+# == GitHub
+#
+# All GitHub RSS feeds are public, so this will read from your public GitHub
+# timeline. Just enter your <tt>user_name</tt> and you're good to go!
 github:
   user_name:

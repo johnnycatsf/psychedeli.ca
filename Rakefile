@@ -5,6 +5,7 @@ require 'rake/testtask'
 
 desc "Copy server configuration files from `cfg/` to the public dir."
 task :config do
+  puts "Copying configuration..."
   system 'cp cfg/.htaccess pub/.htaccess'
   system 'cp cfg/robots.txt pub/robots.txt'
   system 'cp cfg/status_exchange.yml.example cfg/status_exchange.yml' unless File.exists? File.expand_path('./cfg/status_exchange.yml')
