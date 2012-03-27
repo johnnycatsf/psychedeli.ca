@@ -15,8 +15,6 @@ task :compile do
   # refresh and compile the static dir
   system 'rm -rf pub/*'
   system 'bundle exec jekyll --config=cfg/jekyll.yml'
-  Rake::Task['config'].invoke
-  Rake::Task['restart'].invoke
 end
 
 desc "Restart the Ruby web server"
@@ -32,5 +30,12 @@ Rake::TestTask.new do |t|
   t.pattern = 'test/**/*_test.rb'
 end
 
-task :default => [:compile, :test]
+desc "A special task for running the test suite on Travis"
+task :build do
+  Rake::Task['compile'].invoke
+  Rake::Task['config'].invoke
+  Rake::Task['test'].invoke
+  Rake::Task['restart'].invoke
+end
 
+task :default => [:compile, :test, :restart]
