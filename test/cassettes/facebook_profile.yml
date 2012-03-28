@@ -76,4 +76,47 @@ http_interactions:
         vh3R01xiwsREyFsupwWfSvae0Zc/PQPqutcIIgQAAA==
     http_version: 
   recorded_at: Tue, 27 Mar 2012 03:51:29 GMT
+- request:
+    method: get
+    uri: http://graph.facebook.com/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 302
+      message: Found
+    headers:
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Location:
+      - http://developers.facebook.com/docs/api
+      Pragma:
+      - no-cache
+      X-Fb-Rev:
+      - '531581'
+      Content-Type:
+      - text/html; charset=utf-8
+      X-Fb-Debug:
+      - qqeH7TLuOlFuG946OzoLNtbPovvZ4t1JTXCa1YtHF6A=
+      X-Cnection:
+      - close
+      Date:
+      - Tue, 27 Mar 2012 04:08:40 GMT
+      Content-Length:
+      - '0'
+    body:
+      encoding: US-ASCII
+      string: ''
+    http_version: 
+  recorded_at: Tue, 27 Mar 2012 04:08:40 GMT
 recorded_with: VCR 2.0.0

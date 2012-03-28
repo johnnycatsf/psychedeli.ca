@@ -18,7 +18,7 @@ gem 'uglifier', :require => false
 # gem 'therubyracer', :require => false
 
 # Jekyll
-gem 'jekyll', :require => false, git: 'git://github.com/tubbo/jekyll.git', branch: 'feature/custom-dirs'
+gem 'jekyll', :require => false, :git => 'git://github.com/tubbo/jekyll.git', :branch => 'feature/custom-dirs'
 gem 'liquid', :require => false
 
 # StatusExchange
