@@ -1,8 +1,6 @@
 require 'test_helper'
 
 class StatusExchangeTest < IntegrationTest
-  include Rack::Test::Methods
-
   def app
     StatusExchange::Application.new
   end

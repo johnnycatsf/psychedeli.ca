@@ -27,9 +27,6 @@ end
 
 class IntegrationTest < ActiveSupport::TestCase
   include Rack::Test::Methods
-  # include ActionDispatch::Assertions::ResponseAssertions
-
-  setup { @request = Rack::MockRequest.new }
 end
 
 ENV['BAR'] and Turn.config.format = :progress
