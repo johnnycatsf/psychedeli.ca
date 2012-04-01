@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class StatusExchange::ApplicationTest < UnitTest
+class StatusExchangeTest < IntegrationTest
   include Rack::Test::Methods
 
   def app
