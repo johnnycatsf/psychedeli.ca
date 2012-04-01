@@ -5,9 +5,9 @@ require 'rack/contrib/not_found'
 
 module StatusExchange
   class Application
-    def initialize application, options={}
+    def initialize application=false, options={}
       @mount = options[:url] || '/status'
-      @app = application
+      @app = application || Rack::NotFound.new('pub/err/404.html')
       @statuses = [] # an array of status messages
     end
 
@@ -18,25 +18,21 @@ module StatusExchange
         status = 200
         headers = {"Content-Type" => "application/json"}
 
-        if twitter.is_defined?
-          twitter.tweets.each {|tweet|
-            @statuses << {
-              message: tweet.text,
-              date: tweet.created_at,
-              service: 'twitter'
-            }
+        twitter.tweets.each {|tweet|
+          @statuses << {
+            message: tweet.text,
+            date: tweet.created_at,
+            service: 'twitter'
           }
-        end
+        }
 
-        if facebook.is_defined?
-          facebook.posts.each {|post|
-            @statuses << {
-              message: post.message || post.story,
-              date: post.date,
-              service: 'facebook'
-            }
+        facebook.posts.each {|post|
+          @statuses << {
+            message: post.message || post.story,
+            date: post.date,
+            service: 'facebook'
           }
-        end
+        }
 
         body = @statuses.to_json
       else
