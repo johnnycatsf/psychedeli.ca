@@ -37,7 +37,6 @@ task :build do
   Rake::Task['compile'].invoke
   Rake::Task['config'].invoke
   Rake::Task['test'].invoke
-  Rake::Task['restart'].invoke
 end
 
 task :default => [:compile, :test, :restart]
