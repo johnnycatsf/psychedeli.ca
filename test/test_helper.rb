@@ -13,7 +13,7 @@ require 'vcr'
 require 'webmock'
 
 require 'rack/test'
-require 'capybara'
+# require 'capybara'
 
 VCR.configure do |c|
   # c.default_cassette_options = { :record => :new_episodes }
