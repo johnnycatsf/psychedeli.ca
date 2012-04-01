@@ -2,126 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://graph.facebook.com/tubbo?access_token=AAAEcoySQLr0BAGUNUHZAuuj3n6Qj5ZAKQqkpLpXkG6HXShPfb2ksrukr6Pup9Tn3tda0l3W5LnZAMo2mOFZAD6PJ3Q6VdRiDvyybKZAT0wAGJ6MEWdgrN
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - ! '*/*'
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: !binary |-
-        T0s=
-    headers:
-      !binary "QWNjZXNzLUNvbnRyb2wtQWxsb3ctT3JpZ2lu":
-      - !binary |-
-        Kg==
-      !binary "Q2FjaGUtQ29udHJvbA==":
-      - !binary |-
-        cHJpdmF0ZSwgbm8tY2FjaGUsIG5vLXN0b3JlLCBtdXN0LXJldmFsaWRhdGU=
-      !binary "Q29udGVudC1UeXBl":
-      - !binary |-
-        dGV4dC9qYXZhc2NyaXB0OyBjaGFyc2V0PVVURi04
-      !binary "RXRhZw==":
-      - !binary |-
-        ImNlZjY2Y2VjOGIxMGIzMmMyZjIwYzJiODBkZDUwNGQyNTJiYTY2ZTIi
-      !binary "RXhwaXJlcw==":
-      - !binary |-
-        U2F0LCAwMSBKYW4gMjAwMCAwMDowMDowMCBHTVQ=
-      !binary "TGFzdC1Nb2RpZmllZA==":
-      - !binary |-
-        MjAxMi0wMi0yNVQxNTozMTo1MCswMDAw
-      !binary "UHJhZ21h":
-      - !binary |-
-        bm8tY2FjaGU=
-      !binary "WC1GYi1SZXY=":
-      - !binary |-
-        NTMxNTgx
-      !binary "Q29udGVudC1FbmNvZGluZw==":
-      - !binary |-
-        Z3ppcA==
-      !binary "WC1GYi1EZWJ1Zw==":
-      - !binary |-
-        cjVranU5N1lqWm5BTUt2RlkySkJMZHc4eXBUY0NOU0hMdUpBR1djWkZEOD0=
-      !binary "WC1DbmVjdGlvbg==":
-      - !binary |-
-        Y2xvc2U=
-      !binary "RGF0ZQ==":
-      - !binary |-
-        VHVlLCAyNyBNYXIgMjAxMiAwMzo1MToyOSBHTVQ=
-      !binary "Q29udGVudC1MZW5ndGg=":
-      - !binary |-
-        NTcx
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        H4sIAAAAAAAAA3VTwW7bMAz9FcOXHda0kmxJVm7b2m4YNqBYutM6BEzMxEJl
-        KZDlBlnRfy+TJbWLrT7Seo+Pj4+Pua3zac5LXZiCMSnys9xDi1S7DW02W4aU
-        qLSysUvz4QeVHAyV0zNn/T0hm5Q207uLu4vtdnu+giUuQrg/X4b27iL1i0Ug
-        dN9hPNKdSk1oMYWtz6ePR1FMq0qXWhrBC6kHZd9gBTtMCbMv1rmz7Aa973bu
-        AbyF/ImkhSUkG8ZMvKo4K5QUrCrUwHTTWAc1uk1j4V+eFTyEaBPOE0Lb5dNf
-        J2GCcVVIXjHBy4L9ny67grXDjvQcUaZQQmrJSsPfQOzVODvGVJoro40i8W9g
-        rt0O46iLFEaXFdeSyzcQWr0CcKa40VIqpiv9yhubUrfo47rJZgnRHVC/KQsn
-        VyA1DhPJfTFGcC45mVJV0sixMZfw7ge6Y5z2JNZ3GxsPWwI332DYOMrci8FM
-        0hw0eFlRJs0wyHXEuraYfce47ONuMJemYJJpLSgyQo1S/Bn6BC1kM1vXDcTU
-        7BNy2iPnRplSVZVgbOzXVwQ/uYGeFBMk4gChzXPGjNyL02bU54NbYEzZJ2j7
-        0TaogZSFkMqMtvExLLLLnQN/sHONvsZIV9MCWXCWJ9vin+DJjUn5N8p7Z3L0
-        85+zw9n5dQ/rseuH2Y0Ugi6FF6M7ufJrZ7vm0OYBo11ZpGNPsUc6wE0NCev5
-        vh3R01xiwsREyFsupwWfSvae0Zc/PQPqutcIIgQAAA==
-    http_version: 
-  recorded_at: Tue, 27 Mar 2012 03:51:29 GMT
-- request:
-    method: get
-    uri: http://graph.facebook.com/
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - ! '*/*'
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 302
-      message: Found
-    headers:
-      Cache-Control:
-      - private, no-cache, no-store, must-revalidate
-      Expires:
-      - Sat, 01 Jan 2000 00:00:00 GMT
-      Location:
-      - http://developers.facebook.com/docs/api
-      Pragma:
-      - no-cache
-      X-Fb-Rev:
-      - '531581'
-      Content-Type:
-      - text/html; charset=utf-8
-      X-Fb-Debug:
-      - qqeH7TLuOlFuG946OzoLNtbPovvZ4t1JTXCa1YtHF6A=
-      X-Cnection:
-      - close
-      Date:
-      - Tue, 27 Mar 2012 04:08:40 GMT
-      Content-Length:
-      - '0'
-    body:
-      encoding: US-ASCII
-      string: ''
-    http_version: 
-  recorded_at: Tue, 27 Mar 2012 04:08:40 GMT
-- request:
-    method: get
-    uri: https://graph.facebook.com/tubbo?access_token=AAAEcoySQLr0BACxeJQey1Id5wTZBY7JGwhZCruDsUQzTTozq855yB6cYa4AdNUNsoXhzBaxWlqKax5FaPX1WdYXthBX5gWeJcLtTiAgs5bJScNtKxH
+    uri: https://graph.facebook.com/test_user?access_token=AAAvalidAccessKeyID
     body:
       encoding: US-ASCII
       string: ''
@@ -167,13 +48,13 @@ http_interactions:
         Z3ppcA==
       !binary "WC1GYi1EZWJ1Zw==":
       - !binary |-
-        SnhhSGpESnQ0Sm4veG96aFUxTllBTXM4MEgrQkNYd0pOMlk4bXErUHZtcz0=
+        UzM1R29uaUpFZllkUWE0MHhQbm5vdEE3eWZDVUhaL2NldlRJZVNEM2Njcz0=
       !binary "WC1DbmVjdGlvbg==":
       - !binary |-
         Y2xvc2U=
       !binary "RGF0ZQ==":
       - !binary |-
-        U3VuLCAwMSBBcHIgMjAxMiAxOToxNzowNSBHTVQ=
+        U3VuLCAwMSBBcHIgMjAxMiAyMDo1MTozMiBHTVQ=
       !binary "Q29udGVudC1MZW5ndGg=":
       - !binary |-
         NTcw
@@ -193,6 +74,6 @@ http_interactions:
         2gY2EIIzIc1oGx/jorjceRsOdq4h1JDwalqLFpyV2bXwJwZ0Y1L9jfLemRLC
         /OfscHZh3dv12PXD7EYwhpdC+ehOrsLau645tHmA5FYO8Nhz6gEPcFPbDPV8
         3w7pcS42IXzCyS3jU8KnXLwn+JVPz9Hm+4siBAAA
-    http_version: 
-  recorded_at: Sun, 01 Apr 2012 19:17:04 GMT
+    http_version:
+  recorded_at: Sun, 01 Apr 2012 20:51:33 GMT
 recorded_with: VCR 2.0.0

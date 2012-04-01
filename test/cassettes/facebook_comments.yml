@@ -2,97 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://graph.facebook.com/tubbo/comments?access_token=AAAEcoySQLr0BAGUNUHZAuuj3n6Qj5ZAKQqkpLpXkG6HXShPfb2ksrukr6Pup9Tn3tda0l3W5LnZAMo2mOFZAD6PJ3Q6VdRiDvyybKZAT0wAGJ6MEWdgrN
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - ! '*/*'
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Access-Control-Allow-Origin:
-      - ! '*'
-      Cache-Control:
-      - private, no-cache, no-store, must-revalidate
-      Content-Type:
-      - text/javascript; charset=UTF-8
-      Etag:
-      - ! '"1050253aec7b29caff644806927dabfa81406eee"'
-      Expires:
-      - Sat, 01 Jan 2000 00:00:00 GMT
-      Pragma:
-      - no-cache
-      X-Fb-Rev:
-      - '531581'
-      X-Fb-Debug:
-      - CeIOwu8/tDBniS70KT6glBAis2IleUu1SMeRF0Jve28=
-      X-Cnection:
-      - close
-      Date:
-      - Tue, 27 Mar 2012 03:51:28 GMT
-      Content-Length:
-      - '11'
-    body:
-      encoding: US-ASCII
-      string: ! '{"data":[]}'
-    http_version:
-  recorded_at: Tue, 27 Mar 2012 03:51:28 GMT
-- request:
-    method: get
-    uri: http://graph.facebook.com/comments
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - ! '*/*'
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 500
-      message: Internal Server Error
-    headers:
-      Access-Control-Allow-Origin:
-      - ! '*'
-      Cache-Control:
-      - no-store
-      Content-Type:
-      - text/javascript; charset=UTF-8
-      Expires:
-      - Sat, 01 Jan 2000 00:00:00 GMT
-      Pragma:
-      - no-cache
-      Www-Authenticate:
-      - OAuth "Facebook Platform" "invalid_request" "No node specified"
-      X-Fb-Rev:
-      - '531581'
-      X-Fb-Debug:
-      - 5dihd/fafYAPzLKgA0K+OGn+PJ2qE8E2sB8sXG12awg=
-      X-Cnection:
-      - close
-      Date:
-      - Tue, 27 Mar 2012 04:08:40 GMT
-      Content-Length:
-      - '60'
-    body:
-      encoding: US-ASCII
-      string: ! '{"error":{"message":"No node specified","type":"Exception"}}'
-    http_version:
-  recorded_at: Tue, 27 Mar 2012 04:08:40 GMT
-- request:
-    method: get
-    uri: https://graph.facebook.com/tubbo/comments?access_token=AAAEcoySQLr0BACxeJQey1Id5wTZBY7JGwhZCruDsUQzTTozq855yB6cYa4AdNUNsoXhzBaxWlqKax5FaPX1WdYXthBX5gWeJcLtTiAgs5bJScNtKxH
+    uri: https://graph.facebook.com/test_user/comments?access_token=AAAvalidAccessKeyID
     body:
       encoding: US-ASCII
       string: ''
@@ -123,16 +33,16 @@ http_interactions:
       X-Fb-Rev:
       - '534081'
       X-Fb-Debug:
-      - BYDXqw3I9sOm6NgEUFlI+xqYav5S+AKNg9O8K6Ovl/w=
+      - RS5tYKMcWeak7vNHvH/v4vxTfMqLPVaTVxyiiymOksw=
       X-Cnection:
       - close
       Date:
-      - Sun, 01 Apr 2012 19:17:05 GMT
+      - Sun, 01 Apr 2012 20:51:33 GMT
       Content-Length:
       - '11'
     body:
       encoding: US-ASCII
       string: ! '{"data":[]}'
     http_version:
-  recorded_at: Sun, 01 Apr 2012 19:17:05 GMT
+  recorded_at: Sun, 01 Apr 2012 20:51:33 GMT
 recorded_with: VCR 2.0.0

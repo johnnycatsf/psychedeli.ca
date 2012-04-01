@@ -8,7 +8,7 @@
 # As long as your Twitter feed is public, all you have to do is put your
 # user name here and we'll do the rest.
 twitter:
-  user_name:
+  user_name: "test_user"
 
 # == Facebook
 #
@@ -20,10 +20,10 @@ twitter:
 # Set your <tt>vanity_url</tt> to the URL that is in the address bar when
 # you're on your own Facebook profile.
 facebook:
-  app_id:
-  app_secret:
-  access_token:
-  vanity_url:
+  app_id: "123456"
+  app_secret: "abcdef123"
+  access_token: "AAAvalidAccessKeyID"
+  vanity_url: "test_user"
 
 # == Soundcloud
 #
@@ -31,12 +31,12 @@ facebook:
 # <http://developers.soundcloud.com>. Paste your <tt>client_id</tt> in here
 # and specify the <tt>user_name</tt> you want StatusExchange to look up.
 soundcloud:
-  client_id:
-  user_name:
+  client_id: "abcdef123"
+  user_name: "test_user"
 
 # == GitHub
 #
 # All GitHub RSS feeds are public, so this will read from your public GitHub
 # timeline. Just enter your <tt>user_name</tt> and you're good to go!
 github:
-  user_name:
+  user_name: "test_user"

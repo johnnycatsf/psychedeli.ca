@@ -2,172 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://graph.facebook.com/tubbo/posts?access_token=AAAEcoySQLr0BAGUNUHZAuuj3n6Qj5ZAKQqkpLpXkG6HXShPfb2ksrukr6Pup9Tn3tda0l3W5LnZAMo2mOFZAD6PJ3Q6VdRiDvyybKZAT0wAGJ6MEWdgrN
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - ! '*/*'
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: !binary |-
-        T0s=
-    headers:
-      !binary "QWNjZXNzLUNvbnRyb2wtQWxsb3ctT3JpZ2lu":
-      - !binary |-
-        Kg==
-      !binary "Q2FjaGUtQ29udHJvbA==":
-      - !binary |-
-        cHJpdmF0ZSwgbm8tY2FjaGUsIG5vLXN0b3JlLCBtdXN0LXJldmFsaWRhdGU=
-      !binary "Q29udGVudC1UeXBl":
-      - !binary |-
-        dGV4dC9qYXZhc2NyaXB0OyBjaGFyc2V0PVVURi04
-      !binary "RXRhZw==":
-      - !binary |-
-        ImRhNmUyZTRlZmFlMTJkNzNmNDRlYjBkOWJlY2ZmMDM1MWQ4ZmY4ZWYi
-      !binary "RXhwaXJlcw==":
-      - !binary |-
-        U2F0LCAwMSBKYW4gMjAwMCAwMDowMDowMCBHTVQ=
-      !binary "UHJhZ21h":
-      - !binary |-
-        bm8tY2FjaGU=
-      !binary "WC1GYi1SZXY=":
-      - !binary |-
-        NTMxNTgx
-      !binary "Q29udGVudC1FbmNvZGluZw==":
-      - !binary |-
-        Z3ppcA==
-      !binary "WC1GYi1EZWJ1Zw==":
-      - !binary |-
-        c0RCUEdEMjVBM2ZIaFR1cUYvOHNGNEVpNS8rVFdKdk8wa2lkUXEwc0tSYz0=
-      !binary "WC1DbmVjdGlvbg==":
-      - !binary |-
-        Y2xvc2U=
-      !binary "RGF0ZQ==":
-      - !binary |-
-        VHVlLCAyNyBNYXIgMjAxMiAwMzo1MTozMCBHTVQ=
-      !binary "Q29udGVudC1MZW5ndGg=":
-      - !binary |-
-        MjY5NA==
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        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
-    http_version: 
-  recorded_at: Tue, 27 Mar 2012 03:51:30 GMT
-- request:
-    method: get
-    uri: http://graph.facebook.com/posts
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - ! '*/*'
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 500
-      message: Internal Server Error
-    headers:
-      Access-Control-Allow-Origin:
-      - ! '*'
-      Cache-Control:
-      - no-store
-      Content-Type:
-      - text/javascript; charset=UTF-8
-      Expires:
-      - Sat, 01 Jan 2000 00:00:00 GMT
-      Pragma:
-      - no-cache
-      Www-Authenticate:
-      - OAuth "Facebook Platform" "invalid_request" "No node specified"
-      X-Fb-Rev:
-      - '531581'
-      X-Fb-Debug:
-      - oSmC83qZ7B1RNk+IyuDI8sDDEkQ6u5Tz9WsDY/+mRdc=
-      X-Cnection:
-      - close
-      Date:
-      - Tue, 27 Mar 2012 04:08:40 GMT
-      Content-Length:
-      - '60'
-    body:
-      encoding: US-ASCII
-      string: ! '{"error":{"message":"No node specified","type":"Exception"}}'
-    http_version: 
-  recorded_at: Tue, 27 Mar 2012 04:08:40 GMT
-- request:
-    method: get
-    uri: https://graph.facebook.com/tubbo/posts?access_token=AAAEcoySQLr0BACxeJQey1Id5wTZBY7JGwhZCruDsUQzTTozq855yB6cYa4AdNUNsoXhzBaxWlqKax5FaPX1WdYXthBX5gWeJcLtTiAgs5bJScNtKxH
+    uri: https://graph.facebook.com/test_user/posts?access_token=AAAvalidAccessKeyID
     body:
       encoding: US-ASCII
       string: ''
@@ -210,13 +45,13 @@ http_interactions:
         Z3ppcA==
       !binary "WC1GYi1EZWJ1Zw==":
       - !binary |-
-        eUxQb21uTndMZGExWU5qRi9VS2UwV2M4WHZsTHNwaS9tS0lqZE5Ra2ZmOD0=
+        Y1c3YnpHbmptZTk2MTE1VDZaaU9ERDl5TEl1TW1jalQ1c09WL3BrT1c4bz0=
       !binary "WC1DbmVjdGlvbg==":
       - !binary |-
         Y2xvc2U=
       !binary "RGF0ZQ==":
       - !binary |-
-        U3VuLCAwMSBBcHIgMjAxMiAxOToxNzowOCBHTVQ=
+        U3VuLCAwMSBBcHIgMjAxMiAyMDo1MTozNCBHTVQ=
       !binary "Q29udGVudC1MZW5ndGg=":
       - !binary |-
         NTU4
@@ -236,6 +71,6 @@ http_interactions:
         4abfZjMa9PLh9VDLafnQp+tJdXdJ1+F7+nnqTfLZ1JT9aVhMYMCuTMp7hQ4X
         gzEbmsv1x5OKr7jp+uGJ5oJB1yOE+EGEI3KSZUdL3f0DIGBt9+7/9GavDK8O
         3rygE8YE7XbfAVdVhmv7BAAA
-    http_version: 
-  recorded_at: Sun, 01 Apr 2012 19:17:07 GMT
+    http_version:
+  recorded_at: Sun, 01 Apr 2012 20:51:35 GMT
 recorded_with: VCR 2.0.0
