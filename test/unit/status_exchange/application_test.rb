@@ -7,10 +7,15 @@ class StatusExchange::ApplicationTest < UnitTest
     StatusExchange::Application.new
   end
 
-  should "respond successfully on GET '/status'" do
+  should "respond to the proper url" do
     VCR.use_cassette "everything" do
       get '/status'
       assert last_response.ok?
     end
+  end
+
+  should "relay everything else to rack/not-found by default" do
+    get '/'
+    assert_equal 404, last_response.status
   end
 end
