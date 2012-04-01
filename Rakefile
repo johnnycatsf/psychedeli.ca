@@ -32,11 +32,8 @@ Rake::TestTask.new do |t|
   t.pattern = 'test/**/*_test.rb'
 end
 
-desc "A special task for running the test suite on Travis"
-task :build do
-  Rake::Task['compile'].invoke
-  Rake::Task['config'].invoke
-  Rake::Task['test'].invoke
-end
+# Run the test suite on Travis
+task :build => [:compile, :config, :test]
 
+# Build the site, test the code and restart the server
 task :default => [:compile, :test, :restart]
