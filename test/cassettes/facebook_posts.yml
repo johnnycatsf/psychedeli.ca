@@ -165,4 +165,77 @@ http_interactions:
       string: ! '{"error":{"message":"No node specified","type":"Exception"}}'
     http_version: 
   recorded_at: Tue, 27 Mar 2012 04:08:40 GMT
+- request:
+    method: get
+    uri: https://graph.facebook.com/tubbo/posts?access_token=AAAEcoySQLr0BACxeJQey1Id5wTZBY7JGwhZCruDsUQzTTozq855yB6cYa4AdNUNsoXhzBaxWlqKax5FaPX1WdYXthBX5gWeJcLtTiAgs5bJScNtKxH
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: !binary |-
+        T0s=
+    headers:
+      !binary "QWNjZXNzLUNvbnRyb2wtQWxsb3ctT3JpZ2lu":
+      - !binary |-
+        Kg==
+      !binary "Q2FjaGUtQ29udHJvbA==":
+      - !binary |-
+        cHJpdmF0ZSwgbm8tY2FjaGUsIG5vLXN0b3JlLCBtdXN0LXJldmFsaWRhdGU=
+      !binary "Q29udGVudC1UeXBl":
+      - !binary |-
+        dGV4dC9qYXZhc2NyaXB0OyBjaGFyc2V0PVVURi04
+      !binary "RXRhZw==":
+      - !binary |-
+        IjBhYjBjYTYwYzY2MjkyMDZlYjFlMzNmNDM1MjA5MDE3MjlhNGJiNWYi
+      !binary "RXhwaXJlcw==":
+      - !binary |-
+        U2F0LCAwMSBKYW4gMjAwMCAwMDowMDowMCBHTVQ=
+      !binary "UHJhZ21h":
+      - !binary |-
+        bm8tY2FjaGU=
+      !binary "WC1GYi1SZXY=":
+      - !binary |-
+        NTM0MDgx
+      !binary "Q29udGVudC1FbmNvZGluZw==":
+      - !binary |-
+        Z3ppcA==
+      !binary "WC1GYi1EZWJ1Zw==":
+      - !binary |-
+        eUxQb21uTndMZGExWU5qRi9VS2UwV2M4WHZsTHNwaS9tS0lqZE5Ra2ZmOD0=
+      !binary "WC1DbmVjdGlvbg==":
+      - !binary |-
+        Y2xvc2U=
+      !binary "RGF0ZQ==":
+      - !binary |-
+        U3VuLCAwMSBBcHIgMjAxMiAxOToxNzowOCBHTVQ=
+      !binary "Q29udGVudC1MZW5ndGg=":
+      - !binary |-
+        NTU4
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA9VUXW/aMBT9K5Ef+rK0OHFCSCQ0QbsvWqEhUgEdU2ScS2I1
+        2KntrFDEf59Bo+u6aqq0h2l5spRzzz3n3GtvUU4NRcmXLeI5SpAXRCQmGId+
+        5schiTsRjttR20MuWiq5QskWCboCi0zlyhkzaYz99awU7VykjVSbpzCHity5
+        oEpBVTkXDRXgUAWOkPfOUnEQuT6zTIeyzNBC71t5waOyEMeddmTluEcBv3DZ
+        UrlcajAo8QIXVSAKU9ozcZHZ1Hu9jQaFdl9dhB85f5p9JH3q6khoWx754ud0
+        1ukPfm2oabTVwRRQA3lm+CEnH3v+KQ5OsZdiP/GDhJA32H4W2dQ2/FchmVyt
+        QJhDKEw2wtrEtjXXWd0sKq5LsMMzqoGd+9Iggw4J2rEXRu19278dJCupKCB3
+        Sq6dWsklr8CpOTONgt9H+E/SJqcEpz5JMLHb8Me0X0S+Pm27TjUtuCj2g6kV
+        fOPS7kCCSmNqncxb81ahaF2eLSmDhZS3Z5Z63jLNYiHnrVpqo99SxkDrzMhb
+        EN1er/eOyc14dKVwv3e+hsEINt6nPLxPb/qzaPDhvrw5V82Fvh49pKl8uOuE
+        4abfZjMa9PLh9VDLafnQp+tJdXdJ1+F7+nnqTfLZ1JT9aVhMYMCuTMp7hQ4X
+        gzEbmsv1x5OKr7jp+uGJ5oJB1yOE+EGEI3KSZUdL3f0DIGBt9+7/9GavDK8O
+        3rygE8YE7XbfAVdVhmv7BAAA
+    http_version: 
+  recorded_at: Sun, 01 Apr 2012 19:17:07 GMT
 recorded_with: VCR 2.0.0

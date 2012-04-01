@@ -27,9 +27,10 @@ module StatusExchange
         }
 
         facebook.posts.each {|post|
+          post.symbolize_keys!
           @statuses << {
-            message: post.message || post.story,
-            date: post.date,
+            message: post[:story] || post[:message],
+            date: post[:created_time],
             service: 'facebook'
           }
         }

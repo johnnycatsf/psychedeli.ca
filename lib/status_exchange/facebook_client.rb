@@ -1,7 +1,19 @@
-module StatusExchange
-  require 'active_support/all'
-  require 'koala'
+# This thin wrapper around Koala simply maps method calls to the account
+# specified by your Facebook access ID. So a call to `facebook.posts` is
+# like doing
+#
+#    @graph = Koala::Facebook::API.new FACEBOOK_ACCESS_TOKEN
+#    @graph.get_object FACEBOOK_PROFILE_RELATIVE_URL, "posts"
+#
+# Super simple, and easy to use!
+#
+# @author Tom Scott
+# @package StatusExchange
 
+require 'active_support/all'
+require 'koala'
+
+module StatusExchange
   class FacebookClient
     def initialize
       @config = StatusExchange.config[:facebook].symbolize_keys

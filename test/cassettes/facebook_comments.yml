@@ -90,4 +90,49 @@ http_interactions:
       string: ! '{"error":{"message":"No node specified","type":"Exception"}}'
     http_version: 
   recorded_at: Tue, 27 Mar 2012 04:08:40 GMT
+- request:
+    method: get
+    uri: https://graph.facebook.com/tubbo/comments?access_token=AAAEcoySQLr0BACxeJQey1Id5wTZBY7JGwhZCruDsUQzTTozq855yB6cYa4AdNUNsoXhzBaxWlqKax5FaPX1WdYXthBX5gWeJcLtTiAgs5bJScNtKxH
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - ! '*'
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Content-Type:
+      - text/javascript; charset=UTF-8
+      Etag:
+      - ! '"1050253aec7b29caff644806927dabfa81406eee"'
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Pragma:
+      - no-cache
+      X-Fb-Rev:
+      - '534081'
+      X-Fb-Debug:
+      - BYDXqw3I9sOm6NgEUFlI+xqYav5S+AKNg9O8K6Ovl/w=
+      X-Cnection:
+      - close
+      Date:
+      - Sun, 01 Apr 2012 19:17:05 GMT
+      Content-Length:
+      - '11'
+    body:
+      encoding: US-ASCII
+      string: ! '{"data":[]}'
+    http_version: 
+  recorded_at: Sun, 01 Apr 2012 19:17:05 GMT
 recorded_with: VCR 2.0.0

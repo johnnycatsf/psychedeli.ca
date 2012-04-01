@@ -8,7 +8,9 @@ class StatusExchange::ApplicationTest < UnitTest
   end
 
   should "respond successfully on GET '/status'" do
-    get '/status'
-    assert last_response.ok?
+    VCR.use_cassette "everything" do
+      get '/status'
+      assert last_response.ok?
+    end
   end
 end
