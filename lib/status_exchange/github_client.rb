@@ -15,9 +15,7 @@ module StatusExchange
     def activity
       @feed.entries.reduce([]) {|activities, entry|
         activities << {
-          title: entry.title,
-          content: entry.content,
-          author: entry.authors.first,
+          text: entry.title,
           published: entry.published
         }
       }

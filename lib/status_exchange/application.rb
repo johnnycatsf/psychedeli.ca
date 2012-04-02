@@ -35,6 +35,14 @@ module StatusExchange
           }
         }
 
+        github.activity.each {|action|
+          @statuses << {
+            message: action[:text],
+            date: action[:published],
+            service: 'github'
+          }
+        }
+
         body = @statuses.to_json
       else
         status, headers, body = @app.call env
@@ -49,6 +57,10 @@ module StatusExchange
 
     def facebook
       StatusExchange::FacebookClient.new
+    end
+
+    def github
+      StatusExchange::GithubClient.new
     end
   end
 end
