@@ -1,17 +1,12 @@
 ENV['RACK_ENV'] = "test"
 
-# The classes we are testing
 $:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
-require 'status_exchange'
-
 require 'turn'
 require 'minitest/autorun'
-
 require 'active_support/all'
 require 'mini_shoulda'
 require 'vcr'
 require 'webmock'
-
 require 'rack/test'
 
 VCR.configure do |c|
@@ -29,5 +24,5 @@ class IntegrationTest < ActiveSupport::TestCase
   include Rack::Test::Methods
 end
 
-ENV['BAR'] and Turn.config.format = :progress
-ENV['DOT'] and Turn.config.format = :dot
+
+Turn.config.format = :dot # :progress

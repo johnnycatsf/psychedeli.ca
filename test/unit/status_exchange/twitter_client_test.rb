@@ -1,4 +1,5 @@
 require 'test_helper'
+require 'status_exchange'
 
 class StatusExchange::TwitterClientTest < UnitTest
   setup do

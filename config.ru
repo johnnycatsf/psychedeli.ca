@@ -21,15 +21,15 @@ require 'rack/contrib/try_static'
 require 'rack/contrib/not_found'
 
 map '/css' do
-  stylesheet_environment = Sprockets::Environment.new
-  stylesheet_environment.append_path 'app/css'
-  run stylesheet_environment
+  stylesheets = Sprockets::Environment.new
+  stylesheets.append_path 'app/css'
+  run stylesheets
 end
 
 map '/js' do
-  javascript_environment = Sprockets::Environment.new
-  javascript_environment.append_path 'app/js'
-  run javascript_environment
+  javascripts = Sprockets::Environment.new
+  javascripts.append_path 'app/js'
+  run javascripts
 end
 
 map '/' do

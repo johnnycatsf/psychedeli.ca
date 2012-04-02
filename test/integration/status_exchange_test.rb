@@ -1,4 +1,5 @@
 require 'test_helper'
+require 'status_exchange'
 
 class StatusExchangeTest < IntegrationTest
   should "respond to the proper url" do
