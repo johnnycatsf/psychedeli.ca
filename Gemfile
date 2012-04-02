@@ -24,7 +24,7 @@ gem 'liquid', :require => false
 gem 'yajl-ruby', :require => false
 gem 'twitter', :require => false
 gem 'koala', :require => false
-# gem 'ratom', :require => false
+gem 'ratom', :require => false
 # gem 'soundcloud', :require => false
 
 # Development tools
