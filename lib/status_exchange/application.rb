@@ -18,21 +18,10 @@ module StatusExchange
         status = 200
         headers = {"Content-Type" => "application/json"}
 
-        twitter.tweets.each {|tweet|
-          @statuses << {
-            message: tweet.text,
-            date: tweet.created_at,
-            service: 'twitter'
-          }
-        }
+        @statuses = twitter.tweets + facebook.posts + github.activity
 
         facebook.posts.each {|post|
-          post.symbolize_keys!
-          @statuses << {
-            message: post[:story] || post[:message],
-            date: post[:created_time],
-            service: 'facebook'
-          }
+
         }
 
         github.activity.each {|action|

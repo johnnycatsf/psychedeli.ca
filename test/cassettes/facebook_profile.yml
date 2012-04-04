@@ -74,6 +74,53 @@ http_interactions:
         2gY2EIIzIc1oGx/jorjceRsOdq4h1JDwalqLFpyV2bXwJwZ0Y1L9jfLemRLC
         /OfscHZh3dv12PXD7EYwhpdC+ehOrsLau645tHmA5FYO8Nhz6gEPcFPbDPV8
         3w7pcS42IXzCyS3jU8KnXLwn+JVPz9Hm+4siBAAA
-    http_version:
+    http_version: 
   recorded_at: Sun, 01 Apr 2012 20:51:33 GMT
+- request:
+    method: get
+    uri: https://graph.facebook.com/test_user/posts?access_token=AAAvalidAccessKeyID
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Access-Control-Allow-Origin:
+      - ! '*'
+      Cache-Control:
+      - no-store
+      Content-Type:
+      - text/javascript; charset=UTF-8
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Pragma:
+      - no-cache
+      Www-Authenticate:
+      - OAuth "Facebook Platform" "invalid_token" "Error validating application. Invalid
+        application ID."
+      X-Fb-Rev:
+      - '535622'
+      X-Fb-Debug:
+      - nQ6THdE1VcNhWnrIzoQ/gqBtbyJ2rfZSHGG+e9zOTJI=
+      X-Cnection:
+      - close
+      Date:
+      - Wed, 04 Apr 2012 03:39:51 GMT
+      Content-Length:
+      - '112'
+    body:
+      encoding: US-ASCII
+      string: ! '{"error":{"message":"Error validating application. Invalid application
+        ID.","type":"OAuthException","code":190}}'
+    http_version: 
+  recorded_at: Wed, 04 Apr 2012 03:39:52 GMT
 recorded_with: VCR 2.0.0

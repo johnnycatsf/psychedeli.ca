@@ -13,5 +13,7 @@ class GithubClientTest < UnitTest
 
   should "not have an empty activity feed" do
     refute_nil @github.activity
+    assert_equal "tubbo created tag version/1.0.0  at tubbo/dots",
+      @github.activity.first[:text]
   end
 end

@@ -8,6 +8,8 @@ require 'mini_shoulda'
 require 'vcr'
 require 'webmock'
 require 'rack/test'
+require 'status_exchange'
+require 'sprockets'
 
 VCR.configure do |c|
   c.default_cassette_options = { :record => :new_episodes }
@@ -15,13 +17,10 @@ VCR.configure do |c|
   c.hook_into :webmock
 end
 
-class UnitTest < ActiveSupport::TestCase
-
-end
+class UnitTest < ActiveSupport::TestCase; end
 
 class IntegrationTest < ActiveSupport::TestCase
   include Rack::Test::Methods
 end
-
 
 Turn.config.format = :dot # :progress

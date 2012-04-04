@@ -37,8 +37,21 @@ module StatusExchange
       @graph.get_object(@config[:vanity_url]).symbolize_keys!
     end
 
-    def method_missing api_call, *options, &block
-      @graph.get_connections @config[:vanity_url], api_call.to_s
+    def posts
+      timeline.reduce([]) { |statuses, post|
+        statuses << {
+          message: post['story'] || post['message'],
+          date: post['created_time'],
+          service: 'facebook'
+        }
+        statuses
+      }
+    end
+
+    private
+
+    def timeline
+      @graph.get_connections @config[:vanity_url], "posts"
     end
   end
 end

@@ -13,8 +13,8 @@ module StatusExchange
     end
 
     def activity
-      @feed.entries.reduce([]) {|activities, entry|
-        activities << {
+      @feed.entries.reduce([]) {|entries, entry|
+        entries << {
           text: entry.title,
           published: entry.published
         }

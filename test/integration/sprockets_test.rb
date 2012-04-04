@@ -1,5 +1,4 @@
 require 'test_helper'
-require 'sprockets'
 
 class SprocketsTest < IntegrationTest
   context "Stylesheets in /app/css" do

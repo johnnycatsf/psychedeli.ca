@@ -1,11 +1,14 @@
 require 'test_helper'
-require 'status_exchange'
 
 class StatusExchangeTest < IntegrationTest
   should "respond to the proper url" do
+    skip "regen cassette"
     VCR.use_cassette "everything" do
       get '/status'
       assert last_response.ok?
+      assert_match /twitter/, last_response.body
+      assert_match /facebook/, last_response.body
+      assert_match /github/, last_response.body
     end
   end
 
