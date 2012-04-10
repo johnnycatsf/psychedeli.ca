@@ -20,18 +20,6 @@ module StatusExchange
 
         @statuses = twitter.tweets + facebook.posts + github.activity
 
-        facebook.posts.each {|post|
-
-        }
-
-        github.activity.each {|action|
-          @statuses << {
-            message: action[:text],
-            date: action[:published],
-            service: 'github'
-          }
-        }
-
         body = @statuses.to_json
       else
         status, headers, body = @app.call env

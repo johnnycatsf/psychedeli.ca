@@ -1,4 +1,3 @@
-require 'active_support/all'
 require 'twitter'
 
 module StatusExchange
