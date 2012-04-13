@@ -1,5 +1,3 @@
-require 'atom'
-
 module StatusExchange
   class GithubClient
     attr_reader :username

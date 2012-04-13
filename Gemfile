@@ -1,47 +1,56 @@
 source :rubygems
 
-# Framework
-gem 'rack'
-gem 'rack-contrib'
-gem 'jekyll', :git => 'git://github.com/tubbo/jekyll.git', :branch => 'feature/custom-dirs'
-gem 'sprockets'
-gem 'rake'
-gem 'activesupport'
+group :framework do
+  gem 'rack', :require => false
+end
 
-# Asset pipeline
-gem 'sprockets'
-gem 'sass'
-gem 'compass'
-gem 'redcarpet', '~> 1.17.2'
-gem 'uglifier'
-gem 'libv8'
+group :content do
+  gem 'rack-contrib', :require => false
+  gem 'sprockets'
+  gem 'liquid'
+  gem 'sprockets'
+end
 
-# Jekyll
-gem 'jekyll', :git => 'git://github.com/tubbo/jekyll.git', :branch => 'feature/custom-dirs'
-gem 'liquid'
+group :assets do
+  gem 'sass'
+  gem 'compass'
+  gem 'redcarpet', '~> 1.17.2'
+  gem 'uglifier'
+  gem 'libv8'
+end
 
-# StatusExchange
-gem 'yajl-ruby'
-gem 'twitter'
-gem 'koala'
-gem 'ratom'
-# gem 'soundcloud'
+group :status_exchange do
+  gem 'yajl-ruby'
+  gem 'twitter'
+  gem 'koala'
+  gem 'ratom'
+  # gem 'soundcloud'
+end
 
-# Development tools
-gem 'capistrano'
-gem 'pow'
-gem 'powder'
+group :content, :status_exchange do
+  gem 'i18n'
+  gem 'activesupport', :require => false
+end
 
-# Test suite
-gem 'turn'
-gem 'minitest'
-gem 'mini_specunit'
-gem 'mini_shoulda'
-gem 'simplecov'
-gem 'rack-test'
-gem 'vcr', '2.0.0'
-gem 'mocha'
-gem 'webmock', '~> 1.8.0'
-gem 'actionpack'
-# gem 'capybara'
-# gem 'capybara_minitest_spec'
+group :development do
+  gem 'jekyll', :git => 'git://github.com/tubbo/jekyll.git', :branch => 'feature/custom-dirs'
+  gem 'rake'
+  gem 'capistrano'
+  gem 'capistrano_colors'
+  gem 'thin'
+end
+
+group :test do
+  gem 'turn'
+  gem 'minitest'
+  gem 'mini_specunit'
+  gem 'mini_shoulda'
+  gem 'simplecov'
+  gem 'rack-test'
+  gem 'vcr', '2.0.0'
+  gem 'mocha'
+  gem 'webmock'
+  gem 'actionpack'
+  # gem 'capybara'
+  # gem 'capybara_minitest_spec'
+end

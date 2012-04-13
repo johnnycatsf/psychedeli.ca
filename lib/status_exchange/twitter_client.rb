@@ -1,5 +1,3 @@
-require 'twitter'
-
 module StatusExchange
   class TwitterClient
     def initialize

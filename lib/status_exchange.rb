@@ -31,12 +31,14 @@
 # Author:: Tom Scott
 # Homepage:: http://psychedeli.ca/
 
+require 'bundler'
+
+Bundler.require :status_exchange
 require 'active_support/all'
 
 require 'status_exchange/facebook_client'
 require 'status_exchange/twitter_client'
 require 'status_exchange/github_client'
-
 require 'status_exchange/application'
 
 module StatusExchange

@@ -14,11 +14,13 @@
 
 $LOAD_PATH << './lib'
 
-require 'rubygems'
-require 'status_exchange'
-require 'sprockets'
+require 'bundler'
+Bundler.require :content
 require 'rack/contrib/try_static'
 require 'rack/contrib/not_found'
+
+# Proprietary JSON feed server
+require 'status_exchange'
 
 map '/css' do
   stylesheets = Sprockets::Environment.new
@@ -33,7 +35,7 @@ map '/js' do
 end
 
 map '/' do
-  use StatusExchange::Application
+  #use StatusExchange::Application
   use Rack::TryStatic, root: 'pub', urls: %w[/], try: ['.html', 'index.html', '/index.html']
   run Rack::NotFound.new 'pub/index.html'
 end

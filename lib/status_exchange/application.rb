@@ -1,8 +1,3 @@
-require 'active_support/all'
-require 'date'
-require 'json'
-require 'rack/contrib/not_found'
-
 module StatusExchange
   class Application
     def initialize application=false, options={}

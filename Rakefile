@@ -1,5 +1,7 @@
-require 'rubygems'
-require 'rake'
+require 'bundler'
+Bundler.require :development
+
+# Extra Rake components
 require 'rake/clean'
 require 'rake/testtask'
 

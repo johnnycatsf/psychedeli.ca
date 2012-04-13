@@ -10,9 +10,6 @@
 # @author Tom Scott
 # @package StatusExchange
 
-require 'active_support/all'
-require 'koala'
-
 module StatusExchange
   class FacebookClient
     def initialize
