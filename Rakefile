@@ -1,5 +1,9 @@
 require 'bundler'
+<<<<<<< HEAD
 Bundler.require :framework, :development
+=======
+# Bundler.require :development
+>>>>>>> made a rake task for running Thin
 
 # Extra Rake components
 require 'rake/clean'
@@ -39,12 +43,6 @@ Rake::TestTask.new do |t|
   t.libs << 'test'
   t.pattern = 'test/**/*_test.rb'
 end
-
-# desc "Asset pipeline"
-# Rake::SprocketsTask.new do |t|
-#   t.output = './pub/css'
-#   t.environment = Assets.stylesheets
-# end
 
 desc "Run the test suite on CI"
 task :build => [:compile, :config, :test]
