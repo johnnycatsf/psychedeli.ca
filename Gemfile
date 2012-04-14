@@ -1,3 +1,7 @@
+f = File.open('/tmp/load_path', 'w')
+f.write($:)
+f.close
+
 source :rubygems
 
 group :framework do
