@@ -12,10 +12,24 @@
 #
 # Author:: Tom Scott
 
+if ENV['MY_RUBY_HOME'] && ENV['MY_RUBY_HOME'].include?('rvm')
+  begin
+    require 'rvm'
+    RVM.use_from_path! File.dirname(File.dirname(__FILE__))
+  rescue LoadError
+    raise "RVM gem is currently unavailable."
+  end
+end
+
+# f = File.open('/tmp/load_path', 'w')
+# f.write($:)
+# f.close
+
 $LOAD_PATH << './lib'
 
 require 'bundler'
 Bundler.require :content
+
 require 'rack/contrib/try_static'
 require 'rack/contrib/not_found'
 
@@ -35,7 +49,11 @@ map '/js' do
 end
 
 map '/' do
-  #use StatusExchange::Application
-  use Rack::TryStatic, root: 'pub', urls: %w[/], try: ['.html', 'index.html', '/index.html']
+  use Rack::CommonLogger
+  use StatusExchange::Application
+  use Rack::TryStatic,
+      :root => "pub",  # static files root dir
+      :urls => %w[/],     # match all requests
+      :try => ['.html', 'index.html', '/index.html'] # try these postfixes sequentially
   run Rack::NotFound.new 'pub/index.html'
 end

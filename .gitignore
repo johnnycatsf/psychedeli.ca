@@ -11,3 +11,4 @@ pub/**
 *.sublime*
 cfg/*.yml
 cfg/*.real.yml
+log/*
