@@ -13,14 +13,13 @@ But enough about that. Here's what we've been working on...
 
 ## Beardyman - Vampire Skank (R&D remix)
 
-
+<iframe width="100%" height="166" scrolling="no" frameborder="no" src="http://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F38627388&amp;auto_play=false&amp;show_artwork=false&amp;color=ff0013"></iframe>
 
 ## I'll Be Your Baby
 
+<iframe width="100%" height="166" scrolling="no" frameborder="no" src="http://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F38627388&amp;auto_play=false&amp;show_artwork=false&amp;color=ff0013"></iframe>
 
 This was an [entry for the Beyonce End of Time remix competition][eot]
-
-I've also been working on tracks with [The Wonder Bars][bars] for our upcoming full-length debut album.
 
 [subl]: http://www.sublimetext.com/2
 [bars]: http://thewonderbars.com

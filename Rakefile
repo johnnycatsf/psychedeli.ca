@@ -1,9 +1,10 @@
 require 'bundler'
-Bundler.require :development
+Bundler.require :framework, :development
 
 # Extra Rake components
 require 'rake/clean'
 require 'rake/testtask'
+require 'rake/sprocketstask'
 
 desc "Copy server configuration files from `cfg/` to the public dir."
 task :config do
@@ -34,8 +35,14 @@ Rake::TestTask.new do |t|
   t.pattern = 'test/**/*_test.rb'
 end
 
-# Run the test suite on Travis
+desc "Asset pipeline"
+Rake::SprocketsTask.new do |t|
+  t.output = './pub/css'
+  t.environment = Assets.stylesheets
+end
+
+desc "Run the test suite on CI"
 task :build => [:compile, :config, :test]
 
-# Build the site, test the code and restart the server
+# desc "Build the site, test the code and restart the server"
 task :default => [:compile, :test, :restart]

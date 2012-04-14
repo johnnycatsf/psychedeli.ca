@@ -2,13 +2,12 @@ source :rubygems
 
 group :framework do
   gem 'rack', :require => false
+  gem 'sprockets', :require => false
 end
 
 group :content do
   gem 'rack-contrib', :require => false
-  gem 'sprockets'
   gem 'liquid'
-  gem 'sprockets'
 end
 
 group :assets do
