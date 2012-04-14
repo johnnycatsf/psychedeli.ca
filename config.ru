@@ -25,10 +25,7 @@ end
 # f.write($:)
 # f.close
 
-$LOAD_PATH << './lib'
-
-require 'bundler'
-Bundler.require :content
+# $LOAD_PATH << './lib'
 
 require 'rack/contrib/try_static'
 require 'rack/contrib/not_found'
