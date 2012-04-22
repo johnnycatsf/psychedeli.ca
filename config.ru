@@ -21,11 +21,7 @@ if ENV['MY_RUBY_HOME'] && ENV['MY_RUBY_HOME'].include?('rvm')
   end
 end
 
-# f = File.open('/tmp/load_path', 'w')
-# f.write($:)
-# f.close
-
-# $LOAD_PATH << './lib'
+$LOAD_PATH << './lib'
 
 require 'rack/contrib/try_static'
 require 'rack/contrib/not_found'
@@ -33,24 +29,29 @@ require 'rack/contrib/not_found'
 # Proprietary JSON feed server
 require 'status_exchange'
 
+# Log everything
+use Rack::CommonLogger
+
+# Compile stylesheets
 map '/css' do
   stylesheets = Sprockets::Environment.new
   stylesheets.append_path 'app/css'
   run stylesheets
 end
 
+# Compile javascripts
 map '/js' do
   javascripts = Sprockets::Environment.new
   javascripts.append_path 'app/js'
   run javascripts
 end
 
-map '/' do
-  use Rack::CommonLogger
-  use StatusExchange::Application
-  use Rack::TryStatic,
-      :root => "pub",  # static files root dir
-      :urls => %w[/],     # match all requests
-      :try => ['.html', 'index.html', '/index.html'] # try these postfixes sequentially
-  run Rack::NotFound.new 'pub/index.html'
-end
+# JSON feed server
+use StatusExchange::Application
+
+# Static site handler
+use Rack::TryStatic,
+    :root => "pub",  # static files root dir
+    :urls => %w[/],     # match all requests
+    :try => ['.html', 'index.html', '/index.html'] # try these postfixes sequentially
+run Rack::NotFound.new 'pub/index.html'

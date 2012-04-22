@@ -29,11 +29,7 @@ namespace :deploy do
     run "cd #{release_path}; bundle install"
   end
 
-  task :update_content do
-    run "cd #{release_path}; rm -rf pub/*"
-    run "cd #{release_path}; bundle exec jekyll --config=cfg/jekyll.yml"
-    configure_status_exchange
-  end
+  task :update_content do; run "cd #{release_path}; rm -rf pub/*"; run "cd #{release_path}; bundle exec jekyll --config=cfg/jekyll.yml"; configure_status_exchange; end
 
   task :configure_status_exchange do
     run "ln -nfs #{shared_path}/cfg/status_exchange.yml #{release_path}/cfg/status_exchange.yml"
