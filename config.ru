@@ -25,9 +25,8 @@ $LOAD_PATH << './lib'
 
 require 'rack/contrib/try_static'
 require 'rack/contrib/not_found'
-
-# Proprietary JSON feed server
 require 'status_exchange'
+require 'sprockets'
 
 # Log everything
 use Rack::CommonLogger
