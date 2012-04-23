@@ -1,9 +1,5 @@
 require 'bundler'
-<<<<<<< HEAD
-Bundler.require :framework, :development
-=======
-# Bundler.require :development
->>>>>>> made a rake task for running Thin
+Bundler.setup :framework, :development
 
 # Extra Rake components
 require 'rake/clean'
