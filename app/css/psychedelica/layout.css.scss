@@ -7,6 +7,15 @@ $futura: 'FuturaMedium', Arial, sans-serif;
 body {
 	font-family: Helvetica, sans-serif;
 	background:#CCC;
+
+	a.twitter-anywhere-user {
+		font-weight:bold;
+		text-decoration:none;
+
+		&:before {
+			font-weight:bold;
+		}
+	}
 }
 
 header {
@@ -96,8 +105,17 @@ dl {
 		font-size: 16pt;
 		font-weight: bold;
 	}
-	dd {
 
+	dd {
+		p.icons {
+			a {
+				text-decoration: none;
+				padding-left: 15px;
+				&:first-child {
+					padding-left: 0px;
+				}
+			}
+		}
 	}
 }
 

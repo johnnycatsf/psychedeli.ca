@@ -4,7 +4,13 @@
 	<title>{{ page.title }}</title>
 	<link rel="shortcut icon" href="favicon.ico">
 	<link rel="stylesheet" type="text/css" href="/css/psychedelica.css" media="all">
+	<script src="http://platform.twitter.com/anywhere.js?id=zDPeS1kInJZv5AigGRT1Dg&v=1" type="text/javascript"></script>
 	<script type="text/javascript" src="/js/application.js"></script>
+	<script type="text/javascript">
+	  twttr.anywhere(function (T) {
+	    T.hovercards();
+	  });
+	</script>
 </head>
 <body>
 	<div class="container">
@@ -36,9 +42,18 @@
 						to almost certain death. You can check out more of my musical and programming
 						related experiments on the links to your left
 					</p>
-					<p>
+					<p class="icons">
 						<a href="http://feeds.feedburner.com/psychedelica-all" title="Subscribe to psychedeli.ca" rel="alternate" type="application/rss+xml">
-							<img src="http://www.feedburner.com/fb/images/pub/feed-icon32x32.png" alt="" />
+							<img src="/img/rss.png" alt="Text/RSS 2.0" />
+						</a>
+						<a href="http://feeds.feedburner.com/psychedelica-music" title="Subscribe to my podcast" rel="alternate" type="application/rss+xml">
+							<img src="/img/podcast.png" alt="Podcast/RSS 2.0" />
+						</a>
+						<a href="http://twitter.com/tubbo" title="@tubbo on Twitter">
+							<img src="/img/twitter.png" alt="Twitter" />
+						</a>
+						<a href="http://github.com/tubbo" title="tubbo on Github">
+							<img src="/img/github.png" alt="GitHub" />
 						</a>
 					</p>
 				</dd>

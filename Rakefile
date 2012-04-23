@@ -20,7 +20,7 @@ task :compile do
   # refresh and compile the static dir
   system 'rm -rf pub/*'
   system 'bundle exec jekyll --config=cfg/jekyll.yml'
-  Rake::Task['restart'].invoke
+  Rake::Task['server:restart'].invoke
 end
 
 desc "Server tasks"

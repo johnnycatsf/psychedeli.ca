@@ -50,6 +50,13 @@ map '/js' do
   run javascripts
 end
 
+# Manage images
+map '/img' do
+  images = Sprockets::Environment.new
+  images.append_path 'app/img'
+  run images
+end
+
 # JSON feed server
 #use StatusExchange::Application
 

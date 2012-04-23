@@ -12,3 +12,4 @@ exclude:
 - doc
 - css
 - js
+- img
