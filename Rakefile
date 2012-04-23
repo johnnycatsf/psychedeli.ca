@@ -23,12 +23,16 @@ task :compile do
   Rake::Task['restart'].invoke
 end
 
-desc "Restart the Ruby web server"
-task :restart do
-  puts "Restarting the server..."
-  system 'touch tmp/restart.txt'
-  puts "done"
+desc "Server tasks"
+namespace :server do
+  desc "Restart the app server"
+  task :restart do
+    puts "Restarting the server..."
+    system 'touch tmp/restart.txt'
+    puts "done"
+  end
 end
+
 
 desc "Run the test suite"
 Rake::TestTask.new do |t|
