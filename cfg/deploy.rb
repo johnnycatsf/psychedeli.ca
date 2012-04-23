@@ -38,7 +38,7 @@ namespace :deploy do
 
   task :restart do
     run "cd #{release_path}; touch tmp/restart.txt"
-    run "#{try_sudo} /etc/init.d/apache2 restart"
+    # run "#{try_sudo} /etc/init.d/apache2 restart"
   end
 end
 
