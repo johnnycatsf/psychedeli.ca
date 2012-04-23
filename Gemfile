@@ -17,7 +17,7 @@ end
 group :deployment do
   gem 'rvm'
   gem 'rake'
-  gem 'rvm-capistrano'
+  gem 'rvm-capistrano', :require => "rvm/capistrano"
   gem 'capistrano'
   gem 'capistrano_colors'
 end

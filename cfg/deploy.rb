@@ -1,7 +1,5 @@
-# Load RVM's capistrano plugin.
 require 'bundler'
 Bundler.setup :framework, :deployment
-require "rvm/capistrano"
 
 set :rvm_ruby_string, '1.9.3-p125@psychedelica'
 set :rvm_type, :user
@@ -25,12 +23,12 @@ role :web, "psychedeli.ca"
 
 namespace :deploy do
   task :bundle do
-    run "cd #{release_path}; rvm 1.9.3-p125@psychedelica; bundle install"
+    run "cd #{release_path}; bundle install"
   end
 
   task :update_content do
     run "cd #{release_path}; rm -rf pub/*"
-    run "cd #{release_path}; rvm 1.9.3-p125@psychedelica; bundle exec jekyll --config=cfg/jekyll.yml"
+    run "cd #{release_path}; bundle exec jekyll --config=cfg/jekyll.yml"
     configure_status_exchange
   end
 
