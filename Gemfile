@@ -15,6 +15,7 @@ end
 
 group :assets do
   gem 'actionpack', '~> 3.2'
+  gem 'compass'
   gem 'sass-rails', '~> 3.2'
   gem 'bootstrap-sass', '~> 2.0.2'
   gem 'redcarpet', '~> 1.17.2'
