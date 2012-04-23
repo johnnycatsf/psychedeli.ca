@@ -12,6 +12,7 @@ group :framework do
   gem 'activesupport', '~> 3.2'
   gem 'actionpack', '~> 3.2'
   gem 'unicorn'
+  gem 'rvm'
 end
 
 group :assets do
