@@ -86,9 +86,11 @@ section {
 
 dl {
 	background: #FFF;
-	width: 200px;
+	width: 400px;
 	padding: 5px;
 	float: right;
+	position: relative;
+	top: 5px;
 
 	dt {
 		font-size: 16pt;

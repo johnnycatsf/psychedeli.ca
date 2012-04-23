@@ -21,13 +21,16 @@ if ENV['MY_RUBY_HOME'] && ENV['MY_RUBY_HOME'].include?('rvm')
   end
 end
 
+require 'bundler'
+Bundler.setup :framework, :assets, (ENV['RACK_ENV'] || 'development')
+
 $LOAD_PATH << './lib'
 
-require 'bundler'
 require 'rack/contrib/try_static'
 require 'rack/contrib/not_found'
 # require 'status_exchange'
 require 'sprockets'
+require 'bootstrap-sass'
 
 # Log everything
 use Rack::CommonLogger

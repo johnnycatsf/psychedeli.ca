@@ -4,27 +4,32 @@
 
 source :rubygems
 
-gem 'rack', :require => false
-gem 'sprockets', :require => false
-gem 'rack-contrib', :require => false
-gem 'liquid'
+group :framework do
+  gem 'rack', :require => false
+  gem 'sprockets', :require => false
+  gem 'rack-contrib', :require => false
+  gem 'i18n'
+  gem 'activesupport', '~> 3.2'
+  gem 'actionpack', '~> 3.2'
+end
 
 group :assets do
-  gem 'sass'
-  gem 'compass'
+  gem 'actionpack', '~> 3.2'
+  gem 'sass-rails', '~> 3.2'
+  gem 'bootstrap-sass', '~> 2.0.2'
   gem 'redcarpet', '~> 1.17.2'
   gem 'uglifier'
   gem 'libv8'
 end
 
-gem 'yajl-ruby'
-gem 'twitter'
-gem 'koala'
-gem 'ratom'
+group :status_exchange do
+  gem 'yajl-ruby'
+  gem 'twitter'
+  gem 'koala'
+  gem 'ratom'
+end
 
-gem 'i18n'
-gem 'activesupport'
-
+gem 'liquid'
 gem 'jekyll', :git => 'git://github.com/tubbo/jekyll.git', :branch => 'feature/custom-dirs'
 gem 'rake'
 gem 'capistrano'
@@ -41,7 +46,6 @@ group :test do
   gem 'vcr', '2.0.0'
   gem 'mocha'
   gem 'webmock'
-  gem 'actionpack'
   # gem 'capybara'
   # gem 'capybara_minitest_spec'
 end
