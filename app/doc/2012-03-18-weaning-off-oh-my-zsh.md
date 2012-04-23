@@ -16,9 +16,15 @@ Oh My ZSH was designed for new users, and is meant to be replaced at some point 
 
 - **Built-in functionality:** In addition to its massive plugin library, Oh My ZSH also comes with a collection of aliases, functions and variables for use in your scripts and everyday use. This useful built-in functionality is stuff I use on an everyday basis for prompt display, general hackery, and other fun shell tasks.
 
-These features of Oh My ZSH make it a possibility to use as a power user of ZSH. But the aim of the project is to help newer users get acquainted with the shell, so I've decided to start my own project which is based off of Oh My ZSH (it was originally [my fork of oh-my-zsh][fork]), but removes some newbie sugar such as themes and installation management. I figure everyone can figure that out on their own, plus it goes against the concept of the framework entirely. The idea behind this framework is for you to fork it, and maintain that fork with your own "dot files", scripts and other home-dir tools you need for general hackery. Once again, it's meant as a starting point but it strips away unnecessary shit that you're never, ever going to use. I'll post more about this upcoming framework as I make it, but you can [follow the progress][fork] yourself and who knows, maybe even contribute! ;)
+These features of Oh My ZSH make it a possibility to use as a power user of ZSH. But the aim of the project is to help newer users get acquainted with the shell, so I've decided to start my own project which is based off of Oh My ZSH (it was originally [my fork of oh-my-zsh][fork]), but removes some newbie sugar such as themes and installation management. I figure everyone can figure that out on their own, plus it goes against the concept of the framework entirely. The idea behind this framework is for you to fork it, and maintain that fork with your own "dot files", scripts and other home-dir tools you need for general hackery. Once again, it's meant as a starting point but it strips away unnecessary shit that you're never, ever going to use.
 
-I have no idea what I'm naming it yet.
+## Introducing DOTS
+
+This framework, called [DOTS][dots], shares some of Oh My ZSH's installation features. To install, simply do
+
+    curl -L https://github.com/tubbo/dots/raw/master/tools/install.sh | sh
+
+in your Terminal and the script will take care of the rest!
 
 [zsh]: http://www.zsh.org/
 [bash]: http://www.gnu.org/software/bash/
@@ -26,3 +32,4 @@ I have no idea what I'm naming it yet.
 [flow]: https://github.com/nvie/gitflow
 [nvie]: http://nvie.com/posts/a-successful-git-branching-model/
 [fork]: http://github.com/tubbo/oh-my-zsh
+[DOTS]: http://github.com/tubbo/dots

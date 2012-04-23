@@ -51,7 +51,7 @@ section {
 	&#posts {
 		//height: 640px;
 		width: 940px;
-		float: right;
+		float: left;
 
 		.arrow {
 			display:none;
@@ -81,6 +81,21 @@ section {
 		.clear {
 			clear: both;
 		}
+	}
+}
+
+dl {
+	background: #FFF;
+	width: 200px;
+	padding: 5px;
+	float: right;
+
+	dt {
+		font-size: 16pt;
+		font-weight: bold;
+	}
+	dd {
+
 	}
 }
 

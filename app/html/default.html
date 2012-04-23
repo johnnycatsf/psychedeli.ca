@@ -19,9 +19,11 @@
 			</hgroup>
 		</header>
 
-<!-- 		<aside>
-			<div id="about">
-				<h2>Hi!</h2>
+		{{ content }}
+
+		<dl id="about">
+			<dt>Hi!</dt>
+			<dd>
 				<p>
 					My name is Tom, but most people just call me @tubbo.
 					This is my blog and personal site. It's a home for
@@ -33,18 +35,22 @@
 					to almost certain death. You can check out more of my musical and programming
 					related experiments on the links to your left
 				</p>
-			</div>
-		</aside> -->
-
-		{{ content }}
+			</dd>
+		</dl>
+		<dl id="ticker">
+			<dt>That's What's Up</dt>
+			<dd>
+				jQuery.ticker coming soon
+			</dd>
+		</dl>
 
 		<footer>
 			<a href="http://feeds.feedburner.com/psychedelica-all" title="Subscribe to psychedeli.ca" rel="alternate" type="application/rss+xml">
 				<img src="http://www.feedburner.com/fb/images/pub/feed-icon32x32.png" alt="" />
 			</a>
-			<a href="http://psychedeli.ca/xml/podcast.rss" title="Subscribe to psychedeli.cast" rel="alternate" type="application/rss+xml">
+<!-- 			<a href="http://psychedeli.ca/xml/podcast.rss" title="Subscribe to psychedeli.cast" rel="alternate" type="application/rss+xml">
 				<img src="http://psychedeli.ca/img/apple.png" alt="" />
-			</a>
+			</a> -->
 			<div id="ticker"></div>
 		</footer>
 	</div>
