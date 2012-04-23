@@ -1,19 +1,17 @@
-$cooper: 'CooperStdBlack', Tahoma, Helvetica, sans-serif;
-$brandon: 'BrandonGrotesqueBlack', Arial, sans-serif;
-$neue-lt: 'HelveticaNeueLTStd45Light', Verdana, sans-serif;
-$museo: 'Museo500', Times, serif;
-$futura: 'FuturaMedium', Arial, sans-serif;
+@import "../vendor/fonts";
 
 body {
 	font-family: Helvetica, sans-serif;
 	background:#CCC;
 
-	a.twitter-anywhere-user {
+	span.twitter-name {
 		font-weight:bold;
-		text-decoration:none;
+		color: #2276BB;
 
-		&:before {
+		a.twitter-anywhere-user {
 			font-weight:bold;
+			text-decoration:none;
+			color: #2276BB;
 		}
 	}
 }
@@ -111,23 +109,14 @@ dl {
 			a {
 				text-decoration: none;
 				padding-left: 15px;
+
 				&:first-child {
 					padding-left: 0px;
 				}
 			}
+			.social {
+				float: right;
+			}
 		}
-	}
-}
-
-// Sticky footer
-footer {
-	// jQuery.statusTicker polls the StatusExchange every
-	#ticker {
-
-	}
-
-	// About
-	#about {
-
 	}
 }

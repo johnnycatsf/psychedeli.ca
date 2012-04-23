@@ -16,15 +16,33 @@ Oh My ZSH was designed for new users, and is meant to be replaced at some point 
 
 - **Built-in functionality:** In addition to its massive plugin library, Oh My ZSH also comes with a collection of aliases, functions and variables for use in your scripts and everyday use. This useful built-in functionality is stuff I use on an everyday basis for prompt display, general hackery, and other fun shell tasks.
 
-These features of Oh My ZSH make it a possibility to use as a power user of ZSH. But the aim of the project is to help newer users get acquainted with the shell, so I've decided to start my own project which is based off of Oh My ZSH (it was originally [my fork of oh-my-zsh][fork]), but removes some newbie sugar such as themes and installation management. I figure everyone can figure that out on their own, plus it goes against the concept of the framework entirely. The idea behind this framework is for you to fork it, and maintain that fork with your own "dot files", scripts and other home-dir tools you need for general hackery. Once again, it's meant as a starting point but it strips away unnecessary shit that you're never, ever going to use.
+I need a framework for ZSH that can accomplish these goals, but doesn't bother with the theming or tricks designed to enable newbies to use ZSH. As someone mildly comfortable with this shell already, I want something a little more powerful but maybe not so easy to use.
 
 ## Introducing DOTS
 
-This framework, called [DOTS][dots], shares some of Oh My ZSH's installation features. To install, simply do
+The features of Oh My ZSH I highlighted above make it a possibility to use as a power user of ZSH. But as the aim of the Oh My ZSH project is to help newer users get acquainted with the shell, I've decided to start my own project, forked from Oh My ZSH but without the newbie sugar like themes and installation management tasks. I figure everyone can figure that out on their own. The idea behind this framework is for you to fork it, and maintain that fork with your own "dot files", scripts and other home-dir tools you need for general hackery. Once again, it's meant as a starting point but it strips away unnecessary shit that you're never, ever going to use.
+
+### Git it!
+
+So you wanna try it out? First, uninstall Oh My ZSH! (`rm -rf ~/.oh-my-zsh`) and run this little diddy:
 
     curl -L https://github.com/tubbo/dots/raw/master/tools/install.sh | sh
 
-in your Terminal and the script will take care of the rest!
+### Persisting your dot files
+
+Not only is DOTS designed to take care of your basic ZSH tasks, it also persists your home directory configuration files ("dot files") across your machines. To invoke this feature, simply type the following in your home directory:
+
+    persist .gemrc
+
+(or whatever file you want persisted)
+
+This will move the file to `~/.dots/config/gemrc`, add it to the git repository, and symlink `~/.gemrc` to `~/.dots/config/gemrc`. You can now commit this file into Git and synchronize it across machines when you update dots!
+
+To stop persisting a file, type:
+
+    forget .gemrc
+
+This will replace the symlink with the file it's linked to and remove it from the Git repository. You will have to make a commit to confirm this change.
 
 [zsh]: http://www.zsh.org/
 [bash]: http://www.gnu.org/software/bash/

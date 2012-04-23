@@ -1,11 +1,6 @@
 // Posts are laid out as <article> tags, and when JavaScript is enabled act as a giant carousel.
 
-$cooper: 'CooperStdBlack', Tahoma, Helvetica, sans-serif;
-$brandon: 'BrandonGrotesqueBlack', Arial, sans-serif;
-$neue-lt: 'HelveticaNeueLTStd45Light', Verdana, sans-serif;
-$museo: 'Museo500', Times, serif;
-$futura: 'FuturaMedium', Arial, sans-serif;
-$georgia: Georgia, 'Georgia', Times, serif;
+@import "../vendor/fonts";
 
 article {
 	//width: 810px;
@@ -74,11 +69,12 @@ article {
 			}
 		}
 		pre {
-			background-color:#EEE;
+			background-color:#ecf2f5;
+			padding: 10px 25px;
 
 			code {
-				font-size: 12px;
-				font-family: 'Lucida Console', Courier, fixed;
+				font-size: 14px;
+				font-family: $monaco;
 			}
 		}
 		blockquote {
