@@ -1,18 +1,13 @@
-f = File.open('/tmp/load_path', 'w')
-f.write($:)
-f.close
+# f = File.open('/tmp/load_path', 'w')
+# f.write($:)
+# f.close
 
 source :rubygems
 
-group :framework do
-  gem 'rack', :require => false
-  gem 'sprockets', :require => false
-end
-
-group :content do
-  gem 'rack-contrib', :require => false
-  gem 'liquid'
-end
+gem 'rack', :require => false
+gem 'sprockets', :require => false
+gem 'rack-contrib', :require => false
+gem 'liquid'
 
 group :assets do
   gem 'sass'
@@ -22,26 +17,19 @@ group :assets do
   gem 'libv8'
 end
 
-group :status_exchange do
-  gem 'yajl-ruby'
-  gem 'twitter'
-  gem 'koala'
-  gem 'ratom'
-  # gem 'soundcloud'
-end
+gem 'yajl-ruby'
+gem 'twitter'
+gem 'koala'
+gem 'ratom'
 
-group :content, :status_exchange do
-  gem 'i18n'
-  gem 'activesupport', :require => false
-end
+gem 'i18n'
+gem 'activesupport'
 
-group :development do
-  gem 'jekyll', :git => 'git://github.com/tubbo/jekyll.git', :branch => 'feature/custom-dirs'
-  gem 'rake'
-  gem 'capistrano'
-  gem 'capistrano_colors'
-  gem 'thin'
-end
+gem 'jekyll', :git => 'git://github.com/tubbo/jekyll.git', :branch => 'feature/custom-dirs'
+gem 'rake'
+gem 'capistrano'
+gem 'capistrano_colors'
+gem 'thin'
 
 group :test do
   gem 'turn'

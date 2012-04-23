@@ -23,9 +23,10 @@ end
 
 $LOAD_PATH << './lib'
 
+require 'bundler'
 require 'rack/contrib/try_static'
 require 'rack/contrib/not_found'
-require 'status_exchange'
+# require 'status_exchange'
 require 'sprockets'
 
 # Log everything
@@ -46,7 +47,7 @@ map '/js' do
 end
 
 # JSON feed server
-use StatusExchange::Application
+#use StatusExchange::Application
 
 # Static site handler
 use Rack::TryStatic,
