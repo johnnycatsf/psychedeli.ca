@@ -1,4 +1,6 @@
 # Load RVM's capistrano plugin.
+require 'bundler'
+Bundler.setup :framework, :deployment
 require "rvm/capistrano"
 
 set :rvm_ruby_string, '1.9.3-p125@psychedelica'

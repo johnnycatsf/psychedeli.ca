@@ -28,10 +28,10 @@ $LOAD_PATH << './lib'
 
 require 'rack/contrib/try_static'
 require 'rack/contrib/not_found'
-# require 'status_exchange'
-require 'sprockets'
-require 'compass'
-require 'bootstrap-sass'
+require 'status_exchange'
+# require 'sprockets'
+# require 'compass'
+# require 'bootstrap-sass'
 
 # Log everything
 use Rack::CommonLogger

@@ -6,13 +6,19 @@ source :rubygems
 
 group :framework do
   gem 'rack', :require => false
-  gem 'sprockets', :require => false
-  gem 'rack-contrib', :require => false
+  gem 'sprockets'
+  gem 'rack-contrib'
   gem 'i18n'
   gem 'activesupport', '~> 3.2'
   gem 'actionpack', '~> 3.2'
   gem 'unicorn'
+end
+
+group :deployment do
   gem 'rvm'
+  gem 'rake'
+  gem 'capistrano'
+  gem 'capistrano_colors'
 end
 
 group :assets do
@@ -32,12 +38,11 @@ group :status_exchange do
   gem 'ratom'
 end
 
-gem 'liquid'
-gem 'jekyll', :git => 'git://github.com/tubbo/jekyll.git', :branch => 'feature/custom-dirs'
-gem 'rake'
-gem 'capistrano'
-gem 'capistrano_colors'
-gem 'thin'
+group :content do
+  gem 'liquid'
+  gem 'jekyll', :git => 'git://github.com/tubbo/jekyll.git', :branch => 'feature/custom-dirs'
+end
+
 
 group :test do
   gem 'turn'
