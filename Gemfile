@@ -6,12 +6,12 @@ source :rubygems
 
 group :framework do
   gem 'rack', :require => false
-  gem 'sprockets'
+  gem 'sprockets', :require => false
   gem 'rack-contrib'
   gem 'i18n'
   gem 'activesupport', '~> 3.2'
   gem 'actionpack', '~> 3.2'
-  gem 'unicorn'
+  gem 'unicorn', :require => false
 end
 
 group :deployment do
@@ -54,6 +54,6 @@ group :test do
   gem 'vcr', '2.0.0'
   gem 'mocha'
   gem 'webmock'
-  # gem 'capybara'
-  # gem 'capybara_minitest_spec'
+  gem 'capybara', :require => false
+  gem 'capybara_minitest_spec', :require => false
 end
