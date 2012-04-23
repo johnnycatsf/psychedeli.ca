@@ -6,7 +6,7 @@ set :rvm_type, :user
 set :user, "necromancer"
 set :domain, "psychedeli.ca"
 set :use_sudo, true
-
+set :shell, "/bin/zsh"
 
 server domain, :web
 
