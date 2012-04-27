@@ -15,7 +15,6 @@
     font-weight: normal;
     font-style: normal;
 }
-
 $cooper: 'CooperStdBlack', Arial, sans-serif;
 
 // Brandon Grotesque for headlines
@@ -75,4 +74,15 @@ $collegiate: 'CollegiateRegular', Arial, sans-serif;
 
 $georgia: 'Georgia', Times, serif;
 
-$monaco: 'Monaco', 'Menlo', 'Lucida Console', 'Courier New', Courier, fixed;
+@font-face {
+    font-family: 'MonacoRegular';
+    src: url('monaco-webfont.eot');
+    src: url('monaco-webfont.eot?#iefix') format('embedded-opentype'),
+         url('monaco-webfont.woff') format('woff'),
+         url('monaco-webfont.ttf') format('truetype'),
+         url('monaco-webfont.svg#MonacoRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+$monaco: 'MonacoRegular', 'Menlo', 'Lucida Console', 'Courier New', Courier, fixed;

@@ -37,17 +37,6 @@ header {
 				}
 			}
 		}
-		h2 {	// 100% PURE BEARD
-			float: left;
-			font-family: $futura;
-			font-size: 32px;
-			color: #FFF;
-			background: #CF0000;
-			border-top: 1px solid gold;
-			border-bottom: 1px solid gold;
-			margin-left: -9px;
-			margin-top: 55px;
-		}
 	}
 }
 
@@ -98,6 +87,8 @@ dl {
 	float: right;
 	position: relative;
 	top: 5px;
+	line-height:24px;
+	font-size: 16px;
 
 	dt {
 		font-size: 16pt;
@@ -105,6 +96,13 @@ dl {
 	}
 
 	dd {
+		a {
+			text-decoration: none;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
 		p.icons {
 			a {
 				text-decoration: none;
@@ -116,6 +114,15 @@ dl {
 			}
 			.social {
 				float: right;
+			}
+			#soundcloud {
+				position: relative;
+				top: 7px;
+				right: 3px;
+			}
+			#twitter {
+				position: relative;
+				top: 3px;
 			}
 		}
 	}
