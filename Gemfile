@@ -1,7 +1,3 @@
-# f = File.open('/tmp/load_path', 'w')
-# f.write($:)
-# f.close
-
 source :rubygems
 
 group :framework do
@@ -16,7 +12,7 @@ end
 
 group :deployment do
   gem 'rvm'
-  gem 'rake'
+  gem 'rake', :require => false
   gem 'rvm-capistrano', :require => "rvm/capistrano"
   gem 'capistrano'
   gem 'capistrano_colors'
@@ -44,6 +40,11 @@ group :content do
   gem 'jekyll', :git => 'git://github.com/tubbo/jekyll.git', :branch => 'feature/custom-dirs'
 end
 
+## Environments
+
+group :development do
+  gem 'thin'
+end
 
 group :test do
   gem 'turn'
@@ -57,4 +58,8 @@ group :test do
   gem 'webmock'
   gem 'capybara', :require => false
   gem 'capybara_minitest_spec', :require => false
+end
+
+group :production do
+  gem 'unicorn'
 end

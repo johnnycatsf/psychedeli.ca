@@ -23,6 +23,7 @@ end
 
 require 'bundler'
 Bundler.setup :framework, :assets
+Bundler.require
 
 $LOAD_PATH << './lib'
 
