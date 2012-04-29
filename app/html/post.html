@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-<section id="post">
+<section id="post" class="span-8">
 	<article>
 		<header>
 			<h1>{{ page.title }}</h1>
@@ -13,15 +13,9 @@ layout: default
 
 		<footer>
 			<div class="text">
-				<p>Posted in {{ page.category }} <time datetime="{{ page.time | date_to_xmlschema }}">on {{ page.time | date_to_string }}</time>.</p>
-				<p>Tags: {{ page.tags }} | <a href="comments.html?id={{ site.meta.absolute_baseurl }}{{ page.url }}" id="show-comments">Comments</p>
+				<p>Posted in {{ page.category }} on <time datetime="{{ page.time | date_to_xmlschema }}">{{ page.time | date_to_string }}</time>.</p>
+				<p>Tags: {{ page.tags }}</p>
 			</div>
 		</footer>
 	</article>
 </section>
-
-<div id="comments"></div>
-
-<script type="text/javascript" charset="utf-8">
-	$('#show-comments').click(function() { $('body').find('#comments').load($(this).attr('href')); return false });
-</script>

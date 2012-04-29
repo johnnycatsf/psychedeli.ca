@@ -1,0 +1,3 @@
+[submodule "vendor/gist"]
+	path = vendor/gist
+	url = git://gist.github.com/2143990.git

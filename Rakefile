@@ -1,10 +1,5 @@
-require 'bundler'
-Bundler.setup :framework, :development
-
-# Extra Rake components
 require 'rake/clean'
 require 'rake/testtask'
-# require 'rake/sprocketstask'
 
 desc "Copy server configuration files from `cfg/` to the public dir."
 task :config do
@@ -20,25 +15,45 @@ task :compile do
   # refresh and compile the static dir
   system 'rm -rf pub/*'
   system 'bundle exec jekyll --config=cfg/jekyll.yml'
-  Rake::Task['server:restart'].invoke
 end
 
-desc "Server tasks"
-namespace :server do
-  desc "Restart the app server"
-  task :restart do
-    puts "Restarting the server..."
-    system 'touch tmp/restart.txt'
-    puts "done"
+desc "Runs the server, which is Thin in development and Unicorn in production"
+task :server do
+  if ENV['RACK_ENV'] == 'production'
+    the_server = 'Unicorn'
+    command = 'unicorn -p 3000 -D'
+  else
+    the_server = 'Thin'
+    command = 'thin -p 3000 start'
   end
-end
 
+  puts "Starting #{the_server}..."
+  system command
+end
 
 desc "Run the test suite"
 Rake::TestTask.new do |t|
   t.libs << 'test'
   t.pattern = 'test/**/*_test.rb'
 end
+
+# namespace :javascript do
+#   desc "Compiles static javascript assets"
+#   Rake::SprocketsTask.new do |t|
+#     t.environment = Sprockets::Environment.new
+#     t.output      = "./pub/js"
+#     t.assets      = %w( application.js )
+#   end
+# end
+
+# namespace :stylesheet do
+#   desc "Compiles static stylesheet assets"
+#   Rake::SprocketsTask.new do |t|
+#     t.environment = Sprockets::Environment.new
+#     t.output      = "./pub/css"
+#     t.assets      = %w( psychedelica.css.scss )
+#   end
+# end
 
 desc "Run the test suite on CI"
 task :build => [:compile, :config, :test]

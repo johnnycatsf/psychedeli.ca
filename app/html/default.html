@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<title>{{ page.title }}</title>
-	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="shortcut icon" href="/img/favicon.ico">
 	<link rel="stylesheet" type="text/css" href="/css/psychedelica.css" media="all">
 	<script src="http://platform.twitter.com/anywhere.js?id=zDPeS1kInJZv5AigGRT1Dg&v=1" type="text/javascript"></script>
 	<script type="text/javascript" src="/js/application.js"></script>
@@ -13,11 +13,11 @@
 	</script>
 </head>
 <body>
-	<div class="container">
-		<header>
-			<hgroup>
+	<div class="container-fluid">
+		<header class="row">
+			<hgroup class="span-2">
 				<h1><a href="/">psychedeli.ca</a></h1>
-				<div class="left ribbon-holder">
+				<div class="right ribbon-holder">
 				  <a href="http://github.com/tubbo/psychedeli.ca" target="_blank" class="red ribbon">
 				    <span class="text">100% Pure Beard</span>
 				  </a>
@@ -25,43 +25,60 @@
 			</hgroup>
 		</header>
 
-		{{ content }}
+		<div class="row">
+			{{ content }}
 
-		<aside>
-			<dl id="about">
-				<dt>Hi!</dt>
-				<dd>
-					<p>
-						My name is Tom, but most people just call me <span class="twitter-name">@tubbo</span>.
-						This is my blog and personal site. It's a home for
-						my life, or lack thereof.
-					</p>
-					<p>
-						By day, I'm a programmer at <a href="http://aplusldesign.com">A + L DESIGN</a>,
-						but by night I lead my band <a href="http://thewonderbars.com">The Wonder Bars</a>
-						to almost certain death. Check out my Soundcloud profile by clicking the cloud icon
-						below, or click the <a href="http://octocat.github.com">octocat</a> to check out my
-						programming-related experiments.
-					</p>
-					<p class="icons">
-						<a href="http://feeds.feedburner.com/psychedelica-all" title="Subscribe to psychedeli.ca" rel="alternate" type="application/rss+xml">
-							<img src="/img/rss.png" alt="Text/RSS 2.0" />
-						</a>
-						<span class="social">
-							<a href="http://twitter.com/tubbo" title="@tubbo on Twitter">
-								<img src="/img/twitter.png" id="twitter" alt="Twitter" />
-							</a>
-							<a href="http://github.com/tubbo" title="tubbo on Github">
-								<img src="/img/github.png" alt="GitHub" />
-							</a>
-							<a href="http://soundcloud.com/wonderbars" title="The Wonder Bars on Soundcloud">
-								<img src="/img/soundcloud.png" id="soundcloud" alt="Soundcloud" />
-							</a>
-						</span>
-					</p>
-				</dd>
-			</dl>
-		</aside>
+			<aside class="span-4" id="about">
+				<h2>Hi!</h2>
+
+				<p>
+					My name is <strong>Tom</strong>, but most people just call me
+					<span class="twitter-name">@tubbo</span>. This is my blog and personal site.
+					It's a home for my life, or lack thereof.
+					<br><br>
+					By day, I'm a web application developer, primarily working within the framework
+					<a href="http://rubyonrails.org">Ruby on Rails</a> and writing mostly
+					<a href="http://ruby-lang.org">Ruby</a> and
+					<a href="http://javascript.crockford.com">JavaScript</a>.
+					<br><br>
+					But by night, I lead my band <a href="http://thewonderbars.com">The Wonder Bars</a>
+					to almost certain death! Check out my Soundcloud profile by clicking the cloud icon
+					below, or check out my <a href="http://github.com/tubbo">GitHub</a> profile
+					to check out my programming-related experiments.
+				</p>
+
+				<div class="icons">
+					<a href="http://twitter.com/tubbo" title="@tubbo on Twitter">
+						<img src="/img/twitter.png" id="twitter" alt="Twitter" />
+					</a>
+					<a href="http://github.com/tubbo" title="tubbo on Github">
+						<img src="/img/github.png" alt="GitHub" />
+					</a>
+					<a href="http://soundcloud.com/wonderbars" title="The Wonder Bars on Soundcloud">
+						<img src="/img/soundcloud.png" id="soundcloud" alt="Soundcloud" />
+					</a>
+					<a href="http://feeds.feedburner.com/psychedelica-all" title="Subscribe to psychedeli.ca" rel="alternate" type="application/rss+xml">
+						<img src="/img/rss.png" alt="Text/RSS 2.0" />
+					</a>
+			</aside>
+		</div>
+
+		<footer class="row">
+			<div class="span-8">
+				<p>
+					This blog was built on
+					<a href="http://github.com/tubbo/jekyll">100%</a>
+					<a href="http://jquery.com">open</a>
+					<a href="http://github.com/sstephenson/sprockets">source</a>
+					<a href="http://twitter.github.com/bootstrap">technology</a>.
+				</p>
+			</div>
+			<div class="span-4">
+				<a href="https://github.com/tubbo/psychedeli.ca">Code</a>
+				<a href="http://rubydoc.info/github/tubbo/psychedeli.ca/frames">Docs</a>
+				<a href="https://github.com/tubbo/psychedeli.ca/issues">Bugs</a>
+			</div>
+		</footer>
 	</div>
 </body>
 </html>

@@ -22,16 +22,16 @@ if ENV['MY_RUBY_HOME'] && ENV['MY_RUBY_HOME'].include?('rvm')
 end
 
 require 'bundler'
-Bundler.setup :framework, :assets
+Bundler.setup :default, (ENV['RACK_ENV'] || 'development'), :assets
 
-$LOAD_PATH << './lib'
-
+require 'sprockets'
+require 'compass'
+require 'sprockets-sass'
+require 'bootstrap-sass'
+require 'handlebars_assets'
+require 'coffee-script'
 require 'rack/contrib/try_static'
 require 'rack/contrib/not_found'
-require 'status_exchange'
-require 'sprockets'
-# require 'compass'
-# require 'bootstrap-sass'
 
 # Log everything
 use Rack::CommonLogger

@@ -6,7 +6,8 @@ set :rvm_type, :user
 set :user, "necromancer"
 set :domain, "psychedeli.ca"
 set :use_sudo, true
-set :shell, "/bin/zsh"
+
+require "rvm/capistrano"
 
 server domain, :web
 
@@ -22,11 +23,9 @@ set :deploy_to, "/home/#{user}/src/#{application}"
 role :web, "psychedeli.ca"
 
 namespace :deploy do
-  task :bundle do
-    run "cd #{release_path}; bundle install"
-  end
-
   task :update_content do
+    run "gem install bundler"
+    run "cd #{release_path}; bundle install"
     run "cd #{release_path}; rm -rf pub/*"
     run "cd #{release_path}; bundle exec jekyll --config=cfg/jekyll.yml"
     configure_status_exchange
@@ -42,5 +41,4 @@ namespace :deploy do
 end
 
 # Always restart the app after deployment
-after 'deploy:update_code', 'deploy:bundle'
-after 'deploy:bundle', 'deploy:update_content'
+after 'deploy:update_code', 'deploy:update_content'

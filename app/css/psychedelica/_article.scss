@@ -3,11 +3,10 @@
 @import "../vendor/fonts";
 
 article {
-	//width: 810px;
-	//height: 660px;
+	max-width: 740px;
 	background:#FFF;
-	padding: 20px;
-	margin: 35px 50px;
+	padding: 5px 20px;
+	margin: 0px 0px 35px 0px;
 
 	&* {
 		background:#FFF;
@@ -39,7 +38,6 @@ article {
 		}
 	}
 
-	// content
 	section {
 		h1, h2, h3 {
 			font-family: $brandon;
@@ -54,19 +52,6 @@ article {
 			line-height:24px;
 			font-size: 18px;
 			font-family: $georgia;
-
-			a {
-				text-decoration:none;
-				font-weight: bold;
-
-				&:link, &:visited {
-					color: #0000FF;
-				}
-				&:hover, &:active {
-					color: #000022;
-					text-decoration:underline;
-				}
-			}
 		}
 		pre {
 			background-color:#ecf2f5;
@@ -87,31 +72,18 @@ article {
 		}
 	}
 
-	// category & date identifier
 	footer {
-		border-top: 1px solid #CCC;
+		background: $white;
+		border-top: 3px dotted #000;
 
-		:first-child {
-			padding-top:10px;
-		}
-
-		#icons {
-			float:left;
-		}
 		p {
-			text-align:right;
-			font-size:12px;
+			text-align: right;
 
-			time {
-				font-weight:bold;
+			.category {
+				font-weight: bold;
 			}
-		}
-		.tags {
-
-			a {
-				padding-left: 10px;
-				text-decoration: none;
-				color: #0000FF;
+			time {
+				font-weight: bold;
 			}
 		}
 	}

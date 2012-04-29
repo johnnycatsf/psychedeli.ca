@@ -1,8 +1,14 @@
-//@import "bootstrap";
-
-@import "vendor/fonts";
+// Plugins
 @import "vendor/pygments.css";
 @import "vendor/jquery.facebox.css";
 @import "vendor/ribbon.css";
-@import "psychedelica/layout.css";
-@import "psychedelica/posts.css";
+@import "vendor/fonts";
+
+// Framework
+@import "bootstrap-responsive";
+
+// Theme
+@import "psychedelica/support";
+@import "psychedelica/layout";
+@import "psychedelica/article";
+@import "psychedelica/aside";

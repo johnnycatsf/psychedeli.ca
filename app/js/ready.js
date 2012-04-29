@@ -5,7 +5,5 @@ $(document).ready(function() {
 		loadingImage: 'img/loading.gif'
 	});*/
 
-	$('#ticker').ticker();
-
 	//$('.tags a').linkifyTags();
 });

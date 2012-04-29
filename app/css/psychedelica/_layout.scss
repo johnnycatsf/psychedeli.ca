@@ -1,0 +1,58 @@
+body {
+	font-family: Helvetica, sans-serif;
+	background:#CCC;
+
+	.twitter-name {
+		font-weight:bold;
+		color: $twitterBlue;
+	}
+}
+
+header {
+	@include links;
+
+	hgroup {
+		float: right;
+		h1 {	// psychedeli.ca
+			font-family: $cooper;
+			font-size: 64px;
+			// padding: 10px;
+
+			a {
+				&:link, &:visited {
+					color:#000;
+				}
+				&:hover, &:active {
+					color:#000253;
+				}
+			}
+		}
+	}
+
+	.ribbon {
+		font-family: $collegiate;
+
+	  &:active, &:link, &:visited {
+	    color: #ffffff;
+	  }
+	  &:hover {
+	  	color: #e6e6e6;
+	  }
+	}
+}
+
+section {
+	@include links;
+
+	&#posts {
+
+	}
+}
+
+footer {
+	background: #d8dee4;
+
+	p, nav {
+		margin: 1em 0px;
+	}
+}

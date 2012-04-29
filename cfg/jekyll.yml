@@ -3,7 +3,7 @@ source: ./app
 layouts: html # relative from the source dir
 posts: doc
 destination: ./pub
-plugins: ./lib/plugins
+plugins: ./lib/jekyll
 markdown: redcarpet
 pygments: true
 permalink: pretty       # /category/YYYY/MM/DD/title

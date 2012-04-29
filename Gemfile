@@ -1,35 +1,28 @@
-# f = File.open('/tmp/load_path', 'w')
-# f.write($:)
-# f.close
-
 source :rubygems
 
-group :framework do
-  gem 'rack', :require => false
-  gem 'sprockets', :require => false
-  gem 'rack-contrib'
-  gem 'i18n'
-  gem 'activesupport', '~> 3.2'
-  gem 'actionpack', '~> 3.2'
-  gem 'unicorn', :require => false
-end
+gem 'rack', :require => false
+gem 'rack-contrib'
+gem 'i18n'
+gem 'activesupport', '~> 3.2'
+gem 'actionpack', '~> 3.2'
 
 group :deployment do
   gem 'rvm'
-  gem 'rake'
+  gem 'rake', :require => false
   gem 'rvm-capistrano', :require => "rvm/capistrano"
   gem 'capistrano'
   gem 'capistrano_colors'
 end
 
 group :assets do
-  gem 'actionpack', '~> 3.2'
+  gem 'sprockets'
+  gem 'sprockets-sass'
+  gem 'sass'
   gem 'compass'
-  gem 'sass-rails', '~> 3.2'
-  gem 'bootstrap-sass', '~> 2.0.2'
-  gem 'redcarpet', '~> 1.17.2'
-  gem 'uglifier'
-  gem 'libv8'
+  gem 'bootstrap-sass'
+  gem 'handlebars_assets'
+  gem 'coffee-script'
+  gem 'redcarpet'
 end
 
 group :status_exchange do
@@ -44,6 +37,11 @@ group :content do
   gem 'jekyll', :git => 'git://github.com/tubbo/jekyll.git', :branch => 'feature/custom-dirs'
 end
 
+## Environments
+
+group :development do
+  gem 'thin'
+end
 
 group :test do
   gem 'turn'
@@ -57,4 +55,8 @@ group :test do
   gem 'webmock'
   gem 'capybara', :require => false
   gem 'capybara_minitest_spec', :require => false
+end
+
+group :production do
+  gem 'unicorn'
 end
