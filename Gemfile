@@ -2,7 +2,6 @@ source :rubygems
 
 group :framework do
   gem 'rack', :require => false
-  gem 'sprockets', :require => false
   gem 'rack-contrib'
   gem 'i18n'
   gem 'activesupport', '~> 3.2'
@@ -24,7 +23,13 @@ group :assets do
   gem 'redcarpet', '~> 1.17.2'
   gem 'uglifier'
   gem 'libv8'
+  gem 'sprockets'
+  gem 'sprockets-sass'
+  gem 'sass'
   gem 'compass'
+  # gem 'bootstrap-sass'
+  gem 'handlebars_assets'
+  gem 'coffee-script'
 end
 
 group :status_exchange do
