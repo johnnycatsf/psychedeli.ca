@@ -24,10 +24,9 @@ role :web, "psychedeli.ca"
 
 namespace :deploy do
   task :update_content do
-    run "gem install bundler"
     run "cd #{release_path}; bundle install"
     run "cd #{release_path}; rm -rf pub/*"
-    run "cd #{release_path}; bundle exec jekyll --config=cfg/jekyll.yml"
+    # run "cd #{release_path}; bundle exec jekyll --config=cfg/jekyll.yml"
     configure_status_exchange
   end
 
