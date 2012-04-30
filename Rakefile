@@ -15,7 +15,6 @@ task :compile do
   # refresh and compile the static dir
   system 'rm -rf pub/*'
   system 'bundle exec jekyll --config=cfg/jekyll.yml'
-  Rake::Task['server:restart'].invoke
 end
 
 desc "Runs the server, which is Thin in development and Unicorn in production"
@@ -59,5 +58,5 @@ end
 desc "Run the test suite on CI"
 task :build => [:compile, :config, :test]
 
-# desc "Build the site, test the code and restart the server"
+desc "Build the site, test the code and restart the server"
 task :default => [:compile, :test, :restart]

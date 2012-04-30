@@ -24,6 +24,7 @@ group :assets do
   gem 'redcarpet', '~> 1.17.2'
   gem 'uglifier'
   gem 'libv8'
+  gem 'compass'
 end
 
 group :status_exchange do
