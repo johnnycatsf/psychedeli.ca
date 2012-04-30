@@ -23,14 +23,13 @@ end
 
 require 'bundler'
 Bundler.setup :framework, :assets
-Bundler.require
+Bundler.require :framework, :assets
 
-$LOAD_PATH << './lib'
+# $LOAD_PATH << './lib'
+# require 'status_exchange'
 
 require 'rack/contrib/try_static'
 require 'rack/contrib/not_found'
-# require 'compass'
-# require 'bootstrap-sass'
 
 # Log everything
 use Rack::CommonLogger
@@ -38,7 +37,7 @@ use Rack::CommonLogger
 # Compile stylesheets
 map '/css' do
   stylesheets = Sprockets::Environment.new
-  stylesheets.append_path Compass::Frameworks['bootstrap'].templates_directory + '/../vendor/assets/javascripts'
+  # stylesheets.append_path Compass::Frameworks['bootstrap'].templates_directory + '/../vendor/assets/javascripts'
   stylesheets.append_path 'app/css'
   run stylesheets
 end
@@ -50,12 +49,13 @@ map '/js' do
   run javascripts
 end
 
-map '/tmpl' do
-  templates = Sprockets::Environment.new
-  templates.append_path 'assets/templates' # for Handlebars templates
-  templates.append_path HandlebarsAssets.path
-  run templates
-end
+# Compile Handlebars templates (we don't have any right now)
+# map '/tmpl' do
+#   templates = Sprockets::Environment.new
+#   templates.append_path 'assets/templates' # for Handlebars templates
+#   templates.append_path HandlebarsAssets.path
+#   run templates
+# end
 
 # Manage images
 map '/img' do

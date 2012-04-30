@@ -23,13 +23,11 @@ group :assets do
   gem 'redcarpet', '~> 1.17.2'
   gem 'uglifier'
   gem 'libv8'
+
   gem 'sprockets'
   gem 'sprockets-sass'
   gem 'sass'
-  gem 'compass'
-  # gem 'bootstrap-sass'
-  gem 'handlebars_assets'
-  gem 'coffee-script'
+  gem 'compass', '>= 0.11'
 end
 
 group :status_exchange do
