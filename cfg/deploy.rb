@@ -37,7 +37,12 @@ namespace :deploy do
   task :restart do
     run "cd #{release_path}; touch tmp/restart.txt"
   end
+
+  task :cleanup_capistrano_assumptions do
+    run "cd #{release_path}; rm -rf public/"
+  end
 end
 
 # Always restart the app after deployment
 after 'deploy:update_code', 'deploy:update_content'
+after 'deploy:update_content', 'deploy:cleanup_capistrano_assumptions'
