@@ -14,7 +14,7 @@
 </head>
 <body>
 	<div class="container">
-		<header>
+		<header class="span-12">
 			<hgroup>
 				<h1><a href="/">psychedeli.ca</a></h1>
 				<div class="left ribbon-holder">
@@ -25,43 +25,49 @@
 			</hgroup>
 		</header>
 
-		{{ content }}
+		<div class="row">
+			{{ content }}
 
-		<aside>
-			<dl id="about">
-				<dt>Hi!</dt>
-				<dd>
-					<p>
-						My name is Tom, but most people just call me <span class="twitter-name">@tubbo</span>.
-						This is my blog and personal site. It's a home for
-						my life, or lack thereof.
-					</p>
-					<p>
-						By day, I'm a programmer at <a href="http://aplusldesign.com">A + L DESIGN</a>,
-						but by night I lead my band <a href="http://thewonderbars.com">The Wonder Bars</a>
-						to almost certain death. Check out my Soundcloud profile by clicking the cloud icon
-						below, or click the <a href="http://octocat.github.com">octocat</a> to check out my
-						programming-related experiments.
-					</p>
-					<p class="icons">
-						<a href="http://feeds.feedburner.com/psychedelica-all" title="Subscribe to psychedeli.ca" rel="alternate" type="application/rss+xml">
-							<img src="/img/rss.png" alt="Text/RSS 2.0" />
-						</a>
-						<span class="social">
-							<a href="http://twitter.com/tubbo" title="@tubbo on Twitter">
-								<img src="/img/twitter.png" id="twitter" alt="Twitter" />
+			<aside class="span-4">
+				<dl id="about">
+					<dt>Hi!</dt>
+					<dd>
+						<p>
+							My name is Tom, but most people just call me <span class="twitter-name">@tubbo</span>.
+							This is my blog and personal site. It's a home for
+							my life, or lack thereof.
+						</p>
+						<p>
+							By day, I'm a programmer at <a href="http://aplusldesign.com">A + L DESIGN</a>,
+							but by night I lead my band <a href="http://thewonderbars.com">The Wonder Bars</a>
+							to almost certain death. Check out my Soundcloud profile by clicking the cloud icon
+							below, or click the <a href="http://octocat.github.com">octocat</a> to check out my
+							programming-related experiments.
+						</p>
+						<p class="icons">
+							<a href="http://feeds.feedburner.com/psychedelica-all" title="Subscribe to psychedeli.ca" rel="alternate" type="application/rss+xml">
+								<img src="/img/rss.png" alt="Text/RSS 2.0" />
 							</a>
-							<a href="http://github.com/tubbo" title="tubbo on Github">
-								<img src="/img/github.png" alt="GitHub" />
-							</a>
-							<a href="http://soundcloud.com/wonderbars" title="The Wonder Bars on Soundcloud">
-								<img src="/img/soundcloud.png" id="soundcloud" alt="Soundcloud" />
-							</a>
-						</span>
-					</p>
-				</dd>
-			</dl>
-		</aside>
+							<span class="social">
+								<a href="http://twitter.com/tubbo" title="@tubbo on Twitter">
+									<img src="/img/twitter.png" id="twitter" alt="Twitter" />
+								</a>
+								<a href="http://github.com/tubbo" title="tubbo on Github">
+									<img src="/img/github.png" alt="GitHub" />
+								</a>
+								<a href="http://soundcloud.com/wonderbars" title="The Wonder Bars on Soundcloud">
+									<img src="/img/soundcloud.png" id="soundcloud" alt="Soundcloud" />
+								</a>
+							</span>
+						</p>
+					</dd>
+				</dl>
+			</aside>
+		</div>
+
+		<footer class="row">
+			<p>copyright my dick</p>
+		</footer>
 	</div>
 </body>
 </html>
