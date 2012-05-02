@@ -34,7 +34,7 @@ end
 
 group :content do
   gem 'liquid'
-  gem 'jekyll', :git => 'git://github.com/tubbo/jekyll.git', :branch => 'feature/custom-dirs'
+  gem 'jekyll', git: 'git://github.com/tubbo/jekyll.git', branch: 'feature/custom-dirs'
 end
 
 ## Environments
