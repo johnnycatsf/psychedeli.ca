@@ -25,6 +25,8 @@ task :server do
   else
     the_server = 'Thin'
     command = 'thin -p 3000 start'
+    Rake::Task[:compile].invoke
+    puts "----------------------"
   end
 
   puts "Starting #{the_server}..."

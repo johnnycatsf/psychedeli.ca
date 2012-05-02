@@ -14,14 +14,16 @@ article {
 
 	// title
 	header {
-		//@include border-radius(4px, 4px);
+		// @include rounded-corner(4px); [TODO] steal from work
 		border-bottom: 3px dotted #000;
-		height: 50px;
-		//padding-top: 38px;
+		// height: 50px;
+		padding: 0px;
 
 		h1 {
 			font-family:$museo;
 			font-size: 34px;
+			padding: 5px 0px 20px;
+			margin: 0; // reset for -webkit-margin-{before|after}...
 
 			a {
 				text-decoration:none;
