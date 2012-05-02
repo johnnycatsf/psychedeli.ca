@@ -1,9 +1,9 @@
 ---
-published: false
+published: true
 layout: post
 title: "research and development, or what I've been up to musically"
 category: music
-date: 2012-03-18
+date: 2012-05-01
 tags: garage, oldskool hardcore, rave, drum & bass, jungle, dubstep, weird, the architech, tom phoolery, the wonder bars
 ---
 
@@ -15,11 +15,17 @@ But enough about that. Here's what we've been working on...
 
 <iframe width="100%" height="166" scrolling="no" frameborder="no" src="http://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F38627388&amp;auto_play=false&amp;show_artwork=false&amp;color=ff0013"></iframe>
 
+An entry for the Beardyman remix competition on JunoDownload, this track was made almost entirely using Beardyman's vocal samples. Our initial goal was to use as much of the sample pack as we could, but we ended up adding some bass stabs and drums to "beef it up" a bit.
+
 ## I'll Be Your Baby
 
 <iframe width="100%" height="166" scrolling="no" frameborder="no" src="http://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F38627388&amp;auto_play=false&amp;show_artwork=false&amp;color=ff0013"></iframe>
 
-This was an [entry for the Beyonce End of Time remix competition][eot]
+This was an [entry for the Beyonce End of Time remix competition][eot].
+
+## What's next?
+
+We have a few new ones in the works, including AN ORIGINAL as well as a remix of [Ross D's Disappear][rd]. We're trying some new (old?) tricks in these next couple tracks, so expect them to sound radically different from the music you just heard!
 
 [subl]: http://www.sublimetext.com/2
 [bars]: http://thewonderbars.com
@@ -27,3 +33,5 @@ This was an [entry for the Beyonce End of Time remix competition][eot]
 [udch]: http://soundcloud.com/udachi
 [jen]: http://facebook.com/jenmasdj
 [pex]: http://thephiladelphiaexperiment.org/
+[eot]: http://endoftime.beyonceonline.com
+[rd]: http://www.beatport.com/track/disappear-original-mix/278013
