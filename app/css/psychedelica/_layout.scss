@@ -10,9 +10,11 @@ body {
 
 header {
 	@include links;
+	height: 180px;
 
 	hgroup {
 		float: right;
+
 		h1 {	// psychedeli.ca
 			font-family: $cooper;
 			font-size: 64px;
