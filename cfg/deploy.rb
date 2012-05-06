@@ -7,7 +7,7 @@ set :user, "necromancer"
 set :domain, "psychedeli.ca"
 set :use_sudo, true
 
-require "rvm/capistrano"
+require 'rvm/capistrano'
 
 server domain, :web
 
