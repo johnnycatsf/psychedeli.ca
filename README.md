@@ -3,6 +3,8 @@ psychedeli.ca is my internet web site
 
 This is the complete source code for my blog, which is (usually) up and running on <http://psychedeli.ca>. I mostly post music, programming or some other geek related articles based on what I'm doing at the moment and what I've learned along the way. The blog itself is completely custom-made, but uses a number of engines and libraries made by others which do some pretty awesome stuff.
 
+[![Build Status](https://secure.travis-ci.org/tubbo/psychedeli.ca.png?branch=master)](http://travis-ci.org/tubbo/psychedeli.ca)
+
 Engine
 ------
 
