@@ -1,12 +1,13 @@
 require 'bundler'
 Bundler.setup :framework, :deployment
 
-set :rvm_ruby_string, '1.9.3-p125@psychedelica'
-set :rvm_type, :user
+
 set :user, "necromancer"
 set :domain, "psychedeli.ca"
 set :use_sudo, true
 
+set :rvm_ruby_string, '1.9.3-p125@psychedelica'
+set :rvm_type, :user
 require 'rvm/capistrano'
 
 server domain, :web
