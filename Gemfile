@@ -1,17 +1,16 @@
 source :rubygems
 
+# Components
+
 gem 'rack', :require => false
 gem 'rack-contrib'
-gem 'i18n'
-gem 'activesupport', '~> 3.2'
-gem 'actionpack', '~> 3.2'
+gem 'i18n', :require => false
+gem 'actionpack', '~> 3.2', :require => false
+gem 'activesupport', '~> 3.2', :require => 'active_support/all'
 
-group :deployment do
-  gem 'rvm'
-  gem 'rake', :require => false
-  gem 'rvm-capistrano', :require => "rvm/capistrano"
-  gem 'capistrano'
-  gem 'capistrano_colors'
+group :content do
+  gem 'liquid'
+  gem 'jekyll', git: 'git://github.com/tubbo/jekyll.git', branch: 'feature/custom-dirs'
 end
 
 group :assets do
@@ -32,26 +31,25 @@ group :status_exchange do
   gem 'ratom'
 end
 
-group :content do
-  gem 'liquid'
-  gem 'jekyll', git: 'git://github.com/tubbo/jekyll.git', branch: 'feature/custom-dirs'
-end
-
-## Environments
+# Environments
 
 group :development do
-  gem 'thin'
+  gem 'thin', :require => false
+  gem 'rvm'
+  gem 'rake', :require => false
+  gem 'rvm-capistrano', :require => "rvm/capistrano"
+  gem 'capistrano'
+  gem 'capistrano_colors'
 end
 
 group :test do
-  gem 'turn'
+  gem 'turn', '>= 0.9.3'
   gem 'minitest'
   gem 'mini_specunit'
   gem 'mini_shoulda'
-  gem 'simplecov'
   gem 'rack-test'
-  gem 'vcr', '2.0.0'
   gem 'mocha'
+  gem 'vcr'
   gem 'webmock'
   gem 'capybara', :require => false
   gem 'capybara_minitest_spec', :require => false

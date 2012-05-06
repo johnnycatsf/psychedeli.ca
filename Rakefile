@@ -1,3 +1,7 @@
+require 'bundler'
+Bundler.setup :default, :development
+Bundler.require :development
+
 require 'rake/clean'
 require 'rake/testtask'
 
@@ -19,18 +23,15 @@ end
 
 desc "Runs the server, which is Thin in development and Unicorn in production"
 task :server do
-  if ENV['RACK_ENV'] == 'production'
-    the_server = 'Unicorn'
-    command = 'unicorn -p 3000 -D'
-  else
-    the_server = 'Thin'
-    command = 'thin -p 3000 start'
-    Rake::Task[:compile].invoke
-    puts "----------------------"
-  end
+  server =  if ENV['RACK_ENV'] == 'production'
+              { name: 'Unicorn', command: 'unicorn -p 3000 -D' }
+            else
+              Rake::Task[:compile].invoke
+              { name: 'Thin', command: 'thin -p 3000 start' }
+            end
 
-  puts "Starting #{the_server}..."
-  system command
+  puts "Starting #{server[:name]}..."
+  system server[:command]
 end
 
 desc "Run the test suite"
