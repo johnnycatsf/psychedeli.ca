@@ -2,8 +2,6 @@ require 'test_helper'
 
 class StatusExchangeTest < IntegrationTest
   should "respond to the proper url" do
-    skip "regen cassette"
-
     VCR.use_cassette(:all_services) do
       get '/status'
       assert last_response.ok?
