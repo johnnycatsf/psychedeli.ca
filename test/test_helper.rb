@@ -1,8 +1,11 @@
-ENV['RACK_ENV'] = "test"
-
+require 'rubygems'
 require 'bundler'
-Bundler.setup :default, :test
-Bundler.require :default, :test
+Bundler.setup :default, :test, :status_exchange
+Bundler.require :default, :test, :status_exchange
+
+require 'status_exchange'
+
+ENV['RACK_ENV'] = "test"
 
 VCR.configure do |c|
   c.default_cassette_options = { :record => :new_episodes }

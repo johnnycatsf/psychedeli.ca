@@ -7,6 +7,7 @@ gem 'rack-contrib'
 gem 'i18n', :require => false
 gem 'actionpack', '~> 3.2', :require => false
 gem 'activesupport', '~> 3.2', :require => 'active_support/all'
+gem 'sprockets'
 
 group :content do
   gem 'liquid'
@@ -14,7 +15,6 @@ group :content do
 end
 
 group :assets do
-  gem 'sprockets'
   gem 'sprockets-sass'
   gem 'sass'
   gem 'compass'
@@ -28,7 +28,7 @@ group :status_exchange do
   gem 'yajl-ruby'
   gem 'twitter'
   gem 'koala'
-  gem 'ratom'
+  gem 'ratom', :require => 'atom'
 end
 
 # Environments
@@ -36,10 +36,10 @@ end
 group :development do
   gem 'thin', :require => false
   gem 'rvm'
-  gem 'rake', :require => false
+  gem 'rake'
+  gem 'capistrano', :require => false
+  gem 'capistrano_colors', :require => false
   gem 'rvm-capistrano', :require => "rvm/capistrano"
-  gem 'capistrano'
-  gem 'capistrano_colors'
 end
 
 group :test do

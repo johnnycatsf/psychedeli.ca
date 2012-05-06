@@ -1,7 +1,3 @@
-require 'bundler'
-Bundler.setup :default, :development
-Bundler.require :development
-
 require 'rake/clean'
 require 'rake/testtask'
 
