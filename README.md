@@ -66,3 +66,4 @@ This monolithic task "installs" the static app to `{path}` by copying the entire
 [rts]: https://github.com/rack/rack-contrib/pull/13
 [cap]: https://github.com/capistrano/capistrano/wiki/Documentation-v2.x
 [tckr]: https://github.com/tubbo/psychedeli.ca/blob/master/app/js/jquery.ticker.js
+[rake]: http://rake.rubyforge.org
