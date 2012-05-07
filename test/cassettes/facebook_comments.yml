@@ -43,6 +43,98 @@ http_interactions:
     body:
       encoding: US-ASCII
       string: ! '{"data":[]}'
-    http_version:
+    http_version: 
   recorded_at: Sun, 01 Apr 2012 20:51:33 GMT
+- request:
+    method: get
+    uri: https://graph.facebook.com/tubbo/comments?access_token=AAAEcoySQLr0BACxeJQey1Id5wTZBY7JGwhZCruDsUQzTTozq855yB6cYa4AdNUNsoXhzBaxWlqKax5FaPX1WdYXthBX5gWeJcLtTiAgs5bJScNtKxH
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Access-Control-Allow-Origin:
+      - ! '*'
+      Cache-Control:
+      - no-store
+      Content-Type:
+      - text/javascript; charset=UTF-8
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Pragma:
+      - no-cache
+      Www-Authenticate:
+      - ! 'OAuth "Facebook Platform" "invalid_token" "Error invalidating access token:
+        Session has expired at unix time 1333314000. The current unix time is 1336348604."'
+      X-Fb-Rev:
+      - '552853'
+      X-Fb-Debug:
+      - /l9W7yD6nw5v1eFvmaYqe8ryC/YkCIXyTkRG/CD/ywc=
+      X-Cnection:
+      - close
+      Date:
+      - Sun, 06 May 2012 23:56:44 GMT
+      Content-Length:
+      - '193'
+    body:
+      encoding: US-ASCII
+      string: ! '{"error":{"message":"Error invalidating access token: Session has
+        expired at unix time 1333314000. The current unix time is 1336348604.","type":"OAuthException","code":190,"error_subcode":463}}'
+    http_version: 
+  recorded_at: Sun, 06 May 2012 23:56:44 GMT
+- request:
+    method: get
+    uri: https://graph.facebook.com/tubbo/comments?access_token=AAAEcoySQLr0BAMXGnzOah0gfELPapbcSH4x7ihVXiYWXEbZAZC7WllZCG5W0EKT2tyIlgEpXeBWdm0JdHv9xEwlVRKF0GRWlDcFDGyZAabKXo5Bu7ZAEY
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - ! '*'
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Content-Type:
+      - text/javascript; charset=UTF-8
+      Etag:
+      - ! '"1050253aec7b29caff644806927dabfa81406eee"'
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Pragma:
+      - no-cache
+      X-Fb-Rev:
+      - '552853'
+      X-Fb-Debug:
+      - oIX7ZvKYXujPMdqOS+3qlijbQPYPDbCJ5lg+lCpwXOs=
+      X-Cnection:
+      - close
+      Date:
+      - Mon, 07 May 2012 00:46:58 GMT
+      Content-Length:
+      - '11'
+    body:
+      encoding: US-ASCII
+      string: ! '{"data":[]}'
+    http_version: 
+  recorded_at: Mon, 07 May 2012 00:46:58 GMT
 recorded_with: VCR 2.0.0

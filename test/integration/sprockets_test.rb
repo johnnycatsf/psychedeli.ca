@@ -1,33 +1,21 @@
 require 'test_helper'
 
 class SprocketsTest < IntegrationTest
-  context "Stylesheets in /app/css" do
-    setup {
-      @stylesheets = Sprockets::Environment.new
-      @stylesheets.append_path 'app/css'
-    }
+  attr_reader :app
 
-    should "serve the compiled stylesheet manifest" do
-      get 'application.css'
-      assert last_response.ok?, last_response.inspect
-    end
+  setup do
+    @app = Sprockets::Environment.new
+    @app.append_path 'app/css'
+    @app.append_path 'app/js'
   end
 
-  context "Javascripts in /app/js" do
-    setup {
-      @javascripts = Sprockets::Environment.new
-      @javascripts.append_path 'app/js'
-    }
-
-    should "serve the compiled javascript manifest" do
-      get 'application.js'
-      assert last_response.ok?, last_response.inspect
-    end
+  should "serve the compiled stylesheet manifest" do
+    get 'application.css'
+    assert last_response.ok?, last_response.inspect
   end
 
-  private
-
-  def app
-    @stylesheets || @javascripts
+  should "serve the compiled javascript manifest" do
+    get 'application.js'
+    assert last_response.ok?, last_response.inspect
   end
 end

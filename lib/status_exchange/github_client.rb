@@ -12,8 +12,9 @@ module StatusExchange
     def activity
       @feed.entries.reduce([]) {|entries, entry|
         entries << {
-          text: entry.title,
-          published: entry.published
+          message: entry.title,
+          date: entry.published,
+          service: 'github'
         }
       }
     end

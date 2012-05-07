@@ -8,12 +8,11 @@ class GithubClientTest < UnitTest
   }
 
   should "have a neutral username" do
-    assert_equal "test_user", @github.username
+    assert_equal "tubbo", @github.username
   end
 
   should "not have an empty activity feed" do
     refute_nil @github.activity
-    assert_equal "tubbo created tag version/1.0.0  at tubbo/dots",
-      @github.activity.first[:text]
+    refute_empty @github.activity
   end
 end

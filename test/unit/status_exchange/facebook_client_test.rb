@@ -1,14 +1,14 @@
 require 'test_helper'
 require 'status_exchange'
 
-class StatusExchange::FacebookClientTest < UnitTest
+class FacebookClientTest < UnitTest
   setup do
     @facebook = StatusExchange::FacebookClient.new
   end
 
   should "connect to facebook with a valid access token" do
     VCR.use_cassette "facebook_comments" do
-      assert @facebook.connected?
+      assert @facebook.connected?, "Not connected"
     end
   end
 

@@ -123,4 +123,127 @@ http_interactions:
         ID.","type":"OAuthException","code":190}}'
     http_version: 
   recorded_at: Wed, 04 Apr 2012 03:39:52 GMT
+- request:
+    method: get
+    uri: https://graph.facebook.com/tubbo?access_token=AAAEcoySQLr0BACxeJQey1Id5wTZBY7JGwhZCruDsUQzTTozq855yB6cYa4AdNUNsoXhzBaxWlqKax5FaPX1WdYXthBX5gWeJcLtTiAgs5bJScNtKxH
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Access-Control-Allow-Origin:
+      - ! '*'
+      Cache-Control:
+      - no-store
+      Content-Type:
+      - text/javascript; charset=UTF-8
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Pragma:
+      - no-cache
+      Www-Authenticate:
+      - ! 'OAuth "Facebook Platform" "invalid_token" "Error invalidating access token:
+        Session has expired at unix time 1333314000. The current unix time is 1336348603."'
+      X-Fb-Rev:
+      - '552853'
+      X-Fb-Debug:
+      - qFhN/YHkMReH3bUtl5TILygy5i17B20J2AdJIZUuiPg=
+      X-Cnection:
+      - close
+      Date:
+      - Sun, 06 May 2012 23:56:43 GMT
+      Content-Length:
+      - '193'
+    body:
+      encoding: US-ASCII
+      string: ! '{"error":{"message":"Error invalidating access token: Session has
+        expired at unix time 1333314000. The current unix time is 1336348603.","type":"OAuthException","code":190,"error_subcode":463}}'
+    http_version: 
+  recorded_at: Sun, 06 May 2012 23:56:44 GMT
+- request:
+    method: get
+    uri: https://graph.facebook.com/tubbo?access_token=AAAEcoySQLr0BAMXGnzOah0gfELPapbcSH4x7ihVXiYWXEbZAZC7WllZCG5W0EKT2tyIlgEpXeBWdm0JdHv9xEwlVRKF0GRWlDcFDGyZAabKXo5Bu7ZAEY
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: !binary |-
+        T0s=
+    headers:
+      !binary "QWNjZXNzLUNvbnRyb2wtQWxsb3ctT3JpZ2lu":
+      - !binary |-
+        Kg==
+      !binary "Q2FjaGUtQ29udHJvbA==":
+      - !binary |-
+        cHJpdmF0ZSwgbm8tY2FjaGUsIG5vLXN0b3JlLCBtdXN0LXJldmFsaWRhdGU=
+      !binary "Q29udGVudC1UeXBl":
+      - !binary |-
+        dGV4dC9qYXZhc2NyaXB0OyBjaGFyc2V0PVVURi04
+      !binary "RXRhZw==":
+      - !binary |-
+        IjIyZWU5YmMxZTcyNmQ4OGJkMzdhZTEzZTQxNjIyM2I2ZTg3MDY0NzYi
+      !binary "RXhwaXJlcw==":
+      - !binary |-
+        U2F0LCAwMSBKYW4gMjAwMCAwMDowMDowMCBHTVQ=
+      !binary "TGFzdC1Nb2RpZmllZA==":
+      - !binary |-
+        MjAxMi0wNC0yOFQwMjowMTo0MSswMDAw
+      !binary "UHJhZ21h":
+      - !binary |-
+        bm8tY2FjaGU=
+      !binary "WC1GYi1SZXY=":
+      - !binary |-
+        NTUyODUz
+      !binary "Q29udGVudC1FbmNvZGluZw==":
+      - !binary |-
+        Z3ppcA==
+      !binary "WC1GYi1EZWJ1Zw==":
+      - !binary |-
+        ejZDTjJJM1NDZ3JZSTJCcm8rU05TUTB0MHNPNm1pcGhldUljYTNLQ0RnST0=
+      !binary "WC1DbmVjdGlvbg==":
+      - !binary |-
+        Y2xvc2U=
+      !binary "RGF0ZQ==":
+      - !binary |-
+        TW9uLCAwNyBNYXkgMjAxMiAwMDo0Njo1OCBHTVQ=
+      !binary "Q29udGVudC1MZW5ndGg=":
+      - !binary |-
+        NTcx
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA3VTwW7bMAz9FcOXHda0kmxZUm7b2m4YNqBYutM6BEzMxEJl
+        KZDlBlnRfy+TJbWLrT7Seo+Pj4+Pua3zac5LVZiCMSnys9xDi1S7DW02W4aU
+        qLSysUvz4QeVHAyV0zNn/T0hm5Q207uLu4vtdnu+giUuQrg/X4b27iL1i0Ug
+        dN9hPNKdSk1oMYWtz6ePR1FMVVqVShrBC6kGZd9gBTtMCbMv1rmz7Aa973bu
+        AbyF/ImkhSUkG8ZMXGvOikoKpotqYLpprIMa3aax8C/PCh5CtAnnCaHt8umv
+        kzDBeFVIrpngZcH+T5ddwdphR3qOKFNUQirJSsPfQOzVODvGaMUro0xF4t/A
+        XLsdxlEXKYwqNVeSyzcQqnoF4KziRklZMaXVK29sSt2ij+smmyVEd0D9piyc
+        XIHUOEwk98UYwbnkZIrW0sixMZfw7ge6Y5z2JNZ3GxsPWwI332DYOMrci8FM
+        0hw0eKkpk2YY5DpiXVvMvmNc9nE3mEtTMMmUEhQZUY1S/Bn6BC1kM1vXDcTU
+        7BNy2iPnpjJlpbVgbOzXVwQ/uYGeFBMk4gChzXPGjNyLU2bU54NbYEzZJ2j7
+        0TaogZSFkJUZbeNjWGSXOwf+YOcafY2RrqYFsuAsT7bFP8GTG5Pyb5T3zuTo
+        5z9nh7Pz6x7WY9cPsxspBF0KL0Z3cuXXznbNoc0DRruySMeeYo90gJsaEtbz
+        fTuip7nEhJUToW+ZmDI+Lfl7Rl/+9AwoMzPuIgQAAA==
+    http_version: 
+  recorded_at: Mon, 07 May 2012 00:46:58 GMT
 recorded_with: VCR 2.0.0
