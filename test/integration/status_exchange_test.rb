@@ -2,7 +2,7 @@ require 'test_helper'
 
 class StatusExchangeTest < IntegrationTest
   should "respond to the proper url" do
-    skip "Figure out how to use ERb with cassettes"
+    # skip "Figure out how to use ERb with cassettes"
 
     VCR.use_cassette(:all_services) do
       get '/status'
