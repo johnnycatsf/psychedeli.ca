@@ -8,7 +8,7 @@ class GithubClientTest < UnitTest
   }
 
   should "have a username" do
-    assert_equal "test_user", @github.username
+    assert_equal "tubbo", @github.username
   end
 
   should "not have an empty activity feed" do
