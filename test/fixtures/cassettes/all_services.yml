@@ -299,7 +299,7 @@ http_interactions:
   recorded_at: Mon, 07 May 2012 00:47:01 GMT
 - request:
     method: get
-    uri: https://github.com/tubbo.atom
+    uri: https://github.com/test_user.atom
     body:
       encoding: US-ASCII
       string: ''
@@ -338,13 +338,1488 @@ http_interactions:
     body:
       encoding: US-ASCII
       string: ! "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<feed xmlns=\"http://www.w3.org/2005/Atom\"
+        xmlns:media=\"http://search.yahoo.com/mrss/\" xml:lang=\"en-US\">\n  <id>tag:github.com,2008:/test_user</id>\n
+        \ <link type=\"text/html\" rel=\"alternate\" href=\"https://github.com/test_user\"/>\n
+        \ <link type=\"application/atom+xml\" rel=\"self\" href=\"https://github.com/test_user.atom\"/>\n
+        \ <title>test_user's Activity</title>\n  <updated>2012-05-07T00:41:28Z</updated>\n
+        \ <entry>\n    <id>tag:github.com,2008:PushEvent/1549367788</id>\n    <published>2012-05-07T00:41:28Z</published>\n
+        \   <updated>2012-05-07T00:41:28Z</updated>\n    <link type=\"text/html\"
+        rel=\"alternate\" href=\"https://github.com/test_user/postal/compare/213b0193e0...eee0f54898\"/>\n
+        \   <title type=\"html\">test_user pushed to master at test_user/postal</title>\n
+        \   <author>\n      <name>test_user</name>\n      <email>tom.scott@elocal.com</email>\n
+        \     <uri>https://github.com/test_user</uri>\n    </author>\n    <media:thumbnail
+        height=\"30\" width=\"30\" url=\"https://secure.gravatar.com/avatar/0f985a758113f6502f668b09d2b15fc2?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png\"/>\n
+        \   <content type=\"html\">&lt;span class=&quot;mini-icon push&quot;&gt;&lt;/span&gt;\n\n&lt;div
+        class=&quot;title&quot;&gt;\n  &lt;a href=&quot;/test_user&quot;&gt;test_user&lt;/a&gt;
+        &lt;span&gt;pushed&lt;/span&gt; to master at &lt;a href=&quot;/test_user/postal&quot;&gt;test_user/postal&lt;/a&gt;\n
+        \ &lt;time class=&quot;js-relative-date&quot; datetime=&quot;2012-05-07T00:41:28Z&quot;
+        title=&quot;2012-05-07 00:41:28&quot;&gt;May 07, 2012&lt;/time&gt;\n&lt;/div&gt;\n&lt;div
+        class=&quot;details&quot;&gt;\n  \n\n  &lt;div class=&quot;commits&quot;&gt;\n
+        \   &lt;ul&gt;\n      &lt;li&gt;\n      &lt;a href=&quot;/test_user&quot;
+        class=&quot;committer&quot;&gt;test_user&lt;/a&gt; committed &lt;a href=&quot;/test_user/postal/commit/eee0f548985b10a1c19ebd24c8c5f9cfb0a8c1fd&quot;&gt;eee0f54&lt;/a&gt;\n\n
+        \       &lt;div class=&quot;message&quot;&gt;\n          &lt;blockquote&gt;Documented
+        all configuration and upgraded Ruby.&lt;br&gt;\n&lt;br&gt;\n- Upgrade Ruby
+        to the latest 1.9.3 known to RVM.&lt;br&gt;\n- Clean up .rvmrc and add documentation&lt;br&gt;\n-
+        Clean up Guardfile and add documentation&lt;br&gt;\n- Merge LICENSE file into
+        README&amp;#39;s &amp;quot;License&amp;quot; section&lt;br&gt;\n- Move lib/server.rb
+        to lib/postal/server.rb for organizational reasons&lt;/blockquote&gt;\n        &lt;/div&gt;\n
+        \     &lt;/li&gt;\n    &lt;/ul&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n</content>\n
+        \ </entry>\n  <entry>\n    <id>tag:github.com,2008:PushEvent/1549348728</id>\n
+        \   <published>2012-05-06T21:58:51Z</published>\n    <updated>2012-05-06T21:58:51Z</updated>\n
+        \   <link type=\"text/html\" rel=\"alternate\" href=\"https://github.com/test_user/psychedeli.ca/compare/b0181977d4...24590f4467\"/>\n
+        \   <title type=\"html\">test_user pushed to master at test_user/psychedeli.ca</title>\n
+        \   <author>\n      <name>test_user</name>\n      <email>tom.scott@elocal.com</email>\n
+        \     <uri>https://github.com/test_user</uri>\n    </author>\n    <media:thumbnail
+        height=\"30\" width=\"30\" url=\"https://secure.gravatar.com/avatar/0f985a758113f6502f668b09d2b15fc2?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png\"/>\n
+        \   <content type=\"html\">&lt;span class=&quot;mini-icon push&quot;&gt;&lt;/span&gt;\n\n&lt;div
+        class=&quot;title&quot;&gt;\n  &lt;a href=&quot;/test_user&quot;&gt;test_user&lt;/a&gt;
+        &lt;span&gt;pushed&lt;/span&gt; to master at &lt;a href=&quot;/test_user/psychedeli.ca&quot;&gt;test_user/psychedeli.ca&lt;/a&gt;\n
+        \ &lt;time class=&quot;js-relative-date&quot; datetime=&quot;2012-05-06T21:58:51Z&quot;
+        title=&quot;2012-05-06 21:58:51&quot;&gt;May 06, 2012&lt;/time&gt;\n&lt;/div&gt;\n&lt;div
+        class=&quot;details&quot;&gt;\n  \n\n  &lt;div class=&quot;commits&quot;&gt;\n
+        \   &lt;ul&gt;\n      &lt;li&gt;\n      &lt;a href=&quot;/test_user&quot;
+        class=&quot;committer&quot;&gt;test_user&lt;/a&gt; committed &lt;a href=&quot;/test_user/psychedeli.ca/commit/24590f4467eb1a78ff333902968711868bbce35d&quot;&gt;24590f4&lt;/a&gt;\n\n
+        \       &lt;div class=&quot;message&quot;&gt;\n          &lt;blockquote&gt;Fixed
+        typo in readme&lt;/blockquote&gt;\n        &lt;/div&gt;\n      &lt;/li&gt;\n
+        \     &lt;li&gt;\n      &lt;a href=&quot;/test_user&quot; class=&quot;committer&quot;&gt;test_user&lt;/a&gt;
+        committed &lt;a href=&quot;/test_user/psychedeli.ca/commit/2c025b85728206bde95556f213e71f5fd0e3c3fe&quot;&gt;2c025b8&lt;/a&gt;\n\n
+        \       &lt;div class=&quot;message&quot;&gt;\n          &lt;blockquote&gt;Add
+        band Twitter mention&lt;/blockquote&gt;\n        &lt;/div&gt;\n      &lt;/li&gt;\n
+        \     &lt;li class=&quot;more&quot;&gt;&lt;a href=&quot;https://github.com/test_user/psychedeli.ca/compare/b0181977d4...24590f4467&quot;&gt;View
+        comparison for these 2 commits &amp;raquo;&lt;/a&gt;&lt;/li&gt;\n    &lt;/ul&gt;\n
+        \ &lt;/div&gt;\n&lt;/div&gt;\n</content>\n  </entry>\n  <entry>\n    <id>tag:github.com,2008:PushEvent/1549341331</id>\n
+        \   <published>2012-05-06T21:17:58Z</published>\n    <updated>2012-05-06T21:17:58Z</updated>\n
+        \   <link type=\"text/html\" rel=\"alternate\" href=\"https://github.com/test_user/psychedeli.ca/compare/34d8df5a96...b0181977d4\"/>\n
+        \   <title type=\"html\">test_user pushed to master at test_user/psychedeli.ca</title>\n
+        \   <author>\n      <name>test_user</name>\n      <email>tom.scott@elocal.com</email>\n
+        \     <uri>https://github.com/test_user</uri>\n    </author>\n    <media:thumbnail
+        height=\"30\" width=\"30\" url=\"https://secure.gravatar.com/avatar/0f985a758113f6502f668b09d2b15fc2?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png\"/>\n
+        \   <content type=\"html\">&lt;span class=&quot;mini-icon push&quot;&gt;&lt;/span&gt;\n\n&lt;div
+        class=&quot;title&quot;&gt;\n  &lt;a href=&quot;/test_user&quot;&gt;test_user&lt;/a&gt;
+        &lt;span&gt;pushed&lt;/span&gt; to master at &lt;a href=&quot;/test_user/psychedeli.ca&quot;&gt;test_user/psychedeli.ca&lt;/a&gt;\n
+        \ &lt;time class=&quot;js-relative-date&quot; datetime=&quot;2012-05-06T21:17:58Z&quot;
+        title=&quot;2012-05-06 21:17:58&quot;&gt;May 06, 2012&lt;/time&gt;\n&lt;/div&gt;\n&lt;div
+        class=&quot;details&quot;&gt;\n  \n\n  &lt;div class=&quot;commits&quot;&gt;\n
+        \   &lt;ul&gt;\n      &lt;li&gt;\n      &lt;a href=&quot;/test_user&quot;
+        class=&quot;committer&quot;&gt;test_user&lt;/a&gt; committed &lt;a href=&quot;/test_user/psychedeli.ca/commit/b0181977d4ed36ba2a527c61e9b6b68e753bdb6f&quot;&gt;b018197&lt;/a&gt;\n\n
+        \       &lt;div class=&quot;message&quot;&gt;\n          &lt;blockquote&gt;Add
+        build image to README&lt;/blockquote&gt;\n        &lt;/div&gt;\n      &lt;/li&gt;\n
+        \   &lt;/ul&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n</content>\n  </entry>\n  <entry>\n
+        \   <id>tag:github.com,2008:PushEvent/1549338252</id>\n    <published>2012-05-06T21:14:45Z</published>\n
+        \   <updated>2012-05-06T21:14:45Z</updated>\n    <link type=\"text/html\"
+        rel=\"alternate\" href=\"https://github.com/test_user/psychedeli.ca/compare/f2bad3f771...34d8df5a96\"/>\n
+        \   <title type=\"html\">test_user pushed to master at test_user/psychedeli.ca</title>\n
+        \   <author>\n      <name>test_user</name>\n      <email>tom.scott@elocal.com</email>\n
+        \     <uri>https://github.com/test_user</uri>\n    </author>\n    <media:thumbnail
+        height=\"30\" width=\"30\" url=\"https://secure.gravatar.com/avatar/0f985a758113f6502f668b09d2b15fc2?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png\"/>\n
+        \   <content type=\"html\">&lt;span class=&quot;mini-icon push&quot;&gt;&lt;/span&gt;\n\n&lt;div
+        class=&quot;title&quot;&gt;\n  &lt;a href=&quot;/test_user&quot;&gt;test_user&lt;/a&gt;
+        &lt;span&gt;pushed&lt;/span&gt; to master at &lt;a href=&quot;/test_user/psychedeli.ca&quot;&gt;test_user/psychedeli.ca&lt;/a&gt;\n
+        \ &lt;time class=&quot;js-relative-date&quot; datetime=&quot;2012-05-06T21:14:45Z&quot;
+        title=&quot;2012-05-06 21:14:45&quot;&gt;May 06, 2012&lt;/time&gt;\n&lt;/div&gt;\n&lt;div
+        class=&quot;details&quot;&gt;\n  \n\n  &lt;div class=&quot;commits&quot;&gt;\n
+        \   &lt;ul&gt;\n      &lt;li&gt;\n      &lt;a href=&quot;/test_user&quot;
+        class=&quot;committer&quot;&gt;test_user&lt;/a&gt; committed &lt;a href=&quot;/test_user/psychedeli.ca/commit/34d8df5a9685e9bba09f6fa32db8615ed9674b8f&quot;&gt;34d8df5&lt;/a&gt;\n\n
+        \       &lt;div class=&quot;message&quot;&gt;\n          &lt;blockquote&gt;Reconfigure
+        requirements to make tests pass&lt;br&gt;\n&lt;br&gt;\n- Use Bundler requiring&lt;br&gt;\n-
+        Make StatusExchange integration tests pass&lt;br&gt;\n- Fix bad require calls
+        in Gemfile&lt;/blockquote&gt;\n        &lt;/div&gt;\n      &lt;/li&gt;\n      &lt;li&gt;\n
+        \     &lt;a href=&quot;/test_user&quot; class=&quot;committer&quot;&gt;test_user&lt;/a&gt;
+        committed &lt;a href=&quot;/test_user/psychedeli.ca/commit/3027d8dd144ba8c590976763dc555b3dfd6a2271&quot;&gt;3027d8d&lt;/a&gt;\n\n
+        \       &lt;div class=&quot;message&quot;&gt;\n          &lt;blockquote&gt;updated
+        configuration and requiring&lt;/blockquote&gt;\n        &lt;/div&gt;\n      &lt;/li&gt;\n
+        \     &lt;li class=&quot;more&quot;&gt;&lt;a href=&quot;https://github.com/test_user/psychedeli.ca/compare/f2bad3f771...34d8df5a96&quot;&gt;View
+        comparison for these 2 commits &amp;raquo;&lt;/a&gt;&lt;/li&gt;\n    &lt;/ul&gt;\n
+        \ &lt;/div&gt;\n&lt;/div&gt;\n</content>\n  </entry>\n  <entry>\n    <id>tag:github.com,2008:PushEvent/1549303221</id>\n
+        \   <published>2012-05-06T17:16:15Z</published>\n    <updated>2012-05-06T17:16:15Z</updated>\n
+        \   <link type=\"text/html\" rel=\"alternate\" href=\"https://github.com/test_user/postal/compare/73e496d2a4...213b0193e0\"/>\n
+        \   <title type=\"html\">test_user pushed to master at test_user/postal</title>\n
+        \   <author>\n      <name>test_user</name>\n      <email>tom.scott@elocal.com</email>\n
+        \     <uri>https://github.com/test_user</uri>\n    </author>\n    <media:thumbnail
+        height=\"30\" width=\"30\" url=\"https://secure.gravatar.com/avatar/0f985a758113f6502f668b09d2b15fc2?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png\"/>\n
+        \   <content type=\"html\">&lt;span class=&quot;mini-icon push&quot;&gt;&lt;/span&gt;\n\n&lt;div
+        class=&quot;title&quot;&gt;\n  &lt;a href=&quot;/test_user&quot;&gt;test_user&lt;/a&gt;
+        &lt;span&gt;pushed&lt;/span&gt; to master at &lt;a href=&quot;/test_user/postal&quot;&gt;test_user/postal&lt;/a&gt;\n
+        \ &lt;time class=&quot;js-relative-date&quot; datetime=&quot;2012-05-06T17:16:15Z&quot;
+        title=&quot;2012-05-06 17:16:15&quot;&gt;May 06, 2012&lt;/time&gt;\n&lt;/div&gt;\n&lt;div
+        class=&quot;details&quot;&gt;\n  \n\n  &lt;div class=&quot;commits&quot;&gt;\n
+        \   &lt;ul&gt;\n      &lt;li&gt;\n      &lt;a href=&quot;/test_user&quot;
+        class=&quot;committer&quot;&gt;test_user&lt;/a&gt; committed &lt;a href=&quot;/test_user/postal/commit/213b0193e09644a2f99e316fe6a2ad03a9f46b80&quot;&gt;213b019&lt;/a&gt;\n\n
+        \       &lt;div class=&quot;message&quot;&gt;\n          &lt;blockquote&gt;added
+        cassettes for CI usage&lt;/blockquote&gt;\n        &lt;/div&gt;\n      &lt;/li&gt;\n
+        \   &lt;/ul&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n</content>\n  </entry>\n  <entry>\n
+        \   <id>tag:github.com,2008:PushEvent/1549302934</id>\n    <published>2012-05-06T17:14:12Z</published>\n
+        \   <updated>2012-05-06T17:14:12Z</updated>\n    <link type=\"text/html\"
+        rel=\"alternate\" href=\"https://github.com/test_user/postal/compare/e7b6111865...73e496d2a4\"/>\n
+        \   <title type=\"html\">test_user pushed to master at test_user/postal</title>\n
+        \   <author>\n      <name>test_user</name>\n      <email>tom.scott@elocal.com</email>\n
+        \     <uri>https://github.com/test_user</uri>\n    </author>\n    <media:thumbnail
+        height=\"30\" width=\"30\" url=\"https://secure.gravatar.com/avatar/0f985a758113f6502f668b09d2b15fc2?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png\"/>\n
+        \   <content type=\"html\">&lt;span class=&quot;mini-icon push&quot;&gt;&lt;/span&gt;\n\n&lt;div
+        class=&quot;title&quot;&gt;\n  &lt;a href=&quot;/test_user&quot;&gt;test_user&lt;/a&gt;
+        &lt;span&gt;pushed&lt;/span&gt; to master at &lt;a href=&quot;/test_user/postal&quot;&gt;test_user/postal&lt;/a&gt;\n
+        \ &lt;time class=&quot;js-relative-date&quot; datetime=&quot;2012-05-06T17:14:12Z&quot;
+        title=&quot;2012-05-06 17:14:12&quot;&gt;May 06, 2012&lt;/time&gt;\n&lt;/div&gt;\n&lt;div
+        class=&quot;details&quot;&gt;\n  \n\n  &lt;div class=&quot;commits&quot;&gt;\n
+        \   &lt;ul&gt;\n      &lt;li&gt;\n      &lt;a href=&quot;/test_user&quot;
+        class=&quot;committer&quot;&gt;test_user&lt;/a&gt; committed &lt;a href=&quot;/test_user/postal/commit/73e496d2a46488445f3569745348f47ba63843bd&quot;&gt;73e496d&lt;/a&gt;\n\n
+        \       &lt;div class=&quot;message&quot;&gt;\n          &lt;blockquote&gt;would
+        probably be nice if i added it to the config&lt;/blockquote&gt;\n        &lt;/div&gt;\n
+        \     &lt;/li&gt;\n    &lt;/ul&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n</content>\n
+        \ </entry>\n  <entry>\n    <id>tag:github.com,2008:PushEvent/1549302861</id>\n
+        \   <published>2012-05-06T17:13:38Z</published>\n    <updated>2012-05-06T17:13:38Z</updated>\n
+        \   <link type=\"text/html\" rel=\"alternate\" href=\"https://github.com/test_user/postal/compare/20ec44861f...e7b6111865\"/>\n
+        \   <title type=\"html\">test_user pushed to master at test_user/postal</title>\n
+        \   <author>\n      <name>test_user</name>\n      <email>tom.scott@elocal.com</email>\n
+        \     <uri>https://github.com/test_user</uri>\n    </author>\n    <media:thumbnail
+        height=\"30\" width=\"30\" url=\"https://secure.gravatar.com/avatar/0f985a758113f6502f668b09d2b15fc2?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png\"/>\n
+        \   <content type=\"html\">&lt;span class=&quot;mini-icon push&quot;&gt;&lt;/span&gt;\n\n&lt;div
+        class=&quot;title&quot;&gt;\n  &lt;a href=&quot;/test_user&quot;&gt;test_user&lt;/a&gt;
+        &lt;span&gt;pushed&lt;/span&gt; to master at &lt;a href=&quot;/test_user/postal&quot;&gt;test_user/postal&lt;/a&gt;\n
+        \ &lt;time class=&quot;js-relative-date&quot; datetime=&quot;2012-05-06T17:13:38Z&quot;
+        title=&quot;2012-05-06 17:13:38&quot;&gt;May 06, 2012&lt;/time&gt;\n&lt;/div&gt;\n&lt;div
+        class=&quot;details&quot;&gt;\n  \n\n  &lt;div class=&quot;commits&quot;&gt;\n
+        \   &lt;ul&gt;\n      &lt;li&gt;\n      &lt;a href=&quot;/test_user&quot;
+        class=&quot;committer&quot;&gt;test_user&lt;/a&gt; committed &lt;a href=&quot;/test_user/postal/commit/e7b611186598d644812b72f01c0cebe024139224&quot;&gt;e7b6111&lt;/a&gt;\n\n
+        \       &lt;div class=&quot;message&quot;&gt;\n          &lt;blockquote&gt;Created
+        build and configure tasks for Travis&lt;br&gt;\n&lt;br&gt;\n- Wasn&amp;#39;t
+        building correctly on Travis so a quick mod of the config&lt;br&gt;\n  files
+        and some new Rake tasks and we should be good to go&lt;br&gt;\n- Also removed
+        problematic thor require in the module definition&lt;/blockquote&gt;\n        &lt;/div&gt;\n
+        \     &lt;/li&gt;\n    &lt;/ul&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n</content>\n
+        \ </entry>\n  <entry>\n    <id>tag:github.com,2008:PushEvent/1549298321</id>\n
+        \   <published>2012-05-06T16:38:49Z</published>\n    <updated>2012-05-06T16:38:49Z</updated>\n
+        \   <link type=\"text/html\" rel=\"alternate\" href=\"https://github.com/test_user/postal/compare/e303aa9b5a...20ec44861f\"/>\n
+        \   <title type=\"html\">test_user pushed to master at test_user/postal</title>\n
+        \   <author>\n      <name>test_user</name>\n      <email>tom.scott@elocal.com</email>\n
+        \     <uri>https://github.com/test_user</uri>\n    </author>\n    <media:thumbnail
+        height=\"30\" width=\"30\" url=\"https://secure.gravatar.com/avatar/0f985a758113f6502f668b09d2b15fc2?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png\"/>\n
+        \   <content type=\"html\">&lt;span class=&quot;mini-icon push&quot;&gt;&lt;/span&gt;\n\n&lt;div
+        class=&quot;title&quot;&gt;\n  &lt;a href=&quot;/test_user&quot;&gt;test_user&lt;/a&gt;
+        &lt;span&gt;pushed&lt;/span&gt; to master at &lt;a href=&quot;/test_user/postal&quot;&gt;test_user/postal&lt;/a&gt;\n
+        \ &lt;time class=&quot;js-relative-date&quot; datetime=&quot;2012-05-06T16:38:49Z&quot;
+        title=&quot;2012-05-06 16:38:49&quot;&gt;May 06, 2012&lt;/time&gt;\n&lt;/div&gt;\n&lt;div
+        class=&quot;details&quot;&gt;\n  \n\n  &lt;div class=&quot;commits&quot;&gt;\n
+        \   &lt;ul&gt;\n      &lt;li&gt;\n      &lt;a href=&quot;/test_user&quot;
+        class=&quot;committer&quot;&gt;test_user&lt;/a&gt; committed &lt;a href=&quot;/test_user/postal/commit/20ec44861f1429289a7ddccbb4cce7365ccbeb70&quot;&gt;20ec448&lt;/a&gt;\n\n
+        \       &lt;div class=&quot;message&quot;&gt;\n          &lt;blockquote&gt;Removed
+        CLI, turned binary into a daemon&lt;br&gt;\n&lt;br&gt;\n- Removed the Thor
+        script Postal::Command&lt;br&gt;\n- Replaced the contents of `bin/postal`
+        with a simple script that runs&lt;br&gt;\n  Daemons.run(&amp;#39;./lib/server.rb&amp;#39;).
+        The code for running the Newman app&lt;br&gt;\n  now lives in that file.&lt;br&gt;\n-
+        That server app still doesn&amp;#39;t really work right. I think it might
+        be&lt;br&gt;\n  a Gmail issue.&lt;/blockquote&gt;\n        &lt;/div&gt;\n
+        \     &lt;/li&gt;\n    &lt;/ul&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n</content>\n
+        \ </entry>\n  <entry>\n    <id>tag:github.com,2008:PushEvent/1549295767</id>\n
+        \   <published>2012-05-06T16:17:41Z</published>\n    <updated>2012-05-06T16:17:41Z</updated>\n
+        \   <link type=\"text/html\" rel=\"alternate\" href=\"https://github.com/test_user/postal/compare/7eb76838cf...e303aa9b5a\"/>\n
+        \   <title type=\"html\">test_user pushed to master at test_user/postal</title>\n
+        \   <author>\n      <name>test_user</name>\n      <email>tom.scott@elocal.com</email>\n
+        \     <uri>https://github.com/test_user</uri>\n    </author>\n    <media:thumbnail
+        height=\"30\" width=\"30\" url=\"https://secure.gravatar.com/avatar/0f985a758113f6502f668b09d2b15fc2?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png\"/>\n
+        \   <content type=\"html\">&lt;span class=&quot;mini-icon push&quot;&gt;&lt;/span&gt;\n\n&lt;div
+        class=&quot;title&quot;&gt;\n  &lt;a href=&quot;/test_user&quot;&gt;test_user&lt;/a&gt;
+        &lt;span&gt;pushed&lt;/span&gt; to master at &lt;a href=&quot;/test_user/postal&quot;&gt;test_user/postal&lt;/a&gt;\n
+        \ &lt;time class=&quot;js-relative-date&quot; datetime=&quot;2012-05-06T16:17:41Z&quot;
+        title=&quot;2012-05-06 16:17:41&quot;&gt;May 06, 2012&lt;/time&gt;\n&lt;/div&gt;\n&lt;div
+        class=&quot;details&quot;&gt;\n  \n\n  &lt;div class=&quot;commits&quot;&gt;\n
+        \   &lt;ul&gt;\n      &lt;li&gt;\n      &lt;a href=&quot;/test_user&quot;
+        class=&quot;committer&quot;&gt;test_user&lt;/a&gt; committed &lt;a href=&quot;/test_user/postal/commit/e303aa9b5a645d149181daac033c1bf3b4c59944&quot;&gt;e303aa9&lt;/a&gt;\n\n
+        \       &lt;div class=&quot;message&quot;&gt;\n          &lt;blockquote&gt;updated
+        docs&lt;/blockquote&gt;\n        &lt;/div&gt;\n      &lt;/li&gt;\n      &lt;li&gt;\n
+        \     &lt;a href=&quot;/test_user&quot; class=&quot;committer&quot;&gt;test_user&lt;/a&gt;
+        committed &lt;a href=&quot;/test_user/postal/commit/660bef0e713a58ba12e3843d1416dca4ce42e9b5&quot;&gt;660bef0&lt;/a&gt;\n\n
+        \       &lt;div class=&quot;message&quot;&gt;\n          &lt;blockquote&gt;split
+        engine test into unit &amp;amp; integration&lt;/blockquote&gt;\n        &lt;/div&gt;\n
+        \     &lt;/li&gt;\n      &lt;li&gt;\n      &lt;a href=&quot;/test_user&quot;
+        class=&quot;committer&quot;&gt;test_user&lt;/a&gt; committed &lt;a href=&quot;/test_user/postal/commit/0b21c06bdc549617c623288add20c88751323275&quot;&gt;0b21c06&lt;/a&gt;\n\n
+        \       &lt;div class=&quot;message&quot;&gt;\n          &lt;blockquote&gt;set
+        up automatic testing&lt;/blockquote&gt;\n        &lt;/div&gt;\n      &lt;/li&gt;\n
+        \     &lt;li class=&quot;more&quot;&gt;&lt;a href=&quot;https://github.com/test_user/postal/compare/7eb76838cf...e303aa9b5a&quot;&gt;View
+        comparison for these 3 commits &amp;raquo;&lt;/a&gt;&lt;/li&gt;\n    &lt;/ul&gt;\n
+        \ &lt;/div&gt;\n&lt;/div&gt;\n</content>\n  </entry>\n  <entry>\n    <id>tag:github.com,2008:PushEvent/1549292555</id>\n
+        \   <published>2012-05-06T15:52:43Z</published>\n    <updated>2012-05-06T15:52:43Z</updated>\n
+        \   <link type=\"text/html\" rel=\"alternate\" href=\"https://github.com/test_user/postal/compare/278e83fa39...7eb76838cf\"/>\n
+        \   <title type=\"html\">test_user pushed to master at test_user/postal</title>\n
+        \   <author>\n      <name>test_user</name>\n      <email>tom.scott@elocal.com</email>\n
+        \     <uri>https://github.com/test_user</uri>\n    </author>\n    <media:thumbnail
+        height=\"30\" width=\"30\" url=\"https://secure.gravatar.com/avatar/0f985a758113f6502f668b09d2b15fc2?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png\"/>\n
+        \   <content type=\"html\">&lt;span class=&quot;mini-icon push&quot;&gt;&lt;/span&gt;\n\n&lt;div
+        class=&quot;title&quot;&gt;\n  &lt;a href=&quot;/test_user&quot;&gt;test_user&lt;/a&gt;
+        &lt;span&gt;pushed&lt;/span&gt; to master at &lt;a href=&quot;/test_user/postal&quot;&gt;test_user/postal&lt;/a&gt;\n
+        \ &lt;time class=&quot;js-relative-date&quot; datetime=&quot;2012-05-06T15:52:43Z&quot;
+        title=&quot;2012-05-06 15:52:43&quot;&gt;May 06, 2012&lt;/time&gt;\n&lt;/div&gt;\n&lt;div
+        class=&quot;details&quot;&gt;\n  \n\n  &lt;div class=&quot;commits&quot;&gt;\n
+        \   &lt;ul&gt;\n      &lt;li&gt;\n      &lt;a href=&quot;/test_user&quot;
+        class=&quot;committer&quot;&gt;test_user&lt;/a&gt; committed &lt;a href=&quot;/test_user/postal/commit/7eb76838cf030a6a6ee63ef42f2f88a10d7d78fc&quot;&gt;7eb7683&lt;/a&gt;\n\n
+        \       &lt;div class=&quot;message&quot;&gt;\n          &lt;blockquote&gt;you
+        go now&lt;/blockquote&gt;\n        &lt;/div&gt;\n      &lt;/li&gt;\n    &lt;/ul&gt;\n
+        \ &lt;/div&gt;\n&lt;/div&gt;\n</content>\n  </entry>\n  <entry>\n    <id>tag:github.com,2008:PushEvent/1549292227</id>\n
+        \   <published>2012-05-06T15:50:21Z</published>\n    <updated>2012-05-06T15:50:21Z</updated>\n
+        \   <link type=\"text/html\" rel=\"alternate\" href=\"https://github.com/test_user/postal/compare/16e8301363...278e83fa39\"/>\n
+        \   <title type=\"html\">test_user pushed to master at test_user/postal</title>\n
+        \   <author>\n      <name>test_user</name>\n      <email>tom.scott@elocal.com</email>\n
+        \     <uri>https://github.com/test_user</uri>\n    </author>\n    <media:thumbnail
+        height=\"30\" width=\"30\" url=\"https://secure.gravatar.com/avatar/0f985a758113f6502f668b09d2b15fc2?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png\"/>\n
+        \   <content type=\"html\">&lt;span class=&quot;mini-icon push&quot;&gt;&lt;/span&gt;\n\n&lt;div
+        class=&quot;title&quot;&gt;\n  &lt;a href=&quot;/test_user&quot;&gt;test_user&lt;/a&gt;
+        &lt;span&gt;pushed&lt;/span&gt; to master at &lt;a href=&quot;/test_user/postal&quot;&gt;test_user/postal&lt;/a&gt;\n
+        \ &lt;time class=&quot;js-relative-date&quot; datetime=&quot;2012-05-06T15:50:21Z&quot;
+        title=&quot;2012-05-06 15:50:21&quot;&gt;May 06, 2012&lt;/time&gt;\n&lt;/div&gt;\n&lt;div
+        class=&quot;details&quot;&gt;\n  \n\n  &lt;div class=&quot;commits&quot;&gt;\n
+        \   &lt;ul&gt;\n      &lt;li&gt;\n      &lt;a href=&quot;/test_user&quot;
+        class=&quot;committer&quot;&gt;test_user&lt;/a&gt; committed &lt;a href=&quot;/test_user/postal/commit/278e83fa3991c1d663bd05e58a2b6955cbbcde56&quot;&gt;278e83f&lt;/a&gt;\n\n
+        \       &lt;div class=&quot;message&quot;&gt;\n          &lt;blockquote&gt;Add
+        Travis-CI configuration.&lt;/blockquote&gt;\n        &lt;/div&gt;\n      &lt;/li&gt;\n
+        \   &lt;/ul&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n</content>\n  </entry>\n  <entry>\n
+        \   <id>tag:github.com,2008:PushEvent/1549291557</id>\n    <published>2012-05-06T15:45:47Z</published>\n
+        \   <updated>2012-05-06T15:45:47Z</updated>\n    <link type=\"text/html\"
+        rel=\"alternate\" href=\"https://github.com/test_user/postal/compare/f1ac1d82fe...16e8301363\"/>\n
+        \   <title type=\"html\">test_user pushed to master at test_user/postal</title>\n
+        \   <author>\n      <name>test_user</name>\n      <email>tom.scott@elocal.com</email>\n
+        \     <uri>https://github.com/test_user</uri>\n    </author>\n    <media:thumbnail
+        height=\"30\" width=\"30\" url=\"https://secure.gravatar.com/avatar/0f985a758113f6502f668b09d2b15fc2?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png\"/>\n
+        \   <content type=\"html\">&lt;span class=&quot;mini-icon push&quot;&gt;&lt;/span&gt;\n\n&lt;div
+        class=&quot;title&quot;&gt;\n  &lt;a href=&quot;/test_user&quot;&gt;test_user&lt;/a&gt;
+        &lt;span&gt;pushed&lt;/span&gt; to master at &lt;a href=&quot;/test_user/postal&quot;&gt;test_user/postal&lt;/a&gt;\n
+        \ &lt;time class=&quot;js-relative-date&quot; datetime=&quot;2012-05-06T15:45:47Z&quot;
+        title=&quot;2012-05-06 15:45:47&quot;&gt;May 06, 2012&lt;/time&gt;\n&lt;/div&gt;\n&lt;div
+        class=&quot;details&quot;&gt;\n  \n\n  &lt;div class=&quot;commits&quot;&gt;\n
+        \   &lt;ul&gt;\n      &lt;li&gt;\n      &lt;a href=&quot;/test_user&quot;
+        class=&quot;committer&quot;&gt;test_user&lt;/a&gt; committed &lt;a href=&quot;/test_user/postal/commit/16e8301363dd379087786c774d9ad22a80ba57c5&quot;&gt;16e8301&lt;/a&gt;\n\n
+        \       &lt;div class=&quot;message&quot;&gt;\n          &lt;blockquote&gt;reformatted
+        response&lt;/blockquote&gt;\n        &lt;/div&gt;\n      &lt;/li&gt;\n    &lt;/ul&gt;\n
+        \ &lt;/div&gt;\n&lt;/div&gt;\n</content>\n  </entry>\n  <entry>\n    <id>tag:github.com,2008:PushEvent/1549290872</id>\n
+        \   <published>2012-05-06T15:40:42Z</published>\n    <updated>2012-05-06T15:40:42Z</updated>\n
+        \   <link type=\"text/html\" rel=\"alternate\" href=\"https://github.com/test_user/postal/compare/fc4c187d40...f1ac1d82fe\"/>\n
+        \   <title type=\"html\">test_user pushed to master at test_user/postal</title>\n
+        \   <author>\n      <name>test_user</name>\n      <email>tom.scott@elocal.com</email>\n
+        \     <uri>https://github.com/test_user</uri>\n    </author>\n    <media:thumbnail
+        height=\"30\" width=\"30\" url=\"https://secure.gravatar.com/avatar/0f985a758113f6502f668b09d2b15fc2?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png\"/>\n
+        \   <content type=\"html\">&lt;span class=&quot;mini-icon push&quot;&gt;&lt;/span&gt;\n\n&lt;div
+        class=&quot;title&quot;&gt;\n  &lt;a href=&quot;/test_user&quot;&gt;test_user&lt;/a&gt;
+        &lt;span&gt;pushed&lt;/span&gt; to master at &lt;a href=&quot;/test_user/postal&quot;&gt;test_user/postal&lt;/a&gt;\n
+        \ &lt;time class=&quot;js-relative-date&quot; datetime=&quot;2012-05-06T15:40:42Z&quot;
+        title=&quot;2012-05-06 15:40:42&quot;&gt;May 06, 2012&lt;/time&gt;\n&lt;/div&gt;\n&lt;div
+        class=&quot;details&quot;&gt;\n  \n\n  &lt;div class=&quot;commits&quot;&gt;\n
+        \   &lt;ul&gt;\n      &lt;li&gt;\n      &lt;a href=&quot;/test_user&quot;
+        class=&quot;committer&quot;&gt;test_user&lt;/a&gt; committed &lt;a href=&quot;/test_user/postal/commit/f1ac1d82fe598f739c2e494db9ea181217093175&quot;&gt;f1ac1d8&lt;/a&gt;\n\n
+        \       &lt;div class=&quot;message&quot;&gt;\n          &lt;blockquote&gt;All
+        tests pass, save for Command.&lt;br&gt;\n&lt;br&gt;\n- I don&amp;#39;t know
+        how to test Thor scripts but when I do I&amp;#39;ll write some&lt;br&gt;\n
+        \ tests for Postal::Command. For now, it&amp;#39;s raw dog time.&lt;br&gt;\n-
+        Engine tests worked wonders after I saw the tests for Jester! Newman&lt;br&gt;\n
+        \ provides a free server mock for use in testing your application, and&lt;br&gt;\n
+        \ by testing the subject responses we can ensure that a proper subject&lt;br&gt;\n
+        \ is coming through. I haven&amp;#39;t figured out a way to actually send
+        the&lt;br&gt;\n  original subject back in a true &amp;quot;Re:&amp;quot;,
+        but I&amp;#39;m sure it&amp;#39;s possible.&lt;br&gt;\n- Added a new VCR cassette
+        dependency because it was the easiest way&lt;br&gt;\n  to combine the two
+        existing ones for running in a single test case.&lt;/blockquote&gt;\n        &lt;/div&gt;\n
+        \     &lt;/li&gt;\n      &lt;li&gt;\n      &lt;a href=&quot;/test_user&quot;
+        class=&quot;committer&quot;&gt;test_user&lt;/a&gt; committed &lt;a href=&quot;/test_user/postal/commit/60def6c363f7b17c932db703bba9fb7e2dad78a5&quot;&gt;60def6c&lt;/a&gt;\n\n
+        \       &lt;div class=&quot;message&quot;&gt;\n          &lt;blockquote&gt;Add
+        Newman test code and skeleton for log/ &amp;amp; tmp/&lt;br&gt;\n&lt;br&gt;\n-
+        add the postal.data_store setting for where the mails db will live&lt;br&gt;\n-
+        in tests, this is always in test/fixtures/mails.store&lt;br&gt;\n- skipped
+        a bogus test&lt;br&gt;\n- testing Newman&lt;/blockquote&gt;\n        &lt;/div&gt;\n
+        \     &lt;/li&gt;\n      &lt;li&gt;\n      &lt;a href=&quot;/test_user&quot;
+        class=&quot;committer&quot;&gt;test_user&lt;/a&gt; committed &lt;a href=&quot;/test_user/postal/commit/f1d677bdf3bea053c59735fae12577a7bbe35428&quot;&gt;f1d677b&lt;/a&gt;\n\n
+        \       &lt;div class=&quot;message&quot;&gt;\n          &lt;blockquote&gt;loading
+        YAML into config/environment&lt;/blockquote&gt;\n        &lt;/div&gt;\n      &lt;/li&gt;\n
+        \     &lt;li class=&quot;more&quot;&gt;&lt;a href=&quot;https://github.com/test_user/postal/compare/fc4c187d40...f1ac1d82fe&quot;&gt;5
+        more commits &amp;raquo;&lt;/a&gt;&lt;/li&gt;\n    &lt;/ul&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n</content>\n
+        \ </entry>\n  <entry>\n    <id>tag:github.com,2008:PushEvent/1549270193</id>\n
+        \   <published>2012-05-06T13:36:14Z</published>\n    <updated>2012-05-06T13:36:14Z</updated>\n
+        \   <link type=\"text/html\" rel=\"alternate\" href=\"https://github.com/test_user/psychedeli.ca/compare/c9abb1a50a...f2bad3f771\"/>\n
+        \   <title type=\"html\">test_user pushed to master at test_user/psychedeli.ca</title>\n
+        \   <author>\n      <name>test_user</name>\n      <email>tom.scott@elocal.com</email>\n
+        \     <uri>https://github.com/test_user</uri>\n    </author>\n    <media:thumbnail
+        height=\"30\" width=\"30\" url=\"https://secure.gravatar.com/avatar/0f985a758113f6502f668b09d2b15fc2?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png\"/>\n
+        \   <content type=\"html\">&lt;span class=&quot;mini-icon push&quot;&gt;&lt;/span&gt;\n\n&lt;div
+        class=&quot;title&quot;&gt;\n  &lt;a href=&quot;/test_user&quot;&gt;test_user&lt;/a&gt;
+        &lt;span&gt;pushed&lt;/span&gt; to master at &lt;a href=&quot;/test_user/psychedeli.ca&quot;&gt;test_user/psychedeli.ca&lt;/a&gt;\n
+        \ &lt;time class=&quot;js-relative-date&quot; datetime=&quot;2012-05-06T13:36:14Z&quot;
+        title=&quot;2012-05-06 13:36:14&quot;&gt;May 06, 2012&lt;/time&gt;\n&lt;/div&gt;\n&lt;div
+        class=&quot;details&quot;&gt;\n  \n\n  &lt;div class=&quot;commits&quot;&gt;\n
+        \   &lt;ul&gt;\n      &lt;li&gt;\n      &lt;a href=&quot;/test_user&quot;
+        class=&quot;committer&quot;&gt;test_user&lt;/a&gt; committed &lt;a href=&quot;/test_user/psychedeli.ca/commit/f2bad3f77185dff8ac1f259eef50245c80e8f9e8&quot;&gt;f2bad3f&lt;/a&gt;\n\n
+        \       &lt;div class=&quot;message&quot;&gt;\n          &lt;blockquote&gt;don&amp;#39;t
+        publish the latest jawn yet. bug fix update i think&lt;/blockquote&gt;\n        &lt;/div&gt;\n
+        \     &lt;/li&gt;\n      &lt;li&gt;\n      &lt;a href=&quot;/test_user&quot;
+        class=&quot;committer&quot;&gt;test_user&lt;/a&gt; committed &lt;a href=&quot;/test_user/psychedeli.ca/commit/ac72bab63eb32edd554439931c3090e839d29a99&quot;&gt;ac72bab&lt;/a&gt;\n\n
+        \       &lt;div class=&quot;message&quot;&gt;\n          &lt;blockquote&gt;Style
+        changes, experimenting with fluid layout&lt;br&gt;\n&lt;br&gt;\n- made header
+        have a fixed height @ 180px&lt;/blockquote&gt;\n        &lt;/div&gt;\n      &lt;/li&gt;\n
+        \     &lt;li class=&quot;more&quot;&gt;&lt;a href=&quot;https://github.com/test_user/psychedeli.ca/compare/c9abb1a50a...f2bad3f771&quot;&gt;View
+        comparison for these 2 commits &amp;raquo;&lt;/a&gt;&lt;/li&gt;\n    &lt;/ul&gt;\n
+        \ &lt;/div&gt;\n&lt;/div&gt;\n</content>\n  </entry>\n  <entry>\n    <id>tag:github.com,2008:PushEvent/1549139566</id>\n
+        \   <published>2012-05-05T18:52:20Z</published>\n    <updated>2012-05-05T18:52:20Z</updated>\n
+        \   <link type=\"text/html\" rel=\"alternate\" href=\"https://github.com/test_user/postal/compare/eb1c6a51a9...fc4c187d40\"/>\n
+        \   <title type=\"html\">test_user pushed to master at test_user/postal</title>\n
+        \   <author>\n      <name>test_user</name>\n      <email>tom.scott@elocal.com</email>\n
+        \     <uri>https://github.com/test_user</uri>\n    </author>\n    <media:thumbnail
+        height=\"30\" width=\"30\" url=\"https://secure.gravatar.com/avatar/0f985a758113f6502f668b09d2b15fc2?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png\"/>\n
+        \   <content type=\"html\">&lt;span class=&quot;mini-icon push&quot;&gt;&lt;/span&gt;\n\n&lt;div
+        class=&quot;title&quot;&gt;\n  &lt;a href=&quot;/test_user&quot;&gt;test_user&lt;/a&gt;
+        &lt;span&gt;pushed&lt;/span&gt; to master at &lt;a href=&quot;/test_user/postal&quot;&gt;test_user/postal&lt;/a&gt;\n
+        \ &lt;time class=&quot;js-relative-date&quot; datetime=&quot;2012-05-05T18:52:20Z&quot;
+        title=&quot;2012-05-05 18:52:20&quot;&gt;May 05, 2012&lt;/time&gt;\n&lt;/div&gt;\n&lt;div
+        class=&quot;details&quot;&gt;\n  \n\n  &lt;div class=&quot;commits&quot;&gt;\n
+        \   &lt;ul&gt;\n      &lt;li&gt;\n      &lt;a href=&quot;/test_user&quot;
+        class=&quot;committer&quot;&gt;test_user&lt;/a&gt; committed &lt;a href=&quot;/test_user/postal/commit/fc4c187d40af9e2c8249d626c7f31452e69d2885&quot;&gt;fc4c187&lt;/a&gt;\n\n
+        \       &lt;div class=&quot;message&quot;&gt;\n          &lt;blockquote&gt;Tests
+        are running but not passing yet&lt;br&gt;\n&lt;br&gt;\ncan&amp;#39;t figure
+        out why PivotalTracker isn&amp;#39;t being loaded.&lt;/blockquote&gt;\n        &lt;/div&gt;\n
+        \     &lt;/li&gt;\n    &lt;/ul&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n</content>\n
+        \ </entry>\n  <entry>\n    <id>tag:github.com,2008:CreateEvent/1549139352</id>\n
+        \   <published>2012-05-05T18:50:46Z</published>\n    <updated>2012-05-05T18:50:46Z</updated>\n
+        \   <link type=\"text/html\" rel=\"alternate\" href=\"https://github.com/test_user/postal/compare/master\"/>\n
+        \   <title type=\"html\">test_user created branch master  at test_user/postal</title>\n
+        \   <author>\n      <name>test_user</name>\n      <email>tom.scott@elocal.com</email>\n
+        \     <uri>https://github.com/test_user</uri>\n    </author>\n    <media:thumbnail
+        height=\"30\" width=\"30\" url=\"https://secure.gravatar.com/avatar/0f985a758113f6502f668b09d2b15fc2?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png\"/>\n
+        \   <content type=\"html\">&lt;span class=&quot;mini-icon create&quot;&gt;&lt;/span&gt;\n\n&lt;div
+        class=&quot;title&quot;&gt;\n  &lt;a href=&quot;/test_user&quot;&gt;test_user&lt;/a&gt;
+        &lt;span&gt;created&lt;/span&gt; branch &lt;a href=&quot;/test_user/postal/tree/master&quot;&gt;master&lt;/a&gt;
+        \ at &lt;a href=&quot;/test_user/postal&quot;&gt;test_user/postal&lt;/a&gt;\n
+        \ &lt;time class=&quot;js-relative-date&quot; datetime=&quot;2012-05-05T18:50:46Z&quot;
+        title=&quot;2012-05-05 18:50:46&quot;&gt;May 05, 2012&lt;/time&gt;\n&lt;/div&gt;\n\n&lt;div
+        class=&quot;details&quot;&gt;\n  \n  &lt;div class=&quot;message&quot;&gt;\n
+        \     New branch is at &lt;a href=&quot;/test_user/postal/tree/master&quot;&gt;/test_user/postal/tree/master&lt;/a&gt;\n
+        \     &lt;br /&gt;\n      &lt;a href=&quot;https://github.com/test_user/postal/compare/master&quot;
+        class=&quot;compare-link&quot;&gt;Compare master branch with master &amp;raquo;&lt;/a&gt;\n\n\n
+        \ &lt;/div&gt;\n&lt;/div&gt;\n</content>\n  </entry>\n  <entry>\n    <id>tag:github.com,2008:CreateEvent/1549139323</id>\n
+        \   <published>2012-05-05T18:50:29Z</published>\n    <updated>2012-05-05T18:50:29Z</updated>\n
+        \   <link type=\"text/html\" rel=\"alternate\" href=\"https://github.com/test_user/postal\"/>\n
+        \   <title type=\"html\">test_user created repository postal</title>\n    <author>\n
+        \     <name>test_user</name>\n      <email>tom.scott@elocal.com</email>\n
+        \     <uri>https://github.com/test_user</uri>\n    </author>\n    <media:thumbnail
+        height=\"30\" width=\"30\" url=\"https://secure.gravatar.com/avatar/0f985a758113f6502f668b09d2b15fc2?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png\"/>\n
+        \   <content type=\"html\">&lt;span class=&quot;mini-icon create&quot;&gt;&lt;/span&gt;\n\n&lt;div
+        class=&quot;title&quot;&gt;\n  &lt;a href=&quot;/test_user&quot;&gt;test_user&lt;/a&gt;
+        &lt;span&gt;created&lt;/span&gt; repository &lt;a href=&quot;/test_user/postal&quot;&gt;postal&lt;/a&gt;
+        \n  &lt;time class=&quot;js-relative-date&quot; datetime=&quot;2012-05-05T18:50:29Z&quot;
+        title=&quot;2012-05-05 18:50:29&quot;&gt;May 05, 2012&lt;/time&gt;\n&lt;/div&gt;\n\n&lt;div
+        class=&quot;details&quot;&gt;\n  \n  &lt;div class=&quot;message&quot;&gt;\n\n
+        \       A smart email bug report processor that creates stories for you on
+        Pivotal Tracker.\n\n  &lt;/div&gt;\n&lt;/div&gt;\n</content>\n  </entry>\n
+        \ <entry>\n    <id>tag:github.com,2008:PushEvent/1549048291</id>\n    <published>2012-05-05T05:15:03Z</published>\n
+        \   <updated>2012-05-05T05:15:03Z</updated>\n    <link type=\"text/html\"
+        rel=\"alternate\" href=\"https://github.com/test_user/santeria/compare/d104d53c49...5cd29ea665\"/>\n
+        \   <title type=\"html\">test_user pushed to master at test_user/santeria</title>\n
+        \   <author>\n      <name>test_user</name>\n      <email>tom.scott@elocal.com</email>\n
+        \     <uri>https://github.com/test_user</uri>\n    </author>\n    <media:thumbnail
+        height=\"30\" width=\"30\" url=\"https://secure.gravatar.com/avatar/0f985a758113f6502f668b09d2b15fc2?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png\"/>\n
+        \   <content type=\"html\">&lt;span class=&quot;mini-icon push&quot;&gt;&lt;/span&gt;\n\n&lt;div
+        class=&quot;title&quot;&gt;\n  &lt;a href=&quot;/test_user&quot;&gt;test_user&lt;/a&gt;
+        &lt;span&gt;pushed&lt;/span&gt; to master at &lt;a href=&quot;/test_user/santeria&quot;&gt;test_user/santeria&lt;/a&gt;\n
+        \ &lt;time class=&quot;js-relative-date&quot; datetime=&quot;2012-05-05T05:15:03Z&quot;
+        title=&quot;2012-05-05 05:15:03&quot;&gt;May 05, 2012&lt;/time&gt;\n&lt;/div&gt;\n&lt;div
+        class=&quot;details&quot;&gt;\n  \n\n  &lt;div class=&quot;commits&quot;&gt;\n
+        \   &lt;ul&gt;\n      &lt;li&gt;\n      &lt;a href=&quot;/test_user&quot;
+        class=&quot;committer&quot;&gt;test_user&lt;/a&gt; committed &lt;a href=&quot;/test_user/santeria/commit/5cd29ea66534dc9942a07fb7965d00ac27c04e2b&quot;&gt;5cd29ea&lt;/a&gt;\n\n
+        \       &lt;div class=&quot;message&quot;&gt;\n          &lt;blockquote&gt;added
+        rubytest and key combos&lt;/blockquote&gt;\n        &lt;/div&gt;\n      &lt;/li&gt;\n
+        \   &lt;/ul&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n</content>\n  </entry>\n  <entry>\n
+        \   <id>tag:github.com,2008:PushEvent/1549046243</id>\n    <published>2012-05-05T04:50:05Z</published>\n
+        \   <updated>2012-05-05T04:50:05Z</updated>\n    <link type=\"text/html\"
+        rel=\"alternate\" href=\"https://github.com/test_user/psychedeli.ca/compare/e10184dd45...c9abb1a50a\"/>\n
+        \   <title type=\"html\">test_user pushed to master at test_user/psychedeli.ca</title>\n
+        \   <author>\n      <name>test_user</name>\n      <email>tom.scott@elocal.com</email>\n
+        \     <uri>https://github.com/test_user</uri>\n    </author>\n    <media:thumbnail
+        height=\"30\" width=\"30\" url=\"https://secure.gravatar.com/avatar/0f985a758113f6502f668b09d2b15fc2?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png\"/>\n
+        \   <content type=\"html\">&lt;span class=&quot;mini-icon push&quot;&gt;&lt;/span&gt;\n\n&lt;div
+        class=&quot;title&quot;&gt;\n  &lt;a href=&quot;/test_user&quot;&gt;test_user&lt;/a&gt;
+        &lt;span&gt;pushed&lt;/span&gt; to master at &lt;a href=&quot;/test_user/psychedeli.ca&quot;&gt;test_user/psychedeli.ca&lt;/a&gt;\n
+        \ &lt;time class=&quot;js-relative-date&quot; datetime=&quot;2012-05-05T04:50:05Z&quot;
+        title=&quot;2012-05-05 04:50:05&quot;&gt;May 05, 2012&lt;/time&gt;\n&lt;/div&gt;\n&lt;div
+        class=&quot;details&quot;&gt;\n  \n\n  &lt;div class=&quot;commits&quot;&gt;\n
+        \   &lt;ul&gt;\n      &lt;li&gt;\n      &lt;a href=&quot;/test_user&quot;
+        class=&quot;committer&quot;&gt;test_user&lt;/a&gt; committed &lt;a href=&quot;/test_user/psychedeli.ca/commit/c9abb1a50aa27f6eac1720e3c3eafe0e664714a3&quot;&gt;c9abb1a&lt;/a&gt;\n\n
+        \       &lt;div class=&quot;message&quot;&gt;\n          &lt;blockquote&gt;added
+        article&lt;/blockquote&gt;\n        &lt;/div&gt;\n      &lt;/li&gt;\n      &lt;li&gt;\n
+        \     &lt;a href=&quot;/test_user&quot; class=&quot;committer&quot;&gt;test_user&lt;/a&gt;
+        committed &lt;a href=&quot;/test_user/psychedeli.ca/commit/afced3754d73bd8052a6a308f97dd8f2323a6227&quot;&gt;afced37&lt;/a&gt;\n\n
+        \       &lt;div class=&quot;message&quot;&gt;\n          &lt;blockquote&gt;improved
+        vhost file&lt;/blockquote&gt;\n        &lt;/div&gt;\n      &lt;/li&gt;\n      &lt;li
+        class=&quot;more&quot;&gt;&lt;a href=&quot;https://github.com/test_user/psychedeli.ca/compare/e10184dd45...c9abb1a50a&quot;&gt;View
+        comparison for these 2 commits &amp;raquo;&lt;/a&gt;&lt;/li&gt;\n    &lt;/ul&gt;\n
+        \ &lt;/div&gt;\n&lt;/div&gt;\n</content>\n  </entry>\n  <entry>\n    <id>tag:github.com,2008:WatchEvent/1548885474</id>\n
+        \   <published>2012-05-04T17:00:18Z</published>\n    <updated>2012-05-04T17:00:18Z</updated>\n
+        \   <link type=\"text/html\" rel=\"alternate\" href=\"https://github.com/mendicant-university/newman\"/>\n
+        \   <title type=\"html\">test_user started watching mendicant-university/newman</title>\n
+        \   <author>\n      <name>test_user</name>\n      <email>tom.scott@elocal.com</email>\n
+        \     <uri>https://github.com/test_user</uri>\n    </author>\n    <media:thumbnail
+        height=\"30\" width=\"30\" url=\"https://secure.gravatar.com/avatar/0f985a758113f6502f668b09d2b15fc2?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png\"/>\n
+        \   <content type=\"html\">&lt;span class=&quot;mini-icon watching&quot;&gt;&lt;/span&gt;\n\n&lt;div
+        class=&quot;title&quot;&gt;\n  &lt;a href=&quot;/test_user&quot;&gt;test_user&lt;/a&gt;
+        &lt;span&gt;started watching&lt;/span&gt; &lt;a href=&quot;/mendicant-university/newman&quot;&gt;mendicant-university/newman&lt;/a&gt;\n
+        \ &lt;time class=&quot;js-relative-date&quot; datetime=&quot;2012-05-04T17:00:18Z&quot;
+        title=&quot;2012-05-04 17:00:18&quot;&gt;May 04, 2012&lt;/time&gt;\n&lt;/div&gt;\n&lt;div
+        class=&quot;details&quot;&gt;\n  \n  &lt;div class=&quot;message&quot;&gt;\n
+        \   newman's description:\n&lt;blockquote&gt;Newman: a microframework for
+        building email-based applications.&lt;/blockquote&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n</content>\n
+        \ </entry>\n  <entry>\n    <id>tag:github.com,2008:PushEvent/1547818152</id>\n
+        \   <published>2012-05-02T04:02:38Z</published>\n    <updated>2012-05-02T04:02:38Z</updated>\n
+        \   <link type=\"text/html\" rel=\"alternate\" href=\"https://github.com/test_user/psychedeli.ca/compare/374358f5af...e10184dd45\"/>\n
+        \   <title type=\"html\">test_user pushed to master at test_user/psychedeli.ca</title>\n
+        \   <author>\n      <name>test_user</name>\n      <email>tom.scott@elocal.com</email>\n
+        \     <uri>https://github.com/test_user</uri>\n    </author>\n    <media:thumbnail
+        height=\"30\" width=\"30\" url=\"https://secure.gravatar.com/avatar/0f985a758113f6502f668b09d2b15fc2?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png\"/>\n
+        \   <content type=\"html\">&lt;span class=&quot;mini-icon push&quot;&gt;&lt;/span&gt;\n\n&lt;div
+        class=&quot;title&quot;&gt;\n  &lt;a href=&quot;/test_user&quot;&gt;test_user&lt;/a&gt;
+        &lt;span&gt;pushed&lt;/span&gt; to master at &lt;a href=&quot;/test_user/psychedeli.ca&quot;&gt;test_user/psychedeli.ca&lt;/a&gt;\n
+        \ &lt;time class=&quot;js-relative-date&quot; datetime=&quot;2012-05-02T04:02:38Z&quot;
+        title=&quot;2012-05-02 04:02:38&quot;&gt;May 02, 2012&lt;/time&gt;\n&lt;/div&gt;\n&lt;div
+        class=&quot;details&quot;&gt;\n  \n\n  &lt;div class=&quot;commits&quot;&gt;\n
+        \   &lt;ul&gt;\n      &lt;li&gt;\n      &lt;a href=&quot;/test_user&quot;
+        class=&quot;committer&quot;&gt;test_user&lt;/a&gt; committed &lt;a href=&quot;/test_user/psychedeli.ca/commit/e10184dd45f78e810ac801dbfd061adbd194167b&quot;&gt;e10184d&lt;/a&gt;\n\n
+        \       &lt;div class=&quot;message&quot;&gt;\n          &lt;blockquote&gt;fixed
+        the jekyll problem in the branch&lt;/blockquote&gt;\n        &lt;/div&gt;\n
+        \     &lt;/li&gt;\n    &lt;/ul&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n</content>\n
+        \ </entry>\n  <entry>\n    <id>tag:github.com,2008:CreateEvent/1547815455</id>\n
+        \   <published>2012-05-02T03:47:22Z</published>\n    <updated>2012-05-02T03:47:22Z</updated>\n
+        \   <link type=\"text/html\" rel=\"alternate\" href=\"https://github.com/test_user/jekyll/compare/hotfix/redcarpet-exception\"/>\n
+        \   <title type=\"html\">test_user created branch hotfix/redcarpet-exception
+        \ at test_user/jekyll</title>\n    <author>\n      <name>test_user</name>\n
+        \     <email>tom.scott@elocal.com</email>\n      <uri>https://github.com/test_user</uri>\n
+        \   </author>\n    <media:thumbnail height=\"30\" width=\"30\" url=\"https://secure.gravatar.com/avatar/0f985a758113f6502f668b09d2b15fc2?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png\"/>\n
+        \   <content type=\"html\">&lt;span class=&quot;mini-icon create&quot;&gt;&lt;/span&gt;\n\n&lt;div
+        class=&quot;title&quot;&gt;\n  &lt;a href=&quot;/test_user&quot;&gt;test_user&lt;/a&gt;
+        &lt;span&gt;created&lt;/span&gt; branch &lt;a href=&quot;/test_user/jekyll/tree/hotfix/redcarpet-exception&quot;&gt;hotfix/redcarpet-exception&lt;/a&gt;
+        \ at &lt;a href=&quot;/test_user/jekyll&quot;&gt;test_user/jekyll&lt;/a&gt;\n
+        \ &lt;time class=&quot;js-relative-date&quot; datetime=&quot;2012-05-02T03:47:22Z&quot;
+        title=&quot;2012-05-02 03:47:22&quot;&gt;May 02, 2012&lt;/time&gt;\n&lt;/div&gt;\n\n&lt;div
+        class=&quot;details&quot;&gt;\n  \n  &lt;div class=&quot;message&quot;&gt;\n
+        \     New branch is at &lt;a href=&quot;/test_user/jekyll/tree/hotfix/redcarpet-exception&quot;&gt;/test_user/jekyll/tree/hotfix/redcarpet-exception&lt;/a&gt;\n
+        \     &lt;br /&gt;\n      &lt;a href=&quot;https://github.com/test_user/jekyll/compare/hotfix/redcarpet-exception&quot;
+        class=&quot;compare-link&quot;&gt;Compare hotfix/redcarpet-exception branch
+        with master &amp;raquo;&lt;/a&gt;\n\n\n  &lt;/div&gt;\n&lt;/div&gt;\n</content>\n
+        \ </entry>\n  <entry>\n    <id>tag:github.com,2008:PushEvent/1547814510</id>\n
+        \   <published>2012-05-02T03:41:49Z</published>\n    <updated>2012-05-02T03:41:49Z</updated>\n
+        \   <link type=\"text/html\" rel=\"alternate\" href=\"https://github.com/test_user/jekyll/compare/787e4426bb...d0595dc761\"/>\n
+        \   <title type=\"html\">test_user pushed to feature/custom-dirs at test_user/jekyll</title>\n
+        \   <author>\n      <name>test_user</name>\n      <email>tom.scott@elocal.com</email>\n
+        \     <uri>https://github.com/test_user</uri>\n    </author>\n    <media:thumbnail
+        height=\"30\" width=\"30\" url=\"https://secure.gravatar.com/avatar/0f985a758113f6502f668b09d2b15fc2?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png\"/>\n
+        \   <content type=\"html\">&lt;span class=&quot;mini-icon push&quot;&gt;&lt;/span&gt;\n\n&lt;div
+        class=&quot;title&quot;&gt;\n  &lt;a href=&quot;/test_user&quot;&gt;test_user&lt;/a&gt;
+        &lt;span&gt;pushed&lt;/span&gt; to feature/custom-dirs at &lt;a href=&quot;/test_user/jekyll&quot;&gt;test_user/jekyll&lt;/a&gt;\n
+        \ &lt;time class=&quot;js-relative-date&quot; datetime=&quot;2012-05-02T03:41:49Z&quot;
+        title=&quot;2012-05-02 03:41:49&quot;&gt;May 02, 2012&lt;/time&gt;\n&lt;/div&gt;\n&lt;div
+        class=&quot;details&quot;&gt;\n  \n\n  &lt;div class=&quot;commits&quot;&gt;\n
+        \   &lt;ul&gt;\n      &lt;li&gt;\n      &lt;a href=&quot;/test_user&quot;
+        class=&quot;committer&quot;&gt;test_user&lt;/a&gt; committed &lt;a href=&quot;/test_user/jekyll/commit/d0595dc76198a930d1e95c89fab181372cdf2159&quot;&gt;d0595dc&lt;/a&gt;\n\n
+        \       &lt;div class=&quot;message&quot;&gt;\n          &lt;blockquote&gt;fixed
+        markdown rendering bug&lt;/blockquote&gt;\n        &lt;/div&gt;\n      &lt;/li&gt;\n
+        \   &lt;/ul&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n</content>\n  </entry>\n  <entry>\n
+        \   <id>tag:github.com,2008:PushEvent/1547811345</id>\n    <published>2012-05-02T03:23:19Z</published>\n
+        \   <updated>2012-05-02T03:23:19Z</updated>\n    <link type=\"text/html\"
+        rel=\"alternate\" href=\"https://github.com/test_user/psychedeli.ca/compare/4ec6b54d22...374358f5af\"/>\n
+        \   <title type=\"html\">test_user pushed to master at test_user/psychedeli.ca</title>\n
+        \   <author>\n      <name>test_user</name>\n      <email>tom.scott@elocal.com</email>\n
+        \     <uri>https://github.com/test_user</uri>\n    </author>\n    <media:thumbnail
+        height=\"30\" width=\"30\" url=\"https://secure.gravatar.com/avatar/0f985a758113f6502f668b09d2b15fc2?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png\"/>\n
+        \   <content type=\"html\">&lt;span class=&quot;mini-icon push&quot;&gt;&lt;/span&gt;\n\n&lt;div
+        class=&quot;title&quot;&gt;\n  &lt;a href=&quot;/test_user&quot;&gt;test_user&lt;/a&gt;
+        &lt;span&gt;pushed&lt;/span&gt; to master at &lt;a href=&quot;/test_user/psychedeli.ca&quot;&gt;test_user/psychedeli.ca&lt;/a&gt;\n
+        \ &lt;time class=&quot;js-relative-date&quot; datetime=&quot;2012-05-02T03:23:19Z&quot;
+        title=&quot;2012-05-02 03:23:19&quot;&gt;May 02, 2012&lt;/time&gt;\n&lt;/div&gt;\n&lt;div
+        class=&quot;details&quot;&gt;\n  \n\n  &lt;div class=&quot;commits&quot;&gt;\n
+        \   &lt;ul&gt;\n      &lt;li&gt;\n      &lt;a href=&quot;/test_user&quot;
+        class=&quot;committer&quot;&gt;test_user&lt;/a&gt; committed &lt;a href=&quot;/test_user/psychedeli.ca/commit/374358f5af3e73bd1a9a594e27cf5fd41ed8bb87&quot;&gt;374358f&lt;/a&gt;\n\n
+        \       &lt;div class=&quot;message&quot;&gt;\n          &lt;blockquote&gt;updated
+        deploy script to add jekyll compile&lt;/blockquote&gt;\n        &lt;/div&gt;\n
+        \     &lt;/li&gt;\n    &lt;/ul&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n</content>\n
+        \ </entry>\n  <entry>\n    <id>tag:github.com,2008:PushEvent/1547809256</id>\n
+        \   <published>2012-05-02T03:11:54Z</published>\n    <updated>2012-05-02T03:11:54Z</updated>\n
+        \   <link type=\"text/html\" rel=\"alternate\" href=\"https://github.com/test_user/psychedeli.ca/compare/abf6845592...4ec6b54d22\"/>\n
+        \   <title type=\"html\">test_user pushed to master at test_user/psychedeli.ca</title>\n
+        \   <author>\n      <name>test_user</name>\n      <email>tom.scott@elocal.com</email>\n
+        \     <uri>https://github.com/test_user</uri>\n    </author>\n    <media:thumbnail
+        height=\"30\" width=\"30\" url=\"https://secure.gravatar.com/avatar/0f985a758113f6502f668b09d2b15fc2?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png\"/>\n
+        \   <content type=\"html\">&lt;span class=&quot;mini-icon push&quot;&gt;&lt;/span&gt;\n\n&lt;div
+        class=&quot;title&quot;&gt;\n  &lt;a href=&quot;/test_user&quot;&gt;test_user&lt;/a&gt;
+        &lt;span&gt;pushed&lt;/span&gt; to master at &lt;a href=&quot;/test_user/psychedeli.ca&quot;&gt;test_user/psychedeli.ca&lt;/a&gt;\n
+        \ &lt;time class=&quot;js-relative-date&quot; datetime=&quot;2012-05-02T03:11:54Z&quot;
+        title=&quot;2012-05-02 03:11:54&quot;&gt;May 02, 2012&lt;/time&gt;\n&lt;/div&gt;\n&lt;div
+        class=&quot;details&quot;&gt;\n  \n\n  &lt;div class=&quot;commits&quot;&gt;\n
+        \   &lt;ul&gt;\n      &lt;li&gt;\n      &lt;a href=&quot;/test_user&quot;
+        class=&quot;committer&quot;&gt;test_user&lt;/a&gt; committed &lt;a href=&quot;/test_user/psychedeli.ca/commit/4ec6b54d22ae8d1a5bf61b6d73b49cb362fdb9cf&quot;&gt;4ec6b54&lt;/a&gt;\n\n
+        \       &lt;div class=&quot;message&quot;&gt;\n          &lt;blockquote&gt;Finalized
+        new article.&lt;/blockquote&gt;\n        &lt;/div&gt;\n      &lt;/li&gt;\n
+        \     &lt;li&gt;\n      &lt;a href=&quot;/test_user&quot; class=&quot;committer&quot;&gt;test_user&lt;/a&gt;
+        committed &lt;a href=&quot;/test_user/psychedeli.ca/commit/0d7d3beeecb89dc4724534bf87c20cdea4c9b17f&quot;&gt;0d7d3be&lt;/a&gt;\n\n
+        \       &lt;div class=&quot;message&quot;&gt;\n          &lt;blockquote&gt;updated
+        sidebar&lt;/blockquote&gt;\n        &lt;/div&gt;\n      &lt;/li&gt;\n      &lt;li
+        class=&quot;more&quot;&gt;&lt;a href=&quot;https://github.com/test_user/psychedeli.ca/compare/abf6845592...4ec6b54d22&quot;&gt;View
+        comparison for these 2 commits &amp;raquo;&lt;/a&gt;&lt;/li&gt;\n    &lt;/ul&gt;\n
+        \ &lt;/div&gt;\n&lt;/div&gt;\n</content>\n  </entry>\n  <entry>\n    <id>tag:github.com,2008:PushEvent/1547770845</id>\n
+        \   <published>2012-05-02T00:21:11Z</published>\n    <updated>2012-05-02T00:21:11Z</updated>\n
+        \   <link type=\"text/html\" rel=\"alternate\" href=\"https://github.com/test_user/psychedeli.ca/compare/464bd682fb...abf6845592\"/>\n
+        \   <title type=\"html\">test_user pushed to master at test_user/psychedeli.ca</title>\n
+        \   <author>\n      <name>test_user</name>\n      <email>tom.scott@elocal.com</email>\n
+        \     <uri>https://github.com/test_user</uri>\n    </author>\n    <media:thumbnail
+        height=\"30\" width=\"30\" url=\"https://secure.gravatar.com/avatar/0f985a758113f6502f668b09d2b15fc2?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png\"/>\n
+        \   <content type=\"html\">&lt;span class=&quot;mini-icon push&quot;&gt;&lt;/span&gt;\n\n&lt;div
+        class=&quot;title&quot;&gt;\n  &lt;a href=&quot;/test_user&quot;&gt;test_user&lt;/a&gt;
+        &lt;span&gt;pushed&lt;/span&gt; to master at &lt;a href=&quot;/test_user/psychedeli.ca&quot;&gt;test_user/psychedeli.ca&lt;/a&gt;\n
+        \ &lt;time class=&quot;js-relative-date&quot; datetime=&quot;2012-05-02T00:21:11Z&quot;
+        title=&quot;2012-05-02 00:21:11&quot;&gt;May 02, 2012&lt;/time&gt;\n&lt;/div&gt;\n&lt;div
+        class=&quot;details&quot;&gt;\n  \n\n  &lt;div class=&quot;commits&quot;&gt;\n
+        \   &lt;ul&gt;\n      &lt;li&gt;\n      &lt;a href=&quot;/test_user&quot;
+        class=&quot;committer&quot;&gt;test_user&lt;/a&gt; committed &lt;a href=&quot;/test_user/psychedeli.ca/commit/abf684559295c60e4a04921689598c134134a580&quot;&gt;abf6845&lt;/a&gt;\n\n
+        \       &lt;div class=&quot;message&quot;&gt;\n          &lt;blockquote&gt;New
+        article and CSS changes.&lt;br&gt;\n&lt;br&gt;\n- added scrollbar overflow
+        to &amp;lt;pre&amp;gt; and blockquotes&lt;br&gt;\n- updated the date for the
+        R&amp;amp;D article to today&lt;br&gt;\n- updated the body for the R&amp;amp;D
+        article and published it&lt;/blockquote&gt;\n        &lt;/div&gt;\n      &lt;/li&gt;\n
+        \   &lt;/ul&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n</content>\n  </entry>\n  <entry>\n
+        \   <id>tag:github.com,2008:PushEvent/1547415736</id>\n    <published>2012-05-01T03:20:36Z</published>\n
+        \   <updated>2012-05-01T03:20:36Z</updated>\n    <link type=\"text/html\"
+        rel=\"alternate\" href=\"https://github.com/test_user/psychedeli.ca/compare/2681e14d5c...464bd682fb\"/>\n
+        \   <title type=\"html\">test_user pushed to master at test_user/psychedeli.ca</title>\n
+        \   <author>\n      <name>test_user</name>\n      <email>tom.scott@elocal.com</email>\n
+        \     <uri>https://github.com/test_user</uri>\n    </author>\n    <media:thumbnail
+        height=\"30\" width=\"30\" url=\"https://secure.gravatar.com/avatar/0f985a758113f6502f668b09d2b15fc2?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png\"/>\n
+        \   <content type=\"html\">&lt;span class=&quot;mini-icon push&quot;&gt;&lt;/span&gt;\n\n&lt;div
+        class=&quot;title&quot;&gt;\n  &lt;a href=&quot;/test_user&quot;&gt;test_user&lt;/a&gt;
+        &lt;span&gt;pushed&lt;/span&gt; to master at &lt;a href=&quot;/test_user/psychedeli.ca&quot;&gt;test_user/psychedeli.ca&lt;/a&gt;\n
+        \ &lt;time class=&quot;js-relative-date&quot; datetime=&quot;2012-05-01T03:20:36Z&quot;
+        title=&quot;2012-05-01 03:20:36&quot;&gt;May 01, 2012&lt;/time&gt;\n&lt;/div&gt;\n&lt;div
+        class=&quot;details&quot;&gt;\n  \n\n  &lt;div class=&quot;commits&quot;&gt;\n
+        \   &lt;ul&gt;\n      &lt;li&gt;\n      &lt;a href=&quot;/test_user&quot;
+        class=&quot;committer&quot;&gt;test_user&lt;/a&gt; committed &lt;a href=&quot;/test_user/psychedeli.ca/commit/464bd682fb91e54bb87fc4d1f48d4ffd8ba58cc8&quot;&gt;464bd68&lt;/a&gt;\n\n
+        \       &lt;div class=&quot;message&quot;&gt;\n          &lt;blockquote&gt;saved
+        christmas. cleaning up public/ from now on&lt;/blockquote&gt;\n        &lt;/div&gt;\n
+        \     &lt;/li&gt;\n      &lt;li&gt;\n      &lt;a href=&quot;/test_user&quot;
+        class=&quot;committer&quot;&gt;test_user&lt;/a&gt; committed &lt;a href=&quot;/test_user/psychedeli.ca/commit/771ae12a7353529edad7e0d19b15cd832de95441&quot;&gt;771ae12&lt;/a&gt;\n\n
+        \       &lt;div class=&quot;message&quot;&gt;\n          &lt;blockquote&gt;don&amp;#39;t
+        jekyll this time&lt;/blockquote&gt;\n        &lt;/div&gt;\n      &lt;/li&gt;\n
+        \     &lt;li class=&quot;more&quot;&gt;&lt;a href=&quot;https://github.com/test_user/psychedeli.ca/compare/2681e14d5c...464bd682fb&quot;&gt;View
+        comparison for these 2 commits &amp;raquo;&lt;/a&gt;&lt;/li&gt;\n    &lt;/ul&gt;\n
+        \ &lt;/div&gt;\n&lt;/div&gt;\n</content>\n  </entry>\n  <entry>\n    <id>tag:github.com,2008:FollowEvent/1547414383</id>\n
+        \   <published>2012-05-01T03:12:15Z</published>\n    <updated>2012-05-01T03:12:15Z</updated>\n
+        \   <link type=\"text/html\" rel=\"alternate\" href=\"https://github.com/josh\"/>\n
+        \   <title type=\"html\">test_user started following josh</title>\n    <author>\n
+        \     <name>test_user</name>\n      <email>tom.scott@elocal.com</email>\n
+        \     <uri>https://github.com/test_user</uri>\n    </author>\n    <media:thumbnail
+        height=\"30\" width=\"30\" url=\"https://secure.gravatar.com/avatar/0f985a758113f6502f668b09d2b15fc2?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png\"/>\n
+        \   <content type=\"html\">&lt;span class=&quot;mini-icon follow&quot;&gt;&lt;/span&gt;\n\n&lt;div
+        class=&quot;title&quot;&gt;\n  &lt;a href=&quot;/test_user&quot;&gt;test_user&lt;/a&gt;
+        &lt;span&gt;started following&lt;/span&gt; &lt;a href=&quot;/josh&quot;&gt;josh&lt;/a&gt;\n
+        \ &lt;time class=&quot;js-relative-date&quot; datetime=&quot;2012-05-01T03:12:15Z&quot;
+        title=&quot;2012-05-01 03:12:15&quot;&gt;May 01, 2012&lt;/time&gt;\n&lt;/div&gt;\n&lt;div
+        class=&quot;details&quot;&gt;\n  \n  &lt;div class=&quot;message&quot;&gt;\n
+        \   josh has\n    87\n    public repos\n    and 769 followers\n  &lt;/div&gt;\n&lt;/div&gt;</content>\n
+        \ </entry>\n  <entry>\n    <id>tag:github.com,2008:PushEvent/1547180384</id>\n
+        \   <published>2012-04-30T16:10:02Z</published>\n    <updated>2012-04-30T16:10:02Z</updated>\n
+        \   <link type=\"text/html\" rel=\"alternate\" href=\"https://github.com/test_user/santeria/compare/b32eccc427...d104d53c49\"/>\n
+        \   <title type=\"html\">test_user pushed to master at test_user/santeria</title>\n
+        \   <author>\n      <name>test_user</name>\n      <email>tom.scott@elocal.com</email>\n
+        \     <uri>https://github.com/test_user</uri>\n    </author>\n    <media:thumbnail
+        height=\"30\" width=\"30\" url=\"https://secure.gravatar.com/avatar/0f985a758113f6502f668b09d2b15fc2?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png\"/>\n
+        \   <content type=\"html\">&lt;span class=&quot;mini-icon push&quot;&gt;&lt;/span&gt;\n\n&lt;div
+        class=&quot;title&quot;&gt;\n  &lt;a href=&quot;/test_user&quot;&gt;test_user&lt;/a&gt;
+        &lt;span&gt;pushed&lt;/span&gt; to master at &lt;a href=&quot;/test_user/santeria&quot;&gt;test_user/santeria&lt;/a&gt;\n
+        \ &lt;time class=&quot;js-relative-date&quot; datetime=&quot;2012-04-30T16:10:02Z&quot;
+        title=&quot;2012-04-30 16:10:02&quot;&gt;April 30, 2012&lt;/time&gt;\n&lt;/div&gt;\n&lt;div
+        class=&quot;details&quot;&gt;\n  \n\n  &lt;div class=&quot;commits&quot;&gt;\n
+        \   &lt;ul&gt;\n      &lt;li&gt;\n      &lt;a href=&quot;/test_user&quot;
+        class=&quot;committer&quot;&gt;test_user&lt;/a&gt; committed &lt;a href=&quot;/test_user/santeria/commit/d104d53c49d0a84aea9513372253444679728ff3&quot;&gt;d104d53&lt;/a&gt;\n\n
+        \       &lt;div class=&quot;message&quot;&gt;\n          &lt;blockquote&gt;Starting
+        Vintage mode in &amp;quot;COMMAND MODE&amp;quot;, and word wrap by default.&lt;/blockquote&gt;\n
+        \       &lt;/div&gt;\n      &lt;/li&gt;\n    &lt;/ul&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n</content>\n
+        \ </entry>\n  <entry>\n    <id>tag:github.com,2008:PushEvent/1547180338</id>\n
+        \   <published>2012-04-30T16:09:58Z</published>\n    <updated>2012-04-30T16:09:58Z</updated>\n
+        \   <link type=\"text/html\" rel=\"alternate\" href=\"https://github.com/test_user/sublime-packages/compare/43220c646b...cb440eea8a\"/>\n
+        \   <title type=\"html\">test_user pushed to master at test_user/sublime-packages</title>\n
+        \   <author>\n      <name>test_user</name>\n      <email>tom.scott@elocal.com</email>\n
+        \     <uri>https://github.com/test_user</uri>\n    </author>\n    <media:thumbnail
+        height=\"30\" width=\"30\" url=\"https://secure.gravatar.com/avatar/0f985a758113f6502f668b09d2b15fc2?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png\"/>\n
+        \   <content type=\"html\">&lt;span class=&quot;mini-icon push&quot;&gt;&lt;/span&gt;\n\n&lt;div
+        class=&quot;title&quot;&gt;\n  &lt;a href=&quot;/test_user&quot;&gt;test_user&lt;/a&gt;
+        &lt;span&gt;pushed&lt;/span&gt; to master at &lt;a href=&quot;/test_user/sublime-packages&quot;&gt;test_user/sublime-packages&lt;/a&gt;\n
+        \ &lt;time class=&quot;js-relative-date&quot; datetime=&quot;2012-04-30T16:09:58Z&quot;
+        title=&quot;2012-04-30 16:09:58&quot;&gt;April 30, 2012&lt;/time&gt;\n&lt;/div&gt;\n&lt;div
+        class=&quot;details&quot;&gt;\n  \n\n  &lt;div class=&quot;commits&quot;&gt;\n
+        \   &lt;ul&gt;\n      &lt;li&gt;\n      &lt;a href=&quot;/test_user&quot;
+        class=&quot;committer&quot;&gt;test_user&lt;/a&gt; committed &lt;a href=&quot;/test_user/sublime-packages/commit/cb440eea8adefa6c615e2290046653ea6207feae&quot;&gt;cb440ee&lt;/a&gt;\n\n
+        \       &lt;div class=&quot;message&quot;&gt;\n          &lt;blockquote&gt;additions
+        and upgrades&lt;br&gt;\n&lt;br&gt;\n- added Alignment&lt;br&gt;\n- added LESS&lt;br&gt;\n-
+        added VintageEx&lt;br&gt;\n- updated Markdown Preview&lt;br&gt;\n- updated
+        SublimeLinter&lt;/blockquote&gt;\n        &lt;/div&gt;\n      &lt;/li&gt;\n
+        \   &lt;/ul&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n</content>\n  </entry>\n</feed>\n"
+    http_version: 
+  recorded_at: Mon, 07 May 2012 00:47:02 GMT
+- request:
+    method: get
+    uri: https://api.twitter.com/1/statuses/user_timeline.json?screen_name=test_user
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - Twitter Ruby Gem 2.2.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: !binary |-
+        T0s=
+    headers:
+      !binary "WC1SYXRlbGltaXQtTGltaXQ=":
+      - !binary |-
+        MTUw
+      !binary "WC1SYXRlbGltaXQtUmVtYWluaW5n":
+      - !binary |-
+        MTQ2
+      !binary "WC1SYXRlbGltaXQtUmVzZXQ=":
+      - !binary |-
+        MTMzNjM1Mzk1Mg==
+      !binary "WC1SYXRlbGltaXQtQ2xhc3M=":
+      - !binary |-
+        YXBp
+      !binary "Q29udGVudC1UeXBl":
+      - !binary |-
+        YXBwbGljYXRpb24vanNvbjtjaGFyc2V0PXV0Zi04
+      !binary "U2V0LUNvb2tpZQ==":
+      - !binary |-
+        Z3Vlc3RfaWQ9InYxOjEzMzYzNTE4MjY5MjQ2MDczOCI7RXhwaXJlcz1XZWQs
+        IDctTWF5LTE0IDAwOjUwOjI2IEdNVDtQYXRoPS87RG9tYWluPS50d2l0dGVy
+        LmNvbQ==
+      - !binary |-
+        az03Ni4xMjQuMTI3LjM2LjY0NWEwYjc0OTY5ZWVlYjk7IHBhdGg9LzsgZXhw
+        aXJlcz1Nb24sIDE0LU1heS0yMDEyIDAwOjUwOjI2IFVUQzsgZG9tYWluPS5h
+        cGkudHdpdHRlci5jb207IGh0dHBvbmx5
+      !binary "TGFzdC1Nb2RpZmllZA==":
+      - !binary |-
+        TW9uLCAwNyBNYXkgMjAxMiAwMDo1MDoyNiBHTVQ=
+      !binary "RXhwaXJlcw==":
+      - !binary |-
+        VHVlLCAzMSBNYXIgMTk4MSAwNTowMDowMCBHTVQ=
+      !binary "UHJhZ21h":
+      - !binary |-
+        bm8tY2FjaGU=
+      !binary "Q2FjaGUtQ29udHJvbA==":
+      - !binary |-
+        bm8tY2FjaGUsIG5vLXN0b3JlLCBtdXN0LXJldmFsaWRhdGUsIHByZS1jaGVj
+        az0wLCBwb3N0LWNoZWNrPTA=
+      !binary "WC1UcmFuc2FjdGlvbg==":
+      - !binary |-
+        OTM2NjVhZTg4MzgyMmRiMw==
+      !binary "WC1GcmFtZS1PcHRpb25z":
+      - !binary |-
+        U0FNRU9SSUdJTg==
+      !binary "U3RhdHVz":
+      - !binary |-
+        MjAwIE9L
+      !binary "RGF0ZQ==":
+      - !binary |-
+        TW9uLCAwNyBNYXkgMjAxMiAwMDo1MDoyNiBHTVQ=
+      !binary "Q29udGVudC1FbmNvZGluZw==":
+      - !binary |-
+        Z3ppcA==
+      !binary "Q29udGVudC1MZW5ndGg=":
+      - !binary |-
+        Njc0
+      !binary "U2VydmVy":
+      - !binary |-
+        dGZl
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAC/+xVX5OaMBD/Kg6vtQKiePLYep1OZ/oJSicTwoIZQ2KTcPR6
+        c9+9GxBEPa/ttG+VBzS/3f1l/7C7X548poFayAm1XuJ9VnLyicpJsJoEcTJf
+        JsvV5E2Az2QeBHfe1OO5h1gQr5ZxOHdHYqxGwwFDHQvfHVdaR8FiPn6jzKha
+        M0BpA5lT1bVk7novKagwgIySaNiLR2IVUlNbG+LulLUQV4SdB5cKtQF9xfYg
+        umZpMCcgiaQV9GJn4SVPbfxhuI7CKBqH30MYUmeFSTC2vccFPeY7kQiF0XMl
+        EcZTDqjJ90eg1qJ3YK+VBTbOVKGEUA1oQ5iqJWZ8iZjmIPMBCfEGblx1D0Aw
+        fbXeURIsTutd0AesGEefRxS1ZUQVhQE8vo1iVMdK8grIDyVdhB9pQzlH6xIU
+        AUkzMXL7ATQv+AjoCnm8APMqqCyRByRyMCWt5lltFUZ6TsYNsZpKIyiKBxRz
+        VXABJKNsV2pkdfELp+C9Dzb39xvvRR1e0RJIm3Nva+0+Sf3Up8HMNrwqZ0xV
+        qd+qmNS3W6iG3zD1s3K2R5dfpyWO1BzITctu+F/TWzxfRP4boRjL2e4x9XMo
+        aC0sOTE1l3hApNIVFWee/EF0/+hGweVuqCd+pYt3i5HU8BwyqkmmdI5NfrXu
+        vR4exKC1QaUP8UjLjbJBGrXPSIpf7UWhvQRnmvuqt6ohFLm5RIeBVJBzOtTp
+        LNTe6MXM9MKu37nrjG4kdACOrW+1GykGXPd0IqksNlk3W0wHPrft2Cswhfnh
+        EieBGSaMoAyO8mPX9ZgG2wDY0SBw08ENh2NDHnQG5Hn6qw0TXdswi/XqYsM4
+        7HTDsNi9s3X7/+62YW4b5rZhbhvmtmH+nw3z9ScAAAD//wMATIaFUsUMAAA=
+    http_version: 
+  recorded_at: Mon, 07 May 2012 00:50:26 GMT
+- request:
+    method: get
+    uri: https://graph.facebook.com/test_user/posts?access_token=AAAvalidAccessKeyID
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 500
+      message: ''
+    headers:
+      Access-Control-Allow-Origin:
+      - ! '*'
+      Cache-Control:
+      - no-store
+      Content-Type:
+      - text/javascript; charset=UTF-8
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Pragma:
+      - no-cache
+      Www-Authenticate:
+      - OAuth "Facebook Platform" "unknown_error" "An unexpected error has occurred.
+        Please retry your request later."
+      X-Fb-Rev:
+      - '552853'
+      X-Fb-Debug:
+      - Z5S5YcebDFjnLc9W6JOVYWIbLCKPcW5WS3+OXuIOw3o=
+      Date:
+      - Mon, 07 May 2012 00:50:27 GMT
+      Content-Length:
+      - '123'
+      Connection:
+      - keep-alive
+    body:
+      encoding: US-ASCII
+      string: ! '{"error":{"message":"An unexpected error has occurred. Please retry
+        your request later.","type":"OAuthException","code":2}}'
+    http_version: 
+  recorded_at: Mon, 07 May 2012 00:50:27 GMT
+- request:
+    method: get
+    uri: https://graph.facebook.com/test_user/posts?access_token=AAAvalidAccessKeyID
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 404
+      message: ''
+    headers:
+      Access-Control-Allow-Origin:
+      - ! '*'
+      Cache-Control:
+      - no-store
+      Content-Type:
+      - text/javascript; charset=UTF-8
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Pragma:
+      - no-cache
+      Www-Authenticate:
+      - ! 'OAuth "Facebook Platform" "not_found" "(#803) Some of the aliases you requested
+        do not exist: test_user"'
+      X-Fb-Rev:
+      - '552853'
+      X-Fb-Debug:
+      - XfCWni/9cdF0GV0SjP2KXM/PORWHS1kgSGbeTzQBziU=
+      Date:
+      - Mon, 07 May 2012 01:00:10 GMT
+      Content-Length:
+      - '123'
+      Connection:
+      - keep-alive
+    body:
+      encoding: US-ASCII
+      string: ! '{"error":{"message":"(#803) Some of the aliases you requested do
+        not exist: test_user","type":"OAuthException","code":803}}'
+    http_version: 
+  recorded_at: Mon, 07 May 2012 01:00:10 GMT
+- request:
+    method: get
+    uri: https://api.twitter.com/1/statuses/user_timeline.json?screen_name=test_user
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - Twitter Ruby Gem 2.2.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: !binary |-
+        T0s=
+    headers:
+      !binary "WC1SYXRlbGltaXQtTGltaXQ=":
+      - !binary |-
+        MTUw
+      !binary "WC1SYXRlbGltaXQtUmVtYWluaW5n":
+      - !binary |-
+        MTQ4
+      !binary "WC1SYXRlbGltaXQtUmVzZXQ=":
+      - !binary |-
+        MTMzNjM1NzU1Mg==
+      !binary "WC1SYXRlbGltaXQtQ2xhc3M=":
+      - !binary |-
+        YXBp
+      !binary "Q29udGVudC1UeXBl":
+      - !binary |-
+        YXBwbGljYXRpb24vanNvbjtjaGFyc2V0PXV0Zi04
+      !binary "U2V0LUNvb2tpZQ==":
+      - !binary |-
+        Z3Vlc3RfaWQ9InYxOjEzMzYzNTQzMDk4MzUxNzQ1NyI7RXhwaXJlcz1XZWQs
+        IDctTWF5LTE0IDAxOjMxOjQ5IEdNVDtQYXRoPS87RG9tYWluPS50d2l0dGVy
+        LmNvbQ==
+      - !binary |-
+        az03Ni4xMjQuMTI3LjM2LjY4ZGY2YzljOTI3MTZhZjU7IHBhdGg9LzsgZXhw
+        aXJlcz1Nb24sIDE0LU1heS0yMDEyIDAxOjMxOjQ5IFVUQzsgZG9tYWluPS5h
+        cGkudHdpdHRlci5jb207IGh0dHBvbmx5
+      !binary "TGFzdC1Nb2RpZmllZA==":
+      - !binary |-
+        TW9uLCAwNyBNYXkgMjAxMiAwMTozMTo0OSBHTVQ=
+      !binary "RXhwaXJlcw==":
+      - !binary |-
+        VHVlLCAzMSBNYXIgMTk4MSAwNTowMDowMCBHTVQ=
+      !binary "UHJhZ21h":
+      - !binary |-
+        bm8tY2FjaGU=
+      !binary "Q2FjaGUtQ29udHJvbA==":
+      - !binary |-
+        bm8tY2FjaGUsIG5vLXN0b3JlLCBtdXN0LXJldmFsaWRhdGUsIHByZS1jaGVj
+        az0wLCBwb3N0LWNoZWNrPTA=
+      !binary "WC1UcmFuc2FjdGlvbg==":
+      - !binary |-
+        Mjg0MWFjNWE5YTlkZWM5OQ==
+      !binary "WC1GcmFtZS1PcHRpb25z":
+      - !binary |-
+        U0FNRU9SSUdJTg==
+      !binary "U3RhdHVz":
+      - !binary |-
+        MjAwIE9L
+      !binary "RGF0ZQ==":
+      - !binary |-
+        TW9uLCAwNyBNYXkgMjAxMiAwMTozMTo0OSBHTVQ=
+      !binary "Q29udGVudC1FbmNvZGluZw==":
+      - !binary |-
+        Z3ppcA==
+      !binary "Q29udGVudC1MZW5ndGg=":
+      - !binary |-
+        MjcyNQ==
+      !binary "U2VydmVy":
+      - !binary |-
+        dGZl
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+        +Db4/jzw/du//gMAAP//AwAcRDK5dHoAAA==
+    http_version: 
+  recorded_at: Mon, 07 May 2012 01:31:49 GMT
+- request:
+    method: get
+    uri: https://graph.facebook.com/test_user/posts?access_token=AAAvalidAccessKeyID
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Access-Control-Allow-Origin:
+      - ! '*'
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Content-Type:
+      - text/javascript; charset=UTF-8
+      Etag:
+      - ! '"56cebb5f42368f70c6178f3e93c463a0061d40d1"'
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Pragma:
+      - no-cache
+      X-Fb-Rev:
+      - '552853'
+      Content-Encoding:
+      - gzip
+      X-Fb-Debug:
+      - hdnokdee+VNRgDuuS3el+P0NOS30pb5vDfHnMgrnpwk=
+      Date:
+      - Mon, 07 May 2012 01:31:51 GMT
+      Content-Length:
+      - '2099'
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA9VY+2/bOBL+V3j+IbuHs2XqLRkIFs6zbZJrmgSbNOeFQEmU
+        xVoSdSIVx1fkf9+hLNuK47QprofFNUUe0nA4z++b8ddeTCTpjf71tcfi3qin
+        W67pmxjbRmCYpqmbnm9alm46Rq/fSyqe90ZfewXJKcje8BxdR1xKeLV1uPfU
+        70muZNfqV4dSim55EdMKHZBKwNGISDrl1QI0XtSCRYwUk2FIinil1sCG6zme
+        bukO6F1ff3l8h67rPAdNJ1RI9kAyZGBdGSokqWQgWWOmejbAzsDwb7A/whj+
+        gwgt4ucC7gAbN7q9Fsg4GMZ4ARoOSV6iK5KHGZ1zvrbLNGzXci3H0i0D21bv
+        6Q/wOqdCkKm6N18g5QW6ee4xmrMsQyFFJa0SXuWsmCIi0WveaCjiOUW8lkgp
+        E2SBUvY3NPo7ynlFUUwlYZlYK61oRomgMSLwjKIplSjKuIAYSY4kWEIfaCE1
+        CEBraCDJVKhEeZsi6Aa8v872i8TJRan8LJW7/R5PEkFlb+T1exktpjLtjXT7
+        6Y9+z3I2mrdDttb+jWS21zSGd+6xnM1FhtXEvmSRrCtlUyplKUaT4WQoBvRR
+        0qogmUZmWhJGcaEVVMILktCA5WC8Vqblb/H++NMBC95dWOb16dR4ND/uzfd9
+        vJeqb3WV7SuVkxpjwzbHy5/GyernfD7XSvoommpM2mLUIHErgTphGRWrv85p
+        Ii9TLvn6SUXjjEk6KJungQ1lZfhQuF6QD3TtSzkFxzNWzFrXGs9ev3R4AKUi
+        JkMLO3CubbwdEW6ar2yL/FV1IBVTEVVsJXnCK0SynAuJUpIliEAVRiSm/abA
+        Os0Nrx8o1G8hmJCQvQw6gtICldBWlFYC8QRdpiyDs1mZMvKLQBmDE1DDkax4
+        wSKUK0RAIqIF1dAFYQXoYIUoGUQMhQuU0Sl0slDlfkQSaKO6mPXRYUpzFgEe
+        HFQcbKpEH43LlD6imzkrmj46q0B6TqsZ+nWecjTndRYj8DKl88aLow+oJBWJ
+        2TRv5OFOSUmMohSaSfVS271KmFWtmWArNPPyCZ8XSNB/a5rqNQYx2KpKgCjJ
+        oqYmSURDzmdNvQwrUUWqICfDB30yXBzBk8mQXHs0yj9fLQTWpiwBjW1TNDXR
+        75GyzMDfZSbXAHkOLxXANthsmNj3HN91DYXNUUUBdbcQ0AaUvNGNkaVQ8h8Y
+        /sHhugQEf5Nkxma0QZJtyD+jVcUgeRVTONFYY3uABI7l211APyWxwiso3imE
+        vpgOrmVFmegwgYuxBQdtvXvsAtpKN3whkOpH+E1pWVOScgPrjmGYlm2C7wBI
+        Ea8BSUamigOHji1kY3b7GD8pjnlBhmCw7viGZ5mebXg/TIZCLhluzZlIpETV
+        8DUYA/U7FouszqEBGgRQNdOcWKOz7nY42rct23Vs27c7/f1MUQcndbcDyOa6
+        chrUVtHAa8Ub7t+AfofiVwCPN/r8tboaKGZJgLtAuIHdFtwGBIqe5ISl8RKI
+        0yXoDchsIIrInQwhwq7jBzrWbexanmlargG+uoHecTzwXdN2XBz4vg6SUBiB
+        +AZQPm+yZZAV7Cchi/df3LQHTLZPNEN3TdeGWyHQmm6ZvutrXRv2VBfu6xuM
+        vSVA7Utkh4dlxQElJFNdAfNVi8MHC9W+QEpQDds5SyuabEP8c8tFUy6kqZZi
+        0STwfwYuTZRUJYVfAI+DZUtsJ+Vnoo99o3sjbIx083vo00gaMMrZK8lX0ee8
+        joAc3hdJVj+uUUHXbQ97rom7gKBvAcLrk/FzMAh0y8bOrgn5jCwyukCHGbT6
+        9pCMYWDsjoshSdVX8+351/cfdOU1NIUZFWW8ijXE0JcaaFrBKtASMBeZJ3WG
+        koyINCTRTCgqm6fAyWpaXZJlS4YAPwoaUa2GS5kiUUMxC05mIDGtC6EhUAmD
+        q0iZRAyAC8gZdCvoeo1dmqypFHvLrL0BaNvYKpzb2j4+8MVAcQpEl1O5CW8D
+        +K4BPOE7DVF0RvLRr9+zrlNTHaowdnKCqfDJNG3XhoXpJzCCmjOueAhTzS0N
+        QwQ1gwo+RwnwJvT8Dk6w1tDtwv6h27YJgNzCzEZRlwusDhcAjrdTRAveP58L
+        Wv1q1qmbVe+VsQMKw1GLl+W/ofG3JN9M4Spdluc52NfdHfX0nW32JYE3iINu
+        aEWLiKKL6IwWBdmRpc36ozuOZ5smrA6Qh9U+/Px8N1mdBUe3/1LirrjaX3Yw
+        9+pFQ93WZGhjmLOCjp+BZZouTJ1B8XZyhskElpc2sIM2sJNhR+uGcbfC/2yj
+        uaxDmIrRCZuqpXB7i1mdPKOw3LeXoDlQBUHzCnaxqg+zGIPdmcPmAH+o7qQy
+        LXjIJSlgodHQO6qAr+AwHyNY5WExFygnxQKJkkZ11szjsOQUzUYBTQb7zn+7
+        D/yz2QceD13PljeH7z993LkPfKPP7JHhjHTjDX22JfkDfWY5voUtGMlc8yfB
+        4lGIjij9Ah9+/Agq6o5lGLCn+5t2Wyt6BRVfTLR/JSiqz6rskfWGaWhbcney
+        YFiEsR92VLXulBV9YBxguftpybQiZbq1kco6DPlkWMK+L34jUQQfcAWSz2ix
+        Px6PjyO+uP50XuGD8cXdafGfjyTF0+T4/JKUYXT9znp0Wfr7Hft8e3cc3o/v
+        D93bLLs/PLVv8fHZjSEX77PpcXlHD27jHH+I3z34j8fz7PersxN8enWbHUUn
+        R6eL+zEJz+64fVC79+Pjz3sZy5ncN+w9WLcjmL9N0zGxZ1t4LwhWXi2n8uWU
+        vfkw6P/LPdhSWda4B4RlWrC8Pv0JOWFcDq8VAAA=
+    http_version: 
+  recorded_at: Mon, 07 May 2012 01:31:51 GMT
+- request:
+    method: get
+    uri: https://graph.facebook.com/test_user/posts?access_token=AAAvalidAccessKeyID
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Access-Control-Allow-Origin:
+      - ! '*'
+      Cache-Control:
+      - no-store
+      Content-Type:
+      - text/javascript; charset=UTF-8
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Pragma:
+      - no-cache
+      Www-Authenticate:
+      - ! 'OAuth "Facebook Platform" "not_found" "(#803) Some of the aliases you requested
+        do not exist: test_user"'
+      X-Fb-Rev:
+      - '552853'
+      X-Fb-Debug:
+      - MQVt0BiPP7iz3UgeyR/iFM61NVhUw3cGD00jgXKK7F4=
+      X-Cnection:
+      - close
+      Date:
+      - Mon, 07 May 2012 01:34:50 GMT
+      Content-Length:
+      - '123'
+    body:
+      encoding: US-ASCII
+      string: ! '{"error":{"message":"(#803) Some of the aliases you requested do
+        not exist: test_user","type":"OAuthException","code":803}}'
+    http_version: 
+  recorded_at: Mon, 07 May 2012 01:34:50 GMT
+- request:
+    method: get
+    uri: https://github.com/test_user.atom
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Server:
+      - nginx/1.0.13
+      Date:
+      - Mon, 07 May 2012 01:35:00 GMT
+      Content-Type:
+      - application/atom+xml; charset=utf-8
+      Connection:
+      - keep-alive
+      Status:
+      - 404 Not Found
+      X-Frame-Options:
+      - deny
+      X-Runtime:
+      - '9'
+      Content-Length:
+      - '9'
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=2592000
+    body:
+      encoding: US-ASCII
+      string: Not Found
+    http_version: 
+  recorded_at: Mon, 07 May 2012 01:35:01 GMT
+- request:
+    method: get
+    uri: https://api.twitter.com/1/statuses/user_timeline.json?screen_name=tubbo
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - Twitter Ruby Gem 2.2.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: !binary |-
+        T0s=
+    headers:
+      !binary "WC1SYXRlbGltaXQtTGltaXQ=":
+      - !binary |-
+        MTUw
+      !binary "WC1SYXRlbGltaXQtUmVtYWluaW5n":
+      - !binary |-
+        MTQ3
+      !binary "WC1SYXRlbGltaXQtUmVzZXQ=":
+      - !binary |-
+        MTMzNjM1NzU1Mg==
+      !binary "WC1SYXRlbGltaXQtQ2xhc3M=":
+      - !binary |-
+        YXBp
+      !binary "Q29udGVudC1UeXBl":
+      - !binary |-
+        YXBwbGljYXRpb24vanNvbjtjaGFyc2V0PXV0Zi04
+      !binary "U2V0LUNvb2tpZQ==":
+      - !binary |-
+        Z3Vlc3RfaWQ9InYxOjEzMzYzNTQ2MzgxNDk2MDk2OCI7RXhwaXJlcz1XZWQs
+        IDctTWF5LTE0IDAxOjM3OjE4IEdNVDtQYXRoPS87RG9tYWluPS50d2l0dGVy
+        LmNvbQ==
+      - !binary |-
+        az03Ni4xMjQuMTI3LjM2LjFiMzBhZDI1N2NmYjA1YmM7IHBhdGg9LzsgZXhw
+        aXJlcz1Nb24sIDE0LU1heS0yMDEyIDAxOjM3OjE4IFVUQzsgZG9tYWluPS5h
+        cGkudHdpdHRlci5jb207IGh0dHBvbmx5
+      !binary "TGFzdC1Nb2RpZmllZA==":
+      - !binary |-
+        TW9uLCAwNyBNYXkgMjAxMiAwMTozNzoxOCBHTVQ=
+      !binary "RXhwaXJlcw==":
+      - !binary |-
+        VHVlLCAzMSBNYXIgMTk4MSAwNTowMDowMCBHTVQ=
+      !binary "UHJhZ21h":
+      - !binary |-
+        bm8tY2FjaGU=
+      !binary "Q2FjaGUtQ29udHJvbA==":
+      - !binary |-
+        bm8tY2FjaGUsIG5vLXN0b3JlLCBtdXN0LXJldmFsaWRhdGUsIHByZS1jaGVj
+        az0wLCBwb3N0LWNoZWNrPTA=
+      !binary "WC1UcmFuc2FjdGlvbg==":
+      - !binary |-
+        ZmVlMTg3M2Y4YjI5NjcxNw==
+      !binary "WC1GcmFtZS1PcHRpb25z":
+      - !binary |-
+        U0FNRU9SSUdJTg==
+      !binary "U3RhdHVz":
+      - !binary |-
+        MjAwIE9L
+      !binary "RGF0ZQ==":
+      - !binary |-
+        TW9uLCAwNyBNYXkgMjAxMiAwMTozNzoxOCBHTVQ=
+      !binary "Q29udGVudC1FbmNvZGluZw==":
+      - !binary |-
+        Z3ppcA==
+      !binary "Q29udGVudC1MZW5ndGg=":
+      - !binary |-
+        MjcyNQ==
+      !binary "U2VydmVy":
+      - !binary |-
+        dGZl
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+        +Db4/jzw/du//gMAAP//AwAcRDK5dHoAAA==
+    http_version: 
+  recorded_at: Mon, 07 May 2012 01:37:18 GMT
+- request:
+    method: get
+    uri: https://graph.facebook.com/tubbo/posts?access_token=AAAEcoySQLr0BAMXGnzOah0gfELPapbcSH4x7ihVXiYWXEbZAZC7WllZCG5W0EKT2tyIlgEpXeBWdm0JdHv9xEwlVRKF0GRWlDcFDGyZAabKXo5Bu7ZAEY
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Access-Control-Allow-Origin:
+      - ! '*'
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Content-Type:
+      - text/javascript; charset=UTF-8
+      Etag:
+      - ! '"56cebb5f42368f70c6178f3e93c463a0061d40d1"'
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Pragma:
+      - no-cache
+      X-Fb-Rev:
+      - '552853'
+      Content-Encoding:
+      - gzip
+      X-Fb-Debug:
+      - Ml7SeufH6R0nsNv65gKL9gN9wfO5Ca5icLlrQqu+f6Y=
+      Date:
+      - Mon, 07 May 2012 01:37:19 GMT
+      Content-Length:
+      - '2099'
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+        vfkw6P/LPdhSWda4B4RlWrC8Pv0JOWFcDq8VAAA=
+    http_version: 
+  recorded_at: Mon, 07 May 2012 01:37:19 GMT
+- request:
+    method: get
+    uri: https://github.com/tubbo.atom
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.0.13
+      Date:
+      - Mon, 07 May 2012 01:37:19 GMT
+      Content-Type:
+      - application/atom+xml; charset=utf-8
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      Etag:
+      - ! '"950ee49fdbfff0bf15bffee77dece322"'
+      X-Frame-Options:
+      - deny
+      X-Runtime:
+      - '155'
+      Content-Length:
+      - '60142'
+      Cache-Control:
+      - private, max-age=0, must-revalidate
+      Strict-Transport-Security:
+      - max-age=2592000
+    body:
+      encoding: US-ASCII
+      string: ! "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<feed xmlns=\"http://www.w3.org/2005/Atom\"
         xmlns:media=\"http://search.yahoo.com/mrss/\" xml:lang=\"en-US\">\n  <id>tag:github.com,2008:/tubbo</id>\n
         \ <link type=\"text/html\" rel=\"alternate\" href=\"https://github.com/tubbo\"/>\n
         \ <link type=\"application/atom+xml\" rel=\"self\" href=\"https://github.com/tubbo.atom\"/>\n
-        \ <title>tubbo's Activity</title>\n  <updated>2012-05-07T00:41:28Z</updated>\n
-        \ <entry>\n    <id>tag:github.com,2008:PushEvent/1549367788</id>\n    <published>2012-05-07T00:41:28Z</published>\n
-        \   <updated>2012-05-07T00:41:28Z</updated>\n    <link type=\"text/html\"
-        rel=\"alternate\" href=\"https://github.com/tubbo/postal/compare/213b0193e0...eee0f54898\"/>\n
+        \ <title>tubbo's Activity</title>\n  <updated>2012-05-07T01:26:17Z</updated>\n
+        \ <entry>\n    <id>tag:github.com,2008:PushEvent/1549372781</id>\n    <published>2012-05-07T01:26:17Z</published>\n
+        \   <updated>2012-05-07T01:26:17Z</updated>\n    <link type=\"text/html\"
+        rel=\"alternate\" href=\"https://github.com/tubbo/psychedeli.ca/compare/998c5ff508...59e0fc0cb2\"/>\n
+        \   <title type=\"html\">tubbo pushed to master at tubbo/psychedeli.ca</title>\n
+        \   <author>\n      <name>tubbo</name>\n      <email>tom.scott@elocal.com</email>\n
+        \     <uri>https://github.com/tubbo</uri>\n    </author>\n    <media:thumbnail
+        height=\"30\" width=\"30\" url=\"https://secure.gravatar.com/avatar/0f985a758113f6502f668b09d2b15fc2?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png\"/>\n
+        \   <content type=\"html\">&lt;span class=&quot;mini-icon push&quot;&gt;&lt;/span&gt;\n\n&lt;div
+        class=&quot;title&quot;&gt;\n  &lt;a href=&quot;/tubbo&quot;&gt;tubbo&lt;/a&gt;
+        &lt;span&gt;pushed&lt;/span&gt; to master at &lt;a href=&quot;/tubbo/psychedeli.ca&quot;&gt;tubbo/psychedeli.ca&lt;/a&gt;\n
+        \ &lt;time class=&quot;js-relative-date&quot; datetime=&quot;2012-05-07T01:26:17Z&quot;
+        title=&quot;2012-05-07 01:26:17&quot;&gt;May 07, 2012&lt;/time&gt;\n&lt;/div&gt;\n&lt;div
+        class=&quot;details&quot;&gt;\n  \n\n  &lt;div class=&quot;commits&quot;&gt;\n
+        \   &lt;ul&gt;\n      &lt;li&gt;\n      &lt;a href=&quot;/tubbo&quot; class=&quot;committer&quot;&gt;tubbo&lt;/a&gt;
+        committed &lt;a href=&quot;/tubbo/psychedeli.ca/commit/59e0fc0cb2ce06402fe13ea656c5fbc93d414843&quot;&gt;59e0fc0&lt;/a&gt;\n\n
+        \       &lt;div class=&quot;message&quot;&gt;\n          &lt;blockquote&gt;Defer
+        this last integration test until VCR works.&lt;br&gt;\n&lt;br&gt;\n- Needs
+        ERb-infused VCR cassettes to work properly on CI. Learn how&lt;br&gt;\n  to
+        do that and revisit this test.&lt;br&gt;\n- Apart from that, all tests pass.&lt;/blockquote&gt;\n
+        \       &lt;/div&gt;\n      &lt;/li&gt;\n    &lt;/ul&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n</content>\n
+        \ </entry>\n  <entry>\n    <id>tag:github.com,2008:PushEvent/1549371210</id>\n
+        \   <published>2012-05-07T01:11:31Z</published>\n    <updated>2012-05-07T01:11:31Z</updated>\n
+        \   <link type=\"text/html\" rel=\"alternate\" href=\"https://github.com/tubbo/psychedeli.ca/compare/8fc3e90690...998c5ff508\"/>\n
+        \   <title type=\"html\">tubbo pushed to master at tubbo/psychedeli.ca</title>\n
+        \   <author>\n      <name>tubbo</name>\n      <email>tom.scott@elocal.com</email>\n
+        \     <uri>https://github.com/tubbo</uri>\n    </author>\n    <media:thumbnail
+        height=\"30\" width=\"30\" url=\"https://secure.gravatar.com/avatar/0f985a758113f6502f668b09d2b15fc2?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png\"/>\n
+        \   <content type=\"html\">&lt;span class=&quot;mini-icon push&quot;&gt;&lt;/span&gt;\n\n&lt;div
+        class=&quot;title&quot;&gt;\n  &lt;a href=&quot;/tubbo&quot;&gt;tubbo&lt;/a&gt;
+        &lt;span&gt;pushed&lt;/span&gt; to master at &lt;a href=&quot;/tubbo/psychedeli.ca&quot;&gt;tubbo/psychedeli.ca&lt;/a&gt;\n
+        \ &lt;time class=&quot;js-relative-date&quot; datetime=&quot;2012-05-07T01:11:31Z&quot;
+        title=&quot;2012-05-07 01:11:31&quot;&gt;May 07, 2012&lt;/time&gt;\n&lt;/div&gt;\n&lt;div
+        class=&quot;details&quot;&gt;\n  \n\n  &lt;div class=&quot;commits&quot;&gt;\n
+        \   &lt;ul&gt;\n      &lt;li&gt;\n      &lt;a href=&quot;/tubbo&quot; class=&quot;committer&quot;&gt;tubbo&lt;/a&gt;
+        committed &lt;a href=&quot;/tubbo/psychedeli.ca/commit/998c5ff5086dcb592a3f9d6ffbf2abf4a713e2b1&quot;&gt;998c5ff&lt;/a&gt;\n\n
+        \       &lt;div class=&quot;message&quot;&gt;\n          &lt;blockquote&gt;Move
+        VCR cassettes to test/fixtures/cassettes.&lt;/blockquote&gt;\n        &lt;/div&gt;\n
+        \     &lt;/li&gt;\n    &lt;/ul&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n</content>\n
+        \ </entry>\n  <entry>\n    <id>tag:github.com,2008:PushEvent/1549369382</id>\n
+        \   <published>2012-05-07T00:55:06Z</published>\n    <updated>2012-05-07T00:55:06Z</updated>\n
+        \   <link type=\"text/html\" rel=\"alternate\" href=\"https://github.com/tubbo/psychedeli.ca/compare/24590f4467...8fc3e90690\"/>\n
+        \   <title type=\"html\">tubbo pushed to master at tubbo/psychedeli.ca</title>\n
+        \   <author>\n      <name>tubbo</name>\n      <email>tom.scott@elocal.com</email>\n
+        \     <uri>https://github.com/tubbo</uri>\n    </author>\n    <media:thumbnail
+        height=\"30\" width=\"30\" url=\"https://secure.gravatar.com/avatar/0f985a758113f6502f668b09d2b15fc2?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png\"/>\n
+        \   <content type=\"html\">&lt;span class=&quot;mini-icon push&quot;&gt;&lt;/span&gt;\n\n&lt;div
+        class=&quot;title&quot;&gt;\n  &lt;a href=&quot;/tubbo&quot;&gt;tubbo&lt;/a&gt;
+        &lt;span&gt;pushed&lt;/span&gt; to master at &lt;a href=&quot;/tubbo/psychedeli.ca&quot;&gt;tubbo/psychedeli.ca&lt;/a&gt;\n
+        \ &lt;time class=&quot;js-relative-date&quot; datetime=&quot;2012-05-07T00:55:06Z&quot;
+        title=&quot;2012-05-07 00:55:06&quot;&gt;May 07, 2012&lt;/time&gt;\n&lt;/div&gt;\n&lt;div
+        class=&quot;details&quot;&gt;\n  \n\n  &lt;div class=&quot;commits&quot;&gt;\n
+        \   &lt;ul&gt;\n      &lt;li&gt;\n      &lt;a href=&quot;/tubbo&quot; class=&quot;committer&quot;&gt;tubbo&lt;/a&gt;
+        committed &lt;a href=&quot;/tubbo/psychedeli.ca/commit/8fc3e90690baf87a9a747f42c6721787e6222d79&quot;&gt;8fc3e90&lt;/a&gt;\n\n
+        \       &lt;div class=&quot;message&quot;&gt;\n          &lt;blockquote&gt;Fix
+        GithubClient output and updated cassettes&lt;br&gt;\n&lt;br&gt;\n- trying
+        to make it build&lt;/blockquote&gt;\n        &lt;/div&gt;\n      &lt;/li&gt;\n
+        \     &lt;li&gt;\n      &lt;a href=&quot;/tubbo&quot; class=&quot;committer&quot;&gt;tubbo&lt;/a&gt;
+        committed &lt;a href=&quot;/tubbo/psychedeli.ca/commit/e5ee03cd8c598eabb5ddb3147004098321c5bd3a&quot;&gt;e5ee03c&lt;/a&gt;\n\n
+        \       &lt;div class=&quot;message&quot;&gt;\n          &lt;blockquote&gt;regenerate
+        cassette&lt;/blockquote&gt;\n        &lt;/div&gt;\n      &lt;/li&gt;\n      &lt;li&gt;\n
+        \     &lt;a href=&quot;/tubbo&quot; class=&quot;committer&quot;&gt;tubbo&lt;/a&gt;
+        committed &lt;a href=&quot;/tubbo/psychedeli.ca/commit/816845737082b9f100b8858219ae862610801085&quot;&gt;8168457&lt;/a&gt;\n\n
+        \       &lt;div class=&quot;message&quot;&gt;\n          &lt;blockquote&gt;back
+        to the old school&lt;/blockquote&gt;\n        &lt;/div&gt;\n      &lt;/li&gt;\n
+        \     &lt;li class=&quot;more&quot;&gt;&lt;a href=&quot;https://github.com/tubbo/psychedeli.ca/compare/24590f4467...8fc3e90690&quot;&gt;1
+        more commits &amp;raquo;&lt;/a&gt;&lt;/li&gt;\n    &lt;/ul&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n</content>\n
+        \ </entry>\n  <entry>\n    <id>tag:github.com,2008:PushEvent/1549367788</id>\n
+        \   <published>2012-05-07T00:41:28Z</published>\n    <updated>2012-05-07T00:41:28Z</updated>\n
+        \   <link type=\"text/html\" rel=\"alternate\" href=\"https://github.com/tubbo/postal/compare/213b0193e0...eee0f54898\"/>\n
         \   <title type=\"html\">tubbo pushed to master at tubbo/postal</title>\n
         \   <author>\n      <name>tubbo</name>\n      <email>tom.scott@elocal.com</email>\n
         \     <uri>https://github.com/tubbo</uri>\n    </author>\n    <media:thumbnail
@@ -898,485 +2373,7 @@ http_interactions:
         jekyll this time&lt;/blockquote&gt;\n        &lt;/div&gt;\n      &lt;/li&gt;\n
         \     &lt;li class=&quot;more&quot;&gt;&lt;a href=&quot;https://github.com/tubbo/psychedeli.ca/compare/2681e14d5c...464bd682fb&quot;&gt;View
         comparison for these 2 commits &amp;raquo;&lt;/a&gt;&lt;/li&gt;\n    &lt;/ul&gt;\n
-        \ &lt;/div&gt;\n&lt;/div&gt;\n</content>\n  </entry>\n  <entry>\n    <id>tag:github.com,2008:FollowEvent/1547414383</id>\n
-        \   <published>2012-05-01T03:12:15Z</published>\n    <updated>2012-05-01T03:12:15Z</updated>\n
-        \   <link type=\"text/html\" rel=\"alternate\" href=\"https://github.com/josh\"/>\n
-        \   <title type=\"html\">tubbo started following josh</title>\n    <author>\n
-        \     <name>tubbo</name>\n      <email>tom.scott@elocal.com</email>\n      <uri>https://github.com/tubbo</uri>\n
-        \   </author>\n    <media:thumbnail height=\"30\" width=\"30\" url=\"https://secure.gravatar.com/avatar/0f985a758113f6502f668b09d2b15fc2?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png\"/>\n
-        \   <content type=\"html\">&lt;span class=&quot;mini-icon follow&quot;&gt;&lt;/span&gt;\n\n&lt;div
-        class=&quot;title&quot;&gt;\n  &lt;a href=&quot;/tubbo&quot;&gt;tubbo&lt;/a&gt;
-        &lt;span&gt;started following&lt;/span&gt; &lt;a href=&quot;/josh&quot;&gt;josh&lt;/a&gt;\n
-        \ &lt;time class=&quot;js-relative-date&quot; datetime=&quot;2012-05-01T03:12:15Z&quot;
-        title=&quot;2012-05-01 03:12:15&quot;&gt;May 01, 2012&lt;/time&gt;\n&lt;/div&gt;\n&lt;div
-        class=&quot;details&quot;&gt;\n  \n  &lt;div class=&quot;message&quot;&gt;\n
-        \   josh has\n    87\n    public repos\n    and 769 followers\n  &lt;/div&gt;\n&lt;/div&gt;</content>\n
-        \ </entry>\n  <entry>\n    <id>tag:github.com,2008:PushEvent/1547180384</id>\n
-        \   <published>2012-04-30T16:10:02Z</published>\n    <updated>2012-04-30T16:10:02Z</updated>\n
-        \   <link type=\"text/html\" rel=\"alternate\" href=\"https://github.com/tubbo/santeria/compare/b32eccc427...d104d53c49\"/>\n
-        \   <title type=\"html\">tubbo pushed to master at tubbo/santeria</title>\n
-        \   <author>\n      <name>tubbo</name>\n      <email>tom.scott@elocal.com</email>\n
-        \     <uri>https://github.com/tubbo</uri>\n    </author>\n    <media:thumbnail
-        height=\"30\" width=\"30\" url=\"https://secure.gravatar.com/avatar/0f985a758113f6502f668b09d2b15fc2?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png\"/>\n
-        \   <content type=\"html\">&lt;span class=&quot;mini-icon push&quot;&gt;&lt;/span&gt;\n\n&lt;div
-        class=&quot;title&quot;&gt;\n  &lt;a href=&quot;/tubbo&quot;&gt;tubbo&lt;/a&gt;
-        &lt;span&gt;pushed&lt;/span&gt; to master at &lt;a href=&quot;/tubbo/santeria&quot;&gt;tubbo/santeria&lt;/a&gt;\n
-        \ &lt;time class=&quot;js-relative-date&quot; datetime=&quot;2012-04-30T16:10:02Z&quot;
-        title=&quot;2012-04-30 16:10:02&quot;&gt;April 30, 2012&lt;/time&gt;\n&lt;/div&gt;\n&lt;div
-        class=&quot;details&quot;&gt;\n  \n\n  &lt;div class=&quot;commits&quot;&gt;\n
-        \   &lt;ul&gt;\n      &lt;li&gt;\n      &lt;a href=&quot;/tubbo&quot; class=&quot;committer&quot;&gt;tubbo&lt;/a&gt;
-        committed &lt;a href=&quot;/tubbo/santeria/commit/d104d53c49d0a84aea9513372253444679728ff3&quot;&gt;d104d53&lt;/a&gt;\n\n
-        \       &lt;div class=&quot;message&quot;&gt;\n          &lt;blockquote&gt;Starting
-        Vintage mode in &amp;quot;COMMAND MODE&amp;quot;, and word wrap by default.&lt;/blockquote&gt;\n
-        \       &lt;/div&gt;\n      &lt;/li&gt;\n    &lt;/ul&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n</content>\n
-        \ </entry>\n  <entry>\n    <id>tag:github.com,2008:PushEvent/1547180338</id>\n
-        \   <published>2012-04-30T16:09:58Z</published>\n    <updated>2012-04-30T16:09:58Z</updated>\n
-        \   <link type=\"text/html\" rel=\"alternate\" href=\"https://github.com/tubbo/sublime-packages/compare/43220c646b...cb440eea8a\"/>\n
-        \   <title type=\"html\">tubbo pushed to master at tubbo/sublime-packages</title>\n
-        \   <author>\n      <name>tubbo</name>\n      <email>tom.scott@elocal.com</email>\n
-        \     <uri>https://github.com/tubbo</uri>\n    </author>\n    <media:thumbnail
-        height=\"30\" width=\"30\" url=\"https://secure.gravatar.com/avatar/0f985a758113f6502f668b09d2b15fc2?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png\"/>\n
-        \   <content type=\"html\">&lt;span class=&quot;mini-icon push&quot;&gt;&lt;/span&gt;\n\n&lt;div
-        class=&quot;title&quot;&gt;\n  &lt;a href=&quot;/tubbo&quot;&gt;tubbo&lt;/a&gt;
-        &lt;span&gt;pushed&lt;/span&gt; to master at &lt;a href=&quot;/tubbo/sublime-packages&quot;&gt;tubbo/sublime-packages&lt;/a&gt;\n
-        \ &lt;time class=&quot;js-relative-date&quot; datetime=&quot;2012-04-30T16:09:58Z&quot;
-        title=&quot;2012-04-30 16:09:58&quot;&gt;April 30, 2012&lt;/time&gt;\n&lt;/div&gt;\n&lt;div
-        class=&quot;details&quot;&gt;\n  \n\n  &lt;div class=&quot;commits&quot;&gt;\n
-        \   &lt;ul&gt;\n      &lt;li&gt;\n      &lt;a href=&quot;/tubbo&quot; class=&quot;committer&quot;&gt;tubbo&lt;/a&gt;
-        committed &lt;a href=&quot;/tubbo/sublime-packages/commit/cb440eea8adefa6c615e2290046653ea6207feae&quot;&gt;cb440ee&lt;/a&gt;\n\n
-        \       &lt;div class=&quot;message&quot;&gt;\n          &lt;blockquote&gt;additions
-        and upgrades&lt;br&gt;\n&lt;br&gt;\n- added Alignment&lt;br&gt;\n- added LESS&lt;br&gt;\n-
-        added VintageEx&lt;br&gt;\n- updated Markdown Preview&lt;br&gt;\n- updated
-        SublimeLinter&lt;/blockquote&gt;\n        &lt;/div&gt;\n      &lt;/li&gt;\n
-        \   &lt;/ul&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n</content>\n  </entry>\n</feed>\n"
+        \ &lt;/div&gt;\n&lt;/div&gt;\n</content>\n  </entry>\n</feed>\n"
     http_version: 
-  recorded_at: Mon, 07 May 2012 00:47:02 GMT
-- request:
-    method: get
-    uri: https://api.twitter.com/1/statuses/user_timeline.json?screen_name=test_user
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - application/json
-      User-Agent:
-      - Twitter Ruby Gem 2.2.2
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
-      code: 200
-      message: !binary |-
-        T0s=
-    headers:
-      !binary "WC1SYXRlbGltaXQtTGltaXQ=":
-      - !binary |-
-        MTUw
-      !binary "WC1SYXRlbGltaXQtUmVtYWluaW5n":
-      - !binary |-
-        MTQ2
-      !binary "WC1SYXRlbGltaXQtUmVzZXQ=":
-      - !binary |-
-        MTMzNjM1Mzk1Mg==
-      !binary "WC1SYXRlbGltaXQtQ2xhc3M=":
-      - !binary |-
-        YXBp
-      !binary "Q29udGVudC1UeXBl":
-      - !binary |-
-        YXBwbGljYXRpb24vanNvbjtjaGFyc2V0PXV0Zi04
-      !binary "U2V0LUNvb2tpZQ==":
-      - !binary |-
-        Z3Vlc3RfaWQ9InYxOjEzMzYzNTE4MjY5MjQ2MDczOCI7RXhwaXJlcz1XZWQs
-        IDctTWF5LTE0IDAwOjUwOjI2IEdNVDtQYXRoPS87RG9tYWluPS50d2l0dGVy
-        LmNvbQ==
-      - !binary |-
-        az03Ni4xMjQuMTI3LjM2LjY0NWEwYjc0OTY5ZWVlYjk7IHBhdGg9LzsgZXhw
-        aXJlcz1Nb24sIDE0LU1heS0yMDEyIDAwOjUwOjI2IFVUQzsgZG9tYWluPS5h
-        cGkudHdpdHRlci5jb207IGh0dHBvbmx5
-      !binary "TGFzdC1Nb2RpZmllZA==":
-      - !binary |-
-        TW9uLCAwNyBNYXkgMjAxMiAwMDo1MDoyNiBHTVQ=
-      !binary "RXhwaXJlcw==":
-      - !binary |-
-        VHVlLCAzMSBNYXIgMTk4MSAwNTowMDowMCBHTVQ=
-      !binary "UHJhZ21h":
-      - !binary |-
-        bm8tY2FjaGU=
-      !binary "Q2FjaGUtQ29udHJvbA==":
-      - !binary |-
-        bm8tY2FjaGUsIG5vLXN0b3JlLCBtdXN0LXJldmFsaWRhdGUsIHByZS1jaGVj
-        az0wLCBwb3N0LWNoZWNrPTA=
-      !binary "WC1UcmFuc2FjdGlvbg==":
-      - !binary |-
-        OTM2NjVhZTg4MzgyMmRiMw==
-      !binary "WC1GcmFtZS1PcHRpb25z":
-      - !binary |-
-        U0FNRU9SSUdJTg==
-      !binary "U3RhdHVz":
-      - !binary |-
-        MjAwIE9L
-      !binary "RGF0ZQ==":
-      - !binary |-
-        TW9uLCAwNyBNYXkgMjAxMiAwMDo1MDoyNiBHTVQ=
-      !binary "Q29udGVudC1FbmNvZGluZw==":
-      - !binary |-
-        Z3ppcA==
-      !binary "Q29udGVudC1MZW5ndGg=":
-      - !binary |-
-        Njc0
-      !binary "U2VydmVy":
-      - !binary |-
-        dGZl
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        H4sIAAAAAAAC/+xVX5OaMBD/Kg6vtQKiePLYep1OZ/oJSicTwoIZQ2KTcPR6
-        c9+9GxBEPa/ttG+VBzS/3f1l/7C7X548poFayAm1XuJ9VnLyicpJsJoEcTJf
-        JsvV5E2Az2QeBHfe1OO5h1gQr5ZxOHdHYqxGwwFDHQvfHVdaR8FiPn6jzKha
-        M0BpA5lT1bVk7novKagwgIySaNiLR2IVUlNbG+LulLUQV4SdB5cKtQF9xfYg
-        umZpMCcgiaQV9GJn4SVPbfxhuI7CKBqH30MYUmeFSTC2vccFPeY7kQiF0XMl
-        EcZTDqjJ90eg1qJ3YK+VBTbOVKGEUA1oQ5iqJWZ8iZjmIPMBCfEGblx1D0Aw
-        fbXeURIsTutd0AesGEefRxS1ZUQVhQE8vo1iVMdK8grIDyVdhB9pQzlH6xIU
-        AUkzMXL7ATQv+AjoCnm8APMqqCyRByRyMCWt5lltFUZ6TsYNsZpKIyiKBxRz
-        VXABJKNsV2pkdfELp+C9Dzb39xvvRR1e0RJIm3Nva+0+Sf3Up8HMNrwqZ0xV
-        qd+qmNS3W6iG3zD1s3K2R5dfpyWO1BzITctu+F/TWzxfRP4boRjL2e4x9XMo
-        aC0sOTE1l3hApNIVFWee/EF0/+hGweVuqCd+pYt3i5HU8BwyqkmmdI5NfrXu
-        vR4exKC1QaUP8UjLjbJBGrXPSIpf7UWhvQRnmvuqt6ohFLm5RIeBVJBzOtTp
-        LNTe6MXM9MKu37nrjG4kdACOrW+1GykGXPd0IqksNlk3W0wHPrft2Cswhfnh
-        EieBGSaMoAyO8mPX9ZgG2wDY0SBw08ENh2NDHnQG5Hn6qw0TXdswi/XqYsM4
-        7HTDsNi9s3X7/+62YW4b5rZhbhvmtmH+nw3z9ScAAAD//wMATIaFUsUMAAA=
-    http_version: 
-  recorded_at: Mon, 07 May 2012 00:50:26 GMT
-- request:
-    method: get
-    uri: https://graph.facebook.com/test_user/posts?access_token=AAAvalidAccessKeyID
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - ! '*/*'
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 500
-      message: ''
-    headers:
-      Access-Control-Allow-Origin:
-      - ! '*'
-      Cache-Control:
-      - no-store
-      Content-Type:
-      - text/javascript; charset=UTF-8
-      Expires:
-      - Sat, 01 Jan 2000 00:00:00 GMT
-      Pragma:
-      - no-cache
-      Www-Authenticate:
-      - OAuth "Facebook Platform" "unknown_error" "An unexpected error has occurred.
-        Please retry your request later."
-      X-Fb-Rev:
-      - '552853'
-      X-Fb-Debug:
-      - Z5S5YcebDFjnLc9W6JOVYWIbLCKPcW5WS3+OXuIOw3o=
-      Date:
-      - Mon, 07 May 2012 00:50:27 GMT
-      Content-Length:
-      - '123'
-      Connection:
-      - keep-alive
-    body:
-      encoding: US-ASCII
-      string: ! '{"error":{"message":"An unexpected error has occurred. Please retry
-        your request later.","type":"OAuthException","code":2}}'
-    http_version: 
-  recorded_at: Mon, 07 May 2012 00:50:27 GMT
-- request:
-    method: get
-    uri: https://graph.facebook.com/test_user/posts?access_token=AAAvalidAccessKeyID
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - ! '*/*'
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 404
-      message: ''
-    headers:
-      Access-Control-Allow-Origin:
-      - ! '*'
-      Cache-Control:
-      - no-store
-      Content-Type:
-      - text/javascript; charset=UTF-8
-      Expires:
-      - Sat, 01 Jan 2000 00:00:00 GMT
-      Pragma:
-      - no-cache
-      Www-Authenticate:
-      - ! 'OAuth "Facebook Platform" "not_found" "(#803) Some of the aliases you requested
-        do not exist: test_user"'
-      X-Fb-Rev:
-      - '552853'
-      X-Fb-Debug:
-      - XfCWni/9cdF0GV0SjP2KXM/PORWHS1kgSGbeTzQBziU=
-      Date:
-      - Mon, 07 May 2012 01:00:10 GMT
-      Content-Length:
-      - '123'
-      Connection:
-      - keep-alive
-    body:
-      encoding: US-ASCII
-      string: ! '{"error":{"message":"(#803) Some of the aliases you requested do
-        not exist: test_user","type":"OAuthException","code":803}}'
-    http_version: 
-  recorded_at: Mon, 07 May 2012 01:00:10 GMT
-- request:
-    method: get
-    uri: https://api.twitter.com/1/statuses/user_timeline.json?screen_name=tubbo
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - application/json
-      User-Agent:
-      - Twitter Ruby Gem 2.2.2
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-  response:
-    status:
-      code: 200
-      message: !binary |-
-        T0s=
-    headers:
-      !binary "WC1SYXRlbGltaXQtTGltaXQ=":
-      - !binary |-
-        MTUw
-      !binary "WC1SYXRlbGltaXQtUmVtYWluaW5n":
-      - !binary |-
-        MTQ4
-      !binary "WC1SYXRlbGltaXQtUmVzZXQ=":
-      - !binary |-
-        MTMzNjM1NzU1Mg==
-      !binary "WC1SYXRlbGltaXQtQ2xhc3M=":
-      - !binary |-
-        YXBp
-      !binary "Q29udGVudC1UeXBl":
-      - !binary |-
-        YXBwbGljYXRpb24vanNvbjtjaGFyc2V0PXV0Zi04
-      !binary "U2V0LUNvb2tpZQ==":
-      - !binary |-
-        Z3Vlc3RfaWQ9InYxOjEzMzYzNTQzMDk4MzUxNzQ1NyI7RXhwaXJlcz1XZWQs
-        IDctTWF5LTE0IDAxOjMxOjQ5IEdNVDtQYXRoPS87RG9tYWluPS50d2l0dGVy
-        LmNvbQ==
-      - !binary |-
-        az03Ni4xMjQuMTI3LjM2LjY4ZGY2YzljOTI3MTZhZjU7IHBhdGg9LzsgZXhw
-        aXJlcz1Nb24sIDE0LU1heS0yMDEyIDAxOjMxOjQ5IFVUQzsgZG9tYWluPS5h
-        cGkudHdpdHRlci5jb207IGh0dHBvbmx5
-      !binary "TGFzdC1Nb2RpZmllZA==":
-      - !binary |-
-        TW9uLCAwNyBNYXkgMjAxMiAwMTozMTo0OSBHTVQ=
-      !binary "RXhwaXJlcw==":
-      - !binary |-
-        VHVlLCAzMSBNYXIgMTk4MSAwNTowMDowMCBHTVQ=
-      !binary "UHJhZ21h":
-      - !binary |-
-        bm8tY2FjaGU=
-      !binary "Q2FjaGUtQ29udHJvbA==":
-      - !binary |-
-        bm8tY2FjaGUsIG5vLXN0b3JlLCBtdXN0LXJldmFsaWRhdGUsIHByZS1jaGVj
-        az0wLCBwb3N0LWNoZWNrPTA=
-      !binary "WC1UcmFuc2FjdGlvbg==":
-      - !binary |-
-        Mjg0MWFjNWE5YTlkZWM5OQ==
-      !binary "WC1GcmFtZS1PcHRpb25z":
-      - !binary |-
-        U0FNRU9SSUdJTg==
-      !binary "U3RhdHVz":
-      - !binary |-
-        MjAwIE9L
-      !binary "RGF0ZQ==":
-      - !binary |-
-        TW9uLCAwNyBNYXkgMjAxMiAwMTozMTo0OSBHTVQ=
-      !binary "Q29udGVudC1FbmNvZGluZw==":
-      - !binary |-
-        Z3ppcA==
-      !binary "Q29udGVudC1MZW5ndGg=":
-      - !binary |-
-        MjcyNQ==
-      !binary "U2VydmVy":
-      - !binary |-
-        dGZl
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        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
-        +Db4/jzw/du//gMAAP//AwAcRDK5dHoAAA==
-    http_version: 
-  recorded_at: Mon, 07 May 2012 01:31:49 GMT
-- request:
-    method: get
-    uri: https://graph.facebook.com/tubbo/posts?access_token=AAAEcoySQLr0BAMXGnzOah0gfELPapbcSH4x7ihVXiYWXEbZAZC7WllZCG5W0EKT2tyIlgEpXeBWdm0JdHv9xEwlVRKF0GRWlDcFDGyZAabKXo5Bu7ZAEY
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - ! '*/*'
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: ''
-    headers:
-      Access-Control-Allow-Origin:
-      - ! '*'
-      Cache-Control:
-      - private, no-cache, no-store, must-revalidate
-      Content-Type:
-      - text/javascript; charset=UTF-8
-      Etag:
-      - ! '"56cebb5f42368f70c6178f3e93c463a0061d40d1"'
-      Expires:
-      - Sat, 01 Jan 2000 00:00:00 GMT
-      Pragma:
-      - no-cache
-      X-Fb-Rev:
-      - '552853'
-      Content-Encoding:
-      - gzip
-      X-Fb-Debug:
-      - hdnokdee+VNRgDuuS3el+P0NOS30pb5vDfHnMgrnpwk=
-      Date:
-      - Mon, 07 May 2012 01:31:51 GMT
-      Content-Length:
-      - '2099'
-      Connection:
-      - keep-alive
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        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
-        vfkw6P/LPdhSWda4B4RlWrC8Pv0JOWFcDq8VAAA=
-    http_version: 
-  recorded_at: Mon, 07 May 2012 01:31:51 GMT
+  recorded_at: Mon, 07 May 2012 01:37:19 GMT
 recorded_with: VCR 2.0.0
