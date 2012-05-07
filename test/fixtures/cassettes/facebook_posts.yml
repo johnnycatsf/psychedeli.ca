@@ -227,4 +227,51 @@ http_interactions:
         vfkw6P/LPdhSWda4B4RlWrC8Pv0JOWFcDq8VAAA=
     http_version: 
   recorded_at: Mon, 07 May 2012 00:47:00 GMT
+- request:
+    method: get
+    uri: https://graph.facebook.com/test_user/posts?access_token=AAAEcoySQLr0BAMXGnzOah0gfELPapbcSH4x7ihVXiYWXEbZAZC7WllZCG5W0EKT2tyIlgEpXeBWdm0JdHv9xEwlVRKF0GRWlDcFDGyZAabKXo5Bu7ZAEY
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 404
+      message: ''
+    headers:
+      Access-Control-Allow-Origin:
+      - ! '*'
+      Cache-Control:
+      - no-store
+      Content-Type:
+      - text/javascript; charset=UTF-8
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Pragma:
+      - no-cache
+      Www-Authenticate:
+      - ! 'OAuth "Facebook Platform" "not_found" "(#803) Some of the aliases you requested
+        do not exist: test_user"'
+      X-Fb-Rev:
+      - '552853'
+      X-Fb-Debug:
+      - 4Iq0kHfg3TevbaKfqGxSUmQtxFrWoEnEfbxJwdBJOAE=
+      Date:
+      - Mon, 07 May 2012 01:00:08 GMT
+      Content-Length:
+      - '123'
+      Connection:
+      - keep-alive
+    body:
+      encoding: US-ASCII
+      string: ! '{"error":{"message":"(#803) Some of the aliases you requested do
+        not exist: test_user","type":"OAuthException","code":803}}'
+    http_version: 
+  recorded_at: Mon, 07 May 2012 01:00:08 GMT
 recorded_with: VCR 2.0.0

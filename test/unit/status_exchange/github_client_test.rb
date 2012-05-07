@@ -7,7 +7,7 @@ class GithubClientTest < UnitTest
     end
   }
 
-  should "have a neutral username" do
+  should "have a username" do
     assert_equal "tubbo", @github.username
   end
 
