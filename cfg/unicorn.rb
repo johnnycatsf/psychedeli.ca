@@ -29,7 +29,7 @@ listen "/tmp/#{app_name}_#{env}.socket", :backlog => 64
 working_directory "/home/necromancer/src/blog/current"
 
 # feel free to point this anywhere accessible on the filesystem
-user 'www-data', 'web'
+user 'www-data', 'www-data'
 
 stderr_path "#{shared_path}/log/unicorn.stderr.log"
 stdout_path "#{shared_path}/log/unicorn.stdout.log"
