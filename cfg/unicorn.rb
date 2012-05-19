@@ -4,6 +4,7 @@
 
 # Set to Rack environment
 env = ENV["RACK_ENV"] || "development"
+app_name = 'blog'
 
 # See http://unicorn.bogomips.org/Unicorn/Configurator.html for complete
 # documentation.

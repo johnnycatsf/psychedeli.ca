@@ -35,11 +35,11 @@ end
 
 group :development do
   gem 'thin', :require => false
-  gem 'rvm'
-  gem 'rake'
+  gem 'rvm', :require => false
+  gem 'rake', :require => false
   gem 'capistrano', :require => false
   gem 'capistrano_colors', :require => false
-  gem 'rvm-capistrano', :require => "rvm/capistrano"
+  gem 'rvm-capistrano', :require => false
 end
 
 group :test do

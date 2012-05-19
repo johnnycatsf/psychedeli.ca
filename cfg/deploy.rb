@@ -1,6 +1,8 @@
-require 'bundler'
-Bundler.setup :framework, :deployment
+#
+# psychedeli.ca deployment configuration
+#
 
+## Settings
 
 set :user, "necromancer"
 set :domain, "psychedeli.ca"
@@ -8,6 +10,7 @@ set :use_sudo, true
 
 set :rvm_ruby_string, '1.9.3-p125@psychedelica'
 set :rvm_type, :user
+
 require 'rvm/capistrano'
 
 server domain, :web
@@ -23,39 +26,48 @@ set :application, "blog"
 set :deploy_to, "/home/#{user}/src/#{application}"
 role :web, "psychedeli.ca"
 
-# Deployment
+## Tasks
+
 namespace :deploy do
+  desc "Clear and recreate the pub/ directory with the compiled Jekyll site."
   task :update_content do
-    run "cd #{release_path}; bundle install"
-    run "cd #{release_path}; rm -rf pub/*"
-    run "cd #{release_path}; bundle exec jekyll --config=cfg/jekyll.yml"
-    configure_status_exchange
+    run "cd #{current_path}; rm -rf pub/*"
+    run "cd #{current_path}; bundle exec jekyll --config=cfg/jekyll.yml"
   end
 
-  task :configure_status_exchange do
-    run "ln -nfs #{shared_path}/cfg/status_exchange.yml #{release_path}/cfg/status_exchange.yml"
+  desc "Install Bundler (if necessary) and gemset"
+  task :install_dependencies do
+    unless remote_file_exists? 'bundle'
+      run "cd #{current_path}; gem install bundler"
+    end
+
+    run "cd #{current_path}; bundle install"
   end
 
+  desc "Start the Unicorn server."
   task :restart do
-    run "cd #{release_path}; touch tmp/restart.txt"
+    run "cd #{current_path}; unicorn -c cfg/unicorn.rb"
   end
+end
 
-  task :cleanup_capistrano_assumptions do
+namespace :configure do
+  desc "Link StatusExchange configuration from shared path."
+  task :status_exchange do
+    run "ln -nfs #{shared_path}/cfg/status_exchange.yml #{current_path}/cfg/status_exchange.yml"
+  end
+end
+
+namespace :clean do
+  task :capistrano_assumptions do
     run "cd #{release_path}; rm -rf public/"
   end
 end
 
-# Always restart the app after deployment
-after 'deploy:update_code', 'deploy:update_content'
-after 'deploy:update_content', 'deploy:cleanup_capistrano_assumptions'
-after "deploy:restart", "unicorn:reload"
-
-# Server management
 namespace :unicorn do
-  desc 'Start Unicorn'
-  task :start, :roles => :app, :except => {:no_release => true} do
+  desc "Start Unicorn, the production application server."
+  task :start do
     if remote_file_exists?(unicorn_pid)
-      if process_exists?(unicorn_pid)
+      if remote_process_exists?(unicorn_pid)
         logger.important("Unicorn is already running!", "Unicorn")
         next
       else
@@ -72,8 +84,8 @@ namespace :unicorn do
     end
   end
 
-  desc 'Stop Unicorn'
-  task :stop, :roles => :app, :except => {:no_release => true} do
+  desc "Stop Unicorn"
+  task :stop do
     if remote_file_exists?(unicorn_pid)
       if remote_process_exists?(unicorn_pid)
         logger.important("Stopping...", "Unicorn")
@@ -87,8 +99,8 @@ namespace :unicorn do
     end
   end
 
-  desc 'Unicorn graceful shutdown'
-  task :graceful_stop, :roles => :app, :except => {:no_release => true} do
+  desc "Gracefully shut down Unicorn"
+  task :graceful_stop do
     if remote_file_exists?(unicorn_pid)
       if remote_process_exists?(unicorn_pid)
         logger.important("Stopping...", "Unicorn")
@@ -102,8 +114,8 @@ namespace :unicorn do
     end
   end
 
-  desc 'Reload Unicorn'
-  task :reload, :roles => :app, :except => {:no_release => true} do
+  desc "Restart Unicorn, wait for all workers to stop running, then start it again."
+  task :reload do
     if remote_file_exists?(unicorn_pid)
       logger.important("Stopping...", "Unicorn")
       run "#{try_sudo} kill -s USR2 `cat #{unicorn_pid}`"
@@ -119,16 +131,27 @@ namespace :unicorn do
   end
 end
 
+## Helper Methods
+
+# Return Unicorn server PID file
 def unicorn_pid
   "#{current_path}/tmp/pids/unicorn.#{application}.#{rails_env}.pid"
 end
 
+# Check if file exists on server
 def remote_file_exists?(full_path)
   'true' ==  capture("if [ -e #{full_path} ]; then echo 'true'; fi").strip
 end
 
 # Check if process is running
-#
 def remote_process_exists?(pid_file)
   capture("ps -p $(cat #{pid_file}) ; true").strip.split("\n").size == 2
 end
+
+## Task Chain
+
+after 'deploy:update_code', 'deploy:install_dependencies'
+after 'deploy:install_dependencies', 'deploy:update_content'
+after 'deploy:update_content', 'configure:status_exchange'
+after 'configure_status_exchange', 'clean:capistrano_assumptions'
+# after 'clean:capistrano_assumptions', 'unicorn:reload'
