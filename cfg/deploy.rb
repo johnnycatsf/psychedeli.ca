@@ -23,6 +23,7 @@ set :application, "blog"
 set :deploy_to, "/home/#{user}/src/#{application}"
 role :web, "psychedeli.ca"
 
+# Deployment
 namespace :deploy do
   task :update_content do
     run "cd #{release_path}; bundle install"
@@ -49,7 +50,7 @@ after 'deploy:update_code', 'deploy:update_content'
 after 'deploy:update_content', 'deploy:cleanup_capistrano_assumptions'
 after "deploy:restart", "unicorn:reload"
 
-# Unicorn tasks
+# Server management
 namespace :unicorn do
   desc 'Start Unicorn'
   task :start, :roles => :app, :except => {:no_release => true} do
@@ -108,7 +109,7 @@ namespace :unicorn do
       run "#{try_sudo} kill -s USR2 `cat #{unicorn_pid}`"
     else
       logger.important("No PIDs found. Starting Unicorn server...", "Unicorn")
-      config_path = "#{current_path}/config/unicorn.rb"
+      config_path = "#{current_path}/cfg/unicorn.rb"
       if remote_file_exists?(config_path)
         run "cd #{current_path} && rvmsudo BUNDLE_GEMFILE=#{current_path}/Gemfile bundle exec unicorn_rails -E #{rails_env} -c #{config_path} -D"
       else
@@ -117,6 +118,7 @@ namespace :unicorn do
     end
   end
 end
+
 def unicorn_pid
   "#{current_path}/tmp/pids/unicorn.#{application}.#{rails_env}.pid"
 end
