@@ -46,7 +46,7 @@ namespace :deploy do
 
   desc "Start the Unicorn server."
   task :restart do
-    run "cd #{current_path}; unicorn -c cfg/unicorn.rb"
+    run "cd #{current_path}; bundle exec unicorn -c cfg/unicorn.rb"
   end
 end
 
