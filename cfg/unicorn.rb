@@ -20,9 +20,8 @@ shared_path = "/home/necromancer/src/blog/shared"
 pid_file = "#{shared_path}/pids/unicorn.#{app_name}.#{env}.pid"
 pid pid_file
 
-# listen on a TCP port,
-# we use a shorter backlog for quicker failover when busy
-listen "/tmp/#{app_name}_#{env}.socket", :backlog => 64
+# Listen on a TCP port,
+listen 3000, backlog: 64
 
 # Help ensure your application will always spawn in the symlinked
 # "current" directory that Capistrano sets up.
