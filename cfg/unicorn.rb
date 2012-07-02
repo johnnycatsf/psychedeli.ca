@@ -1,7 +1,8 @@
 ## Unicorn configuration
 
 # Store the PID in the Capistrano app dir
-pid "/home/necromancer/src/blog/shared/pids/unicorn.pid"
+pid_file "/home/necromancer/src/blog/shared/pids/unicorn.pid"
+pid pid_file
 
 # What ports/sockets to listen on, and what options for them.
 listen 2000, backlog: 64
