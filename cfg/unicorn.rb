@@ -4,7 +4,7 @@
 pid "/home/necromancer/src/blog/shared/pids/unicorn.pid"
 
 # What ports/sockets to listen on, and what options for them.
-listen 7000, backlog: 64
+listen 2000, backlog: 64
 
 working_directory "/home/necromancer/src/blog/current"
 

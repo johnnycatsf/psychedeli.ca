@@ -2,6 +2,8 @@
 # psychedeli.ca deployment configuration
 #
 
+require 'bundler/capistrano'
+
 ## General Settings
 
 set :user, "necromancer"
@@ -12,7 +14,6 @@ set :rvm_ruby_string, '1.9.3-p125@psychedelica'
 set :rvm_type, :user
 
 require 'rvm/capistrano'
-require 'bundler/capistrano'
 
 server domain, :web
 
@@ -30,7 +31,7 @@ set :rack_env, 'production'
 
 ## Task Chain
 
-after 'deploy', 'deploy:bundle', 'deploy:update_content', 'deploy:configuration',
+after 'deploy:update', 'deploy:update_content', 'deploy:configuration',
       'deploy:clean_capistrano_assumptions', 'unicorn:reload'
 
 ## Task Definitions
@@ -48,7 +49,7 @@ namespace :deploy do
   end
 
   desc "Remove the public/ directory, an assumed link set up by Capistrano for Rails apps."
-  task :capistrano_assumptions do
+  task :clean_capistrano_assumptions do
     run "cd #{release_path}; rm -rf public/"
   end
 end

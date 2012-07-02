@@ -32,6 +32,10 @@ group :status_exchange do
   gem 'ratom', require: 'atom'
 end
 
+group :deployment do
+  gem 'rvm-capistrano', require: false
+end
+
 # Environments
 
 group :development do
@@ -39,7 +43,6 @@ group :development do
   gem 'rake', require: false
   gem 'capistrano', require: false
   gem 'capistrano_colors', require: false
-  gem 'rvm-capistrano', require: false
 end
 
 group :test do
