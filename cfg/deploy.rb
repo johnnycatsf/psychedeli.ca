@@ -30,8 +30,8 @@ set :rack_env, 'production'
 
 ## Task Chain
 
-after 'deploy:bundle', 'deploy:update_content', 'deploy:configuration',
-      'deploy:clean_capistrano_assumptions', 'unicorn:start'
+after 'deploy', 'deploy:bundle', 'deploy:update_content', 'deploy:configuration',
+      'deploy:clean_capistrano_assumptions', 'unicorn:reload'
 
 ## Task Definitions
 
