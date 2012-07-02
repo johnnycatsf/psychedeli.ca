@@ -30,7 +30,8 @@ set :rack_env, 'production'
 
 ## Task Chain
 
-after 'deploy:bundle', 'deploy:update_content', 'deploy:configuration', 'deploy:clean_capistrano_assumptions'
+after 'deploy:bundle', 'deploy:update_content', 'deploy:configuration',
+      'deploy:clean_capistrano_assumptions', 'unicorn:start'
 
 ## Task Definitions
 
@@ -39,11 +40,6 @@ namespace :deploy do
   task :update_content do
     run "cd #{current_path}; rm -rf pub/*"
     run "cd #{current_path}; bundle exec jekyll --config=cfg/jekyll.yml"
-  end
-
-  desc "Start the Unicorn server."
-  task :restart do
-    run "cd #{current_path}; bundle exec unicorn -c cfg/unicorn.rb"
   end
 
   desc "Link StatusExchange configuration from shared path."
@@ -69,10 +65,11 @@ namespace :unicorn do
       end
     end
 
-    config_path = "#{current_path}/config/unicorn.rb"
+    config_path = "#{current_path}/cfg/unicorn.rb"
+
     if remote_file_exists?(config_path)
       logger.important("Starting...", "Unicorn")
-      run "cd #{current_path} && rvmsudo BUNDLE_GEMFILE=#{current_path}/Gemfile bundle exec unicorn_rails -E #{rails_env} -c #{config_path} -D"
+      run "cd #{current_path} && BUNDLE_GEMFILE=#{current_path}/Gemfile bundle exec unicorn -E #{rack_env} -c #{config_path} -D"
     else
       logger.important("Config file for unicorn was not found at \"#{config_path}\"", "Unicorn")
     end
@@ -117,7 +114,7 @@ namespace :unicorn do
       logger.important("No PIDs found. Starting Unicorn server...", "Unicorn")
       config_path = "#{current_path}/cfg/unicorn.rb"
       if remote_file_exists?(config_path)
-        run "cd #{current_path} && rvmsudo BUNDLE_GEMFILE=#{current_path}/Gemfile bundle exec unicorn -E #{rack_env} -c #{config_path} -D"
+        run "cd #{current_path} && BUNDLE_GEMFILE=#{current_path}/Gemfile bundle exec unicorn -E #{rack_env} -c #{config_path} -D"
       else
         logger.important("Config file for unicorn was not found at \"#{config_path}\"", "Unicorn")
       end
@@ -129,7 +126,7 @@ end
 
 # Return Unicorn server PID file
 def unicorn_pid
-  "#{current_path}/tmp/pids/unicorn.#{application}.#{rails_env}.pid"
+  "#{current_path}/tmp/pids/unicorn.#{application}.#{rack_env}.pid"
 end
 
 # Check if file exists on server
