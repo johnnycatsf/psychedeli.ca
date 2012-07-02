@@ -2,12 +2,13 @@ source :rubygems
 
 # Components
 
-gem 'rack', :require => false
+gem 'rack', require: false
 gem 'rack-contrib'
-gem 'i18n', :require => false
-gem 'actionpack', '~> 3.2', :require => false
-gem 'activesupport', '~> 3.2', :require => 'active_support/all'
+gem 'i18n', require: false
+gem 'actionpack', '~> 3.2', require: false
+gem 'activesupport', '~> 3.2', require: 'active_support/all'
 gem 'sprockets'
+gem 'rvm', require: false
 
 group :content do
   gem 'liquid'
@@ -28,18 +29,17 @@ group :status_exchange do
   gem 'yajl-ruby'
   gem 'twitter'
   gem 'koala'
-  gem 'ratom', :require => 'atom'
+  gem 'ratom', require: 'atom'
 end
 
 # Environments
 
 group :development do
-  gem 'thin', :require => false
-  gem 'rvm', :require => false
-  gem 'rake', :require => false
-  gem 'capistrano', :require => false
-  gem 'capistrano_colors', :require => false
-  gem 'rvm-capistrano', :require => false
+  gem 'thin', require: false
+  gem 'rake', require: false
+  gem 'capistrano', require: false
+  gem 'capistrano_colors', require: false
+  gem 'rvm-capistrano', require: false
 end
 
 group :test do
@@ -51,8 +51,8 @@ group :test do
   gem 'mocha'
   gem 'vcr'
   gem 'webmock'
-  gem 'capybara', :require => false
-  gem 'capybara_minitest_spec', :require => false
+  gem 'capybara', require: false
+  gem 'capybara_minitest_spec', require: false
 end
 
 group :production do

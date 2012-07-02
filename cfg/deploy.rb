@@ -30,10 +30,7 @@ set :rack_env, 'production'
 
 ## Task Chain
 
-after 'deploy:bundle', 'deploy:update_content'
-after 'deploy:update_content', 'configure:status_exchange'
-after 'configure:status_exchange', 'clean:capistrano_assumptions'
-after 'deploy', 'deploy:bundle'
+after 'deploy:bundle', 'deploy:update_content', 'deploy:configuration', 'deploy:clean_capistrano_assumptions'
 
 ## Task Definitions
 
@@ -48,16 +45,13 @@ namespace :deploy do
   task :restart do
     run "cd #{current_path}; bundle exec unicorn -c cfg/unicorn.rb"
   end
-end
 
-namespace :configure do
   desc "Link StatusExchange configuration from shared path."
-  task :status_exchange do
+  task :configuration do
     run "ln -nfs #{shared_path}/cfg/status_exchange.yml #{current_path}/cfg/status_exchange.yml"
   end
-end
 
-namespace :clean do
+  desc "Remove the public/ directory, an assumed link set up by Capistrano for Rails apps."
   task :capistrano_assumptions do
     run "cd #{release_path}; rm -rf public/"
   end
