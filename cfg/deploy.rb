@@ -26,6 +26,7 @@ set :git_enable_submodules, 1
 set :application, "blog"
 set :deploy_to, "/home/#{user}/src/#{application}"
 role :web, "psychedeli.ca"
+set :rack_env, 'production'
 
 ## Task Chain
 
@@ -122,7 +123,7 @@ namespace :unicorn do
       logger.important("No PIDs found. Starting Unicorn server...", "Unicorn")
       config_path = "#{current_path}/cfg/unicorn.rb"
       if remote_file_exists?(config_path)
-        run "cd #{current_path} && rvmsudo BUNDLE_GEMFILE=#{current_path}/Gemfile bundle exec unicorn_rails -E #{rails_env} -c #{config_path} -D"
+        run "cd #{current_path} && rvmsudo BUNDLE_GEMFILE=#{current_path}/Gemfile bundle exec unicorn -E #{rack_env} -c #{config_path} -D"
       else
         logger.important("Config file for unicorn was not found at \"#{config_path}\"", "Unicorn")
       end
