@@ -2,7 +2,7 @@
 # psychedeli.ca deployment configuration
 #
 
-## Settings
+## General Settings
 
 set :user, "necromancer"
 set :domain, "psychedeli.ca"
@@ -12,6 +12,7 @@ set :rvm_ruby_string, '1.9.3-p125@psychedelica'
 set :rvm_type, :user
 
 require 'rvm/capistrano'
+require 'bundler/capistrano'
 
 server domain, :web
 
@@ -26,22 +27,20 @@ set :application, "blog"
 set :deploy_to, "/home/#{user}/src/#{application}"
 role :web, "psychedeli.ca"
 
-## Tasks
+## Task Chain
+
+after 'deploy:bundle', 'deploy:update_content'
+after 'deploy:update_content', 'configure:status_exchange'
+after 'configure:status_exchange', 'clean:capistrano_assumptions'
+after 'deploy', 'deploy:bundle'
+
+## Task Definitions
 
 namespace :deploy do
   desc "Clear and recreate the pub/ directory with the compiled Jekyll site."
   task :update_content do
     run "cd #{current_path}; rm -rf pub/*"
     run "cd #{current_path}; bundle exec jekyll --config=cfg/jekyll.yml"
-  end
-
-  desc "Install Bundler (if necessary) and gemset"
-  task :install_dependencies do
-    unless remote_file_exists? 'bundle'
-      run "cd #{current_path}; gem install bundler"
-    end
-
-    run "cd #{current_path}; bundle install"
   end
 
   desc "Start the Unicorn server."
@@ -147,11 +146,3 @@ end
 def remote_process_exists?(pid_file)
   capture("ps -p $(cat #{pid_file}) ; true").strip.split("\n").size == 2
 end
-
-## Task Chain
-
-after 'deploy:update_code', 'deploy:install_dependencies'
-after 'deploy:install_dependencies', 'deploy:update_content'
-after 'deploy:update_content', 'configure:status_exchange'
-after 'configure_status_exchange', 'clean:capistrano_assumptions'
-# after 'clean:capistrano_assumptions', 'unicorn:reload'
