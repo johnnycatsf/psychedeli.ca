@@ -1,6 +1,0 @@
-[submodule "vendor/gist"]
-	path = vendor/gist
-	url = git://gist.github.com/2143990.git
-[submodule "vendor/gems/jekyll"]
-	path = vendor/gems/jekyll
-	url = git://github.com/tubbo/jekyll.git
