@@ -5,8 +5,8 @@ source :rubygems
 gem 'rack', require: false
 gem 'rack-contrib'
 gem 'i18n', require: false
-gem 'actionpack', '~> 3.2', require: false
-gem 'activesupport', '~> 3.2', require: 'active_support/all'
+gem 'actionpack', '3.2.6', require: false
+gem 'activesupport', '3.2.6', require: 'active_support/all'
 gem 'sprockets'
 gem 'rvm', require: false
 
