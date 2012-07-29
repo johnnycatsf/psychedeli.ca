@@ -28,11 +28,12 @@ set :application, "blog"
 set :deploy_to, "/home/#{user}/src/#{application}"
 role :web, "psychedeli.ca"
 set :rack_env, 'production'
+set :application_server, "unicorn"
 
 ## Task Chain
 
 after 'deploy:update', 'deploy:update_content', 'deploy:configuration',
-      'deploy:clean_capistrano_assumptions', 'unicorn:reload'
+      'deploy:clean_capistrano_assumptions'
 
 ## Task Definitions
 
@@ -51,6 +52,18 @@ namespace :deploy do
   desc "Remove the public/ directory, an assumed link set up by Capistrano for Rails apps."
   task :clean_capistrano_assumptions do
     run "cd #{release_path}; rm -rf public/"
+  end
+
+  desc "Restart the application server"
+  task :restart do
+    case application_server
+    when "unicorn"
+      restart_unicorn!
+    when "passenger"
+      run "cd #{release_path}; touch tmp/restart.txt"
+    else
+      puts "Restart #{application_server} manually."
+    end
   end
 end
 
@@ -108,18 +121,7 @@ namespace :unicorn do
 
   desc "Restart Unicorn, wait for all workers to stop running, then start it again."
   task :reload do
-    if remote_file_exists?(unicorn_pid)
-      logger.important("Stopping...", "Unicorn")
-      run "#{try_sudo} kill -s USR2 `cat #{unicorn_pid}`"
-    else
-      logger.important("No PIDs found. Starting Unicorn server...", "Unicorn")
-      config_path = "#{current_path}/cfg/unicorn.rb"
-      if remote_file_exists?(config_path)
-        run "cd #{current_path} && BUNDLE_GEMFILE=#{current_path}/Gemfile bundle exec unicorn -E #{rack_env} -c #{config_path} -D"
-      else
-        logger.important("Config file for unicorn was not found at \"#{config_path}\"", "Unicorn")
-      end
-    end
+    restart_unicorn!
   end
 end
 
@@ -127,7 +129,7 @@ end
 
 # Return Unicorn server PID file
 def unicorn_pid
-  "#{current_path}/tmp/pids/unicorn.#{application}.#{rack_env}.pid"
+  "#{current_path}/tmp/pids/unicorn.pid"
 end
 
 # Check if file exists on server
@@ -138,4 +140,19 @@ end
 # Check if process is running
 def remote_process_exists?(pid_file)
   capture("ps -p $(cat #{pid_file}) ; true").strip.split("\n").size == 2
+end
+
+def restart_unicorn!
+  if remote_file_exists?(unicorn_pid)
+    logger.important("Stopping...", "Unicorn")
+    run "#{try_sudo} kill -s USR2 `cat #{unicorn_pid}`"
+  else
+    logger.important("No PIDs found. Starting Unicorn server...", "Unicorn")
+    config_path = "#{current_path}/cfg/unicorn.rb"
+    if remote_file_exists?(config_path)
+      run "cd #{current_path} && BUNDLE_GEMFILE=#{current_path}/Gemfile bundle exec unicorn -E #{rack_env} -c #{config_path} -D"
+    else
+      logger.important("Config file for unicorn was not found at \"#{config_path}\"", "Unicorn")
+    end
+  end
 end
