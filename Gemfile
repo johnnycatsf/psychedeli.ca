@@ -12,7 +12,7 @@ gem 'rvm', require: false
 
 group :content do
   gem 'liquid'
-  gem 'jekyll', git: 'git://github.com/tubbo/jekyll.git', branch: 'feature/custom-dirs'
+  gem 'jekyll', path: 'vendor/gems/jekyll' #git: 'git://github.com/tubbo/jekyll.git', branch: 'feature/custom-dirs'
 end
 
 group :assets do
