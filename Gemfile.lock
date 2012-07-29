@@ -1,13 +1,16 @@
-PATH
-  remote: vendor/gems/jekyll
+GIT
+  remote: git://github.com/tubbo/jekyll.git
+  revision: b97dadec0baffa1f70f7c0f75905035cd19a374d
+  branch: custom-posts-directory
   specs:
     jekyll (0.11.2)
       albino (~> 1.3)
       classifier (~> 1.3)
       directory_watcher (~> 1.1)
-      kramdown (~> 0.13)
+      kramdown (~> 0.13.4)
       liquid (~> 2.2.2)
       maruku (~> 0.5)
+      pygments.rb (~> 0.2.12)
 
 GEM
   remote: http://rubygems.org/
@@ -32,6 +35,7 @@ GEM
     albino (1.3.3)
       posix-spawn (>= 0.3.6)
     ansi (1.4.3)
+    blankslate (2.1.2.4)
     bootstrap-sass (2.0.4.0)
     builder (3.0.0)
     capistrano (2.12.0)
@@ -41,18 +45,6 @@ GEM
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.1.0)
     capistrano_colors (0.5.5)
-    capybara (1.1.2)
-      mime-types (>= 1.16)
-      nokogiri (>= 1.3.3)
-      rack (>= 1.0.0)
-      rack-test (>= 0.5.4)
-      selenium-webdriver (~> 2.0)
-      xpath (~> 0.1.4)
-    capybara_minitest_spec (0.2.2)
-      capybara
-      minitest (>= 2.0)
-    childprocess (0.3.4)
-      ffi (~> 1.0, >= 1.0.6)
     chunky_png (1.2.5)
     classifier (1.3.3)
       fast-stemmer (>= 1.0.0)
@@ -74,7 +66,7 @@ GEM
     faraday (0.8.1)
       multipart-post (~> 1.1)
     fast-stemmer (1.0.1)
-    ffi (1.1.1)
+    ffi (1.0.11)
     fssm (0.2.9)
     handlebars_assets (0.6.2)
       execjs (>= 1.2.9)
@@ -89,14 +81,11 @@ GEM
       faraday (~> 0.7)
       multi_json (~> 1.3)
     kramdown (0.13.7)
-    libwebsocket (0.1.5)
-      addressable
     libxml-ruby (2.3.3)
     liquid (2.2.2)
     maruku (0.6.0)
       syntax (>= 1.0.0)
     metaclass (0.0.1)
-    mime-types (1.19)
     mini_shoulda (0.4.0)
       minitest (> 2.1.0)
     mini_specunit (0.4.0)
@@ -113,8 +102,9 @@ GEM
     net-ssh (2.5.2)
     net-ssh-gateway (1.1.0)
       net-ssh (>= 1.99.1)
-    nokogiri (1.5.5)
     posix-spawn (0.3.6)
+    pygments.rb (0.2.13)
+      rubypython (~> 0.5.3)
     rack (1.4.1)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -127,16 +117,13 @@ GEM
     ratom (0.7.1)
       libxml-ruby (~> 2.3.2)
     redcarpet (2.1.1)
-    rubyzip (0.9.9)
+    rubypython (0.5.3)
+      blankslate (>= 2.1.2.3)
+      ffi (~> 1.0.7)
     rvm (1.11.3.5)
     rvm-capistrano (1.2.5)
       capistrano (>= 2.0.0)
     sass (3.1.20)
-    selenium-webdriver (2.25.0)
-      childprocess (>= 0.2.5)
-      libwebsocket (~> 0.1.3)
-      multi_json (~> 1.0)
-      rubyzip
     simple_oauth (0.1.9)
     sprockets (2.1.3)
       hike (~> 1.2)
@@ -165,8 +152,6 @@ GEM
     webmock (1.8.7)
       addressable (>= 2.2.7)
       crack (>= 0.1.7)
-    xpath (0.1.4)
-      nokogiri (~> 1.3)
     yajl-ruby (1.1.0)
 
 PLATFORMS
@@ -178,8 +163,6 @@ DEPENDENCIES
   bootstrap-sass
   capistrano
   capistrano_colors
-  capybara
-  capybara_minitest_spec
   coffee-script
   compass
   handlebars_assets
@@ -191,6 +174,7 @@ DEPENDENCIES
   mini_specunit
   minitest
   mocha
+  pygments.rb
   rack
   rack-contrib
   rack-test

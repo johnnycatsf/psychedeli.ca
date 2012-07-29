@@ -12,7 +12,7 @@ gem 'rvm', require: false
 
 group :content do
   gem 'liquid'
-  gem 'jekyll', path: 'vendor/gems/jekyll' #git: 'git://github.com/tubbo/jekyll.git', branch: 'feature/custom-dirs'
+  gem 'jekyll', git: 'git://github.com/tubbo/jekyll.git', branch: 'custom-posts-directory'
   gem 'pygments.rb'
   gem 'redcarpet'
 end
@@ -55,8 +55,6 @@ group :test do
   gem 'mocha'
   gem 'vcr'
   gem 'webmock'
-  gem 'capybara', require: false
-  gem 'capybara_minitest_spec', require: false
 end
 
 group :production do
