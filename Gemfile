@@ -13,6 +13,8 @@ gem 'rvm', require: false
 group :content do
   gem 'liquid'
   gem 'jekyll', path: 'vendor/gems/jekyll' #git: 'git://github.com/tubbo/jekyll.git', branch: 'feature/custom-dirs'
+  gem 'pygments.rb'
+  gem 'redcarpet'
 end
 
 group :assets do
@@ -22,7 +24,6 @@ group :assets do
   gem 'bootstrap-sass'
   gem 'handlebars_assets'
   gem 'coffee-script'
-  gem 'redcarpet'
 end
 
 group :status_exchange do
