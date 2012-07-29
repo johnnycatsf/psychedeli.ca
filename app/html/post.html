@@ -13,8 +13,8 @@ layout: default
 
 		<footer>
 			<div class="text">
-				<p>Posted in {{ page.category }} on <time datetime="{{ page.time | date_to_xmlschema }}">{{ page.time | date_to_string }}</time>.</p>
-				<p>Tags: {{ page.tags }}</p>
+				<p>Posted in <strong>{{ page.category }}</strong> on <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date_to_string }}</time>.</p>
+				<p>Tags: <span class="tags">{{ page.tags }}</span></p>
 			</div>
 		</footer>
 	</article>

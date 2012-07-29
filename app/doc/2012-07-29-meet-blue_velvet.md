@@ -3,6 +3,7 @@ layout: post
 title: "meet blue_velvet: a facebook cms"
 category: code
 date: 2012-07-29
+tags: "#facebook, #open_graph, `blue_velvet, ruby"
 ---
 
 It's certainly been a while, hasn't it? I've been busy with gigs and

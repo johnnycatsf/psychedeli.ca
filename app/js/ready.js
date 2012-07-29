@@ -5,5 +5,5 @@ $(document).ready(function() {
 		loadingImage: 'img/loading.gif'
 	});*/
 
-	//$('.tags a').linkifyTags();
+	$('article .tags').linkifyTags();
 });
