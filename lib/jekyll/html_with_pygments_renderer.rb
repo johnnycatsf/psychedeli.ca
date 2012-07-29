@@ -1,4 +1,4 @@
-require 'bundle'
+require 'bundler'
 Bundler.require :content
 
 # A Markdown renderer that incorporates Pygments syntax highlighting.

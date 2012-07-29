@@ -9,6 +9,7 @@ gem 'actionpack', '3.2.6', require: false
 gem 'activesupport', '3.2.6', require: 'active_support/all'
 gem 'sprockets'
 gem 'rvm', require: false
+  gem 'thin'
 
 group :content do
   gem 'liquid'
@@ -40,7 +41,6 @@ end
 # Environments
 
 group :development do
-  gem 'thin', require: false
   gem 'rake', require: false
   gem 'capistrano', require: false
   gem 'capistrano_colors', require: false
