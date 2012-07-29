@@ -38,11 +38,21 @@ powerful engine for displaying Facebook attributes.
 
 ## making it work
 
-Sound fun? It's real easy to get started, just add `gem 'blue_velvet'`
-to your Gemfile, run `bundle` and generate the configuration using
-`rails g facebook:config`. Generate a new Facebook app on
-<http://developers.facebook.com> and enter in your app data, as well as
-the page ID you're looking to access.
+Sound fun? It's real easy to get started!
+
+Just add 
+    gem 'blue_velvet'
+
+to your Gemfile, run 
+
+    bundle
+    
+and generate the configuration using
+
+    rails g facebook:config 
+
+Generate a new Facebook app on <http://developers.facebook.com> and enter 
+in your app data, as well as the page ID you're looking to access.
 
 Now that you're set up to access a Facebook page, you can build routes
 to your Facebook page's attributes like so:
