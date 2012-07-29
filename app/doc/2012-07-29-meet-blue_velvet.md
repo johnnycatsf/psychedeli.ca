@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "meet blue_velvet: a facebook cms"
+title: "meet blue_velvet: use your facebook page as a cms"
 category: code
 date: 2012-07-29
 tags: "#facebook, #open_graph, `blue_velvet, ruby"
