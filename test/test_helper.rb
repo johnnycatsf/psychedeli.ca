@@ -3,6 +3,7 @@ require 'bundler'
 Bundler.setup :default, :test, :status_exchange
 Bundler.require :default, :test, :status_exchange
 
+require 'vcr'
 require 'status_exchange'
 
 ENV['RACK_ENV'] = "test"

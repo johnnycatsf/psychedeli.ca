@@ -5,11 +5,12 @@ source :rubygems
 gem 'rack', require: false
 gem 'rack-contrib'
 gem 'i18n', require: false
-gem 'actionpack', '3.2.6', require: false
-gem 'activesupport', '3.2.6', require: 'active_support/all'
+gem 'actionpack', '3.2.0', require: false
+gem 'activesupport', '3.2.0', require: 'active_support/all'
 gem 'sprockets'
 gem 'rvm', require: false
-  gem 'thin'
+gem 'thin'
+gem 'vcr', '2.2.3'
 
 group :content do
   gem 'liquid'
@@ -53,7 +54,6 @@ group :test do
   gem 'mini_shoulda'
   gem 'rack-test'
   gem 'mocha'
-  gem 'vcr'
   gem 'webmock'
 end
 

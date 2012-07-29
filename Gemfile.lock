@@ -15,20 +15,20 @@ GIT
 GEM
   remote: http://rubygems.org/
   specs:
-    actionpack (3.2.6)
-      activemodel (= 3.2.6)
-      activesupport (= 3.2.6)
+    actionpack (3.2.0)
+      activemodel (= 3.2.0)
+      activesupport (= 3.2.0)
       builder (~> 3.0.0)
       erubis (~> 2.7.0)
-      journey (~> 1.0.1)
+      journey (~> 1.0.0)
       rack (~> 1.4.0)
-      rack-cache (~> 1.2)
+      rack-cache (~> 1.1)
       rack-test (~> 0.6.1)
-      sprockets (~> 2.1.3)
-    activemodel (3.2.6)
-      activesupport (= 3.2.6)
+      sprockets (~> 2.1.2)
+    activemodel (3.2.0)
+      activesupport (= 3.2.0)
       builder (~> 3.0.0)
-    activesupport (3.2.6)
+    activesupport (3.2.0)
       i18n (~> 0.6)
       multi_json (~> 1.0)
     addressable (2.2.8)
@@ -148,7 +148,7 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
-    vcr (2.2.4)
+    vcr (2.2.3)
     webmock (1.8.8)
       addressable (~> 2.2.8)
       crack (>= 0.1.7)
@@ -158,8 +158,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  actionpack (= 3.2.6)
-  activesupport (= 3.2.6)
+  actionpack (= 3.2.0)
+  activesupport (= 3.2.0)
   bootstrap-sass
   capistrano
   capistrano_colors
@@ -190,6 +190,6 @@ DEPENDENCIES
   turn (>= 0.9.3)
   twitter
   unicorn
-  vcr
+  vcr (= 2.2.3)
   webmock
   yajl-ruby
