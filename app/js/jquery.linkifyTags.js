@@ -61,6 +61,11 @@ console.log('linkifyTags loaded');
 				tags += tagHTML;
 			});
 			
+      // filter out the last 2 characters if it's just a comma
+      if (tags.substr(-2) == ", ") {
+        tags = tags.substr(0, tags.length-2);
+      }
+
 			self.html(tags);
 		});
 	};
