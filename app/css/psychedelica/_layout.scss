@@ -18,7 +18,7 @@ header {
 		h1 {	// psychedeli.ca
 			font-family: $cooper;
 			font-size: 64px;
-			// padding: 10px;
+			padding: 25px;
 
 			a {
 				&:link, &:visited {
@@ -55,6 +55,6 @@ footer {
 	background: #d8dee4;
 
 	p, nav {
-		margin: 1em 0px;
+		margin: 1em 0px 1em 2em;
 	}
 }
