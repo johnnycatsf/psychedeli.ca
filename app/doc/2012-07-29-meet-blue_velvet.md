@@ -48,9 +48,9 @@ Now that you're set up to access a Facebook page, you can build routes
 to your Facebook page's attributes like so:
 
 (in `routes.rb`)
-```ruby
+
     get "/about" => 'facebook/page#description'
-```
+
 Now type `rails server` and visit <http://localhost:3000/about>, and you
 should see the content of your page's "Description" field.
 
@@ -60,7 +60,7 @@ You can also do some cool stuff on the Ruby side to create better views
 of your Facebook content. For example, The Wonder Bars' `/about` page
 uses the following Facebook page information to get all of its content
 together:
-```ruby
+
     class FacebookController < Facebook::PageController
       # Accesses 'about', 'description' and 'bio' for a complete "About Us" page.
       def about_us
@@ -70,7 +70,7 @@ together:
         render layout: false if request.xhr?
       end
     end
-```
+
 You can have any controller access that `facebook` object by simply
 inheriting from `Facebook::PageController`. You must cache values from
 the Facebook page into instance variables for them to become available
