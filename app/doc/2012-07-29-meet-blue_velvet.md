@@ -4,6 +4,7 @@ title: "meet blue_velvet: use your facebook page as a cms"
 category: code
 date: 2012-07-29
 tags: "#facebook, #open_graph, `blue_velvet, ruby"
+published: false
 ---
 
 It's certainly been a while, hasn't it? I've been busy with gigs and
@@ -41,6 +42,7 @@ powerful engine for displaying Facebook attributes.
 Sound fun? It's real easy to get started!
 
 Just add 
+
     gem 'blue_velvet'
 
 to your Gemfile, run 
