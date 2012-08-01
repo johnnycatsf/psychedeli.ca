@@ -5,9 +5,9 @@ source :rubygems
 gem 'rack', require: false
 gem 'rack-contrib'
 gem 'i18n', require: false
-gem 'actionpack', '3.2.7', require: false
+#gem 'actionpack', '3.2.7', require: false
 gem 'activesupport', '3.2.7', require: 'active_support/all'
-gem 'sprockets'
+gem 'sprockets', git: 'git://github.com/sstephenson/sprockets.git'
 gem 'rvm', require: false
 gem 'thin'
 gem 'vcr', '2.2.3'

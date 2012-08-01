@@ -15,6 +15,12 @@ task :compile do
   system 'bundle exec jekyll --config=cfg/jekyll.yml'
 end
 
+desc "Compile assets"
+task :assets do
+  Rake::Task['css'].invoke
+  Rake::Task['js'].invoke
+end
+
 desc "Run the test suite on CI"
 task :build => [:compile, :config, :test]
 

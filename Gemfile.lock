@@ -1,4 +1,14 @@
 GIT
+  remote: git://github.com/sstephenson/sprockets.git
+  revision: d1ff60f02f8b1915a8a2bd66c3ae9305ab114b78
+  specs:
+    sprockets (2.4.5)
+      hike (~> 1.2)
+      multi_json (~> 1.0)
+      rack (~> 1.0)
+      tilt (~> 1.1, != 1.3.0)
+
+GIT
   remote: git://github.com/tubbo/jekyll.git
   revision: cf6998bd0cf03639c60fb670a8c1e0cd6410eae7
   branch: custom-posts-directory
@@ -15,19 +25,6 @@ GIT
 GEM
   remote: http://rubygems.org/
   specs:
-    actionpack (3.2.7)
-      activemodel (= 3.2.7)
-      activesupport (= 3.2.7)
-      builder (~> 3.0.0)
-      erubis (~> 2.7.0)
-      journey (~> 1.0.4)
-      rack (~> 1.4.0)
-      rack-cache (~> 1.2)
-      rack-test (~> 0.6.1)
-      sprockets (~> 2.1.3)
-    activemodel (3.2.7)
-      activesupport (= 3.2.7)
-      builder (~> 3.0.0)
     activesupport (3.2.7)
       i18n (~> 0.6)
       multi_json (~> 1.0)
@@ -37,7 +34,6 @@ GEM
     ansi (1.4.3)
     blankslate (2.1.2.4)
     bootstrap-sass (2.0.4.0)
-    builder (3.0.0)
     capistrano (2.12.0)
       highline
       net-scp (>= 1.0.0)
@@ -59,7 +55,6 @@ GEM
     crack (0.3.1)
     daemons (1.1.8)
     directory_watcher (1.4.1)
-    erubis (2.7.0)
     eventmachine (0.12.10)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -75,7 +70,6 @@ GEM
     highline (1.6.13)
     hike (1.2.1)
     i18n (0.6.0)
-    journey (1.0.4)
     kgio (2.7.4)
     koala (1.5.0)
       faraday (~> 0.7)
@@ -106,8 +100,6 @@ GEM
     pygments.rb (0.2.13)
       rubypython (~> 0.5.3)
     rack (1.4.1)
-    rack-cache (1.2)
-      rack (>= 0.4)
     rack-contrib (1.1.0)
       rack (>= 0.9.1)
     rack-test (0.6.1)
@@ -125,10 +117,6 @@ GEM
       capistrano (>= 2.0.0)
     sass (3.1.20)
     simple_oauth (0.1.9)
-    sprockets (2.1.3)
-      hike (~> 1.2)
-      rack (~> 1.0)
-      tilt (~> 1.1, != 1.3.0)
     sprockets-sass (0.9.0)
       sprockets (~> 2.0)
       tilt (~> 1.1)
@@ -158,7 +146,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  actionpack (= 3.2.7)
   activesupport (= 3.2.7)
   bootstrap-sass
   capistrano
@@ -184,7 +171,7 @@ DEPENDENCIES
   rvm
   rvm-capistrano
   sass
-  sprockets
+  sprockets!
   sprockets-sass
   thin
   turn (>= 0.9.3)
