@@ -36,25 +36,30 @@ require 'rack/contrib/not_found'
 # Log everything
 use Rack::CommonLogger
 
-# Compile stylesheets
-map '/css' do
-  stylesheets = Sprockets::Environment.new
-  stylesheets.append_path 'app/css'
-  run stylesheets
-end
+# Set environment
+RACK_ENV = ENV['RACK_ENV']
 
-# Compile javascripts
-map '/js' do
-  javascripts = Sprockets::Environment.new
-  javascripts.append_path 'app/js'
-  run javascripts
-end
+unless RACK_ENV == "production"
+  # Compile stylesheets
+  map '/css' do
+    stylesheets = Sprockets::Environment.new
+    stylesheets.append_path 'app/css'
+    run stylesheets
+  end
 
-# Manage images
-map '/img' do
-  images = Sprockets::Environment.new
-  images.append_path 'app/img'
-  run images
+  # Compile javascripts
+  map '/js' do
+    javascripts = Sprockets::Environment.new
+    javascripts.append_path 'app/js'
+    run javascripts
+  end
+
+  # Manage images
+  map '/img' do
+    images = Sprockets::Environment.new
+    images.append_path 'app/img'
+    run images
+  end
 end
 
 # JSON feed server

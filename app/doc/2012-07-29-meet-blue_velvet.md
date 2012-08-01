@@ -4,7 +4,7 @@ title: "meet blue_velvet: use your facebook page as a cms"
 category: code
 date: 2012-07-29
 tags: "#facebook, #open_graph, `blue_velvet, ruby"
-published: false
+published: true
 ---
 
 It's certainly been a while, hasn't it? I've been busy with gigs and

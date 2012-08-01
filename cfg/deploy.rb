@@ -33,7 +33,7 @@ set :application_server, "unicorn"
 ## Task Chain
 
 after 'deploy:update', 'deploy:update_content', 'deploy:configuration',
-      'deploy:clean_capistrano_assumptions'
+      'deploy:clean_capistrano_assumptions', 'deploy:assets'
 
 ## Task Definitions
 
