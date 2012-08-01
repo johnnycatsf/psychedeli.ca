@@ -11,6 +11,7 @@ gem 'sprockets'
 gem 'rvm', require: false
 gem 'thin'
 gem 'vcr', '2.2.3'
+gem 'rake'
 
 group :content do
   gem 'liquid'
@@ -42,7 +43,6 @@ end
 # Environments
 
 group :development do
-  gem 'rake', require: false
   gem 'capistrano', require: false
   gem 'capistrano_colors', require: false
 end
