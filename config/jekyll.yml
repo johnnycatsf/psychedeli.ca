@@ -1,8 +1,8 @@
 auto: false
 source: ./app
-layouts: html # relative from the source dir
-posts: doc
-destination: ./pub
+layouts: views/layouts # relative from the source dir
+posts: documents/articles
+destination: ./public
 plugins: ./lib/jekyll
 markdown: redcarpet
 pygments: true
