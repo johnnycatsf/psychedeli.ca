@@ -7,11 +7,11 @@
 // Cooper Black for the logo
 @font-face {
     font-family: 'CooperStdBlack';
-    src: url('/assets/vendor/fonts/cooperblackstd-webfont.eot');
-    src: url('/assets/vendor/fonts/cooperblackstd-webfont.eot?#iefix') format('embedded-opentype'),
-         url('/assets/vendor/fonts/cooperblackstd-webfont.woff') format('woff'),
-         url('/assets/vendor/fonts/cooperblackstd-webfont.ttf') format('truetype'),
-         url('/assets/vendor/fonts/cooperblackstd-webfont.svg#CooperStdBlack') format('svg');
+    src: url('/assets/cooperblackstd-webfont.eot');
+    src: url('/assets/cooperblackstd-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/cooperblackstd-webfont.woff') format('woff'),
+         url('/assets/cooperblackstd-webfont.ttf') format('truetype'),
+         url('/assets/cooperblackstd-webfont.svg#CooperStdBlack') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -20,11 +20,11 @@ $cooper: 'CooperStdBlack', Arial, sans-serif;
 // Brandon Grotesque for headlines
 @font-face {
     font-family: 'BrandonGrotesqueBlack';
-    src: url('/assets/vendor/fonts/brandon_blk-webfont.eot');
-    src: url('/assets/vendor/fonts/brandon_blk-webfont.eot?#iefix') format('embedded-opentype'),
-         url('/assets/vendor/fonts/brandon_blk-webfont.woff') format('woff'),
-         url('/assets/vendor/fonts/brandon_blk-webfont.ttf') format('truetype'),
-         url('/assets/vendor/fonts/brandon_blk-webfont.svg#BrandonGrotesqueBlack') format('svg');
+    src: url('/assets/brandon_blk-webfont.eot');
+    src: url('/assets/brandon_blk-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/brandon_blk-webfont.woff') format('woff'),
+         url('/assets/brandon_blk-webfont.ttf') format('truetype'),
+         url('/assets/brandon_blk-webfont.svg#BrandonGrotesqueBlack') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -34,11 +34,11 @@ $brandon: 'BrandonGrotesqueBlack', Arial, sans-serif;
 // Helvetica Neue 45 for the ticker
 @font-face {
     font-family: 'HelveticaNeueLTStd45Light';
-    src: url('/assets/vendor/fonts/helveticaneueltstd-lt-webfont.eot');
-    src: url('/assets/vendor/fonts/helveticaneueltstd-lt-webfont.eot?#iefix') format('embedded-opentype'),
-         url('/assets/vendor/fonts/helveticaneueltstd-lt-webfont.woff') format('woff'),
-         url('/assets/vendor/fonts/helveticaneueltstd-lt-webfont.ttf') format('truetype'),
-         url('/assets/vendor/fonts/helveticaneueltstd-lt-webfont.svg#HelveticaNeueLTStd45Light') format('svg');
+    src: url('/assets/helveticaneueltstd-lt-webfont.eot');
+    src: url('/assets/helveticaneueltstd-lt-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/helveticaneueltstd-lt-webfont.woff') format('woff'),
+         url('/assets/helveticaneueltstd-lt-webfont.ttf') format('truetype'),
+         url('/assets/helveticaneueltstd-lt-webfont.svg#HelveticaNeueLTStd45Light') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -48,11 +48,11 @@ $neue: 'HelveticaNeueLTStd45Light', Helvetica, sans-serif;
 // Museo 500 as a counterpart to headlines
 @font-face {
     font-family: 'Museo500';
-    src: url('/assets/vendor/fonts/museo500-regular-webfont.eot');
-    src: url('/assets/vendor/fonts/museo500-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('/assets/vendor/fonts/museo500-regular-webfont.woff') format('woff'),
-         url('/assets/vendor/fonts/museo500-regular-webfont.ttf') format('truetype'),
-         url('/assets/vendor/fonts/museo500-regular-webfont.svg#Museo500') format('svg');
+    src: url('/assets/museo500-regular-webfont.eot');
+    src: url('/assets/museo500-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/museo500-regular-webfont.woff') format('woff'),
+         url('/assets/museo500-regular-webfont.ttf') format('truetype'),
+         url('/assets/museo500-regular-webfont.svg#Museo500') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -61,11 +61,11 @@ $museo: 'Museo500', Courier, fixed;
 // Collegiate for the "100% PURE BEARD" github fork banner
 @font-face {
     font-family: 'CollegiateRegular';
-    src: url('/assets/vendor/fonts/collegiate-webfont.eot');
-    src: url('/assets/vendor/fonts/collegiate-webfont.eot?#iefix') format('embedded-opentype'),
-         url('/assets/vendor/fonts/collegiate-webfont.woff') format('woff'),
-         url('/assets/vendor/fonts/collegiate-webfont.ttf') format('truetype'),
-         url('/assets/vendor/fonts/collegiate-webfont.svg#CollegiateRegular') format('svg');
+    src: url('/assets/collegiate-webfont.eot');
+    src: url('/assets/collegiate-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/collegiate-webfont.woff') format('woff'),
+         url('/assets/collegiate-webfont.ttf') format('truetype'),
+         url('/assets/collegiate-webfont.svg#CollegiateRegular') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -76,11 +76,11 @@ $georgia: 'Georgia', Times, serif;
 
 @font-face {
     font-family: 'MonacoRegular';
-    src: url('/assets/vendor/fonts/monaco-webfont.eot');
-    src: url('/assets/vendor/fonts/monaco-webfont.eot?#iefix') format('embedded-opentype'),
-         url('/assets/vendor/fonts/monaco-webfont.woff') format('woff'),
-         url('/assets/vendor/fonts/monaco-webfont.ttf') format('truetype'),
-         url('/assets/vendor/fonts/monaco-webfont.svg#MonacoRegular') format('svg');
+    src: url('/assets/monaco-webfont.eot');
+    src: url('/assets/monaco-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/monaco-webfont.woff') format('woff'),
+         url('/assets/monaco-webfont.ttf') format('truetype'),
+         url('/assets/monaco-webfont.svg#MonacoRegular') format('svg');
     font-weight: normal;
     font-style: normal;
 
