@@ -1,15 +1,14 @@
 auto: false
-source: ./app
-layouts: views/layouts # relative from the source dir
-posts: documents/articles
+source: ./app/jekyll
+layouts: layouts # relative from the source dir
+posts: articles
 destination: ./public
 plugins: ./lib/jekyll
 markdown: redcarpet
 pygments: true
 permalink: pretty       # /category/YYYY/MM/DD/title
 exclude:
-- html
-- doc
-- css
-- js
-- img
+- assets
+- controllers
+- helpers
+- models
