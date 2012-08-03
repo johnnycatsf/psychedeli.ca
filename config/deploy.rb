@@ -27,7 +27,7 @@ set :git_enable_submodules, 1
 set :application, "blog"
 set :deploy_to, "/home/#{user}/src/#{application}"
 role :web, "psychedeli.ca"
-set :rack_env, 'production'
+set :rails_env, 'production'
 set :application_server, "unicorn"
 
 ## Task Chain
