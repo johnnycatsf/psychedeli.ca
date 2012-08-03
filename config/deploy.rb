@@ -143,7 +143,7 @@ def restart_unicorn!
     logger.important("No PIDs found. Starting Unicorn server...", "Unicorn")
     config_path = "#{current_path}/config/unicorn.rb"
     if remote_file_exists?(config_path)
-      run "cd #{current_path} && BUNDLE_GEMFILE=#{current_path}/Gemfile bundle exec unicorn -E #{rack_env} -c #{config_path} -D"
+      run "cd #{current_path} && BUNDLE_GEMFILE=#{current_path}/Gemfile bundle exec unicorn -E #{rails_env} -c #{config_path} -D"
     else
       logger.important("Config file for unicorn was not found at \"#{config_path}\"", "Unicorn")
     end
