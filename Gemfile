@@ -1,62 +1,61 @@
-source :rubygems
+  require 'rbconfig'
+  HOST_OS = RbConfig::CONFIG['host_os']
+source 'https://rubygems.org'
 
-# Components
+gem 'rails', '3.2.6'
 
-gem 'rack', require: false
-gem 'rack-contrib'
-gem 'i18n', require: false
-#gem 'actionpack', '3.2.7', require: false
-gem 'activesupport', '3.2.7', require: 'active_support/all'
-gem 'sprockets', git: 'git://github.com/sstephenson/sprockets.git'
-gem 'rvm', require: false
-gem 'thin'
-gem 'vcr', '2.2.3'
-gem 'rake'
+# Bundle edge Rails instead:
+# gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-group :content do
-  gem 'liquid'
-  gem 'jekyll', git: 'git://github.com/tubbo/jekyll.git', branch: 'custom-posts-directory'
-  gem 'pygments.rb'
-  gem 'redcarpet'
-end
+gem 'pg'
 
+
+# Gems used only for assets and not required
+# in production environments by default.
 group :assets do
-  gem 'sprockets-sass'
-  gem 'sass'
-  gem 'compass'
-  gem 'bootstrap-sass'
-  gem 'handlebars_assets'
-  gem 'coffee-script'
+  gem 'sass-rails',   '~> 3.2.3'
+  gem 'coffee-rails', '~> 3.2.1'
+
+  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+  # gem 'therubyracer', :platforms => :ruby
+
+  gem 'uglifier', '>= 1.0.3'
 end
 
-group :status_exchange do
-  gem 'yajl-ruby'
-  gem 'twitter'
-  gem 'koala'
-  gem 'ratom', require: 'atom'
+gem 'jquery-rails'
+
+# To use ActiveModel has_secure_password
+# gem 'bcrypt-ruby', '~> 3.0.0'
+
+# To use Jbuilder templates for JSON
+# gem 'jbuilder'
+
+# Use unicorn as the app server
+# gem 'unicorn'
+
+# Deploy with Capistrano
+# gem 'capistrano'
+
+# To use debugger
+# gem 'debugger'
+
+group :views do
+  gem "bootstrap-sass", ">= 2.0.3"
 end
 
-group :deployment do
-  gem 'rvm-capistrano', require: false
-end
-
-# Environments
-
-group :development do
-  gem 'capistrano', require: false
-  gem 'capistrano_colors', require: false
+group :views do
+  gem "haml", ">= 3.1.6"
+  gem "haml-rails", ">= 0.3.4", :group => :development
 end
 
 group :test do
-  gem 'turn', '>= 0.9.3'
-  gem 'minitest'
-  gem 'mini_specunit'
-  gem 'mini_shoulda'
-  gem 'rack-test'
-  gem 'mocha'
-  gem 'webmock'
+  gem "factory_girl_rails"
 end
 
-group :production do
-  gem 'unicorn'
+gem "guard", ">= 0.6.2", :group => :development
+group :test do
 end
+
+gem "guard-bundler", ">= 0.1.3", :group => :development
+gem "guard-rails", ">= 0.0.3", :group => :development
+gem "guard-livereload", ">= 0.3.0", :group => :development

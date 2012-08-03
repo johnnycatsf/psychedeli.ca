@@ -1,182 +1,158 @@
-GIT
-  remote: git://github.com/sstephenson/sprockets.git
-  revision: d1ff60f02f8b1915a8a2bd66c3ae9305ab114b78
-  specs:
-    sprockets (2.4.5)
-      hike (~> 1.2)
-      multi_json (~> 1.0)
-      rack (~> 1.0)
-      tilt (~> 1.1, != 1.3.0)
-
-GIT
-  remote: git://github.com/tubbo/jekyll.git
-  revision: cf6998bd0cf03639c60fb670a8c1e0cd6410eae7
-  branch: custom-posts-directory
-  specs:
-    jekyll (0.11.2)
-      albino (~> 1.3)
-      classifier (~> 1.3)
-      directory_watcher (~> 1.1)
-      kramdown (~> 0.13.4)
-      liquid (~> 2.2.2)
-      maruku (~> 0.5)
-      pygments.rb (~> 0.2.12)
-
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
-    activesupport (3.2.7)
+    actionmailer (3.2.6)
+      actionpack (= 3.2.6)
+      mail (~> 2.4.4)
+    actionpack (3.2.6)
+      activemodel (= 3.2.6)
+      activesupport (= 3.2.6)
+      builder (~> 3.0.0)
+      erubis (~> 2.7.0)
+      journey (~> 1.0.1)
+      rack (~> 1.4.0)
+      rack-cache (~> 1.2)
+      rack-test (~> 0.6.1)
+      sprockets (~> 2.1.3)
+    activemodel (3.2.6)
+      activesupport (= 3.2.6)
+      builder (~> 3.0.0)
+    activerecord (3.2.6)
+      activemodel (= 3.2.6)
+      activesupport (= 3.2.6)
+      arel (~> 3.0.2)
+      tzinfo (~> 0.3.29)
+    activeresource (3.2.6)
+      activemodel (= 3.2.6)
+      activesupport (= 3.2.6)
+    activesupport (3.2.6)
       i18n (~> 0.6)
       multi_json (~> 1.0)
-    addressable (2.2.8)
-    albino (1.3.3)
-      posix-spawn (>= 0.3.6)
-    ansi (1.4.3)
-    blankslate (2.1.2.4)
+    addressable (2.3.2)
+    arel (3.0.2)
     bootstrap-sass (2.0.4.0)
-    capistrano (2.12.0)
-      highline
-      net-scp (>= 1.0.0)
-      net-sftp (>= 2.0.0)
-      net-ssh (>= 2.0.14)
-      net-ssh-gateway (>= 1.1.0)
-    capistrano_colors (0.5.5)
-    chunky_png (1.2.5)
-    classifier (1.3.3)
-      fast-stemmer (>= 1.0.0)
+    builder (3.0.0)
+    coffee-rails (3.2.2)
+      coffee-script (>= 2.2.0)
+      railties (~> 3.2.0)
     coffee-script (2.2.0)
       coffee-script-source
       execjs
     coffee-script-source (1.3.3)
-    compass (0.12.2)
-      chunky_png (~> 1.2)
-      fssm (>= 0.2.7)
-      sass (~> 3.1)
-    crack (0.3.1)
-    daemons (1.1.8)
-    directory_watcher (1.4.1)
+    em-websocket (0.3.8)
+      addressable (>= 2.1.1)
+      eventmachine (>= 0.12.9)
+    erubis (2.7.0)
     eventmachine (0.12.10)
     execjs (1.4.0)
       multi_json (~> 1.0)
-    faraday (0.8.1)
-      multipart-post (~> 1.1)
-    fast-stemmer (1.0.1)
-    ffi (1.0.11)
-    fssm (0.2.9)
-    handlebars_assets (0.6.2)
-      execjs (>= 1.2.9)
-      sprockets (>= 2.0.3)
-      tilt
-    highline (1.6.13)
+    factory_girl (3.6.1)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (3.6.0)
+      factory_girl (~> 3.6.0)
+      railties (>= 3.0.0)
+    ffi (1.1.3)
+    guard (1.2.3)
+      listen (>= 0.4.2)
+      thor (>= 0.14.6)
+    guard-bundler (1.0.0)
+      bundler (~> 1.0)
+      guard (~> 1.1)
+    guard-livereload (1.0.0)
+      em-websocket (>= 0.2.0)
+      guard (>= 1.1.0)
+      multi_json (~> 1.0)
+    guard-rails (0.1.0)
+      guard (>= 0.2.2)
+    haml (3.1.6)
+    haml-rails (0.3.4)
+      actionpack (~> 3.0)
+      activesupport (~> 3.0)
+      haml (~> 3.0)
+      railties (~> 3.0)
     hike (1.2.1)
     i18n (0.6.0)
-    kgio (2.7.4)
-    koala (1.5.0)
-      faraday (~> 0.7)
-      multi_json (~> 1.3)
-    kramdown (0.13.7)
-    libxml-ruby (2.3.3)
-    liquid (2.2.2)
-    maruku (0.6.0)
-      syntax (>= 1.0.0)
-    metaclass (0.0.1)
-    mini_shoulda (0.4.0)
-      minitest (> 2.1.0)
-    mini_specunit (0.4.0)
-      minitest
-    minitest (3.3.0)
-    mocha (0.12.1)
-      metaclass (~> 0.0.1)
+    journey (1.0.4)
+    jquery-rails (2.0.2)
+      railties (>= 3.2.0, < 5.0)
+      thor (~> 0.14)
+    json (1.7.4)
+    listen (0.4.7)
+      rb-fchange (~> 0.0.5)
+      rb-fsevent (~> 0.9.1)
+      rb-inotify (~> 0.8.8)
+    mail (2.4.4)
+      i18n (>= 0.4.0)
+      mime-types (~> 1.16)
+      treetop (~> 1.4.8)
+    mime-types (1.19)
     multi_json (1.3.6)
-    multipart-post (1.1.5)
-    net-scp (1.0.4)
-      net-ssh (>= 1.99.1)
-    net-sftp (2.0.5)
-      net-ssh (>= 2.0.9)
-    net-ssh (2.5.2)
-    net-ssh-gateway (1.1.0)
-      net-ssh (>= 1.99.1)
-    posix-spawn (0.3.6)
-    pygments.rb (0.2.13)
-      rubypython (~> 0.5.3)
+    pg (0.14.0)
+    polyglot (0.3.3)
     rack (1.4.1)
-    rack-contrib (1.1.0)
-      rack (>= 0.9.1)
+    rack-cache (1.2)
+      rack (>= 0.4)
+    rack-ssl (1.3.2)
+      rack
     rack-test (0.6.1)
       rack (>= 1.0)
-    raindrops (0.10.0)
+    rails (3.2.6)
+      actionmailer (= 3.2.6)
+      actionpack (= 3.2.6)
+      activerecord (= 3.2.6)
+      activeresource (= 3.2.6)
+      activesupport (= 3.2.6)
+      bundler (~> 1.0)
+      railties (= 3.2.6)
+    railties (3.2.6)
+      actionpack (= 3.2.6)
+      activesupport (= 3.2.6)
+      rack-ssl (~> 1.3.2)
+      rake (>= 0.8.7)
+      rdoc (~> 3.4)
+      thor (>= 0.14.6, < 2.0)
     rake (0.9.2.2)
-    ratom (0.7.1)
-      libxml-ruby (~> 2.3.2)
-    redcarpet (2.1.1)
-    rubypython (0.5.3)
-      blankslate (>= 2.1.2.3)
-      ffi (~> 1.0.7)
-    rvm (1.11.3.5)
-    rvm-capistrano (1.2.5)
-      capistrano (>= 2.0.0)
+    rb-fchange (0.0.5)
+      ffi
+    rb-fsevent (0.9.1)
+    rb-inotify (0.8.8)
+      ffi (>= 0.5.0)
+    rdoc (3.12)
+      json (~> 1.4)
     sass (3.1.20)
-    simple_oauth (0.1.9)
-    sprockets-sass (0.9.0)
-      sprockets (~> 2.0)
-      tilt (~> 1.1)
-    syntax (1.0.0)
-    thin (1.4.1)
-      daemons (>= 1.0.9)
-      eventmachine (>= 0.12.6)
-      rack (>= 1.0.0)
+    sass-rails (3.2.5)
+      railties (~> 3.2.0)
+      sass (>= 3.1.10)
+      tilt (~> 1.3)
+    sprockets (2.1.3)
+      hike (~> 1.2)
+      rack (~> 1.0)
+      tilt (~> 1.1, != 1.3.0)
+    thor (0.15.4)
     tilt (1.3.3)
-    turn (0.9.6)
-      ansi
-    twitter (3.4.1)
-      faraday (~> 0.8)
+    treetop (1.4.10)
+      polyglot
+      polyglot (>= 0.3.1)
+    tzinfo (0.3.33)
+    uglifier (1.2.7)
+      execjs (>= 0.3.0)
       multi_json (~> 1.3)
-      simple_oauth (~> 0.1.6)
-    unicorn (4.3.1)
-      kgio (~> 2.6)
-      rack
-      raindrops (~> 0.7)
-    vcr (2.2.3)
-    webmock (1.8.8)
-      addressable (~> 2.2.8)
-      crack (>= 0.1.7)
-    yajl-ruby (1.1.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  activesupport (= 3.2.7)
-  bootstrap-sass
-  capistrano
-  capistrano_colors
-  coffee-script
-  compass
-  handlebars_assets
-  i18n
-  jekyll!
-  koala
-  liquid
-  mini_shoulda
-  mini_specunit
-  minitest
-  mocha
-  pygments.rb
-  rack
-  rack-contrib
-  rack-test
-  rake
-  ratom
-  redcarpet
-  rvm
-  rvm-capistrano
-  sass
-  sprockets!
-  sprockets-sass
-  thin
-  turn (>= 0.9.3)
-  twitter
-  unicorn
-  vcr (= 2.2.3)
-  webmock
-  yajl-ruby
+  bootstrap-sass (>= 2.0.3)
+  coffee-rails (~> 3.2.1)
+  factory_girl_rails
+  guard (>= 0.6.2)
+  guard-bundler (>= 0.1.3)
+  guard-livereload (>= 0.3.0)
+  guard-rails (>= 0.0.3)
+  haml (>= 3.1.6)
+  haml-rails (>= 0.3.4)
+  jquery-rails
+  pg
+  rails (= 3.2.6)
+  sass-rails (~> 3.2.3)
+  uglifier (>= 1.0.3)

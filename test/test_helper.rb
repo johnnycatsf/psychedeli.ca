@@ -1,21 +1,13 @@
-require 'rubygems'
-require 'bundler'
-Bundler.setup :default, :test, :status_exchange
-Bundler.require :default, :test, :status_exchange
+ENV["RAILS_ENV"] = "test"
+require File.expand_path('../../config/environment', __FILE__)
+require 'rails/test_help'
 
-require 'vcr'
-require 'status_exchange'
+class ActiveSupport::TestCase
+  # Setup all fixtures in test/fixtures/*.(yml|csv) for all tests in alphabetical order.
+  #
+  # Note: You'll currently still have to declare fixtures explicitly in integration tests
+  # -- they do not yet inherit this setting
+  fixtures :all
 
-ENV['RACK_ENV'] = "test"
-
-VCR.configure do |c|
-  #c.default_cassette_options = { :record => :new_episodes }
-  c.cassette_library_dir = File.expand_path('./test/fixtures/cassettes')
-  c.hook_into :webmock
-end
-
-class UnitTest < ActiveSupport::TestCase; end
-
-class IntegrationTest < ActiveSupport::TestCase
-  include Rack::Test::Methods
+  # Add more helper methods to be used by all tests here...
 end

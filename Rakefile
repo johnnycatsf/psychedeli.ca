@@ -1,9 +1,7 @@
-# require 'rake/clean'
-require 'rake/testtask'
-require 'rake/ext/string'
-require 'rake/sprocketstask'
+#!/usr/bin/env rake
+# Add your own tasks in files placed in lib/tasks ending in .rake,
+# for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
 
-Rake::SprocketsTask.new :js
-Rake::SprocketsTask.new :css
+require File.expand_path('../config/application', __FILE__)
 
-Dir["lib/tasks/*.rake"].each {|file| load file }
+Psychedelica::Application.load_tasks
