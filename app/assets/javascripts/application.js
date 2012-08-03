@@ -4,4 +4,5 @@
 //=require bootstrap
 //=require functions
 //=require jquery.linkifyTags
+//=require jquery.facebox
 //=require ready

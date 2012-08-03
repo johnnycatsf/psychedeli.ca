@@ -15,7 +15,7 @@ title: psychedeli.ca
 
 				<footer>
 					<p>Posted in <span class="category">{{ post.category }}</span> <time datetime="{{ post.date }}">on {{ post.date | date_to_string }}</time></p>
-					<p>Tags: <span class="tags">{{ post.tags }}</span> | <a href="comments.html?id={{ post.id }}" rel="modal">Comments</a></p>
+					<p>Tags: <span class="tags">{{ post.tags }}</span> | <a href="/comments.html?id={{ post.id }}" rel="modal">Comments</a></p>
 					{% if post.enclosure %}
 						<p>
 							Download Attachment:
