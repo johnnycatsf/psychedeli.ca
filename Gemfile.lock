@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/tubbo/jekyll.git
-  revision: cf6998bd0cf03639c60fb670a8c1e0cd6410eae7
+  revision: 6080c7392a8d74d24b2257c147b43f31ca6a20c0
   branch: custom-posts-directory
   specs:
     jekyll (0.11.2)

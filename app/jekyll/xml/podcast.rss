@@ -22,7 +22,7 @@ layout: nil
       <itunes:name>Tom Phoolery</itunes:name>
       <itunes:email>tom@thewonderbars.com</itunes:email>
     </itunes:owner>
-    <itunes:image href="http://psychedeli.ca/img/logo-podcast.jpg"/>
+    <itunes:image href="http://psychedeli.ca/assets/logo-podcast.jpg"/>
     <itunes:category text="Music" />
 
     {% for post in site.posts %}
