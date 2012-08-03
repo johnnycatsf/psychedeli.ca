@@ -1,33 +1,21 @@
 psychedeli.ca is my internet web site
 =====================================
 
-This is the complete source code for my blog, which is (usually) up and running on <http://psychedeli.ca>. I mostly post music, programming or some other geek related articles based on what I'm doing at the moment and what I've learned along the way. The blog itself is completely custom-made, but uses a number of engines and libraries made by others which do some pretty awesome stuff.
+This is the complete source code for my blog, which is (usually) up and running on <http://psychedeli.ca>. I mostly post music, programming or some other geek related articles based on what I'm doing at the moment and what I've learned along the way. Originally made by cobbling together Sprockets, my fork of Jekyll, and a little Rack app I made to serve a JSON feed of my status updates across the various social networking sites, it has now been rebooted as a Rails app.
 
 [![Build Status](https://secure.travis-ci.org/tubbo/psychedeli.ca.png?branch=master)](http://travis-ci.org/tubbo/psychedeli.ca)
 
-Engine
-------
+Why Rails?
+----------
+
+Ironically enough, speed. Sprockets isn't aware of the `RACK_ENV` shell variable, and compiles assets on-the-fly in production. In Rails, this is disabled by default and a nice Capistrano task does the precompilation step for you. But when you're making everything from scratch, you can't take advantage of these features without serious modification to the codebase and some really hacky behavior.
+
+Content
+-------
 
 Content delivery is powered by [Jekyll][jek], a static HTML page generator currently in use on GitHub Pages as well as on countless blogs on the web. I like it because it can use [Markdown][md] (my humane markup language of choice), and it's easy to understand and extend.
 
 I wanted a bit more customization out of Jekyll to design my own folder structure, and to just learn how it works. [My fork][fork] of the Jekyll project is an embodiment of these wishes. Changes to Jekyll include two extra configuration options, `posts:` and `layouts:`, which can override the **_posts/** and **_layouts/** directory locations, as well as a custom YAML config location (**cfg/jekyll.yml**).
-
-Middleware
-----------
-
-Aside from the static blog engine, the site also employs a number of other Rack middlewares for serving dynamic data and assets.
-
-### Sprockets
-
-[Sprockets][sprk] serves stylesheets and JavaScript assets, compiling them in the background on new requests. Compilation can be disabled on the server side as the Capistrano script will pre-compile assets when it deploys. Sprockets serves in two places, `css/` and `js/` (as I don't use very many images)
-
-### StatusExchange
-
-Responding to an HTTP request of `GET http://psychedeli.ca/status.json`, this little Rack app aggregates status update feeds from places like Twitter, Facebook, GitHub and Last.FM. It coalesces all of your various feeds together, sorts them by time, then outputs it to a JSON file in a standard fashion. This allows [a jQuery plugin][ticker] to easily read and display the status messages as if they all came from the same place.
-
-### Rack::TryStatic
-
-The Jekyll site is pre-compiled by [Capistrano][cap] on deployment, so [Rack::TryStatic][rts] is used to serve the static files from the `pub/` directory with ease. It comes bundled in the `Rack::Contrib` library, which is required in the Gemfile.
 
 Development
 -----------
