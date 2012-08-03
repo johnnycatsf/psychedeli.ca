@@ -32,7 +32,8 @@ set :application_server, "unicorn"
 
 ## Task Chain
 
-after 'deploy:update', 'deploy:update_content', 'deploy:configuration'
+after 'deploy:update', 'deploy:configuration'
+before 'deploy:assets:precompile', 'deploy:update_content'
 
 ## Task Definitions
 
