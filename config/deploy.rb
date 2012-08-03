@@ -32,8 +32,7 @@ set :application_server, "unicorn"
 
 ## Task Chain
 
-after 'deploy:update', 'deploy:update_content', 'deploy:configuration',
-      'deploy:clean_capistrano_assumptions'
+after 'deploy:update', 'deploy:update_content', 'deploy:configuration'
 
 ## Task Definitions
 
@@ -46,11 +45,6 @@ namespace :deploy do
   desc "Link StatusExchange configuration from shared path."
   task :configuration do
     run "ln -nfs #{shared_path}/cfg/status_exchange.yml #{current_path}/config/status_exchange.yml"
-  end
-
-  desc "Remove the public/ directory, an assumed link set up by Capistrano for Rails apps."
-  task :clean_capistrano_assumptions do
-    run "cd #{release_path}; rm -rf public/"
   end
 
   desc "Restart the application server"
@@ -82,7 +76,7 @@ namespace :unicorn do
 
     if remote_file_exists?(config_path)
       logger.important("Starting...", "Unicorn")
-      run "cd #{current_path} && BUNDLE_GEMFILE=#{current_path}/Gemfile bundle exec unicorn -E #{rack_env} -c #{config_path} -D"
+      run "cd #{current_path} && BUNDLE_GEMFILE=#{current_path}/Gemfile bundle exec unicorn -E #{rails_env} -c #{config_path} -D"
     else
       logger.important("Config file for unicorn was not found at \"#{config_path}\"", "Unicorn")
     end
