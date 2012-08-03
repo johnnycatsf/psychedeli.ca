@@ -7,8 +7,8 @@ tags: "#facebook, #open_graph, `blue_velvet, ruby"
 ---
 
 It's certainly been a while, hasn't it? I've been busy with gigs and
-Transformus, so there's been little time to blog. I have been working on
-stuff, including the foundation of a record label (which I'll talk about
+vacation, so there's been little time to blog. I *have* been working on
+stuff...including the foundation of a record label (which I'll talk about
 in a future post) and maintaining the Wonder Bars' official website.
 
 In the time it's taken me to maintain that site, I've been quietly
@@ -28,13 +28,14 @@ power of [Ruby on Rails][ror] and [Rails engines][ren], however, there
 
 ## introducing blue_velvet
 
-[blue_velvet][bvg] is a gem I created to solve this problem. It's
-extracted from working code that's live on [TheWonderBars.com][twb], and
-recently I converted the code that's live to just use the gem without
-overrides. You probably didn't notice, which was the whole point. The
-gem code is an exact duplicate of the code that powered this
-functionality on the site, so you're getting what I was working with; a
-powerful engine for displaying Facebook attributes.
+[blue_velvet][bvg] is a gem I extracted from working code on 
+[TheWonderBars.com][twb]. The live production codebase uses
+the gem with all of its default settings. You probably didn't 
+notice, which was the whole point. The gem code is an exact 
+duplicate of the code that previously powered this functionality 
+on the site, so you're getting what I was working with; a powerful,
+convention-over-configuration engine for displaying Facebook attributes
+on your own, hosted, well-designed site.
 
 ## making it work
 
@@ -52,8 +53,11 @@ and generate the configuration using
 
     rails g facebook:config 
 
-Generate a new Facebook app on <http://developers.facebook.com> and enter 
-in your app data, as well as the page ID you're looking to access.
+Generate a new Facebook app on <http://developers.facebook.com>. Enter
+in your **App ID** and **App Secret** keys to the proper YAML
+attributes, then find the Facebook page you want to look for and look
+for the number after your page's hyphenated name in the URL. That's your
+**page_id**, which you need to put into YAML as well.
 
 Now that you're set up to access a Facebook page, you can build routes
 to your Facebook page's attributes like so:
@@ -63,7 +67,9 @@ to your Facebook page's attributes like so:
     get "/about" => 'facebook/page#description'
 
 Now type `rails server` and visit <http://localhost:3000/about>, and you
-should see the content of your page's "Description" field.
+should see the content of your page's "Description" field. Since this
+was designed to be used in a [PJAX][pj]-style environment, the
+attributes are served as partials. 
 
 ## advanced usage
 
@@ -85,7 +91,14 @@ together:
 You can have any controller access that `facebook` object by simply
 inheriting from `Facebook::PageController`. You must cache values from
 the Facebook page into instance variables for them to become available
-in the view layer.
+in the view layer. Any attribute that can be obtained via the Page Graph API 
+can be referenced here in some way. Use the `rails console` to explore
+more about the `facebook` object.
+
+As described above, since the default templates use layout-less
+partials to serve content, you can create static pages by extending
+`Facebook::PageController` and defining custom actions, complete with
+static views, to serve static Facebook page content on your hosted site.
 
 ## missing something?
 
