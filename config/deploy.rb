@@ -40,13 +40,12 @@ after 'deploy:update', 'deploy:update_content', 'deploy:configuration',
 namespace :deploy do
   desc "Clear and recreate the pub/ directory with the compiled Jekyll site."
   task :update_content do
-    run "cd #{current_path}; rm -rf pub/*"
-    run "cd #{current_path}; bundle exec jekyll --config=cfg/jekyll.yml"
+    run "cd #{current_path}; bundle exec rake compile"
   end
 
   desc "Link StatusExchange configuration from shared path."
   task :configuration do
-    run "ln -nfs #{shared_path}/cfg/status_exchange.yml #{current_path}/cfg/status_exchange.yml"
+    run "ln -nfs #{shared_path}/cfg/status_exchange.yml #{current_path}/config/status_exchange.yml"
   end
 
   desc "Remove the public/ directory, an assumed link set up by Capistrano for Rails apps."
@@ -79,7 +78,7 @@ namespace :unicorn do
       end
     end
 
-    config_path = "#{current_path}/cfg/unicorn.rb"
+    config_path = "#{current_path}/config/unicorn.rb"
 
     if remote_file_exists?(config_path)
       logger.important("Starting...", "Unicorn")
@@ -148,7 +147,7 @@ def restart_unicorn!
     run "#{try_sudo} kill -s USR2 `cat #{unicorn_pid}`"
   else
     logger.important("No PIDs found. Starting Unicorn server...", "Unicorn")
-    config_path = "#{current_path}/cfg/unicorn.rb"
+    config_path = "#{current_path}/config/unicorn.rb"
     if remote_file_exists?(config_path)
       run "cd #{current_path} && BUNDLE_GEMFILE=#{current_path}/Gemfile bundle exec unicorn -E #{rack_env} -c #{config_path} -D"
     else
