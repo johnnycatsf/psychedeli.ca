@@ -32,8 +32,8 @@ set :application_server, "unicorn"
 
 ## Task Chain
 
-after 'deploy:update', 'deploy:configuration'
 before 'deploy:assets:precompile', 'deploy:update_content'
+after 'deploy:update', 'deploy:configuration'
 
 ## Task Definitions
 
@@ -48,20 +48,6 @@ namespace :deploy do
     run "ln -nfs #{shared_path}/cfg/status_exchange.yml #{current_path}/config/status_exchange.yml"
   end
 
-  desc "Restart the application server"
-  task :restart do
-    case application_server
-    when "unicorn"
-      restart_unicorn!
-    when "passenger"
-      run "cd #{release_path}; touch tmp/restart.txt"
-    else
-      puts "Restart #{application_server} manually."
-    end
-  end
-end
-
-namespace :unicorn do
   desc "Start Unicorn, the production application server."
   task :start do
     if remote_file_exists?(unicorn_pid)
@@ -114,8 +100,19 @@ namespace :unicorn do
   end
 
   desc "Restart Unicorn, wait for all workers to stop running, then start it again."
-  task :reload do
-    restart_unicorn!
+  task :restart do
+    if remote_file_exists?(unicorn_pid)
+      logger.important("Stopping...", "Unicorn")
+      run "#{try_sudo} kill -s USR2 `cat #{unicorn_pid}`"
+    else
+      logger.important("No PIDs found. Starting Unicorn server...", "Unicorn")
+      config_path = "#{current_path}/config/unicorn.rb"
+      if remote_file_exists?(config_path)
+        run "cd #{current_path} && BUNDLE_GEMFILE=#{current_path}/Gemfile bundle exec unicorn -E #{rails_env} -c #{config_path} -D"
+      else
+        logger.important("Config file for unicorn was not found at \"#{config_path}\"", "Unicorn")
+      end
+    end
   end
 end
 
@@ -134,19 +131,4 @@ end
 # Check if process is running
 def remote_process_exists?(pid_file)
   capture("ps -p $(cat #{pid_file}) ; true").strip.split("\n").size == 2
-end
-
-def restart_unicorn!
-  if remote_file_exists?(unicorn_pid)
-    logger.important("Stopping...", "Unicorn")
-    run "#{try_sudo} kill -s USR2 `cat #{unicorn_pid}`"
-  else
-    logger.important("No PIDs found. Starting Unicorn server...", "Unicorn")
-    config_path = "#{current_path}/config/unicorn.rb"
-    if remote_file_exists?(config_path)
-      run "cd #{current_path} && BUNDLE_GEMFILE=#{current_path}/Gemfile bundle exec unicorn -E #{rails_env} -c #{config_path} -D"
-    else
-      logger.important("Config file for unicorn was not found at \"#{config_path}\"", "Unicorn")
-    end
-  end
 end
