@@ -1,14 +1,9 @@
 psychedeli.ca is my internet web site
 =====================================
 
-This is the complete source code for my blog, which is (usually) up and running on <http://psychedeli.ca>. I mostly post music, programming or some other geek related articles based on what I'm doing at the moment and what I've learned along the way. Originally made by cobbling together Sprockets, my fork of Jekyll, and a little Rack app I made to serve a JSON feed of my status updates across the various social networking sites, it has now been rebooted as a Rails app.
+This is the complete source code for my blog, which is (usually) up and running on <http://psychedeli.ca>. I mostly post music, programming or some other geek related articles based on what I'm doing at the moment and what I've learned along the way. Originally made by cobbling together Sprockets, my fork of Jekyll, and a little Rack app I made to serve a JSON feed of my status updates across the various social networking sites, it has now been rebooted as a lightweight Rails app that wraps the original Jekyll site.
 
 [![Build Status](https://secure.travis-ci.org/tubbo/psychedeli.ca.png?branch=master)](http://travis-ci.org/tubbo/psychedeli.ca)
-
-Why Rails?
-----------
-
-Ironically enough, speed. Sprockets isn't aware of the `RACK_ENV` shell variable, and compiles assets on-the-fly in production. In Rails, this is disabled by default and a nice Capistrano task does the precompilation step for you. But when you're making everything from scratch, you can't take advantage of these features without serious modification to the codebase and some really hacky behavior.
 
 Content
 -------
@@ -41,6 +36,15 @@ This task copies the server configuration such as `.htaccess` and `robots.txt` f
 ### rake install {path}
 
 This monolithic task "installs" the static app to `{path}` by copying the entire **lib/** directory, **config.ru**, and compiling the app to its child **pub/** directory. It then copies over all relevant files from **cfg/** that are needed for the daily operations of the web server. If left blank, it installs the app into **build/**.
+
+## Roadmap
+
+- Move articles directory to `app/documents/articles`
+- Create Article model to represent an Article in
+  `app/documents/articles`. It will not use a database. Rather, it will
+  utilize the filesystem to look up source files and compile their
+  Markdown source code to HTML.
+
 
 [sass]: http://sass-lang.com
 [jq]: http://jquery.com
