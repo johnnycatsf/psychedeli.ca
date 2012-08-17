@@ -154,6 +154,22 @@ much time to go through this code and refactor its potential issues,
 I can only hope that it continues to work as we continue development on 
 the API.
 
+Before I [touched the code][dtmc], the JavaScript that controlled this
+was building the HTML form from scratch, and was about 170 lines of
+code. By not fighting the framework, and rather letting Rails take care
+of asset packaging and template rendering (you know, the shit it's good
+at?), I was able to reduce the code footprint to about 35. That means
+that the code I was working with was ~4x bigger than it could have been.
+Not only that, but simply making an Ajax call to an HTML endpoint
+instead of building everything in JS is less buggy, and it allows us to
+take advantage of the nice server-side view layer stuff like Haml,
+helper methods, and Rails' ActionView module. Working in Rails is just
+depressing if you can't use this shit.
+
+Oh, did I mention that *all* of the static assets previously used in this 
+widget were in **app/views/script**, and they were all ERb so he could 
+interpolate `<%= request.host %>` into the code. Yup.
+
 ## Reversing This Hell
 
 So as I continued to toil on the API, I decided that my ultimate goal on
@@ -346,6 +362,10 @@ load balancer. When both are in place, all API requests, new and old,
 are forwarded to the new load-balanced API server, which is running the
 new codebase.
 
+## What's Next?
+
+After the widget rewrite, 
+
 ## Conclusions
 
 This process, while kinda scary, was a complete success. In fact,
@@ -355,6 +375,20 @@ Postgres, converted the schema to something Rails could understand, and
 restarted the Nginx server with the new configuration. (Thanks
 Capistrano) At the same time, the COO updated the DNS configuration to
 point to the ELB, and the conversion was complete.
+
+All in all, I learned a LOT about how to properly do maintenence on
+systems while they're still operational, and I learned a bunch of what
+NOT to do with a Rails app. Namely...
+
+- Don't rewrite anything until it becomes a last-resort option (i.e.,
+  debugging would take more time than rewriting)
+- Don't fight the framework. If you're hacking too much at Rails to get
+  your code working, you're probably doing it wrong.
+- Chef is annoying sometimes, and difficult to debug, but it's an
+  indispensable tool for managing server configuration.
+- There are companies that actually sell C++ libraries. Libraries! And
+  what's worse, **there are companies that BUY these libraries!**
+
 
 [joel]: http://www.joelonsoftware.com/articles/fog0000000069.html
 [wb]: http://thewonderbars.com
