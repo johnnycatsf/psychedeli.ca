@@ -364,7 +364,15 @@ new codebase.
 
 ## What's Next?
 
-After the widget rewrite, 
+After the widget rewrite, we're going to take a second look at the email
+parser. We may even implement some kind of [Bayesian][bf] filtering to
+increase our chances of the parser mapping legal need to the proper
+fields in our backend. But perhaps the most integral of all this is to
+deprecate a direct relationship between the IMAP inbox and the Rails
+app. By taking advantage of [Sendgrid's Parse API][sp], we can simply
+create an `EmailLeadsController` to handle incoming emails, which will
+pass off the Hash to a `Mail::Message` that the `EmailParser` can
+accept.
 
 ## Conclusions
 
@@ -395,3 +403,5 @@ NOT to do with a Rails app. Namely...
 [oc]: http://www.opscode.com/products/
 [aws]: http://aws.amazon.com
 [ck]: http://www.chilkatsoft.com/cpp_libraries.asp
+[bf]: http://en.wikipedia.org/wiki/Bayes%27_theorem
+[sp]: http://docs.sendgrid.com/documentation/api/parse-api-2/
