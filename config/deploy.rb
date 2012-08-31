@@ -32,8 +32,8 @@ set :application_server, "unicorn"
 
 ## Task Chain
 
-before 'deploy:assets:precompile', 'deploy:update_content'
-after 'deploy:update', 'deploy:configuration'
+before 'deploy:assets:precompile', 'deploy:configuration'
+after 'deploy:update', 'deploy:update_content'
 
 ## Task Definitions
 
@@ -45,7 +45,7 @@ namespace :deploy do
 
   desc "Link StatusExchange configuration from shared path."
   task :configuration do
-    run "ln -nfs #{shared_path}/config/status_exchange.yml #{current_path}/config/status_exchange.yml"
+    run "ln -nfs #{shared_path}/config/status_exchange.yml #{release_path}/config/status_exchange.yml"
   end
 
   desc "Start Unicorn, the production application server."
