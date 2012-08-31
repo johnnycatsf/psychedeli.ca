@@ -1,25 +1,27 @@
-module StatusExchange
-  class TwitterClient
-    def initialize
-      @config = StatusExchange.config[:twitter].symbolize_keys
-      @user = @config[:user_name]
-    end
+# Interfaces with Twitter to provide any tweets the user writes.
+class TwitterClient
+  # Set up Twitter authentication.
+  def initialize
+    @config = StatusConfig[:twitter]
+    @user = @config[:user_name]
+  end
 
-    def tweets
-      timeline.reduce([]) { |statuses,tweet|
-        statuses << {
-          message: tweet.text,
-          date: tweet.created_at,
-          service: 'twitter'
-        }
-        statuses
+  # Return all tweets in the timeline in an array of Hashes, using
+  # the standard status.json syntax.
+  def tweets
+    timeline.reduce([]) { |statuses,tweet|
+      statuses << {
+        message: tweet.text,
+        date: tweet.created_at,
+        service: 'twitter'
       }
-    end
+      statuses
+    }
+  end
 
-    private
-
-    def timeline
-      Twitter.user_timeline(@user)
-    end
+private
+  # Make the call to Twitter to provide our user's timeline.
+  def timeline
+    Twitter.user_timeline(@user)
   end
 end

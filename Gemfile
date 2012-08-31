@@ -45,6 +45,7 @@ group :test do
   gem 'mini_shoulda'
   gem 'rack-test'
   gem 'mocha'
+  gem 'vcr'
   gem 'webmock'
 end
 

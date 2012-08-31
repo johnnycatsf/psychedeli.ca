@@ -9,6 +9,7 @@
 # user name here and we'll do the rest.
 twitter:
   user_name: "test_user"
+  client_id: "get-it-from-dev.twitter.com"
 
 # == Facebook
 #

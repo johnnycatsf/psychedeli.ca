@@ -224,6 +224,7 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
+    vcr (2.2.4)
     webmock (1.8.7)
       addressable (>= 2.2.7)
       crack (>= 0.1.7)
@@ -264,5 +265,6 @@ DEPENDENCIES
   twitter
   uglifier (>= 1.0.3)
   unicorn
+  vcr
   webmock
   yajl-ruby

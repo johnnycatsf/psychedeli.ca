@@ -1,54 +1,48 @@
-# This thin wrapper around Koala simply maps method calls to the account
-# specified by your Facebook access ID. So a call to `facebook.posts` is
-# like doing
-#
-#    @graph = Koala::Facebook::API.new FACEBOOK_ACCESS_TOKEN
-#    @graph.get_object FACEBOOK_PROFILE_RELATIVE_URL, "posts"
-#
-# Super simple, and easy to use!
-#
-# @author Tom Scott
-# @package StatusExchange
+class FacebookClient
+  # Authenticate with Facebook.
+  def initialize
+    @config = StatusConfig[:facebook]
+    @graph = Koala::Facebook::API.new @config[:access_token]
+  end
 
-module StatusExchange
-  class FacebookClient
-    def initialize
-      @config = StatusExchange.config[:facebook].symbolize_keys
-      @graph = Koala::Facebook::API.new @config[:access_token]
+  # Test if this client is connected to Facebook.
+  def connected?
+    begin
+      @graph.get_connections(@config[:vanity_url], "comments")
+      true
+    rescue Koala::Facebook::APIError
+      false
     end
+  end
 
-    def connected?
-      begin
-        @graph.get_connections(@config[:vanity_url], "comments")
-        true
-      rescue Koala::Facebook::APIError
-        false
-      end
-    end
+  # Test if the vanity URL for the given user is defined.
+  def is_defined?
+    !!@config[:vanity_url]
+  end
 
-    def is_defined?
-      !!@config[:vanity_url]
-    end
+  # Return the user's basic Facebook information
+  # in a symbolized-key Hash.
+  def profile
+    @graph.get_object(@config[:vanity_url]).symbolize_keys!
+  end
 
-    def profile
-      @graph.get_object(@config[:vanity_url]).symbolize_keys!
-    end
-
-    def posts
-      timeline.reduce([]) { |statuses, post|
-        statuses << {
-          message: post['story'] || post['message'],
-          date: post['created_time'],
-          service: 'facebook'
-        }
-        statuses
+  # Return the user's Facebook posts in an Array of Hashes that
+  # status.json can accept.
+  def posts
+    timeline.reduce([]) { |statuses, post|
+      statuses << {
+        message: post['story'] || post['message'],
+        date: post['created_time'],
+        service: 'facebook'
       }
-    end
+      statuses
+    }
+  end
 
-    private
+private
 
-    def timeline
-      @graph.get_connections @config[:vanity_url], "posts"
-    end
+  # Obtain the timeline for the given type. Defaults to "posts"
+  def timeline(type=:posts)
+    @graph.get_connections @config[:vanity_url], "posts".to_s
   end
 end
