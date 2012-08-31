@@ -45,7 +45,7 @@ namespace :deploy do
 
   desc "Link StatusExchange configuration from shared path."
   task :configuration do
-    run "ln -nfs #{shared_path}/cfg/status_exchange.yml #{current_path}/config/status_exchange.yml"
+    run "ln -nfs #{shared_path}/config/status_exchange.yml #{current_path}/config/status_exchange.yml"
   end
 
   desc "Start Unicorn, the production application server."
