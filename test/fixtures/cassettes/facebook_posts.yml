@@ -33,9 +33,9 @@ http_interactions:
       X-Fb-Rev:
       - '620051'
       X-Fb-Debug:
-      - indc2YdquCr1U4dGv4oCdKJErbythQty5pm9J/iRcr0=
+      - VNKbCBsci+pws6SqYQhGDrO//gZNfJq8gX9oMHs11LY=
       Date:
-      - Fri, 31 Aug 2012 15:13:29 GMT
+      - Fri, 31 Aug 2012 15:46:06 GMT
       Connection:
       - keep-alive
       Content-Length:
@@ -44,7 +44,7 @@ http_interactions:
       encoding: US-ASCII
       string: ! '{"data":[]}'
     http_version: 
-  recorded_at: Fri, 31 Aug 2012 15:13:30 GMT
+  recorded_at: Fri, 31 Aug 2012 15:46:06 GMT
 - request:
     method: get
     uri: https://graph.facebook.com/wonderbars/posts?access_token=AAAEcoySQLr0BAP8ZC42ruMsGFu3DSRWknhxG1bvfRXGpJdxmSrfRM68E8uz2RVDNNU9TA0x6aOhH9FjWNwRitTVLVr3bi55NF3M5XwBKxoRd2Fmeq
@@ -90,10 +90,10 @@ http_interactions:
         Z3ppcA==
       !binary "WC1GYi1EZWJ1Zw==":
       - !binary |-
-        ZUdjQ3VHNkF2YXFJTEZtbTFvN3ZMTkcwbjZPUG9vYlhidHR0N2c1TmJ6ND0=
+        alI3VHpUMXAwYk5zWWx2NGtpN2FmbDdJVUFocXpUb1o0MHBwNWd1ZjNtOD0=
       !binary "RGF0ZQ==":
       - !binary |-
-        RnJpLCAzMSBBdWcgMjAxMiAxNToxMzozMiBHTVQ=
+        RnJpLCAzMSBBdWcgMjAxMiAxNTo0NjowOSBHTVQ=
       !binary "Q29ubmVjdGlvbg==":
       - !binary |-
         a2VlcC1hbGl2ZQ==
@@ -174,5 +174,5 @@ http_interactions:
         vnEUiz82AbNhsWvYm+BLHtDBtEynoRmus9ntzsalIII8nn/0AIF1YYQBmraO
         Ez4H9fbb/wEnuutDSCwAAA==
     http_version: 
-  recorded_at: Fri, 31 Aug 2012 15:13:33 GMT
+  recorded_at: Fri, 31 Aug 2012 15:46:09 GMT
 recorded_with: VCR 2.2.4

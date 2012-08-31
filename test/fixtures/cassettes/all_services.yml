@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.twitter.com/1/statuses/user_timeline.json?screen_name=test_user
+    uri: https://api.twitter.com/1/statuses/user_timeline.json?screen_name=wonderbars
     body:
       encoding: US-ASCII
       string: ''
@@ -24,10 +24,10 @@ http_interactions:
         MTUw
       !binary "WC1SYXRlbGltaXQtUmVtYWluaW5n":
       - !binary |-
-        MTQ3
+        MTQ4
       !binary "WC1SYXRlbGltaXQtUmVzZXQ=":
       - !binary |-
-        MTM0NjQyNzk0NA==
+        MTM0NjQzMTU3MQ==
       !binary "WC1SYXRlbGltaXQtQ2xhc3M=":
       - !binary |-
         YXBp
@@ -36,7 +36,7 @@ http_interactions:
         YXBwbGljYXRpb24vanNvbjtjaGFyc2V0PXV0Zi04
       !binary "TGFzdC1Nb2RpZmllZA==":
       - !binary |-
-        RnJpLCAzMSBBdWcgMjAxMiAxNToxNTozNyBHTVQ=
+        RnJpLCAzMSBBdWcgMjAxMiAxNTo0NjoxNyBHTVQ=
       !binary "RXhwaXJlcw==":
       - !binary |-
         VHVlLCAzMSBNYXIgMTk4MSAwNTowMDowMCBHTVQ=
@@ -49,50 +49,105 @@ http_interactions:
         az0wLCBwb3N0LWNoZWNrPTA=
       !binary "U2V0LUNvb2tpZQ==":
       - !binary |-
-        Z3Vlc3RfaWQ9InYxOjEzNDY0MjYxMzc4NjM4OTQ2MSI7IEV4cGlyZXM9U3Vu
-        LCAzMS1BdWctMjAxNCAxNToxNTozNyBHTVQ7IFBhdGg9LzsgRG9tYWluPS50
+        Z3Vlc3RfaWQ9InYxOjEzNDY0Mjc5NzczMzcyNDIxNyI7IEV4cGlyZXM9U3Vu
+        LCAzMS1BdWctMjAxNCAxNTo0NjoxNyBHTVQ7IFBhdGg9LzsgRG9tYWluPS50
         d2l0dGVyLmNvbQ==
       !binary "U3RhdHVz":
       - !binary |-
         MjAwIE9L
       !binary "WC1UcmFuc2FjdGlvbg==":
       - !binary |-
-        NTdiZmVjOWQyYmI3ZGQ2Yw==
+        OTdmYzlkNjUwZmE1ODUxNw==
       !binary "WC1GcmFtZS1PcHRpb25z":
       - !binary |-
         U0FNRU9SSUdJTg==
       !binary "RGF0ZQ==":
       - !binary |-
-        RnJpLCAzMSBBdWcgMjAxMiAxNToxNTozNyBHTVQ=
+        RnJpLCAzMSBBdWcgMjAxMiAxNTo0NjoxNyBHTVQ=
       !binary "Q29udGVudC1FbmNvZGluZw==":
       - !binary |-
         Z3ppcA==
       !binary "Q29udGVudC1MZW5ndGg=":
       - !binary |-
-        Njc0
+        MzE1MA==
       !binary "U2VydmVy":
       - !binary |-
         dGZl
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        H4sIAAAAAAAAAOxVUY+bMAz+KxWv61ooLb3yuPWmadJ+wZiiEAyNGhKWhGO3
-        0/33OVAoba+3TdvbygNtPtufYxvbX548poFayAi1Xux9VnLyicqJv574UbxY
-        xav15I2Pz2Th+3fe1OOZh5gfrVdRsHBHYqxGwwFDHQvfHVdSh/5yMX6jzKha
-        M0BpA6lT1bVkzr0X51QYQEZJNFTikViF1NTWhjifshbiirC7waVCbUBfsT2I
-        rlkazAlIImkJvdhZePFTG38QbMIgDMfh9xCG1FlhEoxt/bigx3wnEqEweq4k
-        wniqtej9ZYBGvDrKKq0ssHGmciWEakAbwlQtMeNrxDQHmQ1IgB64cdU9AP70
-        1XqHsb88rXdOH7BiHO88oqgtIyrPDeDxbRihOlaSl0B+KOki/EgbyjlaF6AI
-        SJqK0bUfQPOcj4CukEcHmFdBZYE8IJGDKWk1T2urMNJzMm6I1VQaQVE8oJir
-        nAsgKWX7QiOri184Be+9v72/33ov6vCSFkDaIng7a6s4mSdz6s9sw8tixlSZ
-        zFsVk8ztDsrhN0jmaTGr8Mqv0xJHag7kpmU3/K/pLZ4vIv+NUIzlbP+YzDPI
-        aS0sOTE1l7hPpNIlFWc3+YPo/pFHweV+qCd+pct3y5HU8AxSqkmqdIZNfrXu
-        vR4exKC1RaUP0UjLjbJBGrbPSIpf7UWhvRhnmvuqd6ohFLm5xAsDKSHjdKjT
-        Wai90YuZ6YVdv3PXGd2M6AAcW99qN1IMuO7pRFJZbLJutpgOfG7bsVdgCvPD
-        JU4C00OVoAyO8mPX9ZgG2wDY0SBw08ENh2NDHnQG5Hn6qw0TXtswy836YsM4
-        7HTDsMi90037/+62YW4b5rZhbhvmtmH+nw3z9ScAAAD//wMAUYyaasUMAAA=
+        H4sIAAAAAAAAAOydDXPbthnHv8pj9a5Zb45Mgu/a9VrHUVK3TuRZcp1s3ukg
+        EpJoUYRCgFaUXvfZ94CUrBfLmZNr2uv2OM7ZwgOCJED8/z+DIPjPXxpxIbgW
+        SZ/rRqvxSubwY5mBYwGzWo7dciL4q4Vf+NFmjcNGmjRazLEsJ4h8x7Ejl7Eo
+        CE16X+kCS7gfxK20eG9K71z2oPManrWPe+edix70Oq86Fxedq4ODAxhrPWtd
+        H10f6WYsr49653M/5f7lbvrN9GbWkccdLFTJsogFFntd4i5jDuNCDL+9btxt
+        MZ/Pm0Mei4GUE9x4imXMU61Fcd2AQmSYNZdDmWVyfl2XIV4sc9clXh/xOtmc
+        QVHmsamnRmvIMyXwjPN+IWbZoq8lnjrXpeqbysnLLHsgWNfQ/QylEsUD2y5D
+        D22psPFE3s/5VKzCZotG65eqoTzbc93A8jaaZ5WEp1Rv1eiNBVzJPBEFPOOF
+        MhW7WWpjXsUGdSiTWAmpzDH9fJxmPBHZbJzyQzg/xmhZZBhYt9hYrDc2DYBZ
+        EoGlp7NlGWfprTiEdDor5G2qRAJjiccP01KlMQwLOYXNvTShKwFbPRuW2SEs
+        ZPkkyyAXuJmWEI95PhImtYAZz3UqFPAhNvacF0kT94z70CLebMG67UWh+rEs
+        c7xAPRcTi1TkyV2SHTA861SZHrJKOtzuM12usc/kwALTZ5jdst27PmNFuOch
+        v8WjSrW4K9XCutJxXw6HSuDHp3aI2fEiS6ei/0HmptrbHPdZ5NDDNPjLZRe+
+        hhOe84R/gyWOhOyLnA8yczZ4aeLJ3IoiHaYbZ1dfdut9siDAM8FKwsJFjoXE
+        MtdFOii1xBq4K211dau+LniuMo7hu1Ssw2Gaif6Ax5NRgeWaSslMhsaL6qux
+        N0865SPR37k6uNXE7jgd1T3zoa3U9ZHjO7bvh66NPbq6nJ4OsPqTpzOZTfjT
+        RGrVvJmNzP//sve+2bdaHoOqDkKlv9dRaPy8aqtV+BPqZXUYzPY922GBG1wf
+        rbStn8tiyrPmLN/c92ec9qfvJEvzyd0lYFVfG1GVJgL7fn8gC6ywu3yea9nB
+        8Z58+CG7y3Xs4PV0spHLmMhdlPnm30YUL/V7zbaqbzWW8z7HstMcD1j0pyJJ
+        +d1FnYghLzPdX5b0UPqqyC3xSE13qoW3TkBtflcKpftKmE5Xh3KpsW/Wyqnq
+        xF+rTrzKEEusoTRHTVGrpFnGY7GOr7vqKq0Qei6E3pAUozNGZta9eJlnI2Um
+        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
     http_version: 
-  recorded_at: Fri, 31 Aug 2012 15:15:38 GMT
+  recorded_at: Fri, 31 Aug 2012 15:46:17 GMT
 - request:
     method: get
     uri: https://graph.facebook.com/wonderbars/posts?access_token=AAAEcoySQLr0BAP8ZC42ruMsGFu3DSRWknhxG1bvfRXGpJdxmSrfRM68E8uz2RVDNNU9TA0x6aOhH9FjWNwRitTVLVr3bi55NF3M5XwBKxoRd2Fmeq
@@ -138,10 +193,10 @@ http_interactions:
         Z3ppcA==
       !binary "WC1GYi1EZWJ1Zw==":
       - !binary |-
-        VGY5a2RBK2ZxOHMwbEFVOXRMdnJEQVJUQUNMNzgzaGhtMWFPeG5aaml3bz0=
+        bmhXL0tTaVBITlpPMXU1UHl3OWt1MWZreGF3bklNUG5BTlFzYmFsejZLUT0=
       !binary "RGF0ZQ==":
       - !binary |-
-        RnJpLCAzMSBBdWcgMjAxMiAxNToxNTozOSBHTVQ=
+        RnJpLCAzMSBBdWcgMjAxMiAxNTo0NjoxOCBHTVQ=
       !binary "Q29ubmVjdGlvbg==":
       - !binary |-
         a2VlcC1hbGl2ZQ==
@@ -222,7 +277,7 @@ http_interactions:
         vnEUiz82AbNhsWvYm+BLHtDBtEynoRmus9ntzsalIII8nn/0AIF1YYQBmraO
         Ez4H9fbb/wEnuutDSCwAAA==
     http_version: 
-  recorded_at: Fri, 31 Aug 2012 15:15:40 GMT
+  recorded_at: Fri, 31 Aug 2012 15:46:18 GMT
 - request:
     method: get
     uri: https://github.com/dhh.atom
@@ -245,7 +300,7 @@ http_interactions:
         bmdpbngvMS4wLjEz
       !binary "RGF0ZQ==":
       - !binary |-
-        RnJpLCAzMSBBdWcgMjAxMiAxNToxNTo0MCBHTVQ=
+        RnJpLCAzMSBBdWcgMjAxMiAxNTo0NjoxOCBHTVQ=
       !binary "Q29udGVudC1UeXBl":
       - !binary |-
         YXBwbGljYXRpb24vYXRvbSt4bWw7IGNoYXJzZXQ9dXRmLTg=
@@ -255,24 +310,24 @@ http_interactions:
       !binary "U3RhdHVz":
       - !binary |-
         MjAwIE9L
-      !binary "WC1SdW50aW1l":
-      - !binary |-
-        NDM=
       !binary "RXRhZw==":
       - !binary |-
         IjhlMGQ1ODcxMTI5MDU4ZjliNjdjNGQ0MGIzY2QzYTYwIg==
-      !binary "U3RyaWN0LVRyYW5zcG9ydC1TZWN1cml0eQ==":
-      - !binary |-
-        bWF4LWFnZT0yNTkyMDAw
-      !binary "Q29udGVudC1MZW5ndGg=":
-      - !binary |-
-        MTEzMjg4
       !binary "WC1GcmFtZS1PcHRpb25z":
       - !binary |-
         ZGVueQ==
       !binary "Q2FjaGUtQ29udHJvbA==":
       - !binary |-
         cHJpdmF0ZSwgbWF4LWFnZT0wLCBtdXN0LXJldmFsaWRhdGU=
+      !binary "U3RyaWN0LVRyYW5zcG9ydC1TZWN1cml0eQ==":
+      - !binary |-
+        bWF4LWFnZT0yNTkyMDAw
+      !binary "WC1SdW50aW1l":
+      - !binary |-
+        MzM=
+      !binary "Q29udGVudC1MZW5ndGg=":
+      - !binary |-
+        MTEzMjg4
     body:
       encoding: ASCII-8BIT
       string: !binary |-
@@ -2795,5 +2850,5 @@ http_interactions:
         cXVvdGUmZ3Q7CiAgJmx0Oy9kaXYmZ3Q7CiZsdDsvZGl2Jmd0Owo8L2NvbnRl
         bnQ+CiAgPC9lbnRyeT4KPC9mZWVkPgo=
     http_version: 
-  recorded_at: Fri, 31 Aug 2012 15:15:41 GMT
+  recorded_at: Fri, 31 Aug 2012 15:46:18 GMT
 recorded_with: VCR 2.2.4
