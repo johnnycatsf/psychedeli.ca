@@ -1,9 +1,8 @@
 require 'test_helper'
-require 'status_exchange'
 
-class TwitterClientTest < UnitTest
+class TwitterClientTest < ActiveSupport::TestCase
   setup do
-    @twitter = StatusExchange::TwitterClient.new
+    @twitter = TwitterClient.new
   end
 
   should "get the five most recently posted tweets" do

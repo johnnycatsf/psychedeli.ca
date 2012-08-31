@@ -6,7 +6,7 @@ require "action_controller/railtie"
 #require "active_resource/railtie"
 require "sprockets/railtie"
 require "rails/test_unit/railtie"
-Bundler.require(*Rails.groups(:assets => %w(development test)), :views)
+Bundler.require(*Rails.groups(:assets => %w(development test)), :views, :status)
 
 module Psychedelica
   class Application < Rails::Application

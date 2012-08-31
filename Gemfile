@@ -21,7 +21,7 @@ group :views do
   gem 'builder'
 end
 
-group :status_exchange do
+group :status do
   gem 'yajl-ruby'
   gem 'twitter'
   gem 'koala'

@@ -1,25 +1,20 @@
 require 'test_helper'
-require 'status_exchange'
 
-class FacebookClientTest < UnitTest
+class FacebookClientTest < ActiveSupport::TestCase
   setup do
-    @facebook = StatusExchange::FacebookClient.new
+    @facebook = FacebookClient.new
   end
 
-  should "connect to facebook with a valid access token" do
-    VCR.use_cassette "facebook_comments" do
-      assert @facebook.connected?, "Not connected"
-    end
-  end
-
-  should "retrieve the object at the vanity_url in config" do
+  test "retrieve the profile object set by vanity_url in config" do
     VCR.use_cassette "facebook_profile" do
-      assert_equal "1473930052", @facebook.profile[:id]
+      assert @facebook.connected?, @facebook.errors.full_messages.join(', ')
+      assert_equal "20278681416", @facebook.profile[:id]
     end
   end
 
-  should "retrieve the most most recent activity" do
+  test "retrieve the most most recent activity" do
     VCR.use_cassette "facebook_posts" do
+      assert @facebook.connected?, @facebook.errors.full_messages.join(', ')
       refute_empty @facebook.posts
     end
   end

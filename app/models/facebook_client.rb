@@ -1,4 +1,6 @@
 class FacebookClient
+  include ActiveModel::Validations
+
   # Authenticate with Facebook.
   def initialize
     @config = StatusConfig[:facebook]
@@ -10,7 +12,8 @@ class FacebookClient
     begin
       @graph.get_connections(@config[:vanity_url], "comments")
       true
-    rescue Koala::Facebook::APIError
+    rescue Koala::Facebook::APIError => e
+      errors.add :koala, "could not connect to Facebook: #{e.message.to_s}"
       false
     end
   end
