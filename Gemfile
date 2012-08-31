@@ -36,6 +36,11 @@ group :development do
   gem "guard-livereload", ">= 0.3.0"
   gem "thin"
   gem 'heroku'
+  gem 'jammit', require: false
+end
+
+group :stage do
+  gem 'jammit'
 end
 
 group :test do
