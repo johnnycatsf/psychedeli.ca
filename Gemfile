@@ -35,6 +35,7 @@ group :development do
   gem "guard-rails", ">= 0.0.3"
   gem "guard-livereload", ">= 0.3.0"
   gem "thin"
+  gem 'heroku'
 end
 
 group :test do
