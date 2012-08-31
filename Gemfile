@@ -34,10 +34,11 @@ group :development do
   gem "guard-bundler", ">= 0.1.3"
   gem "guard-rails", ">= 0.0.3"
   gem "guard-livereload", ">= 0.3.0"
-  gem "thin"
   gem 'heroku'
   gem 'jammit', require: false
 end
+
+gem 'thin', group: [:development, :stage]
 
 group :stage do
   gem 'jammit'
