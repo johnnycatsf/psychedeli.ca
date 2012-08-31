@@ -1,0 +1,32 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: psychedelica_development
+  pool: 5
+  username: 
+  password:
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: psychedelica_test
+  pool: 5
+  username: 
+  password:
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: psychedelica_production
+  pool: 5
+  username: 
+  password:
+
+stage:
+  adapter: postgresql
+  encoding: unicode
+  database:
+  pool: 5
+  username:
+  password:
+  host:
