@@ -3,7 +3,7 @@ class StatusController < ApplicationController
 
   def index
     @statuses = twitter.tweets + facebook.posts + github.activity
-    respond_with @statuses.sort{ |s1,s2| s1[:date] >= s2[:date] }
+    respond_with @statuses
   end
 
 private
