@@ -15,8 +15,12 @@ namespace :articles do
 
     Article.all.each do |article|
       html = compiler.render article
-      mkdir_p article.path
-      File.new("#{article.path}/index.html") { |f| f.puts html }
+      if article.path.is_a? String
+        mkdir_p article.path 
+        File.new("#{article.path}/index.html") { |f| f.puts html }
+      else
+        puts "Error compiling article: #{article.inspect}"
+      end
     end
   end
 end
