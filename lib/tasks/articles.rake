@@ -30,7 +30,7 @@ namespace :articles do
   end
 end
 
-def can_be_destroyed? file_path
+def destroyable? file_path
   file_path != "#{Rails.root}/public" or
   File.directory? file_path or
   file_path =~ /index\.html|comments\.html/
