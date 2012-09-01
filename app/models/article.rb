@@ -13,22 +13,17 @@ class Article
   include ActiveModel::Naming
   include ActiveModel::Serialization
 
-  attr_reader :title, :category, :date, :tags, :id, :hn_item_id
+  attr_accessor :layout, :title, :category, :date, :tags, :id, :hn_item_id, :attributes
 
   ARTICLES_PATH = "#{Rails.root}/app/documents/articles"
   TEST_ARTICLES_PATH = "#{Rails.root}/test/fixtures/articles"
 
-  # Instantiate using the filename as an ID.
+  # Instantiate using the filename as an ID, write out attributes to
+  # reader placements.
   def initialize with_filename
     @id = with_filename
-  end
-
-  # Parse the YAML content between the first two occurrances of
-  # "---" into a +HashWithIndifferentAccess+, which allow you to
-  # access said attributes in Ruby.
-  def attributes
-    @attributes ||= HashWithIndifferentAccess.new \
-      YAML::load(raw_source.split("---\n\n")[1])
+    @attributes = yaml_front_matter
+    @attributes.each { |attribute,value| send "#{attribute}=", value }
   end
 
   # Return absolute path to public cached copy, or +false+ if it
@@ -77,16 +72,7 @@ class Article
   # front matter. This is what is passed into ActionView to render the
   # Markdown from this file.
   def source
-    @source ||= raw_source.gsub(/---\\n(.*)---\\n\\n/, '')
-  end
-
-  # A Hash representation of the YAML attributes in addition to the
-  # Markdown-rendered content. This forms a complete attributes Hash
-  # just like ActiveRecord models.
-  def attributes
-    @attributes ||= ActiveSupport::HashWithIndifferentAccess.new \
-      YAML::load(raw_source.split("---\n")[1])
-    @attributes.merge(content: content)
+    @source ||= raw_source.split("---\n")[2]
   end
 
   # Find an +Article+ by its filename.
@@ -112,5 +98,11 @@ class Article
         articles << Article.new(file_name)
       end
     end
+  end
+
+private
+  def yaml_front_matter
+    HashWithIndifferentAccess.new \
+      YAML::load(raw_source.split("---\n")[1])
   end
 end
