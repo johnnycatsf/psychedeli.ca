@@ -34,12 +34,22 @@ class Article
   # Return absolute path to public cached copy, or +false+ if it
   # doesn't exist.
   def path
-    @public_path ||= "#{Rails.root}/public/#{category}/#{id}"
+    @public_path ||= "#{Rails.root}/public/#{relative_path}"
 
     if File.exists? @public_path
       @public_path
     else
       false
+    end
+  end
+
+  # Return relative path with the Rails.root/public part out.
+  def relative_path
+    @rel_path ||= begin 
+      date_array = id.split("-")[0..2]
+      date_path = date_array.join("/")
+      article_id = id.gsub date_array.join("-"), ''
+      "#{category}/#{date_path}/#{article_id}"
     end
   end
 

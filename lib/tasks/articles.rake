@@ -4,7 +4,7 @@ namespace :articles do
   desc "Clean the public/ folder of all generated Articles"
   task :clean => :environment do
     folder = "#{Rails.root}/public"
-    Dir[folder].each { |path| rm_rf path if can_be_destroyed? path }
+    Dir[folder].each { |path| rm_rf path if destroyable? path }
   end
 
   desc "Compile Article content from their Markdown sources"
@@ -21,7 +21,7 @@ namespace :articles do
   end
 end
 
-def can_be_destroyed? file_path
+def destroyable? file_path
   file_path != "#{Rails.root}/public" or
   File.directory? file_path or
   file_path =~ /index\.html|comments\.html/
