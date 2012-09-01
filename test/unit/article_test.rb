@@ -7,11 +7,12 @@ class ArticleTest < ActiveSupport::TestCase
     assert @article.present?, "Article was not found"
   end
 
-  test "read the article's yaml front matter as a hash" do
-    assert_equal "happy new year", @article.title
+  test "read the yaml front matter as a hash" do
+    assert_equal "happy new year!", @article.attributes[:title]
+    assert_equal "happy new year!", @article.title
   end
 
-  test "read the article without its yaml front matter" do
-    assert_equal "happy new year!", @article.content.split("\n").first
+  test "read the article body" do
+    assert_match "It's gonna be a wild party.", @article.source
   end
 end
