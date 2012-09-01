@@ -20,13 +20,20 @@ namespace :articles do
   task :precompile => :environment do
     compiler = ArticleCompiler.new
 
+    puts "Compiling #{Article.all.count} articles."
+
     Article.all.each do |article|
       html = compiler.render article
-      path = "#{article.path}/#{article.id}"
-      mkdir_p path
-      File.new("#{path}/index.html") { |f| f.puts html }
+      mkdir_p article.path
+      File.new("#{article.path}/index.html") { |f| f.puts html }
     end
   end
+end
+
+def can_be_destroyed? file_path
+  file_path != "#{Rails.root}/public" or
+  File.directory? file_path or
+  file_path =~ /index\.html|comments\.html/
 end
 
 desc "Refresh the public/ directory with new Articles"

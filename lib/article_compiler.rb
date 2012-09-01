@@ -7,7 +7,7 @@ require 'redcarpet'
 class ArticleCompiler
   # Create a new session with the compiler.
   def initialize
-    @renderer = Markdown.new 
+    @renderer = Redcarpet::Render::HTML 
     @options = { auto_link: true }
   end
 
@@ -19,6 +19,6 @@ class ArticleCompiler
 
 private
   def markdown
-    @client ||= Markdown.new @renderer, @options
+    @client ||= Redcarpet::Markdown.new @renderer, @options
   end
 end
