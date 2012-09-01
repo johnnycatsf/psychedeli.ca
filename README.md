@@ -32,7 +32,8 @@ Extended to also compile the site with Jekyll and copy configuration files if yo
 used primarily on CI, since Travis creates a new VM each time you build, so all configuration in YAML files must be stubbed out for the test
 environment.
 
-## Roadmap
+Roadmap
+-------
 
 - Move all Markdown source files to **app/documents/articles**
 - Create the `Article` model for representing a single article. Use the
@@ -43,6 +44,8 @@ environment.
   using our custom `Redcarpet::Renderer` which allows for automatic
   syntax highlighting via [Pygments.rb][pyg]
 
+- Move articles directory to `app/documents/articles`
+- Create Article model to represent an Article in `app/documents/articles`. It will not use a database. Rather, it will utilize the filesystem to look up source files and compile their Markdown source code to HTML.
 
 [sass]: http://sass-lang.com
 [jq]: http://jquery.com

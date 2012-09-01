@@ -13,7 +13,8 @@ class Article
   include ActiveModel::Naming
   include ActiveModel::Serialization
 
-  attr_accessor :layout, :title, :category, :date, :tags, :id, :hn_item_id, :attributes
+  attr_accessor :layout, :title, :category, :date, :tags, :id, :hn_item_id, :published
+  attr_reader :attributes
 
   ARTICLES_PATH = "#{Rails.root}/app/documents/articles"
   TEST_ARTICLES_PATH = "#{Rails.root}/test/fixtures/articles"
@@ -43,7 +44,14 @@ class Article
     @rel_path ||= begin 
       date_array = id.split("-")[0..2]
       date_path = date_array.join("/")
-      article_id = id.gsub date_array.join("-"), ''
+      article_id = begin
+        str = id.gsub date_array.join("-"), ''
+        if str[0] == "-"
+          str[1..-1] 
+        else
+          str
+        end
+      end
       "#{category}/#{date_path}/#{article_id}"
     end
   end

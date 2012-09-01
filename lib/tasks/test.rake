@@ -17,7 +17,17 @@ namespace :test do
       end
     end
   end
+
+  desc "Test compilation of the Jekyll static site. Fail the build if it doesn't compile."
+  task :compilation => :environment do
+    if system "bundle exec jekyll --config=config/jekyll.yml"
+      exit 0
+    else
+      puts "Jekyll site failed to compile."
+      exit $?
+    end
+  end
 end
 
 desc "Extend with test:compilation"
-task :test => ['test:prepare:configuration', 'test:run', 'test:compilation'] 
+task :test => ['test:prepare:configuration', 'test:run', 'test:compilation']
