@@ -86,15 +86,21 @@ class Article
 
   # Return every +Article+ in app/documents/articles.
   def self.all
-    articles = if Rails.env.test?
-                 TEST_ARTICLES_PATH
-               else
-                 ARTICLES_PATH
-               end
+    articles_path = begin
+      str = if Rails.env.test?
+        TEST_ARTICLES_PATH
+      else
+        ARTICLES_PATH
+      end
 
-    Dir[articles].reduce([]) do |articles, article_path| 
-      article_filename = File.basename(article_path).gsub('.md', '')
-      articles << Article.new(article_filename)
+      str += "/*.md"
+    end
+
+    Dir[articles_path].reduce([]) do |articles, file_path| 
+      unless file_path == articles_path
+        file_name = File.basename(file_path).gsub('.md', '')
+        articles << Article.new(file_name)
+      end
     end
   end
 end
