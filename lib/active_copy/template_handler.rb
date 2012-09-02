@@ -15,8 +15,8 @@ module ActiveCopy
       liquified_template = liquid.call template
 
       <<-RUBY
-        compiler=ActiveCopy::Compiler.new
-        compiler.render(begin;#{erbified_template};end).to_html
+        markdown = ActiveCopy::Markdown.new
+        markdown.render(begin;#{erbified_template};end).to_html
       RUBY
     end
 
