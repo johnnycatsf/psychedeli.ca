@@ -3,7 +3,7 @@
 # another method called +call_with_layout()+, which
 # basically wraps a Liquid layout around the Markdown call. This is for
 # precompilation in the Rake task.
-module ActiveDocument
+module ActiveCopy
   module TemplateHandler
     # Instantiate the handler for Liquid templates
     def self.liquid
@@ -15,7 +15,7 @@ module ActiveDocument
       liquified_template = liquid.call template
 
       <<-RUBY
-        compiler=ActiveDocument::Compiler.new
+        compiler=ActiveCopy::Compiler.new
         compiler.render(begin;#{erbified_template};end).to_html
       RUBY
     end

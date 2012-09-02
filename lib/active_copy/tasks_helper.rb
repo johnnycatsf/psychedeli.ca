@@ -3,7 +3,7 @@ require 'fileutils'
 # A loose collection of functions and helpers for the Rake files. Also
 # includes the hella useful +FileUtils+ library, for which we use
 # extensively to simplify shell command calls.
-module ActiveDocument
+module ActiveCopy
   module TasksHelper
     include FileUtils
 

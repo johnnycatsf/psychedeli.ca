@@ -5,7 +5,7 @@
 # is accomplished using the framework. This class absorbs the task of
 # creating the entire static HTML page from scratch for every single
 # +Article+ that can be published.
-module ActiveDocument
+module ActiveCopy
   class Compiler
     attr_reader :article, :liquid, :markdown
 
