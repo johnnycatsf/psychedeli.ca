@@ -1,0 +1,13 @@
+Description:
+    Generates an ActiveDocument model. The class behaves just like a
+    normal Rails model, but reads its data from
+    app/documents/#{model_names} instead of a database.
+
+Example:
+    rails generate active_document model_name
+
+    This will create:
+        app/documents/model_names/example.md
+        app/models/model_name.rb
+        test/unit/model_name.rb
+        test/fixtures/model_names/example.md
