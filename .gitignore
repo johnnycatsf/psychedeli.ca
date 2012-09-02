@@ -27,3 +27,6 @@ doc/
 /config/status_exchange.yml
 /config/*.yml
 /config/tent.sh
+
+# Generated content
+public/
