@@ -15,35 +15,33 @@ I wanted a bit more customization out of Jekyll to design my own folder structur
 Development
 -----------
 
-If you'd like to fork this for your own uses, I have included a number of development tools that have aided me in my progress on this project. I develop locally with [Pow][pow], but you can use anything that runs Rack apps. As such, most of the dev tools I've created come in the form of [Rake][rake] tasks.
+I develop with Thin and my Mac's Apache server. It's the closest thing to my actual production configuration, which uses Apache and Unicorn.
+I've written a number of Rake tasks to make developing easier, though these days I just keep Guard running 
 
-### rake compile
+### rake server
 
-This simply runs `bundle exec jekyll` to compile the static site. It will compile to the `pub/` directory, or whatever you set it to in `cfg/jekyll.yml`.
+Automatically runs Thin on port 4000, and if you add the contents of `config/vhost.conf` to your Apache vhosts configuration, you'll be able to access
+the local site on `dev.psychedeli.ca`. Thin is run in the background with this command.
 
-### rake restart
-
-As is the convention with most Rack servers, this runs `touch tmp/restart.txt`. It is in the form of a Rake task so it would be easier for `rake compile` to call it.
+There are three subcommands: **server:start**, **server:stop** and **server:restart**. The main task automatically determines which of the subtasks to
+invoke.
 
 ### rake test
 
-An extension of `Rake::TestTask`, this runs the [MiniTest][mt] suite in `test/` which runs the currently developed tests for StatusExchange.
-
-### rake configure
-
-This task copies the server configuration such as `.htaccess` and `robots.txt` from the **cfg/** directory and places it in **pub/**. It is normally invoked immediately after `rake compile` has completed.
-
-### rake install {path}
-
-This monolithic task "installs" the static app to `{path}` by copying the entire **lib/** directory, **config.ru**, and compiling the app to its child **pub/** directory. It then copies over all relevant files from **cfg/** that are needed for the daily operations of the web server. If left blank, it installs the app into **build/**.
+Extended to also compile the site with Jekyll and copy configuration files if you have not already done so. The latter of these extensions is
+used primarily on CI, since Travis creates a new VM each time you build, so all configuration in YAML files must be stubbed out for the test
+environment.
 
 ## Roadmap
 
-- Move articles directory to `app/documents/articles`
-- Create Article model to represent an Article in
-  `app/documents/articles`. It will not use a database. Rather, it will
-  utilize the filesystem to look up source files and compile their
-  Markdown source code to HTML.
+- Move all Markdown source files to **app/documents/articles**
+- Create the `Article` model for representing a single article. Use the
+  newly-created source directory to look up articles "by ID", which is
+  actually their filename without the extension.
+- Create the `MarkdownHandler` module for using Markdown in the Rails
+  view layer. This enables the rendering of Markdown files on-the-fly
+  using our custom `Redcarpet::Renderer` which allows for automatic
+  syntax highlighting via [Pygments.rb][pyg]
 
 
 [sass]: http://sass-lang.com
