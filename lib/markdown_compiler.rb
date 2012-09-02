@@ -1,10 +1,10 @@
-# Manages the +Redcarpet+ engine for a single instance of compiling an
-# +Article+. Invoked by either the Rake task +articles:precompile+ or
-# ActionView when rendering a file.
-
 require 'redcarpet'
 
-class ArticleCompiler
+# Compiles a Markdown file using the +Redcarpet+ template engine. Used
+# by +ActionView+ in +config/initializers/markdown.rb+ to initiate
+# Markdown template compilation for files that are not already
+# precompiled.
+class MarkdownCompiler
   # Create a new session with the compiler.
   def initialize
     @renderer = Redcarpet::Render::HTML 

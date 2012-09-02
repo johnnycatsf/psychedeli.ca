@@ -13,12 +13,17 @@ group :views do
   gem 'bootstrap-sass', git: 'git://github.com/trisweb/bootstrap-sass.git'
   gem 'jquery-rails'
   gem "haml", ">= 3.1.6"
-  gem 'liquid'
   gem 'jekyll', git: 'git://github.com/tubbo/jekyll.git', branch: 'custom-posts-directory'
-  gem 'pygments.rb'
-  gem 'redcarpet'
   gem 'jbuilder'
   gem 'builder'
+  gem 'hpricot'
+  gem 'ruby_parser'
+end
+
+group :active_document do
+  gem 'liquid'
+  gem 'pygments.rb'
+  gem 'redcarpet'
 end
 
 group :status do

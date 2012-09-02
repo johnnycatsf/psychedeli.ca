@@ -1,0 +1,38 @@
+!!!
+%html{:lang => "en"}
+  %head
+    = title_tag 
+    %link{:href => "/assets/favicon.ico", :rel => "shortcut icon"}/
+    = stylesheet_link_tag 'application'
+    = javascript_include_tag twitter_anywhere, 'application'
+    :javascript
+      twttr.anywhere(function (T) {
+        T.hovercards();
+      });
+	  %body
+    .container
+      %header.row
+        %hgroup.span-2
+          %h1
+            = link_to "psychedeli.ca", root_path, id: 'logo'
+          .right.ribbon-holder
+            %a.red.ribbon{:href => "http://github.com/tubbo/psychedeli.ca", :target => "_blank"}
+              %span.text 100% Pure Beard
+      .row
+        = yield
+        %aside#about.span-4
+          = render '/app/documents/about.html.md'
+          .icons
+            = link_to image_tag('twitter.png'), "http://twitter.com/tubbo", title: "@tubbo on Twitter"
+            = link_to image_tag('github.png'), "http://github.com/tubbo", title: "tubbo on Github"
+            = link_to image_tag('soundcloud.png'), "http://soundcloud.com/wonderbars", title: "The Wonder Bars on Soundcloud"
+            = link_to image_tag('rss.png'), "http://feeds.feedburner.com/psychedelica-all", rss_options
+      %footer.row
+        .span-12
+          %p
+            This blog was built with
+            = link_to "100%",       "http://github.com/tubbo/jekyll"
+            = link_to "open",       "http://jquery.com"
+            = link_to "source",     "http://rubyonrails.org"
+            = link_to "technology", "http://twitter.github.com/bootstrap"
+            = "."

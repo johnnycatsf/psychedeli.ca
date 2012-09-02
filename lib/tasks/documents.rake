@@ -1,9 +1,13 @@
-require 'fileutils'; include FileUtils
+require 'active_document/tasks_helper'
 
-namespace :articles do
-  desc "Clean the public/ folder of all generated Articles"
+namespace :documents do
+  include ActiveDocument::TasksHelper
+
+  desc "Clean the public/ folder of all generated content"
   task :clean => :environment do
     folder = "#{Rails.root}/public"
+    paths_removed = 0
+    msg = ""
 
     # Articles and stuff.
     Dir[folder].each do |path|
@@ -20,10 +24,11 @@ namespace :articles do
         if destroyable? path
           rm_rf path
           msg = "Removed #{path}"
-        else
-          msg = "Left #{path} intact."
+          paths_removed += 1
         end
       end
+
+      msg = "Nothing needed to be removed" unless paths_removed > 0
     else
       msg = "public/ directory does not exist, skipping clean and remaking.."
       mkdir_p folder
@@ -32,9 +37,11 @@ namespace :articles do
     puts msg if ENV['VERBOSE']
   end
 
-  desc "Compile Article content from their Markdown sources"
+  desc "Compile content from their Markdown sources"
   task :precompile => :environment do
-    compiled_articles = 0, total_articles = 0
+    compiled_articles = 0
+    total_articles = 0
+
     Article.all.each do |article| 
       article.compile!
       compiled_articles += 1 if article.compiled?
@@ -47,14 +54,5 @@ namespace :articles do
   end
 end
 
-def destroyable? file_path
-  file_path != "#{Rails.root}/public" or
-  File.directory? file_path or
-  file_path =~ /index\.html|comments\.html/
-end
-
 desc "Refresh the public/ directory with new Articles"
-task :articles => ['articles:clean', 'articles:precompile']
-
-desc "Legacy: Compile all Jekyll articles"
-task :compile => ['articles']
+task :documents => ['documents:clean', 'documents:precompile:all']
