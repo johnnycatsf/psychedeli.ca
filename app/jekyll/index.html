@@ -2,10 +2,28 @@
 layout: default
 title: psychedeli.ca
 ---
-<aside id="splash" class="span-6">
+
+<nav id="articles" class="span-6">
   <ul class="nav nav-tabs nav-stacked">
 	{% for post in site.posts %}
     <li><a href="{{ post.url }}">{{ post.title }}</a></li>
   {% endfor %}
   </ul>
-</aside>
+</nav>
+
+<section id="article">
+
+  <h2>hi, i'm tom.</h2>
+
+  <p>
+    I'm a composer, programmer and musician from Philadelphia. Between
+    <a href="http://thewonderbars.com">my band</a>,
+    <a href="http://waxpoeticrecords.com">my record label</a>, and
+    <a href="http://elocal.com">my job</a>, I sometimes find time to
+    write about my daily experiences producing music and developing
+    open-source software. In addition to my day job, I'm a contributor to
+    <a href="http://github.com/diaspora/diaspora">several</a>
+    <a href="http://github.com/tubbo/dots">open-source</a>
+    <a href="http://github.com/eLocal/rain">projects</a>, and I love
+    writing code that fixes normal, everyday programmer problems.
+</section>
