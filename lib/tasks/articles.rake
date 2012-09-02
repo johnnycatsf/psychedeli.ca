@@ -14,22 +14,35 @@ namespace :articles do
     %w(index.html comments.html).each do |special_file|
       rm_rf "#{folder}/#{special_file}"
     end
+
+    if File.exists? folder and File.directory? folder
+      Dir["#{folder}/**"].each do |path| 
+        if destroyable? path
+          rm_rf path
+          msg = "Removed #{path}"
+        else
+          msg = "Left #{path} intact."
+        end
+      end
+    else
+      msg = "public/ directory does not exist, skipping clean and remaking.."
+      mkdir_p folder
+    end
+
+    puts msg if ENV['VERBOSE']
   end
 
   desc "Compile Article content from their Markdown sources"
   task :precompile => :environment do
-    compiler = ArticleCompiler.new
+    compiled_articles = 0, total_articles = 0
+    Article.all.each do |article| 
+      article.compile!
+      compiled_articles += 1 if article.compiled?
+      total_articles += 1
+    end
 
-    puts "Compiling #{Article.all.count} articles."
-
-    Article.all.each do |article|
-      html = compiler.render article
-      if article.path.is_a? String
-        mkdir_p article.path 
-        File.new("#{article.path}/index.html") { |f| f.puts html }
-      else
-        puts "Error compiling article: #{article.inspect}"
-      end
+    if ENV['VERBOSE']
+      puts "Compiled #{compiled_articles}/#{total_articles} articles."
     end
   end
 end

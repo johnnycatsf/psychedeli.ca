@@ -27,15 +27,37 @@ class Article
     @attributes.each { |attribute,value| send "#{attribute}=", value }
   end
 
-  # Return absolute path to public cached copy, or +false+ if it
-  # doesn't exist.
+  # Compile the template using ActionView to the public HTML file.
+  def compile!
+    markdown = ActionView::Template.registered_template_handler(:md)
+    mkdir_p path unless File.exists? path
+    File.new(index_path, 'rw+') { |f| f.puts markdown.render source }
+  end
+
+  # Test if the +Article+ has been compiled by checking whether
+  # +Article.path+ returns anything.
+  def compiled?
+    path == ""
+  end
+
+  # Return absolute path to public HTML file.
+  def index_path
+    "#{path}/index.html"
+  end
+
+  # Return absolute path to public cached copy, or +""+ if the
+  # Article hasn't been compiled.
   def path
-    @public_path ||= "#{Rails.root}/public/#{relative_path}"
+    @public_path ||= if Rails.env.test?
+                       "#{Rails.root}/tmp/site/#{relative_path}"
+                     else
+                       "#{Rails.root}/public/#{relative_path}"
+                     end
 
     if File.exists? @public_path
       @public_path
     else
-      false
+      ""
     end
   end
 
