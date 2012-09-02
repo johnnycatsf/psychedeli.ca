@@ -9,90 +9,36 @@ module ActiveCopy
   module Attributes
     extend ActiveSupport::Concern
 
+    DEFAULT_PATH = "public/#{self.model_name.pluralize}/#{self.id}.html"
+    DEFAULT_ATTRS = [:layout]
+
     included do
       class_attribute :_accessible_attributes
-      class_attribute :_protected_attributes
-      class_attribute :_active_authorizer
-
-      class_attribute :_mass_assignment_sanitizer
-      self.mass_assignment_sanitizer = :logger
+      class_attribute :_deployment_path
     end
 
     module ClassMethods
-      def attr_protected(*args)
-        options = args.extract_options!
-        role = options[:as] || :default
-
-        self._protected_attributes = protected_attributes_configs.dup
-
-        Array.wrap(role).each do |name|
-          self._protected_attributes[name] = self.protected_attributes(name) + args
-        end
-
-        self._active_authorizer = self._protected_attributes
-      end
-
       def attr_accessible(*args)
-        options = args.extract_options!
-        role = options[:as] || :default
-
-        self._accessible_attributes = accessible_attributes_configs.dup
-
-        Array.wrap(role).each do |name|
-          self._accessible_attributes[name] = self.accessible_attributes(name) + args
+        args.each do |attribute|
+          self._accessible_attributes << attribute
         end
-
-        self._active_authorizer = self._accessible_attributes
       end
 
-      def protected_attributes(role = :default)
-        protected_attributes_configs[role]
+      def deploy_to file_path
+        self._deployment_path = file_path
       end
 
-      def accessible_attributes(role = :default)
-        accessible_attributes_configs[role]
-      end
-
-      def active_authorizers
-        self._active_authorizer ||= protected_attributes_configs
-      end
-      alias active_authorizer active_authorizers
-
-      def attributes_protected_by_default
-        []
-      end
-
-      def mass_assignment_sanitizer=(value)
-        self._mass_assignment_sanitizer = if value.is_a?(Symbol)
-          const_get(:"#{value.to_s.camelize}Sanitizer").new(self)
+      def accessible_attributes
+        if self._accessible_attributes.nil?
+          DEFAULT_ATTRS
         else
-          value
+          self._accessible_attributes.merge DEFAULT_ATTRS
         end
       end
 
-  private
-
-      def protected_attributes_configs
-        self._protected_attributes ||= begin
-          Hash.new { |h,k| h[k] = BlackList.new(attributes_protected_by_default) }
-        end
+      def deployment_path
+        self._deployment_path || DEFAULT_PATH
       end
-
-      def accessible_attributes_configs
-        self._accessible_attributes ||= begin
-          Hash.new { |h,k| h[k] = WhiteList.new }
-        end
-      end
-    end
-
-  protected
-
-    def sanitize_for_mass_assignment(attributes, role = nil)
-      _mass_assignment_sanitizer.sanitize(attributes, mass_assignment_authorizer(role))
-    end
-
-    def mass_assignment_authorizer(role)
-      self.class.active_authorizer[role || :default]
     end
   end
 end
