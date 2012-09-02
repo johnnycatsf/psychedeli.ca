@@ -1,19 +1,29 @@
-# Base class for an +ActiveDocument+ model.
-module ActiveDocument
+# Base class for an +ActiveCopy+ model.
+module ActiveCopy
   class Base
     extend ActiveModel::Naming
     include ActiveModel::Serialization
+    include ActiveModel::Validations
+    include ActiveCopy::Attributes
 
     attr_reader :attributes
-    attr_accessor :accessible_attrs
 
     # Instantiate using the filename as an ID, set the YAML front matter
     # to a Hash called +attributes+, and define a reader method for each 
     # attribute that has a corresponding key in the +attr_accessible+
     # definition for this model.
-    def initialize with_filename
-      @id = with_filename
-      @attributes = yaml_front_matter
+    def initialize with_filename="", options={}
+      @id = if with_filename.blank?
+              options[:filename]
+            else
+              with_filename
+            end
+
+      @attributes = if options.empty?
+                      yaml_front_matter
+                    else
+                      options
+                    end
 
       accessible_attrs.each do |attr| 
         define_method attr { @attributes[attr] }
@@ -21,13 +31,13 @@ module ActiveDocument
     end
 
     # Compile the template using ActionView to the public HTML file.
-    def compile!
-      ActiveDocument::Compiler.new(self).save
+    def save
+      ActiveCopy::Compiler.new(self).save
     end
 
     # Test if the +Article+ has been compiled by checking whether
     # +Article.path+ exists.
-    def compiled?
+    def saved?
       File.exists? path
     end
 
@@ -101,15 +111,29 @@ module ActiveDocument
       end
     end
 
+    # Create a mock model instance. Useful with FactoryGirl.
+    def self.create
+    end
+
+
+protected
+
     # Reuse attr_accessible for defining which attributes can be set in
     # the YAML front matter. This also creates accessors for each named
     # attribute (so you don't have to do it in the model class), which
     # allows for YAML front matter attributes to be accessed just like
     # normal model properties.
-    def self.attr_accessible *attrs
-      self.accessible_attrs = attrs.reduce([]) do |attrs,attribute|
-        attrs << attribute
+    def attr_accessible(*args)
+      options = args.extract_options!
+      role = options[:as] || :default
+
+      self._accessible_attributes = accessible_attributes_configs.dup
+
+      Array.wrap(role).each do |name|
+        self._accessible_attributes[name] = self.accessible_attributes(name) + args
       end
+
+      self._active_authorizer = self._accessible_attributes
     end
 
   private
