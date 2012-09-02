@@ -9,7 +9,7 @@ module ActiveCopy
   module Attributes
     extend ActiveSupport::Concern
 
-    DEFAULT_PATH = "public/#{self.model_name.pluralize}/#{self.id}.html"
+    DEFAULT_PATH = "public/#{self.class.name.parameterize.pluralize}"
     DEFAULT_ATTRS = [:layout]
 
     included do
@@ -19,6 +19,10 @@ module ActiveCopy
 
     module ClassMethods
       def attr_accessible(*args)
+        if self._accessible_attributes.nil?
+          self._accessible_attributes = [] 
+        end
+
         args.each do |attribute|
           self._accessible_attributes << attribute
         end
@@ -37,7 +41,7 @@ module ActiveCopy
       end
 
       def deployment_path
-        self._deployment_path || DEFAULT_PATH
+        self._deployment_path || "#{DEFAULT_PATH}/#{self.id}.html"
       end
     end
   end

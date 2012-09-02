@@ -1,7 +1,7 @@
-require 'active_document/tasks_helper'
+require 'active_copy'
 
 namespace :documents do
-  include ActiveDocument::TasksHelper
+  include ActiveCopy::TasksHelper
 
   desc "Clean the public/ folder of all generated content"
   task :clean => :environment do
@@ -37,21 +37,45 @@ namespace :documents do
     puts msg if ENV['VERBOSE']
   end
 
-  desc "Compile content from their Markdown sources"
-  task :precompile => :environment do
-    compiled_articles = 0
-    total_articles = 0
+  namespace :precompile do
+    desc "Compile all content from its Markdown sources"
+    task :all => :environment do
+      compiled = 0
+      total = 0
 
-    Article.all.each do |article| 
-      article.compile!
-      compiled_articles += 1 if article.compiled?
-      total_articles += 1
+      ActiveCopy.models.each do |model|
+        model.all.each do |document_model| 
+          document_model.compile!
+          compiled += 1 if document_model.compiled?
+          total += 1
+        end
+
+        if ENV['VERBOSE']
+          puts "Compiled #{compiled}/#{total} #{model.model_name.pluralize}."
+        end
+      end
     end
 
-    if ENV['VERBOSE']
-      puts "Compiled #{compiled_articles}/#{total_articles} articles."
+    ActiveCopy.models.each do |model|
+      desc "Compile all #{model.model_name} content from its Markdown sources"
+      task model.to_sym => :environment do
+        compiled = 0
+        total = 0
+
+        model.all.each do |document_model| 
+          document_model.compile!
+          compiled += 1 if document_model.compiled?
+          total += 1
+        end
+
+        if ENV['VERBOSE']
+          puts "Compiled #{compiled}/#{total} #{model.model_name.pluralize}."
+        end
+      end
     end
   end
+
+  task :precompile => ['precompile:all']
 end
 
 desc "Refresh the public/ directory with new Articles"
