@@ -1,3 +1,7 @@
+---
+layout: page
+---
+
 ## hi
 
 My name is **Tom**, but most people just call me

@@ -68,7 +68,6 @@ module Psychedelica
       g.test_framework :test_unit, fixtures: false, fixture_replacement: :factory_girl
     end
 
-    config.metadata = HashWithIndifferentAccess.new \
-      YAML::load_file("#{Rails.root}/config/metadata.yml")
+    config.metadata = YAML::load_file("#{Rails.root}/config/metadata.yml")
   end
 end

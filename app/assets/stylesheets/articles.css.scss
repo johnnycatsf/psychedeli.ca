@@ -14,4 +14,17 @@ article {
 // Articles in a collection
 .articles > article {
 
+			.category {
+				font-weight: bold;
+			}
+			time {
+				font-weight: bold;
+			}
+      &.hacker-news {
+        a {
+          font-weight: bold;
+        }
+      }
+		}
+	}
 }
