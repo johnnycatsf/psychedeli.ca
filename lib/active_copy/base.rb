@@ -1,3 +1,5 @@
+require 'active_copy/attributes'
+
 # Base class for an +ActiveCopy+ model.
 module ActiveCopy
   class Base
@@ -6,7 +8,7 @@ module ActiveCopy
     include ActiveModel::Validations
     include ActiveCopy::Attributes
 
-    attr_reader :attributes
+    attr_reader :attributes, :id
 
     # Instantiate using the filename as an ID, set the YAML front matter
     # to a Hash called +attributes+, and define a reader method for each 
@@ -25,8 +27,8 @@ module ActiveCopy
                       options
                     end
 
-      accessible_attrs.each do |attr| 
-        define_method attr { @attributes[attr] }
+      self._accessible_attributes.each do |attr| 
+        define_method(attr) { @attributes[attr] }
       end
     end
 
@@ -35,8 +37,8 @@ module ActiveCopy
       ActiveCopy::Compiler.new(self).save
     end
 
-    # Test if the +Article+ has been compiled by checking whether
-    # +Article.path+ exists.
+    # Test if the model has been compiled by checking whether
+    # the +path+ exists.
     def saved?
       File.exists? path
     end
@@ -95,9 +97,9 @@ module ActiveCopy
       @source ||= raw_source.split("---\n")[2]
     end
 
-    # Find an +Article+ by its filename.
+    # Find this model by its filename.
     def self.find by_filename
-      Article.new by_filename
+      new by_filename
     end
 
     # Read all files from the +collection_path+, then instantiate them
@@ -115,38 +117,17 @@ module ActiveCopy
     def self.create
     end
 
-
-protected
-
-    # Reuse attr_accessible for defining which attributes can be set in
-    # the YAML front matter. This also creates accessors for each named
-    # attribute (so you don't have to do it in the model class), which
-    # allows for YAML front matter attributes to be accessed just like
-    # normal model properties.
-    def attr_accessible(*args)
-      options = args.extract_options!
-      role = options[:as] || :default
-
-      self._accessible_attributes = accessible_attributes_configs.dup
-
-      Array.wrap(role).each do |name|
-        self._accessible_attributes[name] = self.accessible_attributes(name) + args
-      end
-
-      self._active_authorizer = self._accessible_attributes
-    end
-
   private
     def yaml_front_matter
       HashWithIndifferentAccess.new \
         YAML::load(raw_source.split("---\n")[1])
     end
 
-    def self.collection_path
-      @collection_path ||= if Rails.env.test?
-        "#{Rails.root}/app/documents/#{self.model_name.parameterize}"
+    def collection_path
+      if Rails.env.test?
+        "#{Rails.root}/test/fixtures/#{self.class.name.pluralize.parameterize}"
       else
-        "#{Rails.root}/test/fixtures/#{self.model_name.parameterize}"
+        "#{Rails.root}/app/documents/#{self.class.name.pluralize.parameterize}"
       end
     end
   end

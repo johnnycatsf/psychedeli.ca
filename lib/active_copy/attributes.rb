@@ -1,8 +1,5 @@
 require 'active_support/core_ext/class/attribute'
 require 'active_support/core_ext/string/inflections'
-require 'active_support/core_ext/array/wrap'
-require 'active_model/mass_assignment_security/permission_set'
-require 'active_model/mass_assignment_security/sanitizer'
 
 module ActiveCopy
   # Attribute storage and handling for +ActiveCopy+ models.
@@ -32,7 +29,7 @@ module ActiveCopy
         self._deployment_path = file_path
       end
 
-      def accessible_attributes
+      def accessible_attrs
         if self._accessible_attributes.nil?
           DEFAULT_ATTRS
         else
