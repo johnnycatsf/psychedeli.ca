@@ -6,6 +6,7 @@ require 'active_copy/attributes'
 require 'active_copy/compiler'
 require 'active_copy/markdown'
 require 'active_copy/tasks_helper'
+require 'active_copy/view_helper'
 
 # ActiveCopy reads Markdown files in +app/documents+ instead of a
 # database for your Rails models. Inspired by Jekyll, it uses YAML front
@@ -16,9 +17,9 @@ module ActiveCopy
   VERSION = 'alpha1'
 
   # Find all models in the Rails app that inherit from ActiveCopy::Base.
-  def self.models
-    Dir["#{Rails.root}/app/documents/*/"].map do |folder| 
-      File.basename(folder).singularize.camelize.constantize
-    end
-  end
+  #def self.models
+    #Dir["#{Rails.root}/app/documents/*/"].map do |folder| 
+      #File.basename(folder).singularize.camelize.constantize
+    #end
+  #end
 end

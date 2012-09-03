@@ -43,34 +43,14 @@ namespace :documents do
       compiled = 0
       total = 0
 
-      ActiveCopy.models.each do |model|
-        model.all.each do |document_model| 
-          document_model.compile!
-          compiled += 1 if document_model.compiled?
-          total += 1
-        end
-
-        if ENV['VERBOSE']
-          puts "Compiled #{compiled}/#{total} #{model.model_name.pluralize}."
-        end
+      Article.all.each do |document_model| 
+        document_model.compile!
+        compiled += 1 if document_model.compiled?
+        total += 1
       end
-    end
 
-    ActiveCopy.models.each do |model|
-      desc "Compile all #{model.model_name} content from its Markdown sources"
-      task model.to_sym => :environment do
-        compiled = 0
-        total = 0
-
-        model.all.each do |document_model| 
-          document_model.compile!
-          compiled += 1 if document_model.compiled?
-          total += 1
-        end
-
-        if ENV['VERBOSE']
-          puts "Compiled #{compiled}/#{total} #{model.model_name.pluralize}."
-        end
+      if ENV['VERBOSE']
+        puts "Compiled #{compiled}/#{total} articles."
       end
     end
   end
