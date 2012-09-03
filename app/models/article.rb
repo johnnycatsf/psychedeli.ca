@@ -2,9 +2,8 @@
 class Article < ActiveCopy::Base
   attr_accessible :layout, :title, :category, :date, :tags, :hn_item_id, :published
 
-  deploy_to "public/:date_path/index.html"
-
-  def date_path
-    "#{date.year}/#{date.month}/#{date.day}"
+  # Tests whether this Article was (knowingly) posted to Hacker News.
+  def on_hacker_news?
+    hn_item_id.present?
   end
 end

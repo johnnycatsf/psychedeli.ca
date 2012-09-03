@@ -86,6 +86,11 @@ article {
 			time {
 				font-weight: bold;
 			}
+      &.hacker-news {
+        a {
+          font-weight: bold;
+        }
+      }
 		}
 	}
 }
