@@ -1,36 +1,40 @@
 psychedeli.ca is my internet web site
 =====================================
 
-This is the complete source code for my blog, which is (usually) up and running on <http://psychedeli.ca>. I mostly post music, programming or some other geek related articles based on what I'm doing at the moment and what I've learned along the way. Originally made by cobbling together Sprockets, my fork of Jekyll, and a little Rack app I made to serve a JSON feed of my status updates across the various social networking sites, it has now been rebooted as a lightweight Rails app that wraps the original Jekyll site.
+This is the complete source code for the Rails app that powers my
+personal site and blog. I mostly write about music, programming, or
+other geek-related topics based on what I'm working on at the moment and
+the things I've learned on that journey.
 
 [![Build Status](https://secure.travis-ci.org/tubbo/psychedeli.ca.png?branch=master)](http://travis-ci.org/tubbo/psychedeli.ca)
+
+History
+-------
+
+I began this blog as a Rack app that served a static Jekyll site, and
+used Sprockets to package assets on the fly. After cobbling around with
+that setup for a year or so, I began to learn more about how to
+"minimize" a Rails app's footprint for better performance. So instead of
+wrestling with Jekyll to get it to function the way I wanted, I
+implemented its concepts directly into the Rails framework
 
 Content
 -------
 
-Content delivery is powered by [Jekyll][jek], a static HTML page generator currently in use on GitHub Pages as well as on countless blogs on the web. I like it because it can use [Markdown][md] (my humane markup language of choice), and it's easy to understand and extend.
-
-I wanted a bit more customization out of Jekyll to design my own folder structure, and to just learn how it works. [My fork][fork] of the Jekyll project is an embodiment of these wishes. Changes to Jekyll include two extra configuration options, `posts:` and `layouts:`, which can override the **_posts/** and **_layouts/** directory locations, as well as a custom YAML config location (**cfg/jekyll.yml**).
-
-Development
------------
-
-I develop with Thin and my Mac's Apache server. It's the closest thing to my actual production configuration, which uses Apache and Unicorn.
-I've written a number of Rake tasks to make developing easier, though these days I just keep Guard running 
-
-### rake server
-
-Automatically runs Thin on port 4000, and if you add the contents of `config/vhost.conf` to your Apache vhosts configuration, you'll be able to access
-the local site on `dev.psychedeli.ca`. Thin is run in the background with this command.
-
-There are three subcommands: **server:start**, **server:stop** and **server:restart**. The main task automatically determines which of the subtasks to
-invoke.
-
-### rake test
-
-Extended to also compile the site with Jekyll and copy configuration files if you have not already done so. The latter of these extensions is
-used primarily on CI, since Travis creates a new VM each time you build, so all configuration in YAML files must be stubbed out for the test
-environment.
+Content delivery is powered by [ActiveCopy][ac], a library I wrote to
+sort-of emulate [Jekyll][jek] in the Rails ecosystem. Basically, you
+generate models called "documents" that behave just like `ActiveRecord`
+models, but instead of looking up information from the database, they
+read [Markdown][md] and [YAML front matter][yfm] from the **app/documents** 
+folder of your application. Just like with Jekyll, a simple `git push &&
+cap deploy` will post a new article to the server *and* precompile each
+page. `ActiveCopy` controllers use a custom `ActionView` handler to generate
+HTML from Markdown using the powerful Redcarpet engine, and since the
+controller is by design caching every page in production, the pages or
+articles you generate using ActiveCopy are precompiled into HTML on
+deployment. With just a little server-side configuration, you can mix
+the power of Jekyll's static site generation with the amazing
+server-side capabilities of the Rails stack.
 
 Roadmap
 -------
