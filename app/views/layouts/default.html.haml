@@ -21,7 +21,7 @@
       .row
         = yield
         %aside#about.span-4
-          = render '/app/documents/about.html.md'
+          = render copy: 'pages/about'
           .icons
             = link_to image_tag('twitter.png'), "http://twitter.com/tubbo", title: "@tubbo on Twitter"
             = link_to image_tag('github.png'), "http://github.com/tubbo", title: "tubbo on Github"

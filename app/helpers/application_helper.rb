@@ -37,4 +37,16 @@ module ApplicationHelper
       type: "application/rss+xml"
     }
   end
+
+  # Renders default HTML5 boilerplate +<meta>+ tags as well as custom
+  # ones defined in the YAML.
+  def html5_meta_tags
+    content_tag :meta, charset: "utf-8"
+    content_tag :meta, "http-equiv" => "X-UA-Compatible", :content => "IE=edge,chrome=1"
+    content_tag :meta, name: "viewport", content: "width=device-width, initial-scale=1, maximum-scale=1"
+
+    Psychedelica::Application.config.metadata.each do |type,body|
+      content_tag :meta, name: type, content: body
+    end
+  end
 end
