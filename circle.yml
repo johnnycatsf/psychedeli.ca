@@ -8,6 +8,5 @@ deployment:
     commands: cap deploy
   staging:
     branch: develop
-    commands: cap deploy
     heroku:
-      psychedelica: 'psychedelica'
+      appname: 'psychedelica'
