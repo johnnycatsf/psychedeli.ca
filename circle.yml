@@ -1,0 +1,13 @@
+machine:
+  timezone: America/New_York
+  ruby:
+    version: 1.9.3-p125
+deployment:
+  production:
+    branch: master
+    commands: cap deploy
+  staging:
+    branch: develop
+    commands: cap deploy
+    heroku:
+      psychedelica: 'psychedelica'
