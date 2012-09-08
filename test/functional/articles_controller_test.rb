@@ -3,7 +3,7 @@ require 'test_helper'
 class ArticlesControllerTest < ActionController::TestCase
   setup { @controller = ArticlesController.new }
 
-  context "GET /" do
+  context "ArticlesController: GET /" do
     test "renders snippets of all articles" do
       get :index
 
@@ -11,7 +11,7 @@ class ArticlesControllerTest < ActionController::TestCase
     end
   end
 
-  context "GET /gbs/2000/01/01/happy-new-year/" do
+  context "ArticlesController: GET /gbs/2000/01/01/happy-new-year/" do
     setup { @page = "/gbs/2000/01/01/happy-new-year" }
 
     test "finds filename by given id parameter" do

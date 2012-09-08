@@ -10,6 +10,12 @@ module ActiveCopy
 
     attr_reader :attributes, :id
 
+    COLLECTION_PATH = if Rails.env.test?
+      "/test/fixtures/#{self.class.name.pluralize.parameterize}"
+    else
+      "/app/documents/#{self.class.name.pluralize.parameterize}"
+    end
+
     # Instantiate using the filename as an ID, set the YAML front matter
     # to a Hash called +attributes+, and define a reader method for each 
     # attribute that has a corresponding key in the +attr_accessible+
@@ -36,7 +42,7 @@ module ActiveCopy
 
     # Compile the template using ActionView to the public HTML file.
     def save
-      ActiveCopy::Compiler.new(self).save
+      ActiveCopy::CompiledPage.new(self).save
     end
 
     # Test if the model has been compiled by checking whether
@@ -77,8 +83,12 @@ module ActiveCopy
     end
 
     # Return absolute path to Markdown file on this machine.
-    def source_path
-      @source_path ||= File.join collection_path, "#{id}.md"
+    def source_path options={}
+      @source_path ||= if options[:relative]
+                         File.join COLLECTION_PATH, "#{id}.md"
+                       else
+                         File.join Rails.root, COLLECTION_PATH, "#{id}.md"
+                       end
     end
 
     # Test if the source file is present on this machine.
@@ -101,16 +111,30 @@ module ActiveCopy
 
     # Find this model by its filename.
     def self.find by_filename
-      new by_filename
+      if File.exists? "#{Rails.root}/#{COLLECTION_PATH}/#{by_filename}.md"
+        new by_filename
+      else
+        nil
+      end
     end
 
     # Read all files from the +collection_path+, then instantiate them
     # as members of this model. Return as an +Array+.
     def self.all
-      Dir["#{collection_path}/*.md"].reduce([]) do |articles, md_path| 
-        unless md_path == collection_path
+      Dir["#{Rails.root}/#{COLLECTION_PATH}/*.md"].reduce([]) do |articles, md_path| 
+        unless md_path == "#{Rails.root}/#{COLLECTION_PATH}"
           file_name = File.basename(md_path).gsub('.md', '')
           articles << self.new(file_name)
+        end
+      end
+    end
+
+    # Look for all of the matching key/value pairs in the YAML front
+    # matter, and return an array of models that match them.
+    def self.where query={}
+      Article.all.reduce([]) do |results, article|
+        results << article if query.reduce(true) do |matches, (key, value)| 
+          matches = article.attributes[key] == value
         end
       end
     end
@@ -123,14 +147,6 @@ module ActiveCopy
     def yaml_front_matter
       HashWithIndifferentAccess.new \
         YAML::load(raw_source.split("---\n")[1])
-    end
-
-    def collection_path
-      if Rails.env.test?
-        "#{Rails.root}/test/fixtures/#{self.class.name.pluralize.parameterize}"
-      else
-        "#{Rails.root}/app/documents/#{self.class.name.pluralize.parameterize}"
-      end
     end
   end
 end

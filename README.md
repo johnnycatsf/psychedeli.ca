@@ -39,17 +39,8 @@ server-side capabilities of the Rails stack.
 Roadmap
 -------
 
-- Move all Markdown source files to **app/documents/articles**
-- Create the `Article` model for representing a single article. Use the
-  newly-created source directory to look up articles "by ID", which is
-  actually their filename without the extension.
-- Create the `MarkdownHandler` module for using Markdown in the Rails
-  view layer. This enables the rendering of Markdown files on-the-fly
-  using our custom `Redcarpet::Renderer` which allows for automatic
-  syntax highlighting via [Pygments.rb][pyg]
-
-- Move articles directory to `app/documents/articles`
-- Create Article model to represent an Article in `app/documents/articles`. It will not use a database. Rather, it will utilize the filesystem to look up source files and compile their Markdown source code to HTML.
+- Fix `GET /status.json`
+- Add `jQuery.ticker` plugin for reading JSON data.
 
 [sass]: http://sass-lang.com
 [jq]: http://jquery.com
