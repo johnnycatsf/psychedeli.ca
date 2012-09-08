@@ -2,12 +2,7 @@ module ApplicationHelper
   # Return a +<title>+ tag for every page, basing it on the in-memory
   # +:title+ store, as well as the +page.title+ from Jekyll.
   def title_tag
-    part = if page.title.present?
-             page.title
-           else
-             content_for :title
-           end
-
+    part = content_for :title
     text = if part.present?
              "#{part} | psychedeli.ca"
            else

@@ -3,7 +3,7 @@ Bundler.require :active_copy
 
 require 'active_copy/base'
 require 'active_copy/attributes'
-require 'active_copy/compiler'
+require 'active_copy/compiled_page'
 require 'active_copy/markdown'
 require 'active_copy/tasks_helper'
 require 'active_copy/view_helper'

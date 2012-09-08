@@ -19,7 +19,7 @@
         = render partial: 'layouts/messages'
         = yield
         %aside#about.span-4
-          = render copy: 'pages/about'
+          = render partial: 'layouts/sidebar'
           .icons
             = link_to image_tag('twitter.png'), "http://twitter.com/tubbo", title: "@tubbo on Twitter"
             = link_to image_tag('github.png'), "http://github.com/tubbo", title: "tubbo on Github"

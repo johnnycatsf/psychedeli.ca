@@ -2,11 +2,11 @@
   %header
     %h1= page.title
   %section
-    = render copy: page.source do |content|
+    = render template: page.source_path(relative: true), layout: false do |content|
       - if truncated
-        = truncate content, 500, link_to_read_more(page)
+        = truncate(content, 500, link_to_read_more(page)).html_safe
       - else
-        = content
+        = content.html_safe
   %footer
     .text
       %p
