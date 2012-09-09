@@ -7,28 +7,32 @@
 # +Article+ that can be published.
 module ActiveCopy
   class CompiledPage
-    attr_reader :article, :layout_template_engine
+    attr_reader :model, :haml
 
     # Create a new instance of this object.
-    def initialize with_article
-      @article = with_article
+    def initialize with_model
+      @model = with_model
       @haml = ActionView::Template.registered_template_handler :haml
     end
 
     # Return the entire contents of the Article's liquid template layout.
     def layout
-      @layout ||= if article.layout == "post"
-                    IO.read "#{Rails.root}/app/views/articles/_article.html.haml"
-                  else
-                    IO.read "#{Rails.root}/app/views/layouts/#{article.layout}.html.haml"
-                  end
+      @layout ||= haml.call begin
+        if model.layout == "post"
+          IO.read "#{Rails.root}/#{article_partial}"
+        else
+          IO.read "#{Rails.root}/#{layout_path}"
+        end
+      end
     end
 
     # Return the HTML generated for this Article.
     def html
-      haml.call layout do
-        markdown.call article.source
-      end
+      eval "b = #{layout}"
+      b
+      #haml.call layout do |html|
+        #markdown.call article.source
+      #end
     end
 
     # Render the Article to a file.
@@ -36,6 +40,15 @@ module ActiveCopy
       mkdir_p article.path unless File.exists? article.path
       File.new(article.index_path, 'w') { |file| file.puts html }
       File.exists? article.index_path
+    end
+
+  private
+    def article_partial
+      "app/views/articles/_article.html.haml"
+    end
+
+    def layout_path
+      "app/views/layouts/#{model.layout}.html.haml"
     end
   end
 end

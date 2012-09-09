@@ -39,6 +39,7 @@ group :development do
   gem "guard-bundler", ">= 0.1.3"
   gem "guard-rails", ">= 0.0.3"
   gem "guard-livereload", ">= 0.3.0"
+  gem 'guard-minitest'
   gem 'heroku'
   gem 'jammit', require: false
 end
@@ -59,6 +60,7 @@ group :test do
   gem 'mocha'
   gem 'vcr'
   gem 'webmock'
+  gem 'ruby-prof'
 end
 
 group :production do

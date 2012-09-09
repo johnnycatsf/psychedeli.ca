@@ -20,15 +20,6 @@ module ActiveCopy
       RUBY
     end
 
-    # Render the template surrounded by a Liquid-rendered layout filename.
-    def self.call_with_layout page_source, layout_name="default"
-      @layout_name ||= layout_name
-
-      liquid.call layout do
-        call page
-      end
-    end
-
     # Return the source in a String for the given layout filename.
     def self.layout
       @layout ||= begin

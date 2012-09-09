@@ -1,3 +1,2 @@
 %section#posts.span-6
-  = @articles.each do |post|
-    = render 'article', locals: { page: post, truncated: true }
+  = @articles.each { |article| render article unless article.nil? }
