@@ -3,32 +3,21 @@
 # another method called +call_with_layout()+, which
 # basically wraps a Liquid layout around the Markdown call. This is for
 # precompilation in the Rake task.
+
+# Initialize Markdown templating for +ActionView+, using our own wrapped
+# +Redcarpet+. The entire text of the template is split into an +Array+
+# using the YAML front matter dividers as a key. The 3rd position in the
+# array created by this split is what is used as the Markdown source.
 module ActiveCopy
   module TemplateHandler
-    # Instantiate the handler for Liquid templates
-    def self.liquid
-      @liquid ||= ActionView::Template.registered_template_handler :liquid
-    end
-
     # Render the template with ArticleCompiler.
     def self.call template
-      liquified_template = liquid.call template
+      source = template.split("---\n")[2]
 
       <<-RUBY
         markdown = ActiveCopy::Markdown.new
-        markdown.render(begin;#{erbified_template};end).to_html
+        markdown.render(begin;#{source};end).to_html
       RUBY
-    end
-
-    # Return the source in a String for the given layout filename.
-    def self.layout
-      @layout ||= begin
-        if @layout_name.present?
-          IO.read "#{Rails.root}/app/views/layouts/#{@layout_name}.html.liquid"
-        else
-          raise ArgumentError.new "Layout name not set"
-        end
-      end
     end
   end
 end

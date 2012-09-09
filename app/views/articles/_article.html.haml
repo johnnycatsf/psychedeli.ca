@@ -2,7 +2,7 @@
   %header
     %h1= @article.title
   %section
-    = markdownify @article.source
+    = render markdown: "articles/content/#{@article.id}"
   %footer
     .text
       %p
