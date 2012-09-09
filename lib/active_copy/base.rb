@@ -98,13 +98,11 @@ module ActiveCopy
 
     # Return the folder where all documents are stored for this model.
     def self.collection_path
-      prefix = if Rails.env.test?
-                  "test/fixtures"
-               else
-                  "app/documents"
-               end
-
-      File.join prefix, self.name.tableize
+      if Rails.env.test?
+        "test/fixtures/#{self.name.tableize}"
+      else
+        "app/views/#{self.name.tableize}/content"
+      end
     end
 
     # Return the collection_path in the instance.
