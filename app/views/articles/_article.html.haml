@@ -1,0 +1,27 @@
+%article{ id: @article.id }
+  %header
+    %h1= @article.title
+  %section
+    = render template: @article.source_path(relative: true), layout: false do |content|
+      - if truncated
+        = truncate(content, 500, link_to_read_more(@article)).html_safe
+      - else
+        = content.html_safe
+  %footer
+    .text
+      %p
+        Posted in
+        %strong= @article.category
+        on
+        = time_tag @article.date
+        = "."
+      - unless truncated
+        %p
+          Tags:
+          %span.tags= @article.tags
+          = " | "
+          = link_to "Comments", "#comments", rel: 'modal', class: 'btn-comments'
+        - if @article.on_hacker_news?
+          %p.hacker-news
+            Comments on
+            = link_to "Hacker News", "http://news.ycombinator.com/item?id=#{@article.hn_item_id}"
