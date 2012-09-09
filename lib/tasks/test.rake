@@ -30,4 +30,4 @@ namespace :test do
 end
 
 desc "Extend with test:compilation"
-task :test => ['test:prepare:configuration', 'test:run', 'test:compilation']
+#task :test => ['test:prepare:configuration', 'test:run', 'test:compilation']

@@ -2,11 +2,7 @@
   %header
     %h1= @article.title
   %section
-    = render template: @article.source_path(relative: true), layout: false do |content|
-      - if truncated
-        = truncate(content, 500, link_to_read_more(@article)).html_safe
-      - else
-        = content.html_safe
+    = markdownify @article.source
   %footer
     .text
       %p
@@ -15,7 +11,7 @@
         on
         = time_tag @article.date
         = "."
-      - unless truncated
+      - unless controller.action_name == 'index'
         %p
           Tags:
           %span.tags= @article.tags

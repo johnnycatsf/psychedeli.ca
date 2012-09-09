@@ -25,7 +25,7 @@ class ArticlesControllerTest < ActionController::TestCase
 
       assert_equal 200, response.status
       assert_select '#post'
-      assert_select 'h1', "happy new year"
+      assert_select 'h1', "happy new year!"
     end
 
     test "render a 404 error when it can't find the post" do

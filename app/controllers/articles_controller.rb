@@ -5,6 +5,7 @@
 # +ActiveCopy+.
 class ArticlesController < ApplicationController
   respond_to :html
+  caches_page :index, :category, :show, gzip: :best_speed
 
   # Index page. Show snippets of all articles.
   #
@@ -31,7 +32,7 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find with_filename_by params[:id]
 
-    if @article.present?
+    if @article.present? and not @article.nil?
       respond_with @article
     else
       render 'errors/not_found', status: 404

@@ -13,6 +13,7 @@ class ArticleTest < ActiveSupport::TestCase
   end
 
   test "read the article body" do
-    assert_match "It's gonna be a wild party.", @article.source
+    body = "\nIt's gonna be a **wild** party.\n\nHell yeah.\n"
+    assert_match body, @article.source
   end
 end
