@@ -2,7 +2,7 @@
   %header
     %h1= @article.title
   %section
-    = render markdown: "articles/content/#{@article.id}"
+    = render copy: "articles/content/#{@article.id}"
   %footer
     .text
       %p
