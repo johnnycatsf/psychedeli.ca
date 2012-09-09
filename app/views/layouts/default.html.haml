@@ -1,16 +1,12 @@
 !!!
 %html{:lang => "en"}
   %head
-    = html5_meta_tags
-    = csrf_meta_tags
+    = meta_tags
     = title_tag 
     %link{:href => "/assets/favicon.ico", :rel => "shortcut icon"}/
     = stylesheet_link_tag 'application', media: "all"
-    = javascript_include_tag twitter_anywhere, 'application'
+    = javascript_include_tag 'application'
     :javascript
-      twttr.anywhere(function (T) {
-        T.hovercards();
-      });
 	  %body
     .container
       %header.row
