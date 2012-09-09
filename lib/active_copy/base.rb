@@ -4,9 +4,12 @@ require 'active_copy/attributes'
 module ActiveCopy
   class Base
     extend ActiveModel::Naming
+    extend ActiveModel::Callbacks
+
     include ActiveModel::Serialization
     include ActiveModel::Validations
     include ActiveModel::Conversion
+
     include ActiveCopy::Attributes
 
     attr_reader :attributes, :id, :collection_path
@@ -33,17 +36,6 @@ module ActiveCopy
           define_method(attribute) { @attributes[attribute] }
         end
       end
-    end
-
-    # Compile the template using ActionView to the public HTML file.
-    def save
-      ActiveCopy::CompiledPage.new(self).save
-    end
-
-    # Test if the model has been compiled by checking whether
-    # the +path+ exists.
-    def saved?
-      File.exists? path
     end
 
     # Return absolute path to public HTML file.

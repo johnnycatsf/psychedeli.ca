@@ -1,2 +1,2 @@
 %section#posts.span-6
-  = @articles.each { |article| render article unless article.nil? }
+  = @articles.each { |article| @article = article; render @article unless @article.nil? }

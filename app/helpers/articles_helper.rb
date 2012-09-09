@@ -4,4 +4,9 @@ module ArticlesHelper
   end
 
   include ActiveCopy::ViewHelper
+
+  def markdownify source
+    markdown = ActiveCopy::Markdown.new
+    markdown.render source
+  end
 end
