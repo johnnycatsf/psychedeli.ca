@@ -62,6 +62,7 @@ group :test do
   gem 'mocha'
   gem 'vcr'
   gem 'webmock'
+  gem 'ruby-prof'
 end
 
 group :production do

@@ -6,15 +6,10 @@ module ActiveCopy
     extend ActiveModel::Naming
     include ActiveModel::Serialization
     include ActiveModel::Validations
+    include ActiveModel::Conversion
     include ActiveCopy::Attributes
 
-    attr_reader :attributes, :id
-
-    COLLECTION_PATH = if Rails.env.test?
-      "/test/fixtures/#{self.class.name.pluralize.parameterize}"
-    else
-      "/app/documents/#{self.class.name.pluralize.parameterize}"
-    end
+    attr_reader :attributes, :id, :collection_path
 
     # Instantiate using the filename as an ID, set the YAML front matter
     # to a Hash called +attributes+, and define a reader method for each 
@@ -85,9 +80,9 @@ module ActiveCopy
     # Return absolute path to Markdown file on this machine.
     def source_path options={}
       @source_path ||= if options[:relative]
-                         File.join COLLECTION_PATH, "#{id}.md"
+                         File.join collection_path, "#{id}.md"
                        else
-                         File.join Rails.root, COLLECTION_PATH, "#{id}.md"
+                         File.join Rails.root, collection_path, "#{id}.md"
                        end
     end
 
@@ -109,9 +104,25 @@ module ActiveCopy
       @source ||= raw_source.split("---\n")[2]
     end
 
+    # Return the folder where all documents are stored for this model.
+    def self.collection_path
+      prefix = if Rails.env.test?
+                  "test/fixtures"
+               else
+                  "app/documents"
+               end
+
+      File.join prefix, self.name.tableize
+    end
+
+    # Return the collection_path in the instance.
+    def collection_path
+      self.class.collection_path
+    end
+
     # Find this model by its filename.
     def self.find by_filename
-      if File.exists? "#{Rails.root}/#{COLLECTION_PATH}/#{by_filename}.md"
+      if File.exists? "#{Rails.root}/#{collection_path}/#{by_filename}.md"
         new by_filename
       else
         nil
@@ -121,8 +132,8 @@ module ActiveCopy
     # Read all files from the +collection_path+, then instantiate them
     # as members of this model. Return as an +Array+.
     def self.all
-      Dir["#{Rails.root}/#{COLLECTION_PATH}/*.md"].reduce([]) do |articles, md_path| 
-        unless md_path == "#{Rails.root}/#{COLLECTION_PATH}"
+      Dir["#{Rails.root}/#{collection_path}/*.md"].reduce([]) do |articles, md_path| 
+        unless md_path == "#{Rails.root}/#{collection_path}"
           file_name = File.basename(md_path).gsub('.md', '')
           articles << self.new(file_name)
         end

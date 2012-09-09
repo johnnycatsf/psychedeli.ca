@@ -1,7 +1,5 @@
 Psychedelica::Application.routes.draw do
-  get "articles/index"
-
-  get "articles/show"
-
-  get "/status.json" => 'status#index'
+  get "/status.json" => 'status#index', format: :json
+  resources :articles, only: [:index, :show]
+  root to: "articles#index"
 end

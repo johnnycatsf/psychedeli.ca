@@ -31,7 +31,7 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find with_filename_by params[:id]
 
-    if @article.present? and @article.layout == 'post'
+    if @article.present?
       respond_with @article
     else
       render 'errors/not_found', status: 404
