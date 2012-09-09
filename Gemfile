@@ -13,7 +13,6 @@ group :views do
   gem "bootstrap-sass", ">= 2.0.3"
   gem 'jquery-rails'
   gem "haml", ">= 3.1.6"
-  gem 'jekyll', git: 'git://github.com/tubbo/jekyll.git', branch: 'custom-posts-directory'
   gem 'jbuilder'
   gem 'builder'
   gem 'hpricot'
