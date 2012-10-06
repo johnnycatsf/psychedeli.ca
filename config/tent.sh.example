@@ -1,0 +1,5 @@
+#!/usr/bin/zsh
+
+export DATABASE_URL=postgres://localhost/tent
+export ADMIN_USERNAME=admin
+export ADMIN_PASSWORD=password
