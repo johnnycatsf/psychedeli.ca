@@ -1,8 +1,6 @@
-//=require underscore
 //=require jquery
-//=require pretty
+//=require jquery_ujs
 //=require bootstrap
-//=require functions
-//=require jquery.linkifyTags
-//=require jquery.facebox
-//=require ready
+//=require underscore
+//=require articles
+//=require status

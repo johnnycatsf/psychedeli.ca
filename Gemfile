@@ -17,6 +17,7 @@ group :views do
   gem 'builder'
   gem 'hpricot'
   gem 'ruby_parser'
+  gem 'underscore-rails'
 end
 
 group :active_document do

@@ -1,8 +1,8 @@
 require 'active_support/core_ext/object/blank'
-require 'action_pack/action_view/abstract_renderer'
+require 'action_view'
 
-module ActionCopy
-  class Renderer < ActionView::Renderer::PartialRenderer
+module ActiveCopy
+  class Renderer < ActionView::PartialRenderer
   private
     def setup(context, options, block)
       @view   = context

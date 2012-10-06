@@ -6,15 +6,16 @@ ActionView::Template.register_template_handler :md, ActiveCopy::Template
 module ActionView
   class Renderer
     def render context, options
-      if options.key? :copy
-        render_copy context, options
+      case true
+      when options.key?(:partial) then render_partial context, options
+      when options.key?(:copy) then render_copy context, options
       else
-        super
+        render_template context, options
       end
     end
 
     def render_copy context, options, &block
-      _copy_renderer.render context, options, &block
+      _copy_renderer.render context, options, block
     end
 
   private

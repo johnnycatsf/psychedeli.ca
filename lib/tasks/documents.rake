@@ -1,7 +1,7 @@
 require 'active_copy'
 
 namespace :documents do
-  include ActiveCopy::TasksHelper
+  include ActiveCopy::Utils
 
   desc "Clean the public/ folder of all generated content"
   task :clean => :environment do

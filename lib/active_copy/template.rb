@@ -9,7 +9,7 @@
 # using the YAML front matter dividers as a key. The 3rd position in the
 # array created by this split is what is used as the Markdown source.
 module ActiveCopy
-  module TemplateHandler
+  module Template
     # Render the template with ArticleCompiler.
     def self.call template
       source = template.split("---\n")[2]
