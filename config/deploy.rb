@@ -47,6 +47,7 @@ namespace :deploy do
   task :configuration do
     run "ln -nfs #{shared_path}/config/status_exchange.yml #{release_path}/config/status_exchange.yml"
     run "ln -nfs #{shared_path}/config/tent.sh #{release_path}/config/tent.sh"
+    run "#{try_sudo} chmod 775 #{release_path}/config/tent.sh"
   end
 
   desc "Start Unicorn, the production application server."
@@ -109,7 +110,7 @@ namespace :deploy do
       logger.important("No PIDs found. Starting Unicorn server...", "Unicorn")
       config_path = "#{current_path}/config/unicorn.rb"
       if remote_file_exists?(config_path)
-        run "cd #{current_path} && BUNDLE_GEMFILE=#{current_path}/Gemfile bundle exec unicorn -E #{rails_env} -c #{config_path} -D"
+        run "cd #{current_path} && BUNDLE_GEMFILE=#{current_path}/Gemfile DATABASE_URL=postgres://localhost/tent ADMIN_USERNAME=necromancer ADMIN_PASSWORD=tom94263 bundle exec unicorn -E #{rails_env} -c #{config_path} -D"
       else
         logger.important("Config file for unicorn was not found at \"#{config_path}\"", "Unicorn")
       end
