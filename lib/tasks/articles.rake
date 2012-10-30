@@ -5,7 +5,7 @@ namespace :articles do
 
     # Articles and stuff.
     Dir[folder].each do |path|
-      system "rm -rf #{path}" if File.is_dir?
+      system "rm -rf #{path}" if File.directory? path
     end
 
     # Special top-level HTML files.

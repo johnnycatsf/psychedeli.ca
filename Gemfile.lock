@@ -249,7 +249,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap-sass (>= 2.0.3)
+  bootstrap-sass (~> 2.1)
   builder
   capistrano
   coffee-rails (~> 3.2.1)

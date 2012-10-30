@@ -47,7 +47,11 @@ section {
 	@include links;
 
 	&#posts {
+    background: #FFF;
 
+    ul li {
+      list-style: none;
+    }
 	}
 }
 
