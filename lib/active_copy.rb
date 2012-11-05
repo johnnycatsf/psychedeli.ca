@@ -6,6 +6,7 @@ require 'active_copy/base'
 require 'active_copy/markdown'
 require 'active_copy/template'
 require 'active_copy/utils'
+require 'active_copy/view_helper'
 
 # ActiveCopy reads Markdown files in +app/documents+ instead of a
 # database for your Rails models. Inspired by Jekyll, it uses YAML front

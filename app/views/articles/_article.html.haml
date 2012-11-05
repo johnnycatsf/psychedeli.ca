@@ -2,7 +2,7 @@
   %header
     %h1= @article.title
   %section
-    = render copy: "articles/content/#{@article.id}"
+    = render_copy "articles/content/#{@article.id}"
   %footer
     .text
       %p
