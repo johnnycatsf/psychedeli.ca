@@ -39,8 +39,6 @@ GEM
     activesupport (3.2.7)
       i18n (~> 0.6)
       multi_json (~> 1.0)
-    albino (1.3.3)
-      posix-spawn (>= 0.3.6)
     addressable (2.3.2)
     ansi (1.4.3)
     arel (3.0.2)
@@ -188,6 +186,7 @@ GEM
     redcarpet (2.2.2)
     rest-client (1.6.7)
       mime-types (>= 1.16)
+    ruby-prof (0.11.2)
     ruby_parser (2.3.1)
       sexp_processor (~> 3.0)
     rubypython (0.5.3)
@@ -205,7 +204,6 @@ GEM
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    syntax (1.0.0)
     syslogger (1.4.0)
     thin (1.5.0)
       daemons (>= 1.0.9)
@@ -226,8 +224,6 @@ GEM
     uglifier (1.3.0)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
-    unicorn (4.4.0)
-      multi_json (~> 1.3)
     underscore-rails (1.3.1)
     unicorn (4.3.1)
       kgio (~> 2.6)
@@ -275,6 +271,7 @@ DEPENDENCIES
   ratom
   rb-fsevent
   redcarpet
+  ruby-prof
   ruby_parser
   sass-rails (~> 3.2.3)
   syslogger
