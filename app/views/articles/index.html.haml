@@ -1,6 +1,4 @@
-%nav#articles.span-4
-  %ul.nav.nav-tabs.nav-stacked
-    - @articles.each do |article|
-      %li= link_to article.title, "/articles/#{article.id}"
+#articles.span-4
+  = render 'articles/menu'
 #canvas.span-8
   = render_copy 'pages/content/about'

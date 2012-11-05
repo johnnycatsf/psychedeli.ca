@@ -7,8 +7,20 @@
  */
 
 #canvas {
-  width: 600px
+  @extend .span-8;
+  max-width: 600px;
 }
+
+#articles {
+  @extend .span-4;
+
+  ul {
+    @extend .nav;
+    @extend .nav-tabs;
+    @extend .nav-stacked;
+  }
+}
+
 
 
 // A single article
