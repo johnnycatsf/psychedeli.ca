@@ -32,9 +32,10 @@ end
 group :development do
   gem "haml-rails", ">= 0.3.4"
   gem 'capistrano'
-  gem "guard-bundler", ">= 0.1.3"
-  gem "guard-rails", ">= 0.0.3"
-  gem "guard-livereload", ">= 0.3.0"
+  gem "guard-bundler"
+  gem "guard-rails"
+  gem "guard-livereload"
+  gem "guard-minitest"
   gem 'heroku'
   gem 'jammit', require: false
 end
