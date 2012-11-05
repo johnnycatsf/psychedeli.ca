@@ -8,7 +8,7 @@ module ActiveCopy
   class Markdown
     # Create a new session with the compiler.
     def initialize
-      @renderer = Redcarpet::Render::HTML 
+      @renderer = Redcarpet::Render::HTML
       @options = { auto_link: true }
     end
 
