@@ -34,25 +34,32 @@ group :status do
   gem 'ratom', require: 'atom'
 end
 
+group :deployment do
+  gem 'capistrano'
+  gem 'capistrano_colors'
+  gem 'rvm-capistrano'
+end
+
 group :development do
   gem "haml-rails", ">= 0.3.4"
-  gem 'capistrano'
+  gem 'pry'
+  gem 'pry-doc'
+end
+
+group :automated_testing do
   gem 'growl'
   gem 'rb-fsevent'
   gem "guard-bundler"
   gem "guard-rails"
   gem "guard-livereload"
   gem "guard-minitest"
-  gem 'heroku'
-  gem 'jammit', require: false
-  gem 'pry'
-  gem 'pry-doc'
 end
 
 gem 'thin', group: [:development, :stage]
 
 group :stage do
-  gem 'jammit'
+  gem 'heroku'
+  gem 'jammit', require: false
 end
 
 group :test do
