@@ -4,7 +4,6 @@ Bundler.require :active_copy
 require 'active_copy/attributes'
 require 'active_copy/base'
 require 'active_copy/markdown'
-require 'active_copy/renderer'
 require 'active_copy/template'
 require 'active_copy/utils'
 

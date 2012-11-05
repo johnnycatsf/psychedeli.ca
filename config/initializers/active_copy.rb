@@ -8,7 +8,7 @@ module ActionView
     def render context, options
       case true
       when options.key?(:partial) then render_partial context, options
-      when options.key?(:copy) then render_copy context, options
+      when options.key?(:copy)    then render_copy context, options
       else
         render_template context, options
       end

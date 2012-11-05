@@ -30,18 +30,12 @@ class ArticlesController < ApplicationController
   #
   # GET /gbs/2000/01/01/happy-new-year
   def show
-    @article = Article.find with_filename_by params[:id]
+    @article = Article.find params[:id]
 
     if @article.present? and not @article.nil?
       respond_with @article
     else
       render 'errors/not_found', status: 404
     end
-  end
-
-private
-  def with_filename_by id
-    tokens = id.split "/"
-    tokens[2..-1].join "-" # omit category
   end
 end

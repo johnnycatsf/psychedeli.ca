@@ -44,6 +44,8 @@ group :development do
   gem "guard-minitest"
   gem 'heroku'
   gem 'jammit', require: false
+  gem 'pry'
+  gem 'pry-doc'
 end
 
 gem 'thin', group: [:development, :stage]
