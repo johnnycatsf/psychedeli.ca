@@ -1,0 +1,4 @@
+%nav#articles
+  %ul{ class: "nav nav-tabs nav-stacked" }
+    - @articles.each do |article|
+      %li= link_to article.title, articles_path(article)

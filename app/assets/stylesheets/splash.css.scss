@@ -1,0 +1,7 @@
+#splash {
+  ul {
+    @extend .nav;
+    @extend .nav-tabs;
+    @extend .nav-stacked;
+  }
+}

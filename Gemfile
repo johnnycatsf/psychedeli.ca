@@ -10,7 +10,7 @@ group :assets do
 end
 
 group :views do
-  gem 'bootstrap-sass', '~> 2.1'
+  gem 'bootstrap-sass', git: 'git://github.com/trisweb/bootstrap-sass.git'
   gem 'jquery-rails'
   gem "haml", ">= 3.1.6"
   gem 'liquid'
