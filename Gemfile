@@ -32,6 +32,8 @@ end
 group :development do
   gem "haml-rails", ">= 0.3.4"
   gem 'capistrano'
+  gem 'growl'
+  gem 'rb-fsevent'
   gem "guard-bundler"
   gem "guard-rails"
   gem "guard-livereload"
