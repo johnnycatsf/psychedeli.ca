@@ -122,7 +122,7 @@ module ActiveCopy
     # Read all files from the +collection_path+, then instantiate them
     # as members of this model. Return as an +Array+.
     def self.all
-      Dir["#{Rails.root}/#{collection_path}/*.md"].reduce([]) do |articles, md_path| 
+      Dir["#{Rails.root}/#{collection_path}/*.md"].reduce([]) do |articles, md_path|
         unless md_path == "#{Rails.root}/#{collection_path}"
           file_name = File.basename(md_path).gsub('.md', '')
           articles << self.new(file_name)

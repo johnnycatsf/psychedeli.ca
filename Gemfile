@@ -18,6 +18,7 @@ group :views do
   gem 'hpricot'
   gem 'ruby_parser'
   gem 'underscore-rails'
+  gem 'draper'
 end
 
 group :active_document do

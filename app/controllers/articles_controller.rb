@@ -11,7 +11,7 @@ class ArticlesController < ApplicationController
   #
   # GET /
   def index
-    @articles = Article.all
+    @articles = Article.all.reverse.select { |a| a.present? }
     respond_with @articles
   end
 

@@ -1,23 +1,23 @@
-%article{ id: @article.id }
+%article{ id: "article-#{article.id}" }
   %header
-    %h1= @article.title
+    %h1= article.title
   %section
-    = render_copy "articles/content/#{@article.id}"
+    = render_copy "articles/content/#{article.id}"
   %footer
     .text
       %p
         Posted in
-        %strong= @article.category
+        %strong= article.category
         on
-        = time_tag @article.date
+        = time_tag article.date
         = "."
       - unless controller.action_name == 'index'
         %p
           Tags:
-          %span.tags= @article.tags
+          %span.tags= article.tags
           = " | "
           = link_to "Comments", "#comments", rel: 'modal', class: 'btn-comments'
-        - if @article.on_hacker_news?
+        - if article.on_hacker_news?
           %p.hacker-news
             Comments on
-            = link_to "Hacker News", "http://news.ycombinator.com/item?id=#{@article.hn_item_id}"
+            = link_to "Hacker News", "http://news.ycombinator.com/item?id=#{article.hn_item_id}"
