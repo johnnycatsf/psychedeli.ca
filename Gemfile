@@ -37,7 +37,8 @@ end
 group :deployment do
   gem 'capistrano'
   gem 'capistrano_colors'
-  gem 'rvm-capistrano'
+  gem 'rvm-capistrano', require: 'rvm/capistrano'
+  gem 'bundler', require: 'bundler/capistrano'
 end
 
 group :development do

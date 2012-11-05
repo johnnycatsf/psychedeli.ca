@@ -2,8 +2,6 @@
 # psychedeli.ca deployment configuration
 #
 
-require 'bundler/capistrano'
-
 ## General Settings
 
 set :user, "necromancer"
