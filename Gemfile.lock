@@ -260,6 +260,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass!
   builder
+  bundler
   capistrano
   capistrano_colors
   coffee-rails (~> 3.2.1)

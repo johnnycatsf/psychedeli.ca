@@ -2,6 +2,12 @@
 # psychedeli.ca deployment configuration
 #
 
+require 'bundler'
+Bundler.require :deployment
+
+require 'rvm/capistrano'
+require 'bundler/capistrano'
+
 ## General Settings
 
 set :user, "necromancer"
@@ -29,21 +35,21 @@ set :application_server, "unicorn"
 ## Task Chain
 
 before 'deploy:assets:precompile', 'deploy:configuration'
-after 'deploy:update', 'deploy:update_content'
+#after 'deploy:update', 'deploy:update_content'
 
 ## Task Definitions
 
 namespace :deploy do
   desc "Clear and recreate the pub/ directory with the compiled Jekyll site."
   task :update_content do
-    run "cd #{current_path}; bundle exec rake compile"
+    run "cd #{current_path}; bundle exec rake articles:precompile"
   end
 
   desc "Link StatusExchange configuration from shared path."
   task :configuration do
     run "ln -nfs #{shared_path}/config/status_exchange.yml #{release_path}/config/status_exchange.yml"
-    run "ln -nfs #{shared_path}/config/tent.sh #{release_path}/config/tent.sh"
-    run "#{try_sudo} chmod 775 #{release_path}/config/tent.sh"
+    #run "ln -nfs #{shared_path}/config/tent.sh #{release_path}/config/tent.sh"
+    #run "#{try_sudo} chmod 775 #{release_path}/config/tent.sh"
   end
 
   desc "Start Unicorn, the production application server."
