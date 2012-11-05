@@ -7,6 +7,10 @@ class Article < ActiveCopy::Base
     hn_item_id.present?
   end
 
+  def has_tags?
+    tags.present?
+  end
+
   # Sorts Articles by date, ascending.
   def self.latest
     all.sort { |a1, a2| a1.date <=> a2.date }

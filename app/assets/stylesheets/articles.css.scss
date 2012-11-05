@@ -6,25 +6,33 @@
  * container.
  */
 
-// A single article
-article {
-
+#canvas {
+  width: 600px
 }
 
-// Articles in a collection
-.articles > article {
 
-			.category {
-				font-weight: bold;
-			}
-			time {
-				font-weight: bold;
-			}
-      &.hacker-news {
-        a {
-          font-weight: bold;
-        }
+// A single article
+article {
+  footer {
+    background: #EEE;
+    padding: 15px;
+    border-top: 1px solid #CCC;
+
+    nav {
+      span:after {
+        content: " |"
       }
-		}
-	}
+    }
+    .category {
+      font-weight: bold;
+    }
+    time {
+      font-weight: bold;
+    }
+    &.hacker-news {
+      a {
+        font-weight: bold;
+      }
+    }
+  }
 }

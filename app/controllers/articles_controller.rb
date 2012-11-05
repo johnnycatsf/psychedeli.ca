@@ -11,7 +11,8 @@ class ArticlesController < ApplicationController
   #
   # GET /
   def index
-    @articles = Article.all.reverse.select { |a| a.present? }
+    @articles = ArticleDecorator.decorate \
+      Article.all.reverse.select { |a| a.present? }
     respond_with @articles
   end
 
@@ -21,7 +22,8 @@ class ArticlesController < ApplicationController
   # GET /gbs
   def category
     @category = params[:category]
-    @articles = Article.where(category: @category).all
+    @articles = ArticleDecorator.decorate \
+      Article.where(category: @category).all
 
     respond_with @articles
   end
@@ -30,12 +32,22 @@ class ArticlesController < ApplicationController
   #
   # GET /gbs/2000/01/01/happy-new-year
   def show
-    @article = Article.find params[:id]
+    @article = ArticleDecorator.decorate \
+      Article.find params[:id]
 
     if @article.present? and not @article.nil?
-      respond_with @article
+      respond_with @article, layout: use_layout?
     else
       render 'errors/not_found', status: 404
+    end
+  end
+
+private
+  def use_layout?
+    if request.xhr?
+      false
+    else
+      true
     end
   end
 end
