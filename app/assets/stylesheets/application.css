@@ -1,0 +1,12 @@
+/**
+ * psychedeli.ca stylesheet manifest
+ *
+ *= require bootstrap
+ *= require cyborg
+ *= require fonts
+ *= require pygments
+ *= require ribbon
+ *= require jquery.facebox
+ *= require structure
+ *= require articles
+ */
