@@ -12,7 +12,7 @@ group :assets do
 end
 
 group :views do
-  gem 'twitter-bootstrap-rails'
+  gem 'bootstrap-sass'
   gem 'jquery-rails'
   gem "haml", ">= 3.1.6"
   gem 'liquid'

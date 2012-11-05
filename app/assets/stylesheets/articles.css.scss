@@ -1,91 +1,17 @@
-// Posts are laid out as <article> tags, and when JavaScript is enabled act as a giant carousel.
+/**
+ * Articles
+ *
+ * Layout for each <article> element, when displayed
+ * on a standalone page or when displayed in a #posts
+ * container.
+ */
 
+// A single article
 article {
-	max-width: 740px;
-	background:#FFF;
-	padding: 5px 20px;
-	margin: 0px 0px 35px 0px;
 
-	&* {
-		background:#FFF;
-	}
+}
 
-	// title
-	header {
-		// @include rounded-corner(4px); [TODO] steal from work
-		border-bottom: 3px dotted #000;
-		height: auto;
-		padding: 0 0 0 0;
+// Articles in a collection
+.articles > article {
 
-		h1 {
-			font-family:$museo;
-			font-size: 34px;
-			padding: 5px 0px 20px;
-			margin: 0; // reset for -webkit-margin-{before|after}...
-
-			a {
-				text-decoration:none;
-				color: #000;
-
-				&:hover, &:active {
-					color: #0000FF;
-				}
-
-				&:link, &:visited {
-					color: #000;
-				}
-			}
-		}
-	}
-
-	section {
-		h1, h2, h3 {
-			font-family: $brandon;
-			letter-spacing: 0.03em;
-		}
-		h1 { font-size: 36px; }
-		h2 { font-size: 30px; }
-		h3 { font-size: 22px; }
-
-		p {
-			padding: 10px 0 10px 0;
-			line-height:24px;
-			font-size: 18px;
-			font-family: $georgia;
-		}
-		pre {
-			background-color:#ecf2f5;
-			padding: 10px 25px;
-			overflow: scroll;
-
-			code {
-				font-size: 14px;
-				font-family: $monaco;
-			}
-		}
-		blockquote {
-			border-left: 2px solid #ccc;
-			background: #eef;
-
-			p {
-				padding: 10px 25px;
-			}
-		}
-	}
-
-	footer {
-		background: $white;
-		border-top: 3px dotted #000;
-
-		p {
-			text-align: right;
-
-			.category {
-				font-weight: bold;
-			}
-			time {
-				font-weight: bold;
-			}
-		}
-	}
 }
