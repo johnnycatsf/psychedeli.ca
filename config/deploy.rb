@@ -93,7 +93,7 @@ namespace :deploy do
     if remote_file_exists?(unicorn_pid)
       if remote_process_exists?(unicorn_pid)
         logger.important("Stopping...", "Unicorn")
-        run "#{try_sudo} kill -s QUIT `cat #{unicorn_pid}`"
+        run "#{try_sudo} kill -s QUIT `cat Users#{unicorn_pid}`"
       else
         run "rm #{unicorn_pid}"
         logger.important("Unicorn is not running.", "Unicorn")
@@ -124,7 +124,7 @@ end
 
 # Return Unicorn server PID file
 def unicorn_pid
-  "#{current_path}/tmp/pids/unicorn.pid"
+  "#{shared_path}/tmp/unicorn.pid"
 end
 
 # Check if file exists on server

@@ -1,13 +1,15 @@
 ## Unicorn configuration
 
+base_dir = "/home/necromancer/src/blog/shared"
+
 # Store the PID in the Capistrano app dir
-pid_file = "/home/necromancer/src/blog/shared/pids/unicorn.pid"
+pid_file = "#{base_dir}/tmp/unicorn.pid"
 pid pid_file
 
 # What ports/sockets to listen on, and what options for them.
 listen 2000, backlog: 64
 
-working_directory "/home/necromancer/src/blog/current"
+working_directory base_dir.gsub('/shared', '/current')
 
 # What the timeout for killing busy workers is, in seconds
 timeout 60
@@ -33,7 +35,7 @@ before_fork do |server, worker|
 end
 
 # Where stderr gets logged
-stderr_path "/home/necromancer/src/blog/shared/log/error.log"
+stderr_path "#{base_dir}/log/error.log"
 
 # Where stdout gets logged
-stdout_path "/home/necromancer/src/blog/shared/log/access.log"
+stdout_path "#{base_dir}/log/access.log"
