@@ -37,7 +37,7 @@ Psychedelica::Application.configure do
   # config.log_tags = [ :subdomain, :uuid ]
 
   # Use a different logger for distributed setups
-  config.logger = ActiveSupport::TaggedLogging.new Syslogger.new("blog", Syslog::LOG_PID, Syslog::LOG_LOCAL0)
+  #config.logger = ActiveSupport::TaggedLogging.new Syslogger.new("blog", Syslog::LOG_PID, Syslog::LOG_LOCAL0)
 
   # Use a different cache store in production
   # config.cache_store = :mem_cache_store
