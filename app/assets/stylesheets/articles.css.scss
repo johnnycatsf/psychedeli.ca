@@ -7,13 +7,10 @@
  */
 
 #canvas {
-  @extend .span-8;
   max-width: 600px;
 }
 
 #articles {
-  @extend .span-4;
-
   ul {
     @extend .nav;
     @extend .nav-tabs;
@@ -21,7 +18,14 @@
   }
 }
 
+@media (min-width: 960px) {
+ #articles { max-width: 400px }
+ article { max-width: 600px }
+}
 
+@media (max-width: 640px) {
+ #articles { float: right; }
+}
 
 // A single article
 article {

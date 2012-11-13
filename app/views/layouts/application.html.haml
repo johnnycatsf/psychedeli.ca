@@ -7,11 +7,11 @@
     = stylesheet_link_tag 'application', media: "all"
     = javascript_include_tag 'application'
   %body
-  .container
-    %header.row
+  .container-responsive
+    %header.row-fluid
       = render partial: 'layouts/navigation'
-    .row
+    .row-fluid
       = render partial: 'layouts/messages'
       = yield
-    %footer.row
+    %footer.row-fluid
       = render partial: 'layouts/links'
