@@ -12,7 +12,11 @@ module ActiveCopy
   module Template
     # Render the template with ArticleCompiler.
     def self.call template
-      source = template.split("---\n")[2]
+      source = if template.respond_to? :split
+        template.split("---\n")[2]
+      else
+        template.source.split("---\n")[2]
+      end
 
       <<-RUBY
         markdown = ActiveCopy::Markdown.new
