@@ -6,13 +6,13 @@
 class ArticlesController < ApplicationController
   respond_to :html
   caches_page :index, :category, :show, gzip: :best_speed
+  before_filter :get_articles, except: [:category]
 
   # Index page. Show snippets of all articles.
   #
   # GET /
   def index
-    @articles = ArticleDecorator.decorate \
-      Article.all.reverse.select { |a| a.present? }
+    @articles = Article.all.reverse.select { |a| a.present? }
     respond_with @articles
   end
 
@@ -36,7 +36,11 @@ class ArticlesController < ApplicationController
       Article.find params[:id]
 
     if @article.present? and not @article.nil?
-      respond_with @article, layout: use_layout?
+      if use_layout?
+        respond_with @article
+      else
+        render partial: @article
+      end
     else
       render 'errors/not_found', status: 404
     end
@@ -49,5 +53,9 @@ private
     else
       true
     end
+  end
+
+  def get_articles
+    @articles = Article.all.reverse.select { |a| a.present? }
   end
 end
