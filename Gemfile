@@ -74,6 +74,7 @@ group :test do
   gem 'vcr'
   gem 'webmock'
   gem 'ruby-prof'
+  gem 'syslogger'
 end
 
 group :production do
