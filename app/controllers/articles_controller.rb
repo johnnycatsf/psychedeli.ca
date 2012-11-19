@@ -32,10 +32,10 @@ class ArticlesController < ApplicationController
   #
   # GET /gbs/2000/01/01/happy-new-year
   def show
-    by_filename = if params[:id].present?
+    by_filename = if params[:id].present? and params[:id] =~ /\A([a-zA-Z]*)/
       params[:id].split('/')[1..-1].join('-')
     else
-      ""
+      params[:id]
     end
     @article = ArticleDecorator.decorate \
       Article.find by_filename
