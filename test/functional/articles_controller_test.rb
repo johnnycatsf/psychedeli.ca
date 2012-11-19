@@ -14,12 +14,6 @@ class ArticlesControllerTest < ActionController::TestCase
   context "ArticlesController: GET /gbs/2000/01/01/happy-new-year/" do
     setup { @page = "/gbs/2000/01/01/happy-new-year" }
 
-    test "finds filename by given id parameter" do
-      filename = @controller.send :with_filename_by, @page
-
-      assert_equal "2000-01-01-happy-new-year", filename
-    end
-
     test "render the page given by the id" do
       get :show, id: @page
 
