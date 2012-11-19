@@ -21,7 +21,7 @@ group :views do
   gem 'draper'
 end
 
-group :active_document do
+group :active_copy do
   gem 'liquid'
   gem 'pygments.rb'
   gem 'redcarpet'
@@ -45,9 +45,6 @@ group :development do
   gem "haml-rails", ">= 0.3.4"
   gem 'pry'
   gem 'pry-doc'
-end
-
-group :automated_testing do
   gem 'growl'
   gem 'rb-fsevent'
   gem "guard-bundler"
@@ -65,16 +62,12 @@ end
 
 group :test do
   gem 'factory_girl_rails'
-  gem 'turn', '>= 0.9.3'
   gem 'minitest'
   gem 'mini_specunit'
   gem 'mini_shoulda'
   gem 'rack-test'
-  gem 'mocha'
   gem 'vcr'
   gem 'webmock'
-  gem 'ruby-prof'
-  gem 'syslogger'
 end
 
 group :production do

@@ -9,7 +9,7 @@ require "sprockets/railtie"
 require "rails/test_unit/railtie"
 
 require 'bundler'
-Bundler.require :default, *Rails.groups(:assets => %w(development test)), :views, :status, :active_document
+Bundler.require :default, *Rails.groups(:assets => %w(development test)), :views, :status
 
 module Psychedelica
   class Application < Rails::Application
