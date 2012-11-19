@@ -15,4 +15,12 @@ require 'active_copy/view_helper'
 # precompile the Markdown files to pure HTML for performance purposes.
 module ActiveCopy
   VERSION = 'alpha1'
+
+  def self.content_path
+    if Rails.env.test?
+      "test/fixtures"
+    else
+      "app/views"
+    end
+  end
 end

@@ -32,8 +32,13 @@ class ArticlesController < ApplicationController
   #
   # GET /gbs/2000/01/01/happy-new-year
   def show
+    by_filename = if params[:id].present?
+      params[:id].split('/')[1..-1].join('-')
+    else
+      ""
+    end
     @article = ArticleDecorator.decorate \
-      Article.find params[:id]
+      Article.find by_filename
 
     if @article.present? and not @article.nil?
       if use_layout?

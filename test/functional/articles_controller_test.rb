@@ -12,7 +12,7 @@ class ArticlesControllerTest < ActionController::TestCase
   end
 
   context "ArticlesController: GET /gbs/2000/01/01/happy-new-year/" do
-    setup { @page = "/gbs/2000/01/01/happy-new-year" }
+    setup { @page = "gbs/2000/01/01/happy-new-year" }
 
     test "render the page given by the id" do
       get :show, id: @page

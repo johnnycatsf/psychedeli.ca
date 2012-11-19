@@ -2,7 +2,11 @@ module ActiveCopy
   module ViewHelper
     # Render a given relative content path to Markdown.
     def render_copy from_source_path
-      source_path = "#{Rails.root}/app/views/#{from_source_path}.md"
+      source_path = if Rails.env.test?
+        "#{Rails.root}/test/fixtures/#{from_source_path}.md"
+      else
+        "#{Rails.root}/app/views/#{from_source_path}.md"
+      end
       if File.exists? source_path
         raw_source = IO.read source_path
         source = raw_source.split("---\n")[2]
