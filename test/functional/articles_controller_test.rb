@@ -12,7 +12,7 @@ class ArticlesControllerTest < ActionController::TestCase
   end
 
   context "ArticlesController: GET /gbs/2000/01/01/happy-new-year/" do
-    setup { @page = "gbs/2000/01/01/happy-new-year" }
+    setup { @page = "2000-01-01-happy-new-year" }
 
     test "render the page given by the id" do
       get :show, id: @page
@@ -24,7 +24,7 @@ class ArticlesControllerTest < ActionController::TestCase
     end
 
     test "render a 404 error when it can't find the post" do
-      get :show, id: "/gbs/2012/01/01/the-final-countdown"
+      get :show, id: "2012-01-01-the-final-countdown"
 
       assert_equal 404, response.status
       assert_select 'p', "The file you requested was not found."
