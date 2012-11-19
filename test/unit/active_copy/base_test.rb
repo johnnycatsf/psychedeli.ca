@@ -13,7 +13,7 @@ class ActiveCopy::BaseTest < ActiveSupport::TestCase
   end
 
   test "find the right folder to read source files from" do
-    assert_equal "test/fixtures/basic_pages", @page.collection_path
+    assert_equal "test/fixtures/basic_pages/content", @page.collection_path
   end
 
   test "read the yaml front matter as a hash" do
