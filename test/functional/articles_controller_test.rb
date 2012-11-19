@@ -18,7 +18,7 @@ class ArticlesControllerTest < ActionController::TestCase
       get :show, id: @page
 
       assert_equal 200, response.status
-      assert_select '#post'
+      assert_select 'article.standalone'
       assert_select 'h1', "happy new year!"
       assert_select 'strong', "wild"
     end
