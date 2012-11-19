@@ -15,7 +15,7 @@ module ActiveCopy
     # Return an HTML String containing the rendered output of the Markdown
     # source.
     def render markdown_source
-      markdown.render markdown_source
+      markdown.render "#{markdown_source}"
     end
 
   private
