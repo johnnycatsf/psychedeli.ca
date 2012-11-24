@@ -19,9 +19,8 @@ production:
 test:
   <<: *common
   twitter:
-    user_name: "wonderbars"
+    user_name: "tubbo"
   facebook:
-    access_token: "AAAEcoySQLr0BAP8ZC42ruMsGFu3DSRWknhxG1bvfRXGpJdxmSrfRM68E8uz2RVDNNU9TA0x6aOhH9FjWNwRitTVLVr3bi55NF3M5XwBKxoRd2Fmeq"
     vanity_url: "wonderbars"
   soundcloud:
     user_name: "wonderbars"
