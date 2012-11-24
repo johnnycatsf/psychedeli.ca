@@ -1,5 +1,5 @@
 ---
-title: making private methods private in ruby
+title: making private methods private
 date: 2012-11-24
 tags: ruby, experiment
 category: code
