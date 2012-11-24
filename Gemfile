@@ -56,7 +56,6 @@ end
 gem 'thin', group: [:development, :stage]
 
 group :stage do
-  gem 'heroku'
   gem 'jammit', require: false
 end
 
