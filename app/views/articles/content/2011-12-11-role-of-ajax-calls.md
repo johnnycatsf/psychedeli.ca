@@ -4,7 +4,7 @@ layout: post
 title: "the role of the ajax call"
 category: code
 date: 2011-12-11
-tags: "#ajax, #javascript, #rails"
+tags: ajax, javascript, rest, php
 published: false
 ---
 
@@ -22,13 +22,13 @@ We decided to solve this by changing the way we wrote Ajax requests in the CMS. 
 
 ```php
 <?php
-	header('Cache-Control: no-cache, must-revalidate');
-	header('Content-type: application/json');
- 	$response = array(
-			'status' => "success",
-			'markup' => '<div class="success">Successfully saved changes to the file.</div>'
-		);
- 	echo(json_encode($response));
+  header('Cache-Control: no-cache, must-revalidate');
+  header('Content-type: application/json');
+  $response = array(
+    'status' => "success",
+    'markup' => '<div class="success">Successfully saved changes to the file.</div>'
+  );
+  echo(json_encode($response));
 ?>
 ```
 
