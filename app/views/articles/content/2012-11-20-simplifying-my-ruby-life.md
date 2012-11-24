@@ -102,10 +102,11 @@ project-specific files to tell where my gems are located.
 
 Well, that's how I set up my Ruby environment. All of this stuff is pre-configured for you (if you install
 Bundler and Ruby 1.9, of course) in my ZSH framework called [DOTS](http://github.com/tubbo/dots). I'll do a whole
-write-up in my next post, but to install it all you have to do is run the following line in your Terminal:
+write-up in the future, but to install it all you have to do is run the following line in ZSH:
 
     gem install zsh_dots && dots install
 
 This will create ~/.dots from the Gem dir, link all of the dotfiles in ~/.dots/config, and reload the shell.
 When your prompt comes back, you should have a ~/.bundle/config and ~/.env all ready to go, along with Autoenv
-and the rest of my ZSH goodies.
+and the rest of my ZSH goodies. Note: Any dotfiles that aren't already synced will NOT be touched,
+but it will load configuration for any dotfiles you don't have. So keep that in mind.
