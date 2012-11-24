@@ -7,11 +7,11 @@ class GithubClientTest < ActiveSupport::TestCase
     end
   }
 
-  should "have a username" do
+  test "have a username" do
     assert_equal "dhh", @github.username
   end
 
-  should "not have an empty activity feed" do
+  test "not have an empty activity feed" do
     refute_nil @github.activity
     refute_empty @github.activity
   end

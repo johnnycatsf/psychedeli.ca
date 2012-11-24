@@ -15,4 +15,14 @@ class Article < ActiveCopy::Base
   def self.latest
     all.sort { |a1, a2| a1.date <=> a2.date }
   end
+
+  def path
+    @path ||= begin
+      arr = self.id.split('-')
+      date = arr[0..2].join('/')
+      title = arr[3..-1].join('-')
+
+      "/#{date}/#{title}"
+    end
+  end
 end

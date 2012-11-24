@@ -1,4 +1,4 @@
 %nav
   %ul
     - @articles.each do |article|
-      %li= link_to article.title, "/articles/#{article.id}"
+      %li= link_to article.title, article.path

@@ -16,4 +16,8 @@ class ArticleTest < ActiveSupport::TestCase
     body = "\nIt's gonna be a **wild** party.\n\nHell yeah.\n"
     assert_match body, @article.source
   end
+
+  test "compute the path from the date and title" do
+    assert_equal "/2000/01/01/happy-new-year", @article.path
+  end
 end

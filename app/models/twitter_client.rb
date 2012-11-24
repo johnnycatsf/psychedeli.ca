@@ -16,12 +16,12 @@ class TwitterClient
         service: 'twitter'
       }
       statuses
-    }
+    }.first(5)
   end
 
 private
   # Make the call to Twitter to provide our user's timeline.
   def timeline
-    Twitter.user_timeline(@user)
+    @user_timeline ||= Twitter.user_timeline(@user)
   end
 end

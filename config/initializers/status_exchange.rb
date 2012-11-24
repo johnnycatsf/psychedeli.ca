@@ -26,3 +26,9 @@ module Psychedelica
 end
 
 StatusConfig = Psychedelica::Application.config.status_providers
+Twitter.configure do |config|
+  config.consumer_key = StatusConfig[:twitter][:consumer_key]
+  config.consumer_secret = StatusConfig[:twitter][:consumer_secret]
+  config.oauth_token = StatusConfig[:twitter][:oauth_token]
+  config.oauth_token_secret = StatusConfig[:twitter][:oauth_token_secret]
+end

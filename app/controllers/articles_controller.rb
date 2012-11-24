@@ -32,8 +32,12 @@ class ArticlesController < ApplicationController
   #
   # GET /gbs/2000/01/01/happy-new-year
   def show
-    @article = ArticleDecorator.decorate \
-      Article.find params[:id]
+    @with_id = if params[:id].present?
+      params[:id]
+    else
+      article_id_from_params
+    end
+    @article = ArticleDecorator.decorate Article.find(@with_id)
 
     if @article.present? and not @article.nil?
       if use_layout?
@@ -57,5 +61,14 @@ private
 
   def get_articles
     @articles = Article.all.reverse.select { |a| a.present? }
+  end
+
+  def article_id_from_params
+    [
+      params[:year],
+      params[:month],
+      params[:day],
+      params[:title]
+    ].join("-")
   end
 end
