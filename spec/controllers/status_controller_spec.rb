@@ -1,10 +1,8 @@
-require 'test_helper'
+require 'spec_helper'
 
-describe "StatusController", ActionController::TestCase do
-  setup { @controller = StatusController.new }
-
+describe StatusController do
   describe "StatusController: GET /status.json" do
-    setup do 
+    setup do
       VCR.use_cassette(:all_services) do
         get :index, format: :json
       end

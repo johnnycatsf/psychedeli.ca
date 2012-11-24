@@ -1,6 +1,6 @@
-require 'test_helper'
+require 'spec_helper'
 
-describe "FacebookClient", ActiveSupport::TestCase do
+describe FacebookClient do
   setup do
     @facebook = FacebookClient.new
   end

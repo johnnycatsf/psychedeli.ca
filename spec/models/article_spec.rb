@@ -1,6 +1,6 @@
-require 'test_helper'
+require 'spec_helper'
 
-describe "Article", ActiveSupport::TestCase do
+describe Article do
   setup { @article = Article.find "2000-01-01-happy-new-year" }
 
   it "find an article by its id" do

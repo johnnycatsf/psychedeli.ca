@@ -1,8 +1,6 @@
-require 'test_helper'
+require 'spec_helper'
 
-describe "ArticlesController", ActionController::TestCase do
-  setup { @controller = ArticlesController.new }
-
+describe ArticlesController do
   describe "ArticlesController: GET /" do
     it "renders snippets of all articles" do
       get :index

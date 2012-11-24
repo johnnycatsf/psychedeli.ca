@@ -1,7 +1,5 @@
-require 'test_helper'
+require 'spec_helper'
 
-describe "Page", ActiveSupport::TestCase do
-  # test "the truth" do
-  #   assert true
-  # end
+describe Page do
+  it "says what"
 end

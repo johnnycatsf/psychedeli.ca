@@ -1,6 +1,6 @@
-require 'test_helper'
+require 'spec_helper'
 
-describe "GithubClient", ActiveSupport::TestCase do
+describe GithubClient do
   setup {
     VCR.use_cassette "github_feed" do
       @github = GithubClient.new

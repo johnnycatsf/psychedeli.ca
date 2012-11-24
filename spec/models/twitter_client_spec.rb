@@ -1,6 +1,6 @@
-require 'test_helper'
+require 'spec_helper'
 
-describe "TwitterClient", ActiveSupport::TestCase do
+describe TwitterClient do
   setup do
     @twitter = TwitterClient.new
   end

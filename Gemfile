@@ -63,6 +63,7 @@ group :test do
   gem 'vcr'
   gem 'webmock'
   gem 'rspec-rails'
+  gem 'ruby-prof'
 end
 
 group :production do
