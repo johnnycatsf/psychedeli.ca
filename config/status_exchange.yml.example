@@ -21,6 +21,7 @@ test:
   twitter:
     user_name: "tubbo"
   facebook:
+    access_token: "AAAEcoySQLr0BAOKqoElUwLxAmKZC0TbIBwZA7XJkZBp1VlwvX2ngZB0ZBDa47RRyTcCf3pk9SBH4TNAXj3jucwcXsP4QG9cAitrGfI1rhzdAViv2Sm8xZA"
     vanity_url: "wonderbars"
   soundcloud:
     user_name: "wonderbars"
