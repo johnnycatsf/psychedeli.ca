@@ -41,6 +41,7 @@ class ArticlesController < ApplicationController
 
     if @article.present? and not @article.nil?
       if use_layout?
+        @articles = Article.latest
         respond_with @article
       else
         render partial: @article
@@ -57,10 +58,6 @@ private
     else
       true
     end
-  end
-
-  def get_articles
-    @articles = Article.all.reverse.select { |a| a.present? }
   end
 
   def article_id_from_params
