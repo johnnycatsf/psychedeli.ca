@@ -1,17 +1,17 @@
 require 'test_helper'
 
-class GithubClientTest < ActiveSupport::TestCase
+describe "GithubClient", ActiveSupport::TestCase do
   setup {
     VCR.use_cassette "github_feed" do
       @github = GithubClient.new
     end
   }
 
-  test "have a username" do
-    assert_equal "dhh", @github.username
+  it "have a username" do
+    @github.username.should == "dhh"
   end
 
-  test "not have an empty activity feed" do
+  it "not have an empty activity feed" do
     refute_nil @github.activity
     refute_empty @github.activity
   end
