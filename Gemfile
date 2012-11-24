@@ -47,10 +47,10 @@ group :development do
   gem 'pry-doc'
   gem 'growl'
   gem 'rb-fsevent'
-  gem "guard-bundler"
-  gem "guard-rails"
-  gem "guard-livereload"
-  gem "guard-minitest"
+  gem 'guard-rails'
+  gem 'guard-bundler'
+  gem 'guard-livereload'
+  gem 'guard-rspec'
 end
 
 gem 'thin', group: [:development, :stage]
@@ -60,13 +60,9 @@ group :stage do
 end
 
 group :test do
-  gem 'factory_girl_rails'
-  gem 'minitest'
-  gem 'mini_specunit'
-  gem 'mini_shoulda'
-  gem 'rack-test'
   gem 'vcr'
   gem 'webmock'
+  gem 'rspec-rails'
 end
 
 group :production do
