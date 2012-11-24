@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "research and development, or what I've been up to musically"
+title: research and development
 category: music
 date: 2012-05-01
 tags: future jungle, research and development, #resndev
