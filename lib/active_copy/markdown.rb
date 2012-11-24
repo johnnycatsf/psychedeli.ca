@@ -1,5 +1,4 @@
 require 'redcarpet'
-require 'active_copy/renderer'
 
 # Compiles a Markdown file using the +Redcarpet+ template engine. Used
 # by +ActionView+ in +config/initializers/markdown.rb+ to initiate
