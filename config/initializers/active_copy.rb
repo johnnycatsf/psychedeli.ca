@@ -5,4 +5,4 @@ require 'rubypython'
 ActionView::Template.register_template_handler :md, ActiveCopy::Template
 
 # Extra coaxing for Heroku to accept RubyPython and Pygments.rb
-RubyPython.start python_exe: "python2.7" if Rails.env.stage?
+RubyPython.start python_exe: "python" if Rails.env.stage?
