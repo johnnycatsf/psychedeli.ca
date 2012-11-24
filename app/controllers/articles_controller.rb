@@ -12,7 +12,7 @@ class ArticlesController < ApplicationController
   #
   # GET /
   def index
-    @articles = Article.all.reverse.select { |a| a.present? }
+    @articles = Article.latest
     respond_with @articles
   end
 
