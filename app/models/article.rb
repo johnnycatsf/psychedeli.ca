@@ -13,7 +13,7 @@ class Article < ActiveCopy::Base
 
   # Sorts Articles by date, ascending.
   def self.latest
-    all.select { |a| a.present? }.sort { |a1, a2| a1.date <=> a2.date }
+    all.reverse.select { |a| a.present? }.sort { |a1, a2| a1.date <=> a2.date }
   end
 
   def path
