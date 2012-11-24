@@ -23,7 +23,7 @@ end
 
 group :active_copy do
   gem 'liquid'
-  gem 'pygments.rb'
+  gem 'pygments.rb', '~> 0.3'
   gem 'redcarpet'
 end
 
