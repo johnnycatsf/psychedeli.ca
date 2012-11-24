@@ -8,8 +8,15 @@ module ActiveCopy
   class Markdown
     # Create a new session with the compiler.
     def initialize
-      @renderer = Redcarpet::Render::HTML
-      @options = { auto_link: true }
+      @renderer = ActiveCopy::Renderer
+      @options = {
+        autolink: true,
+        no_intra_emphasis: true,
+        fenced_code_blocks: true,
+        lax_html_blocks: true,
+        strikethrough: true,
+        superscript: true
+      }
     end
 
     # Return an HTML String containing the rendered output of the Markdown
