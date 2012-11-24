@@ -6,7 +6,6 @@
 class ArticlesController < ApplicationController
   respond_to :html
   caches_page :index, :category, :show, gzip: :best_speed
-  before_filter :get_articles, except: [:category]
 
   # Index page. Show snippets of all articles.
   #
