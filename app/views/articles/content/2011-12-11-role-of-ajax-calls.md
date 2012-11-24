@@ -20,7 +20,7 @@ This was an example in PHP, but Ruby on Rails also suffers from this potential d
 
 We decided to solve this by changing the way we wrote Ajax requests in the CMS. It was much more efficient to use Ajax as a static data transfer mechanism, rather than a means of transferring logic code between files. So instead of getting back `<script>` tags with code in it, we got back JSON data and used that to execute that segment of JavaScript code. PHP makes this easy, as it allows any Array to be encoded into valid JSON. So what we did was respond with something like this
 
-{% highlight php %}
+```php
 <?php
 	header('Cache-Control: no-cache, must-revalidate');
 	header('Content-type: application/json');
@@ -30,13 +30,13 @@ We decided to solve this by changing the way we wrote Ajax requests in the CMS. 
 		);
  	echo(json_encode($response));
 ?>
-{% endhighlight %}
+```
 
 Instead of merely `echo`ing that HTML in a String, we are wrapping it with JSON and returning that. Notice that you need [special HTTP headers][phpjson] to return a valid JSON response, some browsers attempt to guess based on the content but you can't really rely on that. To ensure that the browser is interpreting this response as JSON, you must specify the HTTP `Content-Type` as **application/json**. I've also included a `Cache-Control` directive which forces the browser to reload the content every time it loads. This ensures that browsers won't cache these requests, because your data is always changing.
 
 So now, we can write some JavaScript to process that data. We like to use the [jQuery.form][jqform] plugin [at the office][aplusl]...
 
-{% highlight javascript %}
+```javascript
 <script>
 	$('#saveForm').ajaxSubmit({
 		url: 'ajax/saveChanges.php',
@@ -47,7 +47,7 @@ So now, we can write some JavaScript to process that data. We like to use the [j
 		}
 	});
 </script>
-{% endhighlight %}
+```
 
 That extension to the [jQuery][jq] library simply submits a form asynchronously, and its `options` Object lets you bind actions to the various `jQuery.ajax` callbacks.
 
@@ -63,7 +63,7 @@ You can boil every Ajax call down to one formula: send request, receive response
 
 Once you've gotten this pattern down, it's important to keep a standard practice when creating your JSON responses. Lets say you want to `GET` an object, like a Post, from your blog. Fortunately, you've written a small PHP script that will return it from the database. Let's just say, for shits and giggles (and because it's almost 2:00am and I don't feel like writing it out), that this PHP script works and returns the following JSON response:
 
-{% highlight php %}
+```php
 <?php
 	$id = $_GET['id'];
 	$sql = "SELECT title, body FROM `posts` WHERE `id` = '$id'"
@@ -75,11 +75,11 @@ Once you've gotten this pattern down, it's important to keep a standard practice
 		echo json_encode(array('message' => "Error: Shit don't work!"));
 	}
 ?>
-{% endhighlight %}
+```
 
 Right now, this doesn't follow a standard practice. `response.message` would have to be tested on the client side to see if this is an error or not. That's no way to do business, especially if you may need multiple messages or styles for each message. A better way to create this JSON would be to do
 
-{% highlight php %}
+```php
 <?php
 	$id = $_GET['id'];
 	$sql = "SELECT title, body FROM `posts` WHERE `id` = '$id'"
@@ -107,7 +107,7 @@ Right now, this doesn't follow a standard practice. `response.message` would hav
 
 	echo json_encode($response);
 ?>
-{% endhighlight %}
+```
 
 We know that if `response.type` is "success", then `response.post` will be defined and we can work with it. But if `response.type` is "error", we will know that `response.message` is defined and we need to display it. The JavaScript can use a `switch` statement to parse other types of messages like "warning" or "info", which we may use in the future. Altering your JSON responses to be standard now will save you much testing and coding time in the future. Observe how much more informative these error messages are, and how much more flexible your code is after this alteration.
 
