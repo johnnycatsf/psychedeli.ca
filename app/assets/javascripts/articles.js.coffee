@@ -4,7 +4,7 @@ highlightClickedArticle = (path) ->
   if path_arr.length >= 4
     title = path_arr[4].split('-').join(' ')
     $('#articles li').each (i, a) ->
-      article_title = $(a).text().split('_').join(' ')
+      article_title = $(a).text().replace(/_|,/, ' ').split('  ').join(' ')
       if !!article_title.match(title)
         $('#articles li').css(backgroundColor: 'inherit')
         $(a).css(backgroundColor: '#eee')
