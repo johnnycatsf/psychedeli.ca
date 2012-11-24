@@ -1,6 +1,6 @@
 ---
 title: simplifying my ruby life
-date: 2012-11-20
+date: 2012-11-23
 category: code
 tags: ruby, bundler, rvm
 ---
