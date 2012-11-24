@@ -7,8 +7,10 @@
 body { padding: 0px 45px 45px; }
 @import "bootstrap-responsive";
 @import "fonts";
-@import "pygments";
+@import "pygments-perldoc";
 @import "ribbon";
 @import "header";
 @import "splash";
 @import "articles";
+
+code, pre { font-family: 'Menlo'; }
