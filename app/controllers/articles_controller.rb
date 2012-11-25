@@ -50,6 +50,16 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def comments
+    @article = ArticleDecorator.decorate Article.find(params[:id])
+    @articles = Article.latest
+
+    if @article.present?
+      @show_comments = true
+      render partial: 'comments', layout: false
+    end
+  end
+
 private
   def use_layout?
     if request.xhr?
