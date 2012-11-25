@@ -19,6 +19,7 @@ group :views do
   gem 'ruby_parser'
   gem 'underscore-rails'
   gem 'draper'
+  gem 'pjax_rails'
 end
 
 group :active_copy do
