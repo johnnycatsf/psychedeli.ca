@@ -40,7 +40,7 @@ class ArticlesController < ApplicationController
 
     if @article.present? and not @article.nil?
       if use_layout?
-        @articles = Article.latest
+        @articles = ArticleDecorator.decorate Article.latest
         respond_with @article
       else
         render partial: @article

@@ -40,7 +40,11 @@ class ArticleDecorator < Draper::Base
   end
 
   def url
-    "http://psychedeli.ca/#{article.path}"
+    if Rails.env.production? or Rails.env.stage?
+      "http://psychedeli.ca#{article.path}"
+    else
+      article.path
+    end
   end
 
 private
