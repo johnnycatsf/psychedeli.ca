@@ -1,5 +1,5 @@
 # Highlight the clicked article if it exists
-highlightClickedArticle = (path) ->
+highlight_article_from = (path) ->
   path_arr = path.split '/'
   if path_arr.length >= 4
     title = path_arr[4].split('-').join(' ')
@@ -10,13 +10,11 @@ highlightClickedArticle = (path) ->
         $(a).css(backgroundColor: '#eee')
 
 jQuery ->
-  highlightClickedArticle(window.location.pathname)
+  highlight_article_from window.location.pathname
 
-  $('#articles a').live 'click', (event) ->
-    event.preventDefault()
-    url = $(this).attr 'href'
-
-    $.get url, (article) ->
-      $('#canvas').html(article)
-      history.pushState { id: url }, "", url if Modernizr.history
-      highlightClickedArticle(url)
+  $(document).pjax('a', container: '#canvas')
+    .on 'pjax:send', ->
+      $(this).html("loading...")
+    .on 'pjax:error', (e,xhr,err) ->
+      $(this).prepend $("<div class=\"alert alert-error\">#{err}</div>")
+    .on  'pjax:end', -> highlight_article_from window.location.pathname
