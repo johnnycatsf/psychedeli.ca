@@ -31,7 +31,7 @@ class ArticleDecorator < Draper::Base
   end
 
   def description
-    article.source
+    h.render_copy "articles/content/#{article.id}"
   end
 
   def published_on

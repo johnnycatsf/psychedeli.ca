@@ -14,7 +14,8 @@ jQuery ->
 
   $(document).pjax('a', container: '#canvas')
     .on 'pjax:send', ->
-      $(this).html("loading...")
+      $(this).html("<img src=\"/assets/spinner.gif\" alt=\"Loading...\" />")
     .on 'pjax:error', (e,xhr,err) ->
       $(this).prepend $("<div class=\"alert alert-error\">#{err}</div>")
-    .on  'pjax:end', -> highlight_article_from window.location.pathname
+    .on  'pjax:end', ->
+      highlight_article_from window.location.pathname

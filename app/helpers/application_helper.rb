@@ -47,4 +47,16 @@ module ApplicationHelper
 
     csrf_meta_tags
   end
+
+  def feedburner_link_tag
+    tag :link, \
+      rel: 'alternate',
+      type: 'application/rss+xml',
+      title: 'psychedeli.ca',
+      href: 'http://feeds.feedburner.com/psychedelica-berserk'
+  end
+
+  def prefetch_content at_location
+    tag :link, rel: 'prefetch', href: at_location
+  end
 end

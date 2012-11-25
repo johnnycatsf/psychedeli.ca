@@ -6,6 +6,8 @@
     %link{:href => "/assets/favicon.ico", :rel => "shortcut icon"}/
     = stylesheet_link_tag 'application', media: "all"
     = javascript_include_tag 'application'
+    = prefetch_content image_path('spinner.gif')
+    = feedburner_link_tag
   %body
     .container-responsive
       %header.row-fluid
