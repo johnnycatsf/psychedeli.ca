@@ -30,6 +30,19 @@ class ArticleDecorator < Draper::Base
     h.link_to "Comments", "#comments", rel: 'modal', class: 'comments'
   end
 
+  def description
+    article.source
+  end
+
+  def published_on
+    article.date.to_s(:rfc822)
+    #Date.new(article.date).to_s(:rfc822)
+  end
+
+  def url
+    "http://psychedeli.ca/#{article.path}"
+  end
+
 private
   def hacker_news_url
     "http://news.ycombinator.com?item=#{article.hn_item_id}"
