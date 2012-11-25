@@ -4,14 +4,14 @@
 # backend tools and +ActionView+ enhancements given to us by
 # +ActiveCopy+.
 class ArticlesController < ApplicationController
-  respond_to :html
+  respond_to :html, :rss
   caches_page :index, :category, :show, gzip: :best_speed
 
   # Index page. Show snippets of all articles.
   #
   # GET /
   def index
-    @articles = Article.latest
+    @articles = ArticleDecorator.decorate Article.latest
     respond_with @articles
   end
 
