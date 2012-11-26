@@ -1,4 +1,5 @@
-#articles.span-4
-  = render 'articles/menu', collection: @articles
+- if show_menu
+  #articles.span-4
+    = render 'articles/menu', collection: @articles
 #canvas.span-8
   = render_copy 'pages/content/about'

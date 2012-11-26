@@ -12,7 +12,7 @@ class ArticlesController < ApplicationController
   # GET /
   def index
     @articles = ArticleDecorator.decorate Article.latest
-    respond_with @articles
+    respond_with @articles, locals: { show_menu: use_layout? }
   end
 
   # Category index. Show snippets of all articles in a specific
