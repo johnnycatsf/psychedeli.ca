@@ -1,6 +1,6 @@
 %article{ id: "article-#{article.id}", class: 'standalone' }
   %header
-    %h1= article.title
+    = title article.title
   %section
     = render_copy "articles/content/#{article.id}"
   %footer

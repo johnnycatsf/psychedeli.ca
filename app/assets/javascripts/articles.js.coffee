@@ -9,6 +9,14 @@ highlight_article_from = (path) ->
         $('#articles li').css(backgroundColor: 'inherit')
         $(a).css(backgroundColor: '#eee')
 
+set_title_to = (page_title) ->
+  new_title = if page_title == "hi, i'm tom"
+    "psychedeli.ca | tubbo's random musings"
+  else
+    "#{page_title} | psychedeli.ca"
+
+  $('title').text new_title
+
 jQuery ->
   highlight_article_from window.location.pathname
 
@@ -20,3 +28,4 @@ jQuery ->
       $(this).prepend $("<div class=\"alert alert-error\">#{err}</div>")
     .on  'pjax:end', ->
       highlight_article_from window.location.pathname
+      set_title_to $('#canvas h1').first().text()
