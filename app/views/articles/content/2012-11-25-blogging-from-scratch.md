@@ -29,7 +29,7 @@ out!), Prototype.JS for the JavaScript, and an antiquated themeing framework tha
 made everything harder to comprehend.
 
 Then, I came across this new thing that [Tom Preston-Werner][tpw] (one of the founders of
-GitHub) built as the engine that runs GitHub Pages. It's called [Jekyll][jekyll] and it's,
+GitHub) built as the engine that runs GitHub Pages. It's called [Jekyll][jekyll] and it's
 well, awesome. Jekyll merges HTML layouts with Liquid templates and Markdown text content
 to build a site that's simple and fast. Since it's just static HTML, there's no waiting
 around for the database to return with the proper data, nor is there any extra time while
@@ -58,15 +58,23 @@ is storing the site.
 
 After attempting this setup, I was poised to find out that "fighting the framework" against
 all of Jekyll's better judgment was a bad idea. As I continued to experiment more with my blog,
-Jekyll became less and less of a viable alternative to a standard database-driven blogging
-engine. I once again turned to Rails.
+Jekyll became simply an obstacle rather than a solution in my quest to make my blog better and
+more powerful. In addition, my folder structure a few years ago looked very similar to your
+typical Rails application, with some minor renaming differences. So I decided to swallow my
+pride and return to the Rails ecosystem.
 
-So why did I turn to Rails at this point?
+Doing so provided a number of significant advantages:
 
-- I'm comfortable screwing around with its internals
-- It comes with a test suite built-in (so I can test other apps that live on this stack)
+- It comes with a test suite built-in, so I can not only test the custom Markdown processor
+  I wrote, but also the other libraries that are used to build the content on this site.
 - Deployment with Capistrano and on Heroku is easier than wrangling static sites to work
-  inside a Rack environment.
+  inside a Rack environment. This was probably the **biggest** reason, as updating the
+  blog frequently became somewhat of an issue using my cobbled-together Jekyll site on Rack.
+- Rails has the ability to cache entire pages to HTML, just like how Jekyll compiled my Markdown
+  to static HTML. Using a custom library for parsing out YAML front matter and Markdown
+  content with ActionView, we can implement pretty much the same thing that Jekyll was doing,
+  with the obvious advantage of being inside the Rails stack and having access to the
+  entire ecosystem of tools built for use with this framework.
 
 As I've become more and more comfortable with Rails 3, I've also noticed a huge push
 towards modularity in the Rails framework. Now that I don't have to include ActiveRecord
@@ -110,6 +118,7 @@ ActiveCopy has not yet been extracted from my blog, but it was designed from the
 with the intention of becoming its own gem someday, since I'd like to use the concepts I
 built on my own blogging app with future clients and ideas that I may encounter.
 
+[mate]: http://macromates.com
 [jekyll]: http://jekyllrb.com
 [tubbo/jekyll]: http://github.com/tubbo/jekyll
 [custom-dirs]: https://github.com/tubbo/jekyll/tree/feature/custom-dirs
