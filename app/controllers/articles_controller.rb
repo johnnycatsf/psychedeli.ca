@@ -5,7 +5,7 @@
 # +ActiveCopy+.
 class ArticlesController < ApplicationController
   respond_to :html, :rss
-  caches_page :index, :category, :show, gzip: :best_speed
+  #caches_page :index, :category, :show, gzip: :best_speed
 
   # Index page. Show snippets of all articles.
   #
@@ -63,7 +63,10 @@ class ArticlesController < ApplicationController
   # Clear out every HTML page in the cache, so new and updated articles
   # can be visible in the UI. POSTed to after each deploy.
   def clear
-    %w(index show).each { |page| expire_page controller: 'articles', action: page }
+    expire_page controller: 'articles', action: 'index'
+    Article.all.each do |article|
+      expire_page controller: 'articles', action: 'show', id: article.id
+    end
     redirect_to :index
   end
 
