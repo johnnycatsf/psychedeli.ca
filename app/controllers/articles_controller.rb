@@ -60,6 +60,13 @@ class ArticlesController < ApplicationController
     end
   end
 
+  # Clear out every HTML page in the cache, so new and updated articles
+  # can be visible in the UI. POSTed to after each deploy.
+  def clear
+    %w(index category show).each { |page| expire_page controller: 'articles', action: page }
+    redirect_to :index
+  end
+
 private
   def use_layout?
     if request.xhr?
