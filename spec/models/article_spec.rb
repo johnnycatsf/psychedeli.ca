@@ -1,10 +1,10 @@
 require 'spec_helper'
 
 describe Article do
-  setup { @article = Article.find "2000-01-01-happy-new-year" }
+  before { @article = Article.find "2000-01-01-happy-new-year" }
 
   it "find an article by its id" do
-    @article.present?, "Article was not found".should.not == nil
+    @article.should be_present, "Article was not found"
   end
 
   it "read the yaml front matter as a hash" do

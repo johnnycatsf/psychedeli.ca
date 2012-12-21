@@ -17,15 +17,27 @@ set_title_to = (page_title) ->
 
   $('title').text new_title
 
+
+# Global pjax settings
+$(document).pjax()
+  .on 'pjax:send', ->
+    _gaq.push(['_trackPageview', window.location.pathname]);
+    $(this).html("<img src=\"/assets/spinner.gif\" alt=\"Loading...\" />")
+  .on 'pjax:error', (e,xhr,err) ->
+    $(this).prepend $("<div class=\"alert alert-error\">#{err}</div>")
+  .on  'pjax:end', ->
+    highlight_article_from window.location.pathname
+    set_title_to $('#canvas h1').first().text()
+
 jQuery ->
   highlight_article_from window.location.pathname
 
-  $(document).pjax('a', container: '#canvas')
-    .on 'pjax:send', ->
-      _gaq.push(['_trackPageview', window.location.pathname]);
-      $(this).html("<img src=\"/assets/spinner.gif\" alt=\"Loading...\" />")
-    .on 'pjax:error', (e,xhr,err) ->
-      $(this).prepend $("<div class=\"alert alert-error\">#{err}</div>")
-    .on  'pjax:end', ->
-      highlight_article_from window.location.pathname
-      set_title_to $('#canvas h1').first().text()
+  # A workaround for cached HTML pages. Browsing to /article/id/(index.html)
+  # goes to Articles#show, but browsing to /article/id/partial(.html) will
+  # just serve the partial.
+  $('#articles a').click (event) ->
+    $.pjax
+      url: "#{$(this).href()}/partial",
+      container: '#canvas'
+
+

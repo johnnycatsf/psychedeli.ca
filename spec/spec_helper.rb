@@ -9,7 +9,7 @@ require 'rspec/autorun'
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 VCR.configure do |c|
-  c.cassette_library_dir = "#{Rails.root}/test/fixtures/cassettes"
+  c.cassette_library_dir = "#{Rails.root}/spec/fixtures/cassettes"
   c.hook_into :webmock # or :fakeweb
 end
 

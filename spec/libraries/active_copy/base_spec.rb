@@ -8,26 +8,26 @@ module ActiveCopy
 
   # The actual tests
   describe Base do
-    setup { @page = BasicPage.new "about" }
+    subject { BasicPage.new "about" }
 
     it "find the page by its id" do
-      @page.present?, "Page was not found".should.not == nil
+      subject.should be_present, "Page was not found"
     end
 
     it "find the right folder to read source files from" do
-      @page.collection_path.should == "test/fixtures/basic_pages/content"
+      subject.collection_path.should == "spec/fixtures/active_copy/basic_pages/content"
     end
 
     it "read the yaml front matter as a hash" do
-      @page.title.should == "About Us"
+      subject.title.should == "About Us"
     end
 
     it "read the article body" do
-      assert_match "We are a very serious company.", @page.source
+      subject.source.should =~ /We are a very serious company/
     end
 
     it "return the correct partial path" do
-      @page.to_partial_path.should == "basic_pages/basic_page"
+      subject.to_partial_path.should == "active_copy/basic_pages/basic_page"
     end
   end
 end

@@ -27,31 +27,39 @@ class ArticlesController < ApplicationController
     respond_with @articles
   end
 
-  # Show the full article.
+  # Show the full article with layout.
   #
   # GET /gbs/2000/01/01/happy-new-year
   def show
-    @with_id = if params[:id].present?
-      params[:id]
-    else
-      article_id_from_params
-    end
-    @article = ArticleDecorator.decorate Article.find(@with_id)
+    @by_id = by_id
+    @article = ArticleDecorator.decorate Article.find by_id
 
     if @article.present? and not @article.nil?
-      if use_layout?
-        @articles = ArticleDecorator.decorate Article.latest
-        respond_with @article
-      else
-        render partial: @article
-      end
+      @articles = ArticleDecorator.decorate Article.latest
+      respond_with @article
     else
       render 'errors/not_found', status: 404
     end
   end
 
+  # Show only the article markup content.
+  #
+  # GET /gbs/2000/01/01/happy-new-year/partial
+  def partial
+    @by_id = by_id
+    @article = ArticleDecorator.decorate Article.find by_id
+
+    if @article.present? and not @article.nil?
+      @articles = ArticleDecorator.decorate Article.latest
+      render partial: 'article'
+    else
+      render 'errors/not_found', status: 404
+    end
+  end
+
+
   def comments
-    @article = ArticleDecorator.decorate Article.find(params[:id])
+    @article = ArticleDecorator.decorate Article.find by_id
     @articles = Article.latest
 
     if @article.present?
@@ -86,5 +94,13 @@ private
       params[:day],
       params[:title]
     ].join("-")
+  end
+
+  def by_id
+    if params[:id].present?
+      params[:id]
+    else
+      article_id_from_params
+    end
   end
 end

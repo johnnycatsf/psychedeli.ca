@@ -53,6 +53,7 @@ group :development do
   gem 'guard-bundler'
   gem 'guard-livereload'
   gem 'guard-rspec'
+  gem 'travis'
 end
 
 gem 'thin', group: [:development, :stage]

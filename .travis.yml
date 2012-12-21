@@ -1,5 +1,22 @@
-# Continuous integration
 language: ruby
-rvm:
-  - 1.9.3
-script: bundle exec rake test
+bundler_options: --without=development
+before_script:
+  - createuser -s psychedelica
+  - 'rake db:setup db:test:prepare'
+script: bundle exec rspec --format=documentation
+after_success:
+  # Install the Heroku gem (or the Heroku toolbelt)
+  - "gem install heroku"
+  # Add your Heroku git repo:
+  - "git remote add heroku git@heroku.com:wunderkind.git"
+  # Turn off warnings about SSH keys:
+  - "echo 'Host heroku.com' >> ~/.ssh/config"
+  - "echo '   StrictHostKeyChecking no' >> ~/.ssh/config"
+  - "echo '   CheckHostIP no' >> ~/.ssh/config"
+  - "echo '   UserKnownHostsFile=/dev/null' >> ~/.ssh/config"
+  # Clear your current Heroku SSH keys:
+  - "heroku keys:clear"
+  # Add a new SSH key to Heroku
+  - "yes | heroku keys:add"
+  # Push to Heroku!
+  - "yes | git push heroku master"
