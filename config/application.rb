@@ -1,6 +1,5 @@
 require File.expand_path('../boot', __FILE__)
 
-
 #require "active_record/railtie"
 require "action_controller/railtie"
 #require "action_mailer/railtie"
@@ -10,6 +9,8 @@ require "rails/test_unit/railtie"
 
 require 'bundler'
 Bundler.require :default, *Rails.groups(:assets => %w(development test)), :views, :status
+
+require_relative '../lib/link_to_tent'
 
 module Psychedelica
   class Application < Rails::Application
@@ -68,6 +69,10 @@ module Psychedelica
       g.test_framework :test_unit, fixtures: false, fixture_replacement: :factory_girl
     end
 
+    # Configure metadata from YAML
     config.metadata = YAML::load_file("#{Rails.root}/config/metadata.yml")
+
+    # Link to the Tent server on psychedeli.ca
+    config.middleware.use LinkToTent
   end
 end
