@@ -2,16 +2,16 @@
 class ArticleGenerator < Rails::Generators::NamedBase
   source_root File.expand_path('../templates', __FILE__)
 
-  class_option :category, aliases: '-c',
-                         desc: 'Category that this article is filed under',
-                      default: 'gbs'
+  class_option :category,  aliases: '-c',
+                              desc: 'Category that this article is filed under',
+                           default: 'gbs'
 
-  class_option :tags,     aliases: '-t',
-                         desc: 'Tags to organize this article with.',
-                      default: ''
+  class_option :tags,      aliases: '-t',
+                              desc: 'Tags to organize this article with.',
+                           default: ''
 
   def do_it_to_it
-    copy_file "article.md", "#{Rails.root}/app/views/articles/content/#{id}.md"
+    template "article.md.erb", "#{Rails.root}/app/views/articles/content/#{id}.md"
   end
 
 private
@@ -29,5 +29,11 @@ private
 
   def file_name
     human_name.parameterize
+  end
+
+  %w(category tags).each do |name|
+    define_method name do
+      options[name.to_sym]
+    end
   end
 end
