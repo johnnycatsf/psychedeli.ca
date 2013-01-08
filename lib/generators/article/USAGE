@@ -1,0 +1,12 @@
+Description:
+    Generates a Mardown article in app/views/articles/contents,
+    timestamped to today's date. You must specify a title for
+    the article, which along with the timestamp will be parameterized
+    and used to compose the filename of the Markdown source
+    (also doubling as the article's ID)
+
+Example:
+    rails generate article 'A snappy title'
+
+    This will create:
+        app/views/articles/content/2013-01-01-a-snappy-title.md
