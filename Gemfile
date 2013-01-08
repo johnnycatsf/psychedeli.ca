@@ -26,7 +26,7 @@ end
 group :active_copy do
   gem 'liquid'
   gem 'pygments.rb', '~> 0.3'
-  gem 'redcarpet'
+  gem 'redcarpet', github: 'vmg/redcarpet'
 end
 
 group :status do

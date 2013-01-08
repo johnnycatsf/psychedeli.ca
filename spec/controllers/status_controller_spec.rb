@@ -11,7 +11,7 @@ describe StatusController do
     end
 
     it "respond with an array of JSON objects" do
-      JSON.parse(response.body).should be_empty
+      response.body.should be_empty
     end
   end
 

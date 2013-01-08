@@ -19,7 +19,7 @@ module ActiveCopy
       end
 
       <<-RUBY
-        markdown = ActiveCopy::Markdown.new
+        markdown = ActiveCopy::MarkdownParser.new
         markdown.render(begin;#{source};end).to_html
       RUBY
     end

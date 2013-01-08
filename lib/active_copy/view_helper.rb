@@ -5,8 +5,7 @@ module ActiveCopy
       if File.exists? source_path(for_given_path)
         raw_source = IO.read source_path(for_given_path)
         source = raw_source.split("---\n")[2]
-        template = ActiveCopy::Markdown.new
-        require 'pry'; binding.pry
+        template = ActiveCopy::MarkdownParser.new
         template.render(source).html_safe
       else
         raise ArgumentError.new "#{for_given_path} does not exist."

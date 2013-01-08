@@ -6,7 +6,7 @@ require 'active_copy/renderer'
 # Markdown template compilation for files that are not already
 # precompiled.
 module ActiveCopy
-  class Markdown
+  class MarkdownParser
     # Create a new session with the compiler.
     def initialize
       @renderer = ActiveCopy::Renderer
