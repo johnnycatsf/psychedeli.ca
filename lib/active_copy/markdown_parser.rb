@@ -1,5 +1,4 @@
 require 'redcarpet'
-require 'active_copy/renderer'
 
 # Compiles a Markdown file using the +Redcarpet+ template engine. Used
 # by +ActionView+ in +config/initializers/markdown.rb+ to initiate
@@ -9,8 +8,7 @@ module ActiveCopy
   class MarkdownParser
     # Create a new session with the compiler.
     def initialize
-      @renderer = ActiveCopy::Renderer
-      @options = {}
+      @options = { fenced_code_blocks: true }
     end
 
     # Return an HTML String containing the rendered output of the Markdown
@@ -21,7 +19,7 @@ module ActiveCopy
 
   private
     def markdown
-      @client ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML) #@renderer
+      Redcarpet::Markdown.new(Redcarpet::Render::HTML)
     end
   end
 end
