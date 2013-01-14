@@ -136,3 +136,6 @@ end
 def remote_process_exists?(pid_file)
   capture("ps -p $(cat #{pid_file}) ; true").strip.split("\n").size == 2
 end
+
+        require './config/boot'
+        require 'airbrake/capistrano'
