@@ -9,7 +9,7 @@ module ActiveCopy
   class Markdown
     # Create a new session with the compiler.
     def initialize
-      @renderer = ActiveCopy::Renderer
+      @renderer = ActiveCopy::Renderer.new
       @options = {
         autolink: true,
         no_intra_emphasis: true,

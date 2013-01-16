@@ -65,8 +65,9 @@ end
 group :test do
   gem 'vcr'
   gem 'webmock'
-  gem 'rspec-rails'
-  gem 'ruby-prof'
+  gem 'minitest'
+  gem 'mini_specunit'
+  gem 'mini_shoulda'
 end
 
 group :production do
