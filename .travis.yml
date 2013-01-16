@@ -1,4 +1,6 @@
 # Continuous integration
+#
+# I think a bad merge fucked something up. So I'm editing this file that way Travis will build it again.
 language: ruby
 rvm:
   - 1.9.3
