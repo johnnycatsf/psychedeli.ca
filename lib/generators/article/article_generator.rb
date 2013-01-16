@@ -24,7 +24,7 @@ private
   end
 
   def title
-    @title ||= file_name.titleize
+    @title ||= file_name.titleize.downcase
   end
 
   def file_name
