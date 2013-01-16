@@ -1,7 +1,25 @@
-# Continuous integration
-#
-# I think a bad merge fucked something up. So I'm editing this file that way Travis will build it again.
+env:
+  global:
+    secure: "Bvlfi1/Vd8m+pt+2qaxBr6mcsn1KpANi3zCLjotK0VCoot3dezangCF2r0sm\n8iymQ5nb0WElPXX1F7su9SHOByXsSSBtgSbcS7J5b6epGLwpHuQYbEKQl65C\nGR029SRr2iEdPA8tZF8sIxV1uepgj8Dhjz8NmFJFqcadyBhcsto="
 language: ruby
-rvm:
-  - 1.9.3
-script: bundle exec rake test
+rvm: 1.9.3
+bundler_args: "--without=development"
+script: "bundle exec rake test"
+
+# Deploy to heroku when a build succeeds
+after_success:
+  # Install the Heroku gem (or the Heroku toolbelt)
+  - "gem install heroku"
+  # Add your Heroku git repo:
+  - "git remote add heroku git@heroku.com:psychedelica.git"
+  # Turn off warnings about SSH keys:
+  - "echo 'Host heroku.com' >> ~/.ssh/config"
+  - "echo '   StrictHostKeyChecking no' >> ~/.ssh/config"
+  - "echo '   CheckHostIP no' >> ~/.ssh/config"
+  - "echo '   UserKnownHostsFile=/dev/null' >> ~/.ssh/config"
+  # Clear your current Heroku SSH keys:
+  - "heroku keys:clear"
+  # Add a new SSH key to Heroku
+  - "yes | heroku keys:add"
+  # Push to Heroku!
+  - "yes | git push heroku master"
