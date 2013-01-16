@@ -1,7 +1,9 @@
-class ArticleDecorator < Draper::Base
+class ArticleDecorator < Draper::Decorator
   decorates :article
 
-  allows :title, :category, :date, :tags
+  delegate :id, :title, :category, :date, :tags
+
+  alias article source
 
   def discuss_on_hacker_news
     if article.on_hacker_news?

@@ -11,7 +11,7 @@ class ArticlesController < ApplicationController
   #
   # GET /
   def index
-    @articles = ArticleDecorator.decorate Article.latest
+    @articles = ArticleDecorator.decorate_collection Article.latest
     respond_with @articles, locals: { show_menu: use_layout? }
   end
 
@@ -21,7 +21,7 @@ class ArticlesController < ApplicationController
   # GET /gbs
   def category
     @category = params[:category]
-    @articles = ArticleDecorator.decorate \
+    @articles = ArticleDecorator.decorate_collection \
       Article.where(category: @category).all
 
     respond_with @articles
@@ -40,7 +40,8 @@ class ArticlesController < ApplicationController
 
     if @article.present? and not @article.nil?
       if use_layout?
-        @articles = ArticleDecorator.decorate Article.latest
+        @articles = ArticleDecorator.decorate_collection \
+          Article.latest
         respond_with @article
       else
         render partial: @article
@@ -51,8 +52,10 @@ class ArticlesController < ApplicationController
   end
 
   def comments
-    @article = ArticleDecorator.decorate Article.find(params[:id])
-    @articles = Article.latest
+    @article = ArticleDecorator.decorate \
+      Article.find(params[:id])
+    @articles = ArticleDecorator.decorate_collection \
+      Article.latest.decorate
 
     if @article.present?
       @show_comments = true
@@ -64,7 +67,7 @@ class ArticlesController < ApplicationController
   # can be visible in the UI. POSTed to after each deploy.
   def clear
     expire_page articles_url
-    Article.all.each do |article|
+    ArticleDecorator.decorate_collection(Article.all).each do |article|
       expire_page controller: 'articles', action: 'show', id: article.id
     end
     render text: 'You did it!', status: 200

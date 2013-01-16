@@ -1,17 +1,13 @@
 GIT
   remote: git://github.com/trisweb/bootstrap-sass.git
-  revision: 4de8481efaf5461dac0c300c71899e056d1353a3
+  revision: 37d3bcce7e3ad5fec8984cbaf00375962df635b8
   specs:
-    bootstrap-sass (2.2.1.0)
+    bootstrap-sass (2.2.1.1)
       sass (~> 3.2)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    POpen4 (0.1.4)
-      Platform (>= 0.4.0)
-      open4
-    Platform (0.4.0)
     actionmailer (3.2.7)
       actionpack (= 3.2.7)
       mail (~> 2.4.4)
@@ -45,13 +41,6 @@ GEM
       girl_friday
     arel (3.0.2)
     builder (3.0.4)
-    capistrano (2.13.4)
-      highline
-      net-scp (>= 1.0.0)
-      net-sftp (>= 2.0.0)
-      net-ssh (>= 2.0.14)
-      net-ssh-gateway (>= 1.1.0)
-    capistrano_colors (0.5.5)
     coderay (1.0.8)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -59,14 +48,15 @@ GEM
     coffee-script (2.2.0)
       coffee-script-source
       execjs
-    coffee-script-source (1.3.3)
+    coffee-script-source (1.4.0)
     connection_pool (1.0.0)
-    crack (0.3.1)
+    crack (0.3.2)
     daemons (1.1.9)
     diff-lcs (1.1.3)
-    draper (0.18.0)
-      actionpack (~> 3.2)
-      activesupport (~> 3.2)
+    draper (1.0.0)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      request_store (~> 1.0.3)
     em-websocket (0.3.8)
       addressable (>= 2.1.1)
       eventmachine (>= 0.12.9)
@@ -80,47 +70,42 @@ GEM
       connection_pool (~> 1.0)
       rubinius-actor
     growl (1.0.3)
-    guard (1.4.0)
-      listen (>= 0.4.2)
+    guard (1.6.1)
+      listen (>= 0.6.0)
+      lumberjack (>= 1.0.2)
+      pry (>= 0.9.10)
       thor (>= 0.14.6)
     guard-bundler (1.0.0)
       bundler (~> 1.0)
       guard (~> 1.1)
-    guard-livereload (1.0.1)
+    guard-livereload (1.1.3)
       em-websocket (>= 0.2.0)
-      guard (>= 1.1.0)
+      guard (>= 1.5.0)
       multi_json (~> 1.0)
     guard-rails (0.1.1)
       guard (>= 0.2.2)
-    guard-rspec (2.1.2)
+    guard-rspec (2.3.3)
       guard (>= 1.1)
       rspec (~> 2.11)
     haml (3.1.7)
-    haml-rails (0.3.5)
-      actionpack (>= 3.1, < 4.1)
-      activesupport (>= 3.1, < 4.1)
-      haml (~> 3.1)
-      railties (>= 3.1, < 4.1)
-    highline (1.6.15)
     hike (1.2.1)
     hpricot (0.8.6)
     i18n (0.6.1)
-    jammit (0.6.5)
-      yui-compressor (>= 0.9.3)
-    jbuilder (0.8.2)
+    jbuilder (1.0.2)
       activesupport (>= 3.0.0)
     journey (1.0.4)
-    jquery-rails (2.1.3)
-      railties (>= 3.1.0, < 5.0)
-      thor (~> 0.14)
-    json (1.7.5)
-    kgio (2.7.4)
-    koala (1.5.0)
-      faraday (~> 0.7)
+    jquery-rails (2.1.4)
+      railties (>= 3.0, < 5.0)
+      thor (>= 0.14, < 2.0)
+    json (1.7.6)
+    koala (1.6.0)
+      addressable (~> 2.2)
+      faraday (~> 0.8)
       multi_json (~> 1.3)
     libxml-ruby (2.3.3)
-    liquid (2.2.2)
-    listen (0.5.3)
+    liquid (2.4.1)
+    listen (0.7.2)
+    lumberjack (1.0.2)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -132,18 +117,10 @@ GEM
     mini_specunit (0.4.0)
       minitest
     minitest (4.4.0)
-    multi_json (1.3.6)
+    multi_json (1.5.0)
     multipart-post (1.1.5)
-    net-scp (1.0.4)
-      net-ssh (>= 1.99.1)
-    net-sftp (2.0.5)
-      net-ssh (>= 2.0.9)
-    net-ssh (2.6.1)
-    net-ssh-gateway (1.1.0)
-      net-ssh (>= 1.99.1)
-    newrelic_rpm (3.5.2.17)
-    open4 (1.3.0)
-    pg (0.14.0)
+    newrelic_rpm (3.5.5.38)
+    pg (0.14.1)
     pjax_rails (0.3.4)
       jquery-rails
     polyglot (0.3.3)
@@ -155,10 +132,10 @@ GEM
     pry-doc (0.4.4)
       pry (>= 0.9.9.6)
       yard (~> 0.8.1)
-    pygments.rb (0.3.2)
+    pygments.rb (0.3.7)
       posix-spawn (~> 0.3.6)
       yajl-ruby (~> 1.1.0)
-    rack (1.4.1)
+    rack (1.4.4)
     rack-cache (1.2)
       rack (>= 0.4)
     rack-ssl (1.3.2)
@@ -180,67 +157,63 @@ GEM
       rake (>= 0.8.7)
       rdoc (~> 3.4)
       thor (>= 0.14.6, < 2.0)
-    raindrops (0.10.0)
-    rake (0.9.2.2)
+    rake (10.0.3)
     ratom (0.7.2)
       libxml-ruby (~> 2.3.2)
-    rb-fsevent (0.9.1)
+    rb-fsevent (0.9.3)
     rdoc (3.12)
       json (~> 1.4)
     redcarpet (2.2.2)
+    request_store (1.0.5)
     rspec (2.12.0)
       rspec-core (~> 2.12.0)
       rspec-expectations (~> 2.12.0)
       rspec-mocks (~> 2.12.0)
-    rspec-core (2.12.0)
-    rspec-expectations (2.12.0)
+    rspec-core (2.12.2)
+    rspec-expectations (2.12.1)
       diff-lcs (~> 1.1.3)
-      sexp_processor (~> 3.0)
-    rvm-capistrano (1.2.7)
-      capistrano (>= 2.0.0)
-    sass (3.2.1)
-    sass-rails (3.2.5)
+    rspec-mocks (2.12.1)
+    rubinius-actor (0.0.2)
+      rubinius-core-api
+    rubinius-core-api (0.0.1)
+    ruby_parser (3.1.1)
+      sexp_processor (~> 4.1)
+    sass (3.2.5)
+    sass-rails (3.2.6)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
-    sexp_processor (3.2.0)
-    simple_oauth (0.1.9)
+    sexp_processor (4.1.3)
+    simple_oauth (0.2.0)
     slop (3.3.3)
     sprockets (2.1.3)
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    syslogger (1.4.0)
     thin (1.5.0)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
       rack (>= 1.0.0)
     thor (0.16.0)
     tilt (1.3.3)
-    treetop (1.4.11)
+    treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)
-    twitter (4.1.2)
-      faraday (~> 0.8)
-      multi_json (~> 1.3)
-      simple_oauth (~> 0.1.6)
-    tzinfo (0.3.33)
+    twitter (4.4.4)
+      faraday (~> 0.8, < 0.10)
+      multi_json (~> 1.0)
+      simple_oauth (~> 0.2)
+    tzinfo (0.3.35)
     uglifier (1.3.0)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
-    underscore-rails (1.3.1)
-    unicorn (4.3.1)
-      kgio (~> 2.6)
-      rack
-      raindrops (~> 0.7)
-    vcr (2.2.5)
-    webmock (1.8.11)
+    underscore-rails (1.4.3)
+    vcr (2.4.0)
+    webmock (1.9.0)
       addressable (>= 2.2.7)
       crack (>= 0.1.7)
     yajl-ruby (1.1.0)
     yard (0.8.3)
-    yui-compressor (0.9.6)
-      POpen4 (>= 0.1.4)
 
 PLATFORMS
   ruby
@@ -249,9 +222,6 @@ DEPENDENCIES
   airbrake
   bootstrap-sass!
   builder
-  bundler
-  capistrano
-  capistrano_colors
   coffee-rails (~> 3.2.1)
   draper
   growl
@@ -260,9 +230,7 @@ DEPENDENCIES
   guard-rails
   guard-rspec
   haml (>= 3.1.6)
-  haml-rails (>= 0.3.4)
   hpricot
-  jammit
   jbuilder
   jquery-rails
   koala
@@ -281,14 +249,11 @@ DEPENDENCIES
   rb-fsevent
   redcarpet
   ruby_parser
-  rvm-capistrano
   sass-rails (~> 3.2.3)
-  syslogger
   thin
   twitter
   uglifier (>= 1.0.3)
   underscore-rails
-  unicorn
   vcr
   webmock
   yajl-ruby

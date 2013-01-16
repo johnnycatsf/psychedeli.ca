@@ -1,3 +1,5 @@
+$:.unshift File.expand_path("./lib")
+
 require File.expand_path('../boot', __FILE__)
 
 #require "active_record/railtie"
@@ -8,9 +10,9 @@ require "sprockets/railtie"
 require "rails/test_unit/railtie"
 
 require 'bundler'
-Bundler.require :default, *Rails.groups(:assets => %w(development test)), :views, :status
+Bundler.require :default, *Rails.groups(:assets => %w(development test))
 
-require_relative '../lib/link_to_tent'
+require 'link_to_tent'
 
 module Psychedelica
   class Application < Rails::Application

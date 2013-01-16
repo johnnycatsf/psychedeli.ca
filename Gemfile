@@ -11,41 +11,32 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-group :views do
-  gem 'bootstrap-sass', git: 'git://github.com/trisweb/bootstrap-sass.git'
-  gem 'jquery-rails'
-  gem "haml", ">= 3.1.6"
-  gem 'jbuilder'
-  gem 'builder'
-  gem 'hpricot'
-  gem 'ruby_parser'
-  gem 'underscore-rails'
-  gem 'draper'
-  gem 'pjax_rails'
-end
+gem 'bootstrap-sass', git: 'git://github.com/trisweb/bootstrap-sass.git'
+gem 'jquery-rails'
+gem "haml", ">= 3.1.6"
+gem 'jbuilder'
+gem 'builder'
+gem 'hpricot'
+gem 'ruby_parser'
+gem 'underscore-rails'
+gem 'draper'
+gem 'pjax_rails'
 
-group :active_copy do
-  gem 'liquid'
-  gem 'pygments.rb', '~> 0.3'
-  gem 'redcarpet'
-end
+# active_copy
+gem 'liquid'
+gem 'pygments.rb', '~> 0.3'
+gem 'redcarpet'
 
-group :status do
-  gem 'yajl-ruby'
-  gem 'twitter'
-  gem 'koala'
-  gem 'ratom', require: 'atom'
-end
+# status_exchange
+gem 'yajl-ruby'
+gem 'twitter'
+gem 'koala'
+gem 'ratom', require: 'atom'
 
-group :deployment do
-  gem 'capistrano'
-  gem 'capistrano_colors'
-  gem 'rvm-capistrano', require: false
-  gem 'bundler', require: false
-end
+# Application Web Server
+gem 'thin'
 
 group :development do
-  gem "haml-rails", ">= 0.3.4"
   gem 'pry'
   gem 'pry-doc'
   gem 'growl'
@@ -56,12 +47,6 @@ group :development do
   gem 'guard-rspec'
 end
 
-gem 'thin', group: [:development, :stage]
-
-group :stage do
-  gem 'jammit', require: false
-end
-
 group :test do
   gem 'vcr'
   gem 'webmock'
@@ -69,9 +54,3 @@ group :test do
   gem 'mini_specunit'
   gem 'mini_shoulda'
 end
-
-group :production do
-  gem 'syslogger'
-  gem 'unicorn'
-end
-
