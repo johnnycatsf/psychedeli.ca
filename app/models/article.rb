@@ -3,20 +3,24 @@ class Article < ActiveCopy::Base
   attr_accessible :layout, :title, :category, :date, :tags, :hn_item_id, :published
   include Draper::Decoratable
 
-  # Tests whether this Article was (knowingly) posted to Hacker News.
+  # Sort Articles by date, ascending.
+  def self.latest
+    all.select { |article| article.present? }.sort { |prev_article, next_article|
+      next_article.date <=> prev_article.date
+    }
+  end
+
+  # Test whether this Article was (knowingly) posted to Hacker News.
   def on_hacker_news?
     hn_item_id.present?
   end
 
+  # Test whether this Article includes any tags.
   def has_tags?
     tags.present?
   end
 
-  # Sorts Articles by date, ascending.
-  def self.latest
-    all.select { |a| a.present? }.sort { |a1, a2| a1.date <=> a2.date }.reverse
-  end
-
+  # Find the file path of this Article.
   def path
     @path ||= begin
       arr = self.id.split('-')
