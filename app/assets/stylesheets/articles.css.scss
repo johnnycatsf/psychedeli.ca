@@ -6,37 +6,64 @@
  * container.
  */
 
-#canvas {
-  max-width: 600px;
-}
-
 #articles {
-  ul {
-    @extend .nav;
-    @extend .nav-tabs;
-    @extend .nav-stacked;
+  @media(max-width: 950px) { width: 200px; }
+
+  #information {
+    @media(min-width: 768px) { display: none; }
+    margin: 30px 0 20px 0;
+  }
+  nav {
+    ul {
+      @extend .nav;
+      @extend .nav-tabs;
+      @extend .nav-stacked;
+    }
   }
 }
 
-@media (min-width: 960px) {
- #articles { max-width: 400px }
- article { max-width: 600px }
+
+// PCs
+@media (min-width: 980px) {
+  #canvas {
+    @extend .clearfix;
+    display: inline-block;
+    max-width: 500px;
+  }
+  #articles {
+    display: inline-block;
+    width: 310px;
+    float: right;
+  }
 }
 
-@media (max-width: 640px) {
- #articles { float: right; }
+// Tablets
+@media (min-width: 768px) {}
+
+
+// PDAs
+@media (min-width: 768px) {}
+
+// Phones
+@media (max-width: 480px) {
+  #ribbon { display: none }
 }
 
 // A single article
 article {
-  header {
-    margin-bottom: 35px;
+  @media(min-width: 1200px) { min-width: 700px; }
+  @media(max-width: 768px) { min-width: 400px; }
 
-    h1 { 
+  header {
+    @media(min-width: 480px) { margin-bottom: 10px; }
+    @media(max-width: 479px) { margin-bottom: 35px; }
+
+    h1 {
       margin: 0px;
       padding: 0px;
     }
   }
+
   footer {
     background: #EEE;
     padding: 15px;

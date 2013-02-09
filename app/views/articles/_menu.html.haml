@@ -1,4 +1,7 @@
 %nav
+  #information
+    %h4 Want to read more?
+    %h5 Check out more articles below...
   %ul
     - @articles.each do |article|
       %li= link_to article.title, article.url

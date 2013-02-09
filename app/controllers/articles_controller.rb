@@ -12,7 +12,8 @@ class ArticlesController < ApplicationController
   # GET /
   def index
     @articles = ArticleDecorator.decorate_collection Article.latest
-    respond_with @articles, locals: { show_menu: use_layout? }
+    @show_menu = use_layout?
+    respond_with @articles
   end
 
   # Category index. Show snippets of all articles in a specific
