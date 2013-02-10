@@ -6,29 +6,12 @@
  * container.
  */
 
-#articles {
-  @media(max-width: 950px) { width: 200px; }
-
-  #information {
-    @media(min-width: 768px) { display: none; }
-    margin: 30px 0 20px 0;
-  }
-  nav {
-    ul {
-      @extend .nav;
-      @extend .nav-tabs;
-      @extend .nav-stacked;
-    }
-  }
-}
-
-
 // PCs
-@media (min-width: 980px) {
+@media (min-width: 1000px) {
   #canvas {
     @extend .clearfix;
     display: inline-block;
-    max-width: 500px;
+    max-width: 400px;
   }
   #articles {
     display: inline-block;
@@ -40,23 +23,47 @@
 // Tablets
 @media (min-width: 768px) {}
 
-
-// PDAs
-@media (min-width: 768px) {}
-
 // Phones
 @media (max-width: 480px) {
   #ribbon { display: none }
 }
 
+#articles {
+  width: 315px; // large desktop
+  //@media (max-width: 1200px) { width: 300px; } // normal desktop
+  @media (min-width: 980px) { width: 862px; } // small desktop
+  //@media (max-width: 980px) { width: 290px; }
+  @media (max-width: 800px) { width: 669px; } // nexus 7
+  @media (max-width: 768px) { width: 637px; } // ipad
+  @media (max-width: 480px) { width: 441px; } // iphone landscape
+  @media (max-width: 360px) { width: 280px; } // nexus galaxy
+  @media (max-width: 320px) { width: 280px; } // iphone
+
+  #information {
+    @media (min-width: 1000px) { display: none; }
+    margin: 30px 0 20px 0;
+  }
+  nav {
+    ul {
+      @extend .nav;
+      @extend .nav-tabs;
+      @extend .nav-stacked;
+    }
+  }
+}
+
 // A single article
 article {
-  @media(min-width: 1200px) { min-width: 700px; }
-  @media(max-width: 768px) { min-width: 400px; }
+  min-width: 700px;
+  //@media (max-width: 990px) { min-width: 900px; } // desktop
+  @media(max-width: 320px) { min-width: 280px; }
+  @media(max-width: 480px) { min-width: 320px; }
+  @media(max-width: 640px) { min-width: 180px; }
 
   header {
-    @media(min-width: 480px) { margin-bottom: 10px; }
-    @media(max-width: 479px) { margin-bottom: 35px; }
+    height: auto;
+    margin-bottom: 10px;
+    @media(max-width: 480px) { margin-bottom: 35px; }
 
     h1 {
       margin: 0px;
