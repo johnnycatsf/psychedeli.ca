@@ -45,6 +45,7 @@ group :development do
   gem 'guard-bundler'
   gem 'guard-livereload'
   gem 'guard-minitest'
+  gem 'guard-shell'
   gem 'better_errors'
   gem 'meta_request'
 end

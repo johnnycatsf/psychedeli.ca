@@ -10,9 +10,15 @@ guard 'livereload' do
   watch(%r{(app|vendor)/assets/\w+/(.+\.(css|js|html)).*})  { |m| "/assets/#{m[2]}" }
 end
 
+guard 'shell' do
+  watch(/^(app|lib|spec)\/(.*)\.rb/) {|m| `ctags -R .` }
+  watch(/^.env/) { |m| `source $PWD/.env` }
+end
+
 guard 'rails' do
   watch('Gemfile.lock')
   watch(%r{^(config|lib)/.*})
+  watch(/^.env/)
 end
 
 guard 'minitest' do
