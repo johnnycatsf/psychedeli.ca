@@ -2,7 +2,7 @@
 layout: post
 title: use assertions in rspec
 category: code
-date: 2013-02-08
+date: 2013-02-11
 tags: rspec, ruby, testing, test_unit, bdd, tdd
 ---
 
