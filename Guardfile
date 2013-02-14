@@ -12,7 +12,7 @@ end
 
 guard 'shell' do
   watch(/^(app|lib|spec)\/(.*)\.rb/) {|m| `ctags -R .` }
-  watch(/^.env/) { |m| `source $PWD/.env` }
+  watch(/^.env/) { |m| `source $PWD/.env && echo "Shell config reloaded."` }
 end
 
 guard 'rails' do
