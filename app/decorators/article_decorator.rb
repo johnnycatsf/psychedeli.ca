@@ -1,12 +1,9 @@
 class ArticleDecorator < Draper::Decorator
   decorates :article
-
-  delegate :id, :title, :category, :date, :tags
-
-  alias article source
+  delegate :id, :title, :category, :date, :tags, :path
 
   def discuss_on_hacker_news
-    if article.on_hacker_news?
+    if source.on_hacker_news?
       h.link_to "Discuss on Hacker News", hacker_news_url, class: 'hacker-news'
     end
   end
@@ -16,16 +13,16 @@ class ArticleDecorator < Draper::Decorator
   end
 
   def category
-    h.content_tag :span, article.category, class: 'category'
+    h.content_tag :span, source.category, class: 'category'
   end
 
   def date
-    #date_string = article.date.strftime('%m/%d/%y')
-    h.time_tag article.date
+    #date_string = source.date.strftime('%m/%d/%y')
+    h.time_tag source.date
   end
 
   def tags
-    h.content_tag :span, "<strong>Tags:</strong> #{article.tags}".html_safe if article.has_tags?
+    h.content_tag :span, "<strong>Tags:</strong> #{source.tags}".html_safe if source.has_tags?
   end
 
   def comments
@@ -33,24 +30,23 @@ class ArticleDecorator < Draper::Decorator
   end
 
   def description
-    h.render_copy "articles/content/#{article.id}"
+    h.render_copy "articles/content/#{source.id}"
   end
 
   def published_on
-    article.date.to_s(:rfc822)
-    #Date.new(article.date).to_s(:rfc822)
+    source.date.to_s(:rfc822)
   end
 
   def url
-    if Rails.env.production? or Rails.env.stage?
-      "http://psychedeli.ca#{article.path}"
+    if Rails.env.production?
+      "http://psychedeli.ca" + path
     else
-      article.path
+      "http://#{Rails.env}.psychedeli.ca" + path
     end
   end
 
 private
   def hacker_news_url
-    "http://news.ycombinator.com?item=#{article.hn_item_id}"
+    "http://news.ycombinator.com?item=#{source.hn_item_id}"
   end
 end

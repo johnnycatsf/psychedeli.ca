@@ -11,7 +11,7 @@ xml.rss :version => "2.0" do
         xml.description article.description
         xml.pubDate article.published_on
         xml.link article.url
-        xml.guid article.id
+        xml.guid article.path
       end
     end
   end
