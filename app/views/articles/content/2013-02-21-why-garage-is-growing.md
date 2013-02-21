@@ -66,7 +66,7 @@ thoroughly, I have a few suggestions for why this phenomenon occurred.
 The artists I mentioned above, as well as pretty much anyone who's been
 rocking the Juno Download UKG/UK Funky section have been sacrificing a lot
 by continuing in a genre that was [famously dissed on one of the most
-popular ways to learn about electronic music][ishkur], and definitely not
+popular ways to learn about electronic music][ish], and definitely not
 given the respect it deserves.
 
 ## the merits of uk garage...for another time
@@ -81,3 +81,14 @@ make UKG into something huge, something a lot bigger than what we're
 all observing right now...
 
 But that's for a later post :)
+
+[c43]: http://twitter.com/Carbon43
+[ab]: http://www.youtube.com/watch?v=92aJ3hb4VMU
+[dps]: https://www.youtube.com/watch?v=Ezx0oivE9gg
+[mj]: https://soundcloud.com/mj-cole
+[sub]: https://soundcloud.com/submerse
+[djq]: http://www.djqmusic.com/
+[nnr]: https://www.facebook.com/NiceNRipe
+[icr]: http://icecreamrecords.co.uk/
+[dis]: http://silencenogood.net/disclosure-uk-garage/
+[ish]: https://en.wikipedia.org/wiki/Ishkur's_Guide_to_Electronic_Music
