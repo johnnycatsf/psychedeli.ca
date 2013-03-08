@@ -31,12 +31,12 @@ class MessageEvent < ActiveRecord::Base
   #
   # Only one recipient has to mark a message as 'bad' in some way
   # for it to be considered bad by the system.
-  BAD_EVENTS = /bounce|dropped|spamreport|unsubscribe/
+  BAD_EVENTS = %w(bounce dropped spamreport unsubscribe)
 
   # 'Good' events trigger a green message icon on the front-end, and
   # a message is considered good when all recipients fire back with
   # 'delivered' events.
-  GOOD_EVENTS = /delivered/
+  GOOD_EVENTS = %w(delivered)
 
   validates :event, presence: true, inclusion: { in: EVENT_TYPES }
 
@@ -85,12 +85,12 @@ class MessageEvent < ActiveRecord::Base
   #
   # Only one recipient has to mark a message as 'bad' in some way
   # for it to be considered bad by the system.
-  BAD_EVENTS = /bounce|dropped|spamreport|unsubscribe/
+  BAD_EVENTS = %w(bounce delivered dropped spamreport unsubscribe)
 
   # 'Good' events trigger a green message icon on the front-end, and
   # a message is considered good when all recipients fire back with
   # 'delivered' events.
-  GOOD_EVENTS = /delivered/
+  GOOD_EVENTS = %w(delivered)
 
   validates :event, presence: true, inclusion: { in: EVENT_TYPES }
 
