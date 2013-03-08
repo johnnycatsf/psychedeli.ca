@@ -152,3 +152,5 @@ turning it into a class method. Regardless, it's up to you, and I'm glad
 that Rails gives me the option to make my code more elegant, because it has
 caused me to attempt to simplify my design patterns and streamline my
 model definitions to only deal with the data model itself.
+
+[ars]: http://guides.rubyonrails.org/active_record_querying.html#scopes
