@@ -7,7 +7,7 @@ class ArticlesControllertest < ActionController::TestCase
     test "renders snippets of all articles" do
       get :index
 
-      assert 200, response.status
+      assert_response :success
     end
   end
 
@@ -18,7 +18,7 @@ class ArticlesControllertest < ActionController::TestCase
       get :show, id: @page
 
       assert_equal @page, assigns(:with_id)
-      assert_equal 200, response.status
+      assert_response :success
       assert_select 'article.standalone'
       assert_select 'h1', "happy new year!"
       assert_select 'strong', "wild"
@@ -28,7 +28,7 @@ class ArticlesControllertest < ActionController::TestCase
       get :show, year: '2000', month: '01', day: '01', title: 'happy-new-year'
 
       assert_equal @page, assigns(:with_id)
-      assert_equal 200, response.status
+      assert_response :success
       assert_select 'article.standalone'
       assert_select 'h1', "happy new year!"
       assert_select 'strong', "wild"
@@ -37,7 +37,7 @@ class ArticlesControllertest < ActionController::TestCase
     test "render a 404 error when it can't find the post" do
       get :show, id: "2012-01-01-the-final-countdown"
 
-      assert_equal 404, response.status
+      assert_response :missing
       assert_select 'p', "The file you requested was not found."
     end
   end
