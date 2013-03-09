@@ -25,5 +25,14 @@ Major shout-outs to [Rob Di Marco][iotr] who actually wrote this and
 figured out that `instance_eval` was the proper method to use here,
 not `class_eval`... :D
 
-[cve]: https://groups.google.com/forum/?fromgroups=#!topic/rubyonrails-security/AFBKNY7VSH8
+### update!
+
+We have drastically improved this little snippet and ripped a monkey patch directly from
+[Rails 4][r4mp]. Here's the [full code][gist], pasted here in case you want to read it:
+
+<script src="https://gist.github.com/tubbo/5124630.js"></script>
+
+[cve]:  https://groups.google.com/forum/?fromgroups=#!topic/rubyonrails-security/AFBKNY7VSH8
 [iotr]: http://innovationontherun.com
+[r4mp]: https://github.com/rails/rails/blob/master/actionpack/lib/action_dispatch/testing/assertions/response.rb
+[gist]: https://gist.github.com/tubbo/5124630
