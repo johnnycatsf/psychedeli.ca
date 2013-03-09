@@ -54,6 +54,6 @@ group :test do
   gem 'vcr'
   gem 'webmock'
   gem 'minitest'
-  gem 'mini_specunit'
-  gem 'mini_shoulda'
+  gem 'shoulda-context'
+  gem 'turn'
 end
