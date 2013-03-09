@@ -45,13 +45,6 @@ namespace :deploy do
     run "cd #{current_path}; bundle exec rake articles:precompile"
   end
 
-  desc "Link StatusExchange configuration from shared path."
-  task :configuration do
-    run "ln -nfs #{shared_path}/config/status_exchange.yml #{release_path}/config/status_exchange.yml"
-    #run "ln -nfs #{shared_path}/config/tent.sh #{release_path}/config/tent.sh"
-    #run "#{try_sudo} chmod 775 #{release_path}/config/tent.sh"
-  end
-
   desc "Start Unicorn, the production application server."
   task :start do
     if remote_file_exists?(unicorn_pid)
