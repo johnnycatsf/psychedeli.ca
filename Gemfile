@@ -11,13 +11,10 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+# views
 gem 'bootstrap-sass', git: 'git://github.com/trisweb/bootstrap-sass.git'
 gem 'jquery-rails'
-gem "haml", ">= 3.1.6"
-gem 'jbuilder'
-gem 'builder'
-gem 'hpricot'
-gem 'ruby_parser'
+gem "haml-rails"
 gem 'underscore-rails'
 gem 'draper'
 gem 'pjax_rails'
@@ -27,25 +24,11 @@ gem 'liquid'
 gem 'pygments.rb', '~> 0.3'
 gem 'redcarpet'
 
-# status_exchange
-gem 'yajl-ruby'
-gem 'twitter'
-gem 'koala'
-gem 'ratom', require: 'atom'
-
 # Application Web Server
 gem 'thin'
 
 group :development do
-  gem 'pry'
-  gem 'pry-doc'
-  gem 'growl'
-  gem 'rb-fsevent'
-  gem 'guard-rails'
-  gem 'guard-bundler'
-  gem 'guard-livereload'
-  gem 'guard-minitest'
-  gem 'guard-shell'
+  gem 'pry-rails'
   gem 'better_errors'
   gem 'meta_request'
 end
