@@ -24,6 +24,8 @@ I think my choice has been made.
 
 **UPDATE:** My FreeNAS file server is running smoothly, fully jailed. Story at 11.
 
+**Technorati Claim ID:** NFGKYZ5CMSY2
+
 [1]: http://geekwitch.livejournal.com/
 [2]: http://support.dell.com/support/edocs/systems/opgx270/en/ug/index.htm
 [3]: http://support.dell.com/support/edocs/systems/opgx280/en/ug/index.htm
