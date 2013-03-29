@@ -39,10 +39,7 @@ developers who need only be concerned with their work. We are slowly
 working towards that, with a roadmap that includes **commenting**,
 viewing tasks in a nice bulleted list (in `pv show`), and more...
 
-## introducing pv
-
-I wrote this little gem called [pv][pv] that is meant to be a shell
-interface to your 
+## viewing stories
 
 The two most useful features are `pv log` (aliased to `pv` for
 convenience), which shows your entire "My Work" pane:
@@ -83,7 +80,7 @@ but basically you can opt to always use the same config in `~/.pv`, or
 you can place a `.pv` file in each of your repos to change the account
 or project ID that `pv` uses to make API calls.
 
-# [install that shit from RubyGems][inst] if you want to know more
+### [install that shit from RubyGems][inst] if you want to know more
 
 [el]: http://elocal.com
 [pt]: http://pivotaltracker.com
