@@ -1,6 +1,6 @@
 ---
 layout: post
-title: pv: a shell interface for pivotal tracker
+title: "pv: a shell interface for pivotal tracker"
 category: code
 date: 2013-03-29
 tags: pivotal tracker, bugs, ruby, work, elocal
