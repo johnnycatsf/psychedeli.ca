@@ -89,4 +89,4 @@ or project ID that `pv` uses to make API calls.
 [pvr]: https://github.com/tubbo/pv/blob/master/README.md
 [inst]: https://github.com/tubbo/pv/blob/master/README.md#installation
 [pv]: http://github.com/tubbo/pv
-[gt]: http://github.com/stevenharman/git-tracker
+[gt]: http://github.com/stevenharman/git_tracker
