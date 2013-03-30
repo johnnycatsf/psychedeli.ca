@@ -1,0 +1,12 @@
+article {
+  // Code blocks
+  .highlight {
+    @include panel;
+    width: 800px;
+
+    pre {
+      font-size: 14px;
+      width: inherit;
+    }
+  }
+}

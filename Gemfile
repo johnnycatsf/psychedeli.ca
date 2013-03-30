@@ -18,7 +18,7 @@ gem 'underscore-rails'
 gem 'draper'
 gem 'pjax_rails'
 gem 'zurb-foundation'
-gem 'sumatra-rails'
+gem 'sumatra-rails', github: 'tubbo/sumatra-rails'
 
 # active_copy
 gem 'liquid'

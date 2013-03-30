@@ -1,3 +1,12 @@
+GIT
+  remote: git://github.com/tubbo/sumatra-rails.git
+  revision: 04c8a1f809c56112cd401d7b13cedfe5768fc46b
+  specs:
+    sumatra-rails (0.0.4.1)
+      coffee-rails
+      jquery-rails
+      rails (~> 3.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -138,10 +147,6 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    sumatra-rails (0.0.4.1)
-      coffee-rails
-      jquery-rails
-      rails (~> 3.2)
     thin (1.5.0)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
@@ -188,7 +193,7 @@ DEPENDENCIES
   redcarpet
   sass-rails (~> 3.2.3)
   shoulda-context
-  sumatra-rails
+  sumatra-rails!
   thin
   turn
   uglifier (>= 1.0.3)

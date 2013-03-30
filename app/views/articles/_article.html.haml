@@ -1,12 +1,6 @@
-%article{ id: "article-#{article.id}", class: 'standalone' }
-  %header
-    = title article.title
-  %section
-    = render_copy "articles/content/#{article.id}"
-  %footer
-    = article.posted_in_category_on_date
-    %nav
-      = article.tags
-      = article.comments
-      = article.discuss_on_hacker_news
-  = render 'comments' if @show_comments
+%article{ id: "article-#{article.id}" }
+  %h3= link_to article.title, articles_path(article)
+  %h6= article.posted_in_category_on_date
+
+  = render_copy "articles/content/#{article.id}"
+  = article.tags

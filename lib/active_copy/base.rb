@@ -43,6 +43,10 @@ module ActiveCopy
       "#{path}/index.html"
     end
 
+    def persisted?
+      true
+    end
+
     # Return absolute path to public cached copy.
     def path
       @public_path ||= if Rails.env.test?

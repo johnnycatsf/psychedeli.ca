@@ -33,7 +33,11 @@ module ApplicationHelper
       rel: 'alternate',
       type: 'application/rss+xml',
       title: 'psychedeli.ca',
-      href: 'http://feeds.feedburner.com/psychedelica-berserk'
+      href: rss_feed_path
+  end
+
+  def rss_feed_path
+    'http://feeds.feedburner.com/psychedelica-berserk'
   end
 
   def prefetch_content at_location

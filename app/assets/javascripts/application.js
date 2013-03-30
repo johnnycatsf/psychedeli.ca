@@ -1,6 +1,7 @@
 //=require modernizr
 //=require jquery
 //=require jquery_ujs
+//=require sumatra
 //=require foundation
 //=require jquery.pjax
 //=require util/highlight_article
