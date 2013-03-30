@@ -1011,9 +1011,4 @@ $has-tip-cursor-type: pointer;
 
 @import 'foundation';
 @import 'articles';
-
-aside .panel.callout {
-  a {
-    color: $panel-font-color-alt;
-  }
-}
+@import 'categories';

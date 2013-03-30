@@ -21,8 +21,25 @@ module NavigationHelper
     button_for 'rss', rss_feed_path, options.merge(rss_options)
   end
 
+  def feedburner_link_tag
+    tag :link, \
+      rel: 'alternate',
+      type: 'application/rss+xml',
+      title: 'psychedeli.ca',
+      href: rss_feed_path
+  end
+
 private
   def logo_for network_name
     image_tag "social/#{network_name}.png"
+  end
+
+  def rss_feed_path
+    'http://feeds.feedburner.com/psychedelica-berserk'
+  end
+
+  # View-layer cache of RSS options in the +<a>+ tag for the feed.
+  def rss_options
+    { rel: "alternate", type: "application/rss+xml" }
   end
 end

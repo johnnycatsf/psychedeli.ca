@@ -4,15 +4,6 @@ module ApplicationHelper
     'http://platform.twitter.com/anywhere.js?id=zDPeS1kInJZv5AigGRT1Dg&amp;v=1'
   end
 
-  # View-layer cache of RSS options in the +<a>+ tag for the feed.
-  def rss_options
-    @rss_opts ||= {
-      rel: "alternate",
-      title: "Subscribe to psychedeli.ca",
-      type: "application/rss+xml"
-    }
-  end
-
   # Renders default HTML5 boilerplate +<meta>+ tags as well as custom
   # ones defined in the YAML, then it renders the CSRF meta tags
   # provided by Rails.
@@ -26,18 +17,6 @@ module ApplicationHelper
     end
 
     csrf_meta_tags
-  end
-
-  def feedburner_link_tag
-    tag :link, \
-      rel: 'alternate',
-      type: 'application/rss+xml',
-      title: 'psychedeli.ca',
-      href: rss_feed_path
-  end
-
-  def rss_feed_path
-    'http://feeds.feedburner.com/psychedelica-berserk'
   end
 
   def prefetch_content at_location
