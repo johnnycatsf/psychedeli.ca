@@ -19,6 +19,7 @@ gem 'draper'
 gem 'pjax_rails'
 gem 'zurb-foundation'
 gem 'sumatra-rails', github: 'tubbo/sumatra-rails'
+gem 'compass-rails'
 
 # active_copy
 gem 'liquid'
