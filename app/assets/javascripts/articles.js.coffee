@@ -1,6 +1,5 @@
 jQuery ->
-  $('#articles li').highlightArticle()
-
+  $('#articles li').highlightArticle() # use the current title at first
   $(document).foundation()
   $(document).pjax('a', container: '#canvas')
     .on 'pjax:send', ->
@@ -9,5 +8,5 @@ jQuery ->
     .on 'pjax:error', (e,xhr,err) ->
       $(this).prepend $("<div class=\"alert alert-error\">#{err}</div>")
     .on  'pjax:end', ->
-      $('#articles li').highlightArticle()
+      $('#articles li').highlightArticle() # to the article we're changing to
       $('title').pageTitle fromSelector: '#canvas h1'
