@@ -80,7 +80,7 @@ but basically you can opt to always use the same config in `~/.pv`, or
 you can place a `.pv` file in each of your repos to change the account
 or project ID that `pv` uses to make API calls.
 
-### [install that shit from RubyGems][inst] if you want to know more
+### [install that shit][inst] if you want to know more
 
 [el]: http://elocal.com
 [pt]: http://pivotaltracker.com
