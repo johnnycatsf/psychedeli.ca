@@ -2,15 +2,6 @@
  * psychedeli.ca stylesheet manifest
  */
 
-@import url(http://fonts.googleapis.com/css?family=Sansita+One);
-@import "bootstrap";
-body { padding: 0px 45px 45px; }
-@import "bootstrap-responsive";
-@import "fonts";
-@import "pygments-perldoc";
-@import "ribbon";
-@import "header";
-@import "splash";
-@import "articles";
+@import 'foundation';
 
 code, pre { font-family: $menlo; }

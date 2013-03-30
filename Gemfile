@@ -12,12 +12,13 @@ group :assets do
 end
 
 # views
-gem 'bootstrap-sass', git: 'git://github.com/trisweb/bootstrap-sass.git'
 gem 'jquery-rails'
 gem "haml-rails"
 gem 'underscore-rails'
 gem 'draper'
 gem 'pjax_rails'
+gem 'foundation'
+gem 'sumatra-rails'
 
 # active_copy
 gem 'liquid'
