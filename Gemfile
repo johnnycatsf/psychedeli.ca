@@ -17,7 +17,7 @@ gem "haml-rails"
 gem 'underscore-rails'
 gem 'draper'
 gem 'pjax_rails'
-gem 'foundation'
+gem 'zurb-foundation'
 gem 'sumatra-rails'
 
 # active_copy

@@ -48,7 +48,6 @@ GEM
       execjs
     coffee-script-source (1.4.0)
     crack (0.3.2)
-    cssmin (1.0.3)
     daemons (1.1.9)
     draper (1.1.0)
       actionpack (>= 3.0)
@@ -58,8 +57,6 @@ GEM
     eventmachine (1.0.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
-    foundation (0.05)
-      jammit
     haml (3.1.7)
     haml-rails (0.3.5)
       actionpack (>= 3.1, < 4.1)
@@ -68,14 +65,10 @@ GEM
       railties (>= 3.1, < 4.1)
     hike (1.2.1)
     i18n (0.6.1)
-    jammit (0.6.6)
-      cssmin (>= 1.0.3)
-      jsmin (>= 1.0.1)
     journey (1.0.4)
     jquery-rails (2.2.1)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
-    jsmin (1.0.1)
     json (1.7.7)
     liquid (2.4.1)
     mail (2.5.3)
@@ -170,6 +163,8 @@ GEM
       addressable (>= 2.2.7)
       crack (>= 0.1.7)
     yajl-ruby (1.1.0)
+    zurb-foundation (4.0.9)
+      sass (>= 3.2.0)
 
 PLATFORMS
   ruby
@@ -179,7 +174,6 @@ DEPENDENCIES
   better_errors
   coffee-rails (~> 3.2.1)
   draper
-  foundation
   haml-rails
   jquery-rails
   liquid
@@ -201,3 +195,4 @@ DEPENDENCIES
   underscore-rails
   vcr
   webmock
+  zurb-foundation
