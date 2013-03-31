@@ -41,7 +41,7 @@ class ArticleDecorator < Draper::Decorator
     if Rails.env.production?
       "http://psychedeli.ca" + path
     else
-      "http://#{Rails.env}.psychedeli.ca" + path
+      "http://localhost:3000" + path
     end
   end
 
