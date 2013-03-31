@@ -1,16 +1,4 @@
 article {
-  h1, h2, h3 {
-    font-family: 'Roboto Condensed', Helvetica, sans-serif;
-
-    a {
-      color: $link-hover-color;
-
-      &:hover {
-        color: darken($link-hover-color, 20%);
-      }
-    }
-  }
-
   h1 {
     font-size: 2.2em;
   }
@@ -28,25 +16,27 @@ article {
     text-align: right;
     font-weight: normal;
     font-family: 'Quicksand', Helvetica, Arial, sans-serif;
+    font-size: 0.8em;
 
     .category, time {
-      font-weight: bold 
+      font-weight: bold;
     }
     .tags {
       font-style: normal;
-      font-size: 0.8em;
       margin: 15px 0;
 
       a {
-        border: 1px solid #ccc;
+        //border: 1px solid #ccc;
         background: #eee;
-        padding: 2px;
+        padding: 3px;
+        margin: 0 2px;
         border-radius: 5px;
         color: $link-hover-color;
 
         &:hover {
           color: $primary-color;
           cursor: pointer;
+        background: #ddd;
         }
       }
     }

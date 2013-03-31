@@ -31,13 +31,18 @@
       / End Main Content
       / Sidebar
       %aside.large-3.columns
-        #categories
-          %h5 Categories
-          %ul{ style: 'list-style:none' }
-            %li= link_to 'gbs', '#'
-            %li= link_to 'code', '#'
-            %li= link_to 'music', '#'
-            %li= link_to 'diy', '#'
+        .profile-image
+          // my handsome mug
+        %h5 Hi, I'm Tom!
+        :markdown
+          I'm a [musician][band], [hacker][git], and [founder][label].
+          Check out the articles below to learn more about what I do!
+          [band]: http://thewonderbars.com
+          [git]: http://github.com/tubbo
+          [label]: http://waxpoeticrecords.com
+
+        %h5 Recent Articles
+        = render 'articles/menu'
       / End Sidebar
     / End Main Content and Sidebar
     / Footer
@@ -47,15 +52,17 @@
         .row
           .large-6.columns
             :markdown
-              Powered by [open][ruby] [source][rails] [software][jquery].
+              Powered by [open][rails] [source][zurb] [software][jquery].
 
-              [ruby]: http://ruby-lang.org
               [rails]: http://rubyonrails.org
+              [zurb]: http://foundation.zurb.com
               [jquery]: http://jquery.com
           .large-6.columns
             %ul.inline-list.right
+              %li= link_to 'About', root_path
+              %li= link_to 'Resume', 'http://www.linkedin.com/in/tubbo'
               %li= link_to 'Code', "http://github.com/tubbo/psychedeli.ca"
-              %li= link_to 'Build Status', "http://travis-ci.org/tubbo/psychedeli.ca"
+              %li= link_to 'Status', "http://travis-ci.org/tubbo/psychedeli.ca"
     :javascript
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-24749017-1']);

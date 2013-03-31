@@ -1025,19 +1025,26 @@ a {
 }
 
 #articles {
-  margin-left: 17px;
-  li {
-    font-family: 'Roboto Condensed', Helvetica, sans-serif;
-    margin-bottom: 10px;
-
-    a {
-      //letter-spacing: 0.1em;
-      font-weight: bold;
-    }
-  }
+  margin-left: 15px;
 }
 
 .tooltip {
   width: auto;
   max-width: 300px;
+}
+
+.profile-image {
+  border-radius: 50em;
+  position: relative;
+  display:inline-block;
+  background: image-url('bm2012.jpg') no-repeat -94px -23px;
+  width: 250px;
+  height: 250px;
+  border: 5px solid #eee;
+  margin-bottom: 15px;
+  right: 25px;
+}
+
+#about, article {
+  width: 600px;
 }
