@@ -1,4 +1,57 @@
 article {
+  h1, h2, h3 {
+    font-family: 'Roboto Condensed', Helvetica, sans-serif;
+
+    a {
+      color: $link-hover-color;
+
+      &:hover {
+        color: darken($link-hover-color, 20%);
+      }
+    }
+  }
+
+  h1 {
+    font-size: 2.2em;
+  }
+
+  h2 {
+    font-size: 2.0em;
+  }
+
+  h3 {
+    font-size: 1.5em;
+  }
+
+  h6 {
+    font-style: italic;
+    text-align: right;
+    font-weight: normal;
+    font-family: 'Quicksand', Helvetica, Arial, sans-serif;
+
+    .category, time {
+      font-weight: bold 
+    }
+    .tags {
+      font-style: normal;
+      font-size: 0.8em;
+      margin: 15px 0;
+
+      a {
+        border: 1px solid #ccc;
+        background: #eee;
+        padding: 2px;
+        border-radius: 5px;
+        color: $link-hover-color;
+
+        &:hover {
+          color: $primary-color;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
   // Code blocks
   .highlight {
     @include panel;

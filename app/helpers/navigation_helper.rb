@@ -2,6 +2,7 @@ module NavigationHelper
   # Social networking buttons.
   def button_for network, account, options={}
     profile = "http://#{network}.com/#{account}"
+    options.merge! class: 'social' unless options[:class] =~ /rss/
 
     content_tag(:li) do
       social_link_to logo_for(network), profile, options
@@ -9,15 +10,13 @@ module NavigationHelper
   end
 
   def social_link_to image, profile, options={}
-    options.merge! \
-      class: "#{options.class} button has-tip",
-      data: { tooltip: true, title: options[:title] }
+    options.merge! class: "#{options[:class]} button".strip
 
     link_to image, profile, options
   end
 
   def rss_button options={}
-    options.merge! rss_options
+    options.merge! rss_options.merge(class: 'rss')
     button_for 'rss', rss_feed_path, options.merge(rss_options)
   end
 
@@ -40,6 +39,9 @@ private
 
   # View-layer cache of RSS options in the +<a>+ tag for the feed.
   def rss_options
-    { rel: "alternate", type: "application/rss+xml" }
+    {
+      rel: "alternate",
+      type: "application/rss+xml"
+    }
   end
 end

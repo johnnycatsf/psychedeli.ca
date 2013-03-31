@@ -1,4 +1,7 @@
 jQuery ->
+  $('.nav-bar .social.button').tooltip placement: 'bottom'
+  $('.nav-bar .rss.button').tooltip placement: 'left'
+
   $('#articles li').highlightArticle() # use the current title at first
   $(document).foundation()
   $(document).pjax('a', container: '#canvas')

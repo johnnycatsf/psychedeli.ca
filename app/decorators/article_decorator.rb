@@ -9,7 +9,7 @@ class ArticleDecorator < Draper::Decorator
   end
 
   def posted_in_category_on_date
-    h.content_tag :p, "Posted in #{category} on #{date}.".html_safe
+    "posted in #{category} on #{date}.".html_safe
   end
 
   def category
@@ -22,7 +22,11 @@ class ArticleDecorator < Draper::Decorator
   end
 
   def tags
-    h.content_tag :span, "<strong>Tags:</strong> #{source.tags}".html_safe if source.has_tags?
+    h.content_tag :div, annotated_tags.html_safe, class: 'tags'
+  end
+
+  def annotated_tags
+    source.tags.split(', ').map { |t| h.link_to "##{t}", "##{t}" }.join(' ')
   end
 
   def comments

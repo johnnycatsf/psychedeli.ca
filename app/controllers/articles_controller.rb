@@ -5,6 +5,7 @@
 # +ActiveCopy+.
 class ArticlesController < ApplicationController
   respond_to :html, :rss
+  before_filter :block_rss, except: [:index]
   #caches_page :index, :category, :show, gzip: :best_speed
 
   # Index page. Show snippets of all articles.
@@ -12,7 +13,6 @@ class ArticlesController < ApplicationController
   # GET /
   def index
     @articles = ArticleDecorator.decorate_collection Article.latest
-    @show_menu = use_layout?
     respond_with @articles
   end
 
@@ -90,5 +90,10 @@ private
       params[:day],
       params[:title]
     ].join("-")
+  end
+
+  def block_rss
+    respond_with 'error', alert: "Invalid format.", status: 406 \
+      and return if params[:format] == 'rss'
   end
 end

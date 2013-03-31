@@ -1,6 +1,7 @@
 %article{ id: "article-#{article.id}" }
-  %h3= link_to article.title, articles_path(article)
-  %h6= article.posted_in_category_on_date
+  %h1= link_to article.title, articles_path(article)
+  %h6
+    = article.posted_in_category_on_date
+    = article.tags
 
   = render_copy "articles/content/#{article.id}"
-  = article.tags

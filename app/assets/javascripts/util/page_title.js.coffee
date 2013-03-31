@@ -1,5 +1,5 @@
 sumatra 'pageTitle', ->
-  class PageTitle extends SumatraHelper
+  class PageTitle extends SumatraPlugin
     action: null
     defaults:
       fromSelector: 'h1'

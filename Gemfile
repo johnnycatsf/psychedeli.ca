@@ -13,7 +13,7 @@ end
 
 # views
 gem 'jquery-rails'
-gem "haml-rails"
+gem "haml-rails", '~> 0.4'
 gem 'underscore-rails'
 gem 'draper'
 gem 'pjax_rails'
