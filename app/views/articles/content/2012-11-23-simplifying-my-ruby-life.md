@@ -5,9 +5,9 @@ category: code
 tags: ruby, bundler, rvm
 ---
 
-Ruby is all about simplicity. Make simple things simple, right?
-
-So how come we have to deal with all this complexity when we run Ruby?
+Ruby is all about simplicity. Make simple things simple, right? So how come we have to deal with all
+this complexity when we run Ruby? This is how I made my life slightly easier and got some really
+[sweet benefits][ctags] as a result.
 
 ## how i learned to stop worrying and uninstall rvm
 
@@ -110,3 +110,5 @@ This will create ~/.dots from the Gem dir, link all of the dotfiles in ~/.dots/c
 When your prompt comes back, you should have a ~/.bundle/config and ~/.env all ready to go, along with Autoenv
 and the rest of my ZSH goodies. Note: Any dotfiles that aren't already synced will NOT be touched,
 but it will load configuration for any dotfiles you don't have. So keep that in mind.
+
+[ctags]: /2013/02/05/who-needs-docs-when-you-have-ctags

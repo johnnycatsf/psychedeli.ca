@@ -19,7 +19,11 @@ class ArticleDecorator < Draper::Decorator
 
   # For truncated viewings
   def truncated_content
-    content.split("<p>").first
+    if paragraphs.count == 1
+      paragraphs.first
+    else
+      paragraphs.second
+    end
   end
 
   def date
@@ -58,5 +62,13 @@ class ArticleDecorator < Draper::Decorator
 private
   def hacker_news_url
     "http://news.ycombinator.com?item=#{source.hn_item_id}"
+  end
+
+  def paragraphs
+    raw_paragraphs.map { |p| p.gsub(/<h\d>(.*)|<h\d>/, '') }
+  end
+
+  def raw_paragraphs
+    content.split '<p>'
   end
 end

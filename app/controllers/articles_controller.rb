@@ -14,6 +14,8 @@ class ArticlesController < ApplicationController
     else
       Article.latest.first 5
     end
+    @category = params[:category]
+    @tag = "##{params[:tag]}".strip
 
     render 'empty' and return if @articles.nil? || @articles.empty?
 

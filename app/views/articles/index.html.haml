@@ -1,2 +1,5 @@
+- title @category, hidden: true if @category.present?
+- title @tag, hidden: true unless @tag == "#"
+
 - articles.each do |article|
   = render 'article', article: article
