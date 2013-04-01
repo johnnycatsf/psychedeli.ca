@@ -6,7 +6,7 @@ require "action_controller/railtie"
 require "sprockets/railtie"
 
 require 'bundler'
-require 'pry' if Rails.env =~ /development|test/
+require 'pry' if Rails.env.development?
 Bundler.require :default, *Rails.groups(:assets => %w(development test))
 
 require 'link_to_tent'
