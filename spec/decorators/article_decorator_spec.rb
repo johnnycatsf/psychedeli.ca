@@ -19,7 +19,8 @@ describe ArticleDecorator do
     end
 
     it "can be truncated after the first paragraph" do
-      subject.truncated_content.should == subject.content.split('<p>').second
+      text = subject.content.split('<p>').second
+      subject.truncated_content.should == "<p>#{text}</p>"
     end
   end
 
