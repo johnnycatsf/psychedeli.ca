@@ -11,6 +11,13 @@ describe ArticlesController do
     response.should render_template('articles/index')
   end
 
+  it "renders articles as an rss feed" do
+    get :index, format: 'rss'
+
+    response.should be_success
+    response.should render_template('articles/index')
+  end
+
   it "renders all articles in a category" do
     get :index, category: 'gbs'
 
@@ -19,11 +26,25 @@ describe ArticlesController do
     response.should render_template('articles/index')
   end
 
+  it "renders article categories as an rss feed" do
+    get :index, format: 'rss'
+
+    response.should be_success
+    response.should render_template('articles/index')
+  end
+
   it "renders articles tagged with the given param" do
     get :index, tag: 'y2k'
 
     response.should be_success
     assigns(:articles).map(&:id).should include(article.id)
+    response.should render_template('articles/index')
+  end
+
+  it "renders tag pages as an rss feed" do
+    get :index, tag: 'y2k', format: 'rss'
+
+    response.should be_success
     response.should render_template('articles/index')
   end
 

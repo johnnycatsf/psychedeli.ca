@@ -5,7 +5,7 @@ xml.rss :version => "2.0" do
     xml.description "tubbo's blog about music, hacking and fresh fruit."
     xml.link root_url
 
-    for article in @articles
+    articles.each do |article|
       xml.item do
         xml.title article.title
         xml.description article.description
