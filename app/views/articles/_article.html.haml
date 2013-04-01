@@ -1,5 +1,5 @@
 %article{ id: "article-#{article.id}" }
-  %h1= link_to article.title, articles_path(article)
+  %h1= link_to article.title, article.url
   %h6
     :markdown
       posted in #{article.category}

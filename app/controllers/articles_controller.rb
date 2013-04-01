@@ -8,9 +8,6 @@ class ArticlesController < ApplicationController
   before_filter :block_rss, except: [:index]
   #caches_page :index, :category, :show, gzip: :best_speed
 
-  # Index page. Show snippets of all articles.
-  #
-  # GET /
   def index
     @articles = if search_params.any?
       Article.where(search_params)
@@ -23,20 +20,6 @@ class ArticlesController < ApplicationController
     respond_with @articles
   end
 
-  # Category index. Show snippets of all articles in a specific
-  # category.
-  #
-  # GET /gbs
-  def category
-    @category = params[:category]
-    @articles = Article.where(category: @category).all
-
-    respond_with @articles
-  end
-
-  # Show the full article.
-  #
-  # GET /gbs/2000/01/01/happy-new-year
   def show
     @with_id = if params[:id].present?
       params[:id]

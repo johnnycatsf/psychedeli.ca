@@ -9,7 +9,7 @@ class ArticleDecorator < Draper::Decorator
   end
 
   def category
-    h.link_to source.category, h.articles_path(category: source.category), class: 'category'
+    h.link_to source.category, h.category_path(source.category), class: 'category'
   end
 
   def content
@@ -32,7 +32,10 @@ class ArticleDecorator < Draper::Decorator
 
   def annotated_tags
     return "" if source.tags.nil?
-    source.tags.split(', ').map { |t| h.link_to "##{t}", h.articles_path(tag: t) }.join(' ')
+
+    source.tags.split(', ').map {
+      |tag| h.link_to "##{tag}", h.tag_path(tag) 
+    }.join(' ')
   end
 
   def comments
