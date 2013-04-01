@@ -19,11 +19,13 @@ class ArticleDecorator < Draper::Decorator
 
   # For truncated viewings
   def truncated_content
-    if paragraphs.count == 1
+    words = if paragraphs.count == 1
       paragraphs.first
     else
       paragraphs.second
     end
+
+    "<p>#{words}</p>"
   end
 
   def date
