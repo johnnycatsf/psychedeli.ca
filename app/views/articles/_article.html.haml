@@ -2,9 +2,9 @@
   %h1= link_to article.title, article.url
   %h6
     :markdown
-      posted in #{article.category}
+      posted in #{article.category_link}
       on #{article.date}
-    = article.tags
+    = article.tag_links
 
   - if truncated?
     = article.truncated_content.html_safe

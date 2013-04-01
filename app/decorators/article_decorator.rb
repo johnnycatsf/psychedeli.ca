@@ -8,17 +8,18 @@ class ArticleDecorator < Draper::Decorator
     end
   end
 
-  def category
+  def category_link
     h.link_to source.category, h.category_path(source.category), class: 'category'
   end
 
   def content
     h.render_copy("articles/content/#{source.id}").html_safe
   end
+  alias description content
 
   # For truncated viewings
   def truncated_content
-    content.split("</p>").first
+    content.split("<p>").first
   end
 
   def date
@@ -26,7 +27,7 @@ class ArticleDecorator < Draper::Decorator
     h.time_tag source.date
   end
 
-  def tags
+  def tag_links
     h.content_tag :div, annotated_tags.html_safe, class: 'tags'
   end
 
@@ -38,16 +39,12 @@ class ArticleDecorator < Draper::Decorator
     }.join(' ')
   end
 
-  def comments
-    h.link_to "Comments", "#comments", rel: 'modal', class: 'comments'
-  end
-
   def description
     h.render_copy "articles/content/#{source.id}"
   end
 
   def published_on
-    source.date.to_s(:rfc822)
+    source.date.to_s(:rfc822).strip
   end
 
   def url
