@@ -31,7 +31,7 @@ module ActiveCopy
                       options
                     end
 
-      self._accessible_attributes.each do |attribute| 
+      self._accessible_attributes.each do |attribute|
         class_eval do
           define_method(attribute) { @attributes[attribute] }
         end

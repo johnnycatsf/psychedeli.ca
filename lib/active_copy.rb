@@ -18,7 +18,7 @@ module ActiveCopy
 
   def self.content_path
     if Rails.env.test?
-      "test/fixtures"
+      "spec/fixtures"
     else
       "app/views"
     end

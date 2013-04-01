@@ -21,12 +21,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @with_id = if params[:id].present?
-      params[:id]
-    else
-      article_id_from_params
-    end
-    @article = ArticleDecorator.decorate Article.find(@with_id)
+    @article = ArticleDecorator.decorate Article.find by_article_id
 
     if @article.present? and not @article.nil?
       if use_layout?
@@ -69,6 +64,14 @@ private
       false
     else
       true
+    end
+  end
+
+  def by_article_id
+    if params[:id].present?
+      params[:id]
+    else
+      article_id_from_params
     end
   end
 
