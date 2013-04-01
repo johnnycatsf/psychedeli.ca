@@ -1,4 +1,4 @@
-module ApplicationHelper
+module MarkupHelper
   # Renders default HTML5 boilerplate +<meta>+ tags as well as custom
   # ones defined in the YAML, then it renders the CSRF meta tags
   # provided by Rails.

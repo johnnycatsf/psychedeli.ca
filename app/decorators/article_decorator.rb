@@ -26,7 +26,7 @@ class ArticleDecorator < Draper::Decorator
   end
 
   def annotated_tags
-    source.tags.split(', ').map { |t| h.link_to "##{t}", "##{t}" }.join(' ')
+    source.tags.split(', ').map { |t| h.link_to "##{t}", articles_path(tag: t) }.join(' ')
   end
 
   def comments
