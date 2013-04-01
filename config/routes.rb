@@ -4,5 +4,5 @@ Psychedelica::Application.routes.draw do
     collection { post :clear }
   end
   get "/:year/:month/:day/:title" => 'articles#show'
-  root to: "articles#index"
+  root to: "high_voltage/pages#show", id: 'about'
 end
