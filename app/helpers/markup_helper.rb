@@ -1,9 +1,4 @@
 module ApplicationHelper
-  # Return the very long URL for Twitter's @Anywhere JavaScript file.
-  def twitter_anywhere
-    'http://platform.twitter.com/anywhere.js?id=zDPeS1kInJZv5AigGRT1Dg&amp;v=1'
-  end
-
   # Renders default HTML5 boilerplate +<meta>+ tags as well as custom
   # ones defined in the YAML, then it renders the CSRF meta tags
   # provided by Rails.
@@ -19,6 +14,8 @@ module ApplicationHelper
     csrf_meta_tags
   end
 
+  # A helper method for prefetching static content, such as images
+  # or other media, that we use often.
   def prefetch_content at_location
     tag :link, rel: 'prefetch', href: at_location
   end
