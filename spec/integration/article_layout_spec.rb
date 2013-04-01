@@ -1,13 +1,13 @@
-require 'test_helper'
+require 'spec_helper'
 
-class ArticleLayoutTest < ActionDispatch::IntegrationTest
-  test "articles accessed normally load the layout" do
+describe "Article layouts" do
+  it "are shown when accessed normally" do
     get '/2000/01/01/happy-new-year'
 
     assert_template partial: 'articles/_article', layout: 'layouts/application'
   end
 
-  test "articles accessed by ajax do not load the layout" do
+  it "are not loaded when accessed with xml_http_request" do
     xhr :get, '/2000/01/01/happy-new-year'
 
     assert_template partial: 'articles/_article', layout: false
