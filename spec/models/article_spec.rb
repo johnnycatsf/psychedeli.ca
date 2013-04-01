@@ -8,7 +8,7 @@ describe Article do
     @article.should be_present
   end
 
-  it "reads the yaml front matter as a hash" do
+  it "parses out yaml front matter into a hash" do
     @article.attributes.should be_a Hash
     @article.attributes.keys.should include(:title)
   end
@@ -17,7 +17,7 @@ describe Article do
     @article.title.should == "happy new year!"
   end
 
-  it "can read the article body" do
+  it "has the correct article body" do
     @article.source.should =~ /#{body}/o
   end
 
