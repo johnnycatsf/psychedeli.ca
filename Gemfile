@@ -20,6 +20,7 @@ gem 'pjax_rails'
 gem 'zurb-foundation'
 gem 'sumatra-rails', github: 'tubbo/sumatra-rails'
 gem 'compass-rails'
+gem 'high_voltage'
 
 # active_copy
 gem 'liquid'
@@ -29,8 +30,11 @@ gem 'redcarpet'
 # Application Web Server
 gem 'thin'
 
-group :development do
+group :development, :test do
   gem 'pry-rails'
+end
+
+group :development do
   gem 'better_errors'
   gem 'meta_request'
 end
