@@ -10,7 +10,7 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = if search_params.any?
-      Article.where(search_params)
+      Article.where(search_params).reverse
     else
       Article.latest.first 5
     end

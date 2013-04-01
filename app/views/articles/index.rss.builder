@@ -8,10 +8,10 @@ xml.rss :version => "2.0" do
     articles.each do |article|
       xml.item do
         xml.title article.title
-        xml.description article.description
         xml.pubDate article.published_on
         xml.link article.url
-        xml.guid article.path
+        xml.guid article.url
+        xml.description article.description
       end
     end
   end
