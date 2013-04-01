@@ -12,7 +12,13 @@ class ArticlesController < ApplicationController
   #
   # GET /
   def index
-    @articles = Article.latest
+    @articles = if search_params.any?
+      Article.where(search_params)
+    else
+      Article.latest.first 5
+    end
+
+    render 'empty' and return if @articles.nil? || @articles.empty?
 
     respond_with @articles
   end
@@ -95,5 +101,10 @@ private
   def block_rss
     respond_with 'error', alert: "Invalid format.", status: 406 \
       and return if params[:format] == 'rss'
+  end
+
+  def search_params
+    ActiveSupport::HashWithIndifferentAccess.new \
+      params.select { |key,value| "#{key}" =~ /category|tag/ }
   end
 end

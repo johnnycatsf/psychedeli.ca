@@ -4,4 +4,7 @@
     = article.posted_in_category_on_date
     = article.tags
 
-  = render_copy "articles/content/#{article.id}"
+  - if truncated?
+    = article.content_before_first_h2.html_safe
+  - else
+    = article.content

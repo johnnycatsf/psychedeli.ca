@@ -16,6 +16,15 @@ class ArticleDecorator < Draper::Decorator
     h.content_tag :span, source.category, class: 'category'
   end
 
+  def content
+    h.render_copy("articles/content/#{source.id}").html_safe
+  end
+
+  # For truncated viewings
+  def content_before_first_h2
+    content.split("<h2>").first
+  end
+
   def date
     #date_string = source.date.strftime('%m/%d/%y')
     h.time_tag source.date
@@ -26,7 +35,8 @@ class ArticleDecorator < Draper::Decorator
   end
 
   def annotated_tags
-    source.tags.split(', ').map { |t| h.link_to "##{t}", articles_path(tag: t) }.join(' ')
+    return "" if source.tags.nil?
+    source.tags.split(', ').map { |t| h.link_to "##{t}", h.articles_path(tag: t) }.join(' ')
   end
 
   def comments

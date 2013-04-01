@@ -9,4 +9,12 @@ module ArticlesHelper
 
     ArticleDecorator.decorate_collection @articles
   end
+
+  def truncated?
+    if controller.controller_name == 'articles' && controller.action_name == 'index'
+      true
+    else
+      false
+    end
+  end
 end

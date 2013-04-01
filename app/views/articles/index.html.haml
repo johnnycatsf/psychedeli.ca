@@ -1,2 +1,2 @@
-#about
-  = render_copy 'pages/content/about'
+- articles.each do |article|
+  = render 'article', article: article
