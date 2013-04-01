@@ -10,9 +10,17 @@ describe ArticleDecorator do
   end
 
   context "markdown content" do
-    it "renders to escaped html for web browsers"
-    it "renders to unescaped html for rss feeds"
-    it "can be truncated after the first paragraph"
+    it "renders to escaped html for web browsers" do
+      subject.content.should_not be_empty
+    end
+
+    it "renders to unescaped html for rss feeds" do
+      subject.description.should == subject.content
+    end
+
+    it "can be truncated after the first paragraph" do
+      subject.truncated_content.should == subject.content.split('<p>').first
+    end
   end
 
   context "date" do
