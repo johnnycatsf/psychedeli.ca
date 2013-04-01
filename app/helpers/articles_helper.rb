@@ -8,4 +8,10 @@ module ArticlesHelper
   def show_menu?
     @show_menu || false
   end
+
+  def articles
+    @articles ||= Article.latest
+
+    ArticleDecorator.decorate_collection @articles
+  end
 end

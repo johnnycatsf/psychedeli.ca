@@ -12,7 +12,8 @@ class ArticlesController < ApplicationController
   #
   # GET /
   def index
-    @articles = ArticleDecorator.decorate_collection Article.latest
+    @articles = Article.latest
+
     respond_with @articles
   end
 
@@ -22,8 +23,7 @@ class ArticlesController < ApplicationController
   # GET /gbs
   def category
     @category = params[:category]
-    @articles = ArticleDecorator.decorate_collection \
-      Article.where(category: @category).all
+    @articles = Article.where(category: @category).all
 
     respond_with @articles
   end
