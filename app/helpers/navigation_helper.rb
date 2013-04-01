@@ -1,11 +1,17 @@
 module NavigationHelper
   # Social networking buttons.
   def button_for network, account, options={}
-    profile = "http://#{network}.com/#{account}"
-    options.merge! class: 'social' unless options[:class] =~ /rss/
+    options = account if network == :rss
+    style = 'social'
+    profile = if network == :rss
+      style = 'rss'
+      feedburner_path
+    else
+      "http://#{network}.com/#{account}"
+    end
 
     content_tag(:li) do
-      social_link_to logo_for(network), profile, options
+      social_link_to logo_for(network), profile, options.merge(class: style)
     end
   end
 
@@ -15,17 +21,12 @@ module NavigationHelper
     link_to image, profile, options
   end
 
-  def rss_button options={}
-    options.merge! rss_options.merge(class: 'rss')
-    button_for 'rss', rss_feed_path, options.merge(rss_options)
-  end
-
   def feedburner_link_tag
     tag :link, \
       rel: 'alternate',
       type: 'application/rss+xml',
       title: 'psychedeli.ca',
-      href: rss_feed_path
+      href: feedburner_path
   end
 
 private
@@ -33,15 +34,7 @@ private
     image_tag "social/#{network_name}.png"
   end
 
-  def rss_feed_path
-    'http://feeds.feedburner.com/psychedelica-berserk'
-  end
-
-  # View-layer cache of RSS options in the +<a>+ tag for the feed.
-  def rss_options
-    {
-      rel: "alternate",
-      type: "application/rss+xml"
-    }
+  def feedburner_path
+    "http://feeds.feedburner.com/psychedelica-berserk"
   end
 end

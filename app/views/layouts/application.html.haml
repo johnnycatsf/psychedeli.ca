@@ -14,10 +14,10 @@
       .large-12.columns
         .nav-bar.right
           %ul.button-group
-            = button_for 'facebook', 'wonderbars', title: "The music I make"
-            = button_for 'twitter', 'tubbo', title: "The things I say"
-            = button_for 'github', 'tubbo', title: "The work I've done"
-            = rss_button title: "The prose I write"
+            = button_for :facebook, 'wonderbars', title: "The music I make"
+            = button_for :twitter, 'tubbo', title: "The things I say"
+            = button_for :github, 'tubbo', title: "The work I've done"
+            = button_for :rss, title: "The prose I write", rel: 'alternate', type: 'application/rss+xml'
         %h1
           =link_to 'psychedeli.ca', root_path
           %small 100% Pure Beard
