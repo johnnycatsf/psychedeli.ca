@@ -8,12 +8,8 @@ class ArticleDecorator < Draper::Decorator
     end
   end
 
-  def posted_in_category_on_date
-    "posted in #{category} on #{date}.".html_safe
-  end
-
   def category
-    h.content_tag :span, source.category, class: 'category'
+    h.link_to source.category, h.articles_path(category: source.category), class: 'category'
   end
 
   def content
@@ -21,8 +17,8 @@ class ArticleDecorator < Draper::Decorator
   end
 
   # For truncated viewings
-  def content_before_first_h2
-    content.split("<h2>").first
+  def truncated_content
+    content.split("</p>").first
   end
 
   def date

@@ -1,10 +1,12 @@
 %article{ id: "article-#{article.id}" }
   %h1= link_to article.title, articles_path(article)
   %h6
-    = article.posted_in_category_on_date
+    :markdown
+      posted in #{article.category}
+      on #{article.date}
     = article.tags
 
   - if truncated?
-    = article.content_before_first_h2.html_safe
+    = article.truncated_content.html_safe
   - else
     = article.content
