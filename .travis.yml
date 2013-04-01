@@ -4,7 +4,7 @@ env:
 language: ruby
 rvm: 1.9.3
 bundler_args: "--without=development"
-script: "bundle exec rake test"
+script: "bundle exec rspec"
 
 # Deploy to heroku when a build succeeds
 after_success:
