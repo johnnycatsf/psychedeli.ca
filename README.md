@@ -33,7 +33,10 @@ Design
 
 I used [Zurb Foundation][zurb] and their boilerplate templates to build out
 the latest redesign of the blog, and [Sumatra][sum] to write the [jQuery][jq]
-plugins used throughout the blog. Except the tooltips.
+plugins used throughout the blog. Except the tooltips. I like Foundation
+because it's native to [Sass][sass], which is what I write my CSS in, and
+because it was really easy to get started in Rails, using their excellent
+gem and guide on how to do it.
 
 Roadmap
 -------
@@ -44,14 +47,9 @@ Roadmap
 [sass]: http://sass-lang.com
 [jq]: http://jquery.com
 [jek]: http://github.com/mojombo/jekyll
-[fork]: http://github.com/tubbo/jekyll
-[liq]: http://github.com/shopify/liquid
 [md]: http://daringfireball.net/projects/markdown/
-[sprk]: https://github.com/sstephenson/sprockets
-[rts]: https://github.com/rack/rack-contrib/pull/13
-[cap]: https://github.com/capistrano/capistrano/wiki/Documentation-v2.x
-[tckr]: https://github.com/tubbo/psychedeli.ca/blob/master/app/js/jquery.ticker.js
 [rake]: http://rake.rubyforge.org
 [ac]: http://psychedeli.ca/tag/active_copy
 [yfm]: https://github.com/mojombo/jekyll/wiki/YAML-Front-Matter
 [sum]: http://www.psychedeli.ca/2013/03/25/writing-jquery-plugins-with-coffeescript
+[zurb]: http://foundation.zurb.com
