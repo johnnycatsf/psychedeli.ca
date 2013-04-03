@@ -16,42 +16,42 @@ used Sprockets to package assets on the fly. After cobbling around with
 that setup for a year or so, I began to learn more about how to
 "minimize" a Rails app's footprint for better performance. So instead of
 wrestling with Jekyll to get it to function the way I wanted, I
-implemented its concepts directly into the Rails framework
+implemented its concepts directly into the Rails framework.
 
 Content
 -------
 
-Content delivery is powered by [ActiveCopy][ac], a library I wrote to
-sort-of emulate [Jekyll][jek] in the Rails ecosystem. Basically, you
-generate models called "documents" that behave just like `ActiveRecord`
-models, but instead of looking up information from the database, they
-read [Markdown][md] and [YAML front matter][yfm] from the **app/documents** 
-folder of your application. Just like with Jekyll, a simple `git push &&
-cap deploy` will post a new article to the server *and* precompile each
-page. `ActiveCopy` controllers use a custom `ActionView` handler to generate
-HTML from Markdown using the powerful Redcarpet engine, and since the
-controller is by design caching every page in production, the pages or
-articles you generate using ActiveCopy are precompiled into HTML on
-deployment. With just a little server-side configuration, you can mix
-the power of Jekyll's static site generation with the amazing
-server-side capabilities of the Rails stack.
+Content delivery is powered by [ActiveCopy][ac], a [Jekyll][jek]-inspired
+library I wrote that allows you to store copy content in [Markdown][md],
+and use [YAML front matter][yfm] for basic flat file data storage in those
+files. Content is stored in **app/views/<your-model>/content**, and the model
+representing each article inherits from `ActiveCopy::Base`, pretty much
+enforcing a single data model.
+
+Design
+------
+
+I used [Zurb Foundation][zurb] and their boilerplate templates to build out
+the latest redesign of the blog, and [Sumatra][sum] to write the [jQuery][jq]
+plugins used throughout the blog. Except the tooltips.
 
 Roadmap
 -------
 
-- Fix `GET /status.json`
-- Add `jQuery.ticker` plugin for reading JSON data.
+- Write tests for ActiveCopy
+- Extract ActiveCopy into its own gem
 
 [sass]: http://sass-lang.com
 [jq]: http://jquery.com
 [jek]: http://github.com/mojombo/jekyll
 [fork]: http://github.com/tubbo/jekyll
 [liq]: http://github.com/shopify/liquid
-[ku]: http://heroku.com
-[pow]: http://pow.cx
 [md]: http://daringfireball.net/projects/markdown/
 [sprk]: https://github.com/sstephenson/sprockets
 [rts]: https://github.com/rack/rack-contrib/pull/13
 [cap]: https://github.com/capistrano/capistrano/wiki/Documentation-v2.x
 [tckr]: https://github.com/tubbo/psychedeli.ca/blob/master/app/js/jquery.ticker.js
 [rake]: http://rake.rubyforge.org
+[ac]: http://psychedeli.ca/tag/active_copy
+[yfm]: https://github.com/mojombo/jekyll/wiki/YAML-Front-Matter
+[sum]: http://www.psychedeli.ca/2013/03/25/writing-jquery-plugins-with-coffeescript
