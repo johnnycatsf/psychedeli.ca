@@ -3,11 +3,23 @@ class Article < ActiveCopy::Base
   attr_accessible :layout, :title, :category, :date, :tags, :hn_item_id, :published
   include Draper::Decoratable
 
-  # Sort Articles by date, ascending.
+  # Sort published Articles by date, ascending.
   def self.latest
-    all.select { |article| article.present? }.sort { |prev_article, next_article|
+    published.sort { |prev_article, next_article|
       next_article.date <=> prev_article.date
     }
+  end
+
+  def self.published
+    all.select { |article| article.present? && article.published? }
+  end
+
+  # Returns whether this article is `published`. If no property called
+  # published is defined in the Front Matter, this just defaults to
+  # +true+.
+  def published?
+    return true if published.nil?
+    published
   end
 
   # Test whether this Article was (knowingly) posted to Hacker News.

@@ -9,6 +9,7 @@ module ActiveCopy
     end
 
     it "finds the right folder to read source files from" do
+      BasicPage.absolute_collection_path.should =~ /\A#{Rails.root}/o
       page.collection_path.should == "spec/fixtures/basic_pages/content"
     end
 
@@ -22,6 +23,10 @@ module ActiveCopy
 
     it "returns the correct partial path" do
       page.to_partial_path.should == "basic_pages/basic_page"
+    end
+
+    it "finds the basic_page that we just made" do
+      BasicPage.all.map(&:id).should include(page.id)
     end
   end
 end
