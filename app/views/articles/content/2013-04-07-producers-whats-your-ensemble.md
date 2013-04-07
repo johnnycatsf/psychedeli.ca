@@ -1,6 +1,6 @@
 ---
 layout: post
-title: producers: what's your ensemble?
+title: "producers: what's your ensemble?"
 category: music
 date: 2013-04-07
 tags: production, composition, technique
