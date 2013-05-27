@@ -2,7 +2,7 @@
 layout: post
 title: "producers: what's your ensemble?"
 category: music
-date: 2013-04-07
+date:
 tags: production, composition, technique
 published: false
 ---
