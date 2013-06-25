@@ -17,4 +17,10 @@ module ArticlesHelper
       false
     end
   end
+
+  # Search params will be present if we are performing a search. Set in the controller.
+  # Whe the ivar is not set, we are not performing a search.
+  def searching?
+    @search || false
+  end
 end

@@ -41,8 +41,9 @@
           [git]: http://github.com/tubbo
           [label]: http://waxpoeticrecords.com
 
-        %h5= t "articles.recent.#{controller.action_name}_title"
-        = render 'articles/menu'
+        - if searching?
+          %h5= t "articles.recent.#{controller.action_name}_title"
+          = render 'articles/menu'
         - unless articles.count == Article.latest.count
           %h5= t "articles.recent.show_title"
           - @articles = Article.latest

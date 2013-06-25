@@ -10,8 +10,10 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = if search_params.any?
+      @search = true
       Article.where(search_params).reverse
     else
+      @search = false
       Article.latest.first 5
     end
     @category = params[:category]
@@ -61,6 +63,11 @@ class ArticlesController < ApplicationController
   end
 
 private
+  def search_params
+    ActiveSupport::HashWithIndifferentAccess.new \
+      params.select { |key,value| "#{key}" =~ /category|tag/ }
+  end
+
   def use_layout?
     if request.xhr?
       false
@@ -91,8 +98,4 @@ private
       and return if params[:format] == 'rss'
   end
 
-  def search_params
-    ActiveSupport::HashWithIndifferentAccess.new \
-      params.select { |key,value| "#{key}" =~ /category|tag/ }
-  end
 end

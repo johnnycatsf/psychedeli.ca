@@ -1,5 +1,6 @@
 Psychedelica::Application.routes.draw do
-  get "/status.json" => 'status#index', format: :json
+  #get "/status.json" => 'status#index', format: :json
+
   resources :articles, only: [:index, :show] do
     collection { post :clear }
   end
@@ -8,5 +9,7 @@ Psychedelica::Application.routes.draw do
   get "/:category" => 'articles#index', :as => :category
   get "/tag/:tag" => 'articles#index', :as => :tag
 
-  root to: "high_voltage/pages#show", id: 'about'
+  get '/info/:id' => 'high_voltage/pages#show'
+
+  root to: 'articles#index'
 end
