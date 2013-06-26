@@ -1,14 +1,14 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.13'
+gem 'rails', '4.0.0'
 gem 'pg'
 gem 'newrelic_rpm'
 gem 'airbrake'
 
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'uglifier', '>= 1.0.3'
+  gem 'sass-rails',   '~> 4.0'
+  gem 'coffee-rails', '~> 4.0'
+  gem 'uglifier', '>= 1.3'
 end
 
 # views
@@ -18,7 +18,7 @@ gem 'underscore-rails'
 gem 'draper'
 gem 'pjax_rails'
 gem 'zurb-foundation'
-gem 'sumatra-rails', github: 'tubbo/sumatra-rails'
+gem 'sumatra-rails', '0.0.6.1'
 gem 'high_voltage'
 
 # active_copy
@@ -43,4 +43,8 @@ end
 
 group :development, :test do
   gem 'pry-rails'
+end
+
+group :doc do
+  gem 'sdoc'
 end
