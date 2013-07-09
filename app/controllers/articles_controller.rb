@@ -6,7 +6,7 @@
 class ArticlesController < ApplicationController
   respond_to :html, :rss
   before_filter :block_rss, except: [:index]
-  #caches_page :index, :category, :show, gzip: :best_speed
+  caches_page :index, :category, :show, gzip: :best_speed
 
   def index
     @articles = if search_params.any?
