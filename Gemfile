@@ -4,30 +4,35 @@ gem 'rails', '4.0.0', require: false
 gem 'pg'
 gem 'newrelic_rpm'
 gem 'airbrake'
+gem 'thin'
 
 group :assets do
+  gem 'jquery-rails'
   gem 'sass-rails',   '~> 4.0'
   gem 'coffee-rails', '~> 4.0'
   gem 'uglifier', '>= 1.3'
+  gem 'pjax_rails' # TODO: used?
+  gem 'sumatra-rails', '0.0.6.1'
+  gem 'underscore-rails'
+  gem 'zurb-foundation'
+  gem 'foundation-icons-sass-rails'
 end
 
-# views
-gem 'jquery-rails'
-gem "haml-rails", '~> 0.4'
-gem 'underscore-rails'
-gem 'draper'
-gem 'pjax_rails'
-gem 'zurb-foundation'
-gem 'sumatra-rails', '0.0.6.1'
-gem 'high_voltage'
+group :views do
+  gem "haml-rails", '~> 0.4'
+  gem 'draper'
+  gem 'high_voltage'
+end
 
-# active_copy
-gem 'liquid'
-gem 'pygments.rb', '~> 0.3'
-gem 'redcarpet'
+group :active_copy do
+  gem 'liquid'
+  gem 'pygments.rb', '~> 0.3'
+  gem 'redcarpet'
+end
 
-# Application Web Server
-gem 'thin'
+group :doc do
+  gem 'sdoc'
+end
 
 group :development do
   gem 'meta_request'
@@ -44,6 +49,4 @@ group :development, :test do
   gem 'pry-rails'
 end
 
-group :doc do
-  gem 'sdoc'
-end
+

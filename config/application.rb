@@ -3,16 +3,16 @@ $LOAD_PATH << File.expand_path('../../lib', __FILE__)
 require File.expand_path('../boot', __FILE__)
 
 require 'bundler/setup'
-require 'rails'
-require 'action_controller/railtie'
-require 'sprockets/railtie'
+require 'rails/all'
+#require 'action_controller/railtie'
+#require 'sprockets/railtie'
 
 require 'link_to_tent'
 require 'active_copy'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
-Bundler.require :default, Rails.env
+Bundler.require :default, :assets, :views, Rails.env
 
 module Psychedelica
   class Application < Rails::Application
