@@ -1,15 +1,10 @@
+require 'active_model'
 require 'active_copy/attributes'
 
 # Base class for an +ActiveCopy+ model.
 module ActiveCopy
   class Base
-    extend ActiveModel::Naming
-    extend ActiveModel::Callbacks
-
-    include ActiveModel::Serialization
-    include ActiveModel::Validations
-    include ActiveModel::Conversion
-
+    include ActiveModel::Model
     include ActiveCopy::Attributes
 
     attr_reader :attributes, :id, :collection_path

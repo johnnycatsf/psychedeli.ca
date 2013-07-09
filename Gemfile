@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.0.0'
+gem 'rails', '4.0.0', require: false
 gem 'pg'
 gem 'newrelic_rpm'
 gem 'airbrake'
