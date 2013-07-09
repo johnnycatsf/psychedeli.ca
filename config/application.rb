@@ -36,5 +36,7 @@ module Psychedelica
 
     # Route Tent requests to the tentd on psychedeli.ca
     config.middleware.use LinkToTent
+
+    config.metadata = YAML::load_file "#{Rails.root}/config/metadata.yml"
   end
 end
