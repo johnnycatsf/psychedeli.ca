@@ -31,3 +31,8 @@ doc/
 # Generated content
 public/assets
 vendor/slash/
+
+/bin/rails
+/bin/rake
+
+/vendor/gems
