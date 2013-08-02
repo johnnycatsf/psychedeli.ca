@@ -6,4 +6,4 @@ require File.expand_path('../config/application', __FILE__)
 
 Psychedelica::Application.load_tasks
 
-task :default => ["test", "articles", "server"]
+task :default => %w(test server)
