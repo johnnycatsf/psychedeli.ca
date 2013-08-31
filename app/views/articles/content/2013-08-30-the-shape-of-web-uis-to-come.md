@@ -6,6 +6,13 @@ date: 2013-08-30
 tags: javascript, ember.js, emberscript, emblem, waxpoetic
 ---
 
+**NOTE:** This post is written from the perspective of a
+[Ruby on Rails][rails] developer, using [ember-rails][ember-rails] to
+generate my content and [ActiveModel::Serializers][ams] for constructing
+my HTTP API.
+
+* * *
+
 Recently, I've been very interested in the development of the
 [Ember.js][ember] framework, which has grown rapidly in the 3 years or
 so that I've known it. We've seen [great apps][discourse] being made
@@ -105,21 +112,72 @@ class App.Person extends DS.Model
   lastName: DS.attr 'string'
   name: ~> "#{@firstName} #{@lastName}"
 
-$ -> # wouldn't really do this, just pseudocode for "runtime"
+$ -> # blah blah apologizing comment
   person = App.Person.find(1)
   alert person.name
 ```
 
-Wow! That's just *two* lines of code to create and display a simple
-computed property! Compared to the 3 lines just to define one (in a
-readable manner...without having to cache the attributes to local
-values for speed purposes). It's 
+Wow, that's more like it! We define the method just like CoffeeScript,
+except with a special `~>` operator that defines functions wrapped in
+the `.property()` method. Also something that's missing is the
+dependencies declared in the arguments to `property()`. That's because
+EmberScript automatically defers dependencies for computed properties.
+Now that's what I call progress.
+
+There's a lot more you can do. Check out the site for everything. Some
+other highlights:
+
+* Directives for observers (`+observer`)
+* The `mixin` keyword for defining mixins
+* The `with` suffix of `extends` that allow you to compose your Ember
+  objects using mixins
+
+In my opinion, the combination of Ember.js and EmberScript is already a
+major productivity boost. But we can go even further.
 
 ## moving past handlebars
 
-[ember]: http://emberjs.com
-[discourse]: http://discourse.com
+Ember uses [Handlebars.js][handlebars] as a templating language for
+"sprucing up" your markup. They're mostly static templates, but they do
+have some dynamic qualities like basic conditionals and loops for
+visualizing collections of data. Handlebars is great, but much like
+[Ruby][ruby] has [Haml][haml], someone's gone along and coded a
+replacement for Ember called [Emblem.js][emblem].
+
+Emblem is unlike a lot of other templating languages, because it
+actually compiles down to Handlebars, which is used as the static
+templating language on the client side. Like EmberScript, Emblem is
+somewhat of a DSL for writing Ember apps, except Emblem takes care of
+the templating layer. Since it compiles to Handlebars, it's possible to
+use both custom Handlebars helpers and the ones you use from a 3rd-party
+(or Ember itself).
+
+## in the wild
+
+The best example I can give is the one I'm currently working on, the
+official site of [wax poetic records][waxpoetic]. It's built entirely
+with Ember/EmberScript/Emblem.js, with a light backend written in Ruby
+on Rails. It also uses the excellent [Zurb Foundation][foundation] CSS
+framework, also in use on this blog. Check it out, and if you see
+anything wrong, [file an issue][waxpoetic-issues]. I've made the
+[source code][waxpoetic-source] available on GitHub if you're interested
+in seeing how an app like this can be written.
+
+## one more thing..
+
+I haven't been able to get EmberScript working with Rails 4, but that's
+a project I'm going to tackle this weekend. Also, it doesn't seem as
+though `therubyracer` is supported, so uhh...install Node.js. :)
+
+[ember]: http://emberjs.com/
+[discourse]: http://discourse.com/
 [eviltrout]: http://eviltrout.com/2013/03/23/ember-without-data.html
 [ember-routing]: http://emberjs.com/guides/routing/
 [forthcoming]: http://github.com/tubbo/forthcoming
 [ghempton]: https://github.com/ghempton
+[handlebars]: http://handlebarsjs.com/
+[ruby]: http://ruby-lang.org/
+[haml]: http://haml-lang.org/
+[emblem]: http://emblemjs.com/
+[rails]: http://rubyonrails.org/
+[ember-rails]: http://github.com/emberjs/ember-rails
