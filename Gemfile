@@ -16,7 +16,7 @@ group :assets do
   gem 'pjax_rails' # TODO: used?
   gem 'sumatra-rails', '0.0.6.1'
   gem 'underscore-rails'
-  gem 'zurb-foundation'
+  gem 'zurb-foundation', '~> 4.0'
   gem 'foundation-icons-sass-rails'
 end
 

@@ -169,6 +169,7 @@ I haven't been able to get EmberScript working with Rails 4, but that's
 a project I'm going to tackle this weekend. Also, it doesn't seem as
 though `therubyracer` is supported, so uhh...install Node.js. :)
 
+[ams]: http://github.com/rails-api/active_model_serializers
 [ember]: http://emberjs.com/
 [discourse]: http://discourse.com/
 [eviltrout]: http://eviltrout.com/2013/03/23/ember-without-data.html
