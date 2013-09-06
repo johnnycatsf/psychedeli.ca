@@ -36,3 +36,4 @@ vendor/slash/
 /bin/rake
 
 /vendor/gems
+.rspec

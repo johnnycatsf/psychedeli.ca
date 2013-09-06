@@ -1,6 +1,6 @@
 env:
   global:
-    secure: "lPXozEpZZBFF1VcnKtzAm2l9qeHmDtOuF2SxKBWyltkAI8Fs8X0OOzqgD276\nI58PQKct2ysgOHfV/NHhf53J0T0i3lOFw8y4t0YtK5NS0Y70ZWL1dBcM9PFY\naVgqHOUTFXvMOUx5KuUGBWmr/6wNkxh1rhe8130v21n5woyxvTk="
+    secure: "IIJAZjKn1snxZlz8Ngio2iirUwctv+WN0nqIJxQpM65a0/UUvLTHZGCX6mSg\n2J+xyX8XFecd0ukOmjdKXz8UAnKq2nTD72KMIdCRqAgIxEZv3SmcD9eG05jJ\nOK6Lb7uwVbwuW0Ld/sZbmZ8B3f+qXmRSvFmo3pktsiPSkfTyWwE="
 language: ruby
 rvm: 1.9.3
 bundler_args: "--without=development"
