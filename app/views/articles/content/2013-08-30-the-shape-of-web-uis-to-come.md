@@ -6,13 +6,6 @@ date: 2013-08-30
 tags: javascript, ember.js, emberscript, emblem, waxpoetic
 ---
 
-**NOTE:** This post is written from the perspective of a
-[Ruby on Rails][rails] developer, using [ember-rails][ember-rails] to
-generate my content and [ActiveModel::Serializers][ams] for constructing
-my HTTP API.
-
-* * *
-
 Recently, I've been very interested in the development of the
 [Ember.js][ember] framework, which has grown rapidly in the 3 years or
 so that I've known it. We've seen [great apps][discourse] being made
@@ -24,6 +17,14 @@ I took a second look at Ember after they released their new
 wrote while [developing a simple application][forthcoming]. But the way
 that Ember worked flies in the face with one of my other favorite
 tools...
+
+* * *
+
+**NOTE:** This post is written from the perspective of a
+[Ruby on Rails][rails] developer, using [ember-rails][ember-rails] to
+generate my content and [ActiveModel::Serializers][ams] for constructing
+my HTTP API.
+
 
 ## ember and coffeescript
 
