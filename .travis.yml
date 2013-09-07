@@ -31,4 +31,4 @@ after_success:
   # Push to Heroku!
   - "yes | git push heroku master"
   # Notify Airbrake of deploy
-  - "bundle exec rake airbrake:deploy"
+  - "yes | bundle exec rake airbrake:deploy"
