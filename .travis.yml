@@ -1,6 +1,13 @@
 env:
   global:
     secure: "IIJAZjKn1snxZlz8Ngio2iirUwctv+WN0nqIJxQpM65a0/UUvLTHZGCX6mSg\n2J+xyX8XFecd0ukOmjdKXz8UAnKq2nTD72KMIdCRqAgIxEZv3SmcD9eG05jJ\nOK6Lb7uwVbwuW0Ld/sZbmZ8B3f+qXmRSvFmo3pktsiPSkfTyWwE="
+    secure: ""
+    - "RAILS_ENV=test"
+    - "API_KEY=$AIRBRAKE_API_KEY"
+    - "TO=$RAILS_ENV"
+    - "REVISION=$(git rev-parse HEAD)"
+    - "REPO=psychedeli.ca"
+
 language: ruby
 rvm: 1.9.3
 bundler_args: "--without=development"
@@ -23,3 +30,5 @@ after_success:
   - "yes | heroku keys:add"
   # Push to Heroku!
   - "yes | git push heroku master"
+  # Notify Airbrake of deploy
+  - "bundle exec rake airbrake:deploy"

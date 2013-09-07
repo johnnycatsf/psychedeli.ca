@@ -51,4 +51,6 @@ group :development, :test do
   gem 'teaspoon'
 end
 
-
+group :production do
+  gem 'airbrake'
+end
