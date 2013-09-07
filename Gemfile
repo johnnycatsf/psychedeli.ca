@@ -6,7 +6,6 @@ gem 'pg'
 gem 'newrelic_rpm'
 gem 'airbrake'
 gem 'thin'
-gem 'actionpack-page_caching'
 
 group :assets do
   gem 'jquery-rails'
