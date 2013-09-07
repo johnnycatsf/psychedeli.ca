@@ -1,13 +1,7 @@
 env:
   global:
-    secure:
-      - "YrDDQkvGMzT1I0I31Shmx0dL+7scjodXO7Y/EekpR7leQ0ylcU+NpXyGI9bAy0NUz6NkBm7IKyEclT6xAAYNmBqZyzuRkFGvjKb+FCwI7yXcvsr6mCzL6v/o2bR6orlxnPGAaNASwTqMHeMyHROQ8cAOCbb6kQH2pnMbepregh4"
-      - "V8M23FOC90lPkVqZM0Ot6gDwqJFeWpoNcUsthmrB/25P7cVGEhZPogSGTjjuwUsXeLdCMthVOM0QBq/eQEH+V7EQhX44RF8ReyHpNKluVYzNKOU224EmrQrxKqX+hLPH4lOU3ryfuYlNpKbrANIVDDo3MGxyzZ4mOU1an1h0LyE"
-    - "RAILS_ENV=test"
-    - "API_KEY=$AIRBRAKE_API_KEY"
-    - "TO=$RAILS_ENV"
-    - "REVISION=$(git rev-parse HEAD)"
-    - "REPO=psychedeli.ca"
+    secure: "YrDDQkvGMzT1I0I31Shmx0dL+7scjodXO7Y/EekpR7leQ0ylcU+NpXyGI9bAy0NUz6NkBm7IKyEclT6xAAYNmBqZyzuRkFGvjKb+FCwI7yXcvsr6mCzL6v/o2bR6orlxnPGAaNASwTqMHeMyHROQ8cAOCbb6kQH2pnMbepregh4"
+    secure: "V8M23FOC90lPkVqZM0Ot6gDwqJFeWpoNcUsthmrB/25P7cVGEhZPogSGTjjuwUsXeLdCMthVOM0QBq/eQEH+V7EQhX44RF8ReyHpNKluVYzNKOU224EmrQrxKqX+hLPH4lOU3ryfuYlNpKbrANIVDDo3MGxyzZ4mOU1an1h0LyE"
 
 language: ruby
 rvm: 1.9.3
@@ -32,4 +26,4 @@ after_success:
   # Push to Heroku!
   - "yes | git push heroku master"
   # Notify Airbrake of deploy
-  - "yes | bundle exec rake airbrake:deploy"
+  - "yes | bundle exec rake airbrake:deploy API_KEY=$AIRBRAKE_API_KEY TO=$RAILS_ENV REVISION=$(git rev-parse HEAD) REPO=psychedeli.ca"
