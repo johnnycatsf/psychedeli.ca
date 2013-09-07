@@ -5,7 +5,8 @@ gem 'rails', '4.0.0', require: false
 gem 'pg'
 gem 'newrelic_rpm'
 gem 'airbrake'
-gem 'thin'
+gem 'puma'
+gem 'foreman'
 
 group :assets do
   gem 'jquery-rails'

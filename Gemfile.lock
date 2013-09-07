@@ -50,8 +50,8 @@ GEM
     coffee-script-source (1.6.3)
     crack (0.4.0)
       safe_yaml (~> 0.9.0)
-    daemons (1.1.9)
     diff-lcs (1.2.4)
+    dotenv (0.9.0)
     draper (1.2.1)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
@@ -62,6 +62,9 @@ GEM
       multi_json (~> 1.0)
     faye-websocket (0.4.7)
       eventmachine (>= 0.12.0)
+    foreman (0.63.0)
+      dotenv (>= 0.7)
+      thor (>= 0.13.6)
     foundation-icons-sass-rails (2.0.0)
       railties (>= 3.1.1)
       sass-rails (>= 3.1.1)
@@ -113,6 +116,8 @@ GEM
       slop (~> 3.4)
     pry-rails (0.3.1)
       pry (>= 0.9.10)
+    puma (2.5.1)
+      rack (>= 1.1, < 2.0)
     pygments.rb (0.5.1)
       posix-spawn (~> 0.3.6)
       yajl-ruby (~> 1.1.0)
@@ -176,10 +181,6 @@ GEM
     teaspoon (0.7.4)
       phantomjs (>= 1.8.1.1)
       railties (>= 3.2.5, < 5)
-    thin (1.5.1)
-      daemons (>= 1.0.9)
-      eventmachine (>= 0.12.6)
-      rack (>= 1.0.0)
     thor (0.18.1)
     thread_safe (0.1.0)
       atomic
@@ -210,6 +211,7 @@ DEPENDENCIES
   capybara
   coffee-rails (~> 4.0)
   draper
+  foreman
   foundation-icons-sass-rails
   haml-rails (~> 0.4)
   high_voltage
@@ -220,6 +222,7 @@ DEPENDENCIES
   pg
   pjax_rails
   pry-rails
+  puma
   pygments.rb (~> 0.3)
   rails (= 4.0.0)
   redcarpet
@@ -228,7 +231,6 @@ DEPENDENCIES
   sdoc
   sumatra-rails (= 0.0.6.1)
   teaspoon
-  thin
   uglifier (>= 1.3)
   underscore-rails
   vcr
