@@ -38,6 +38,7 @@ end
 
 group :development do
   gem 'meta_request'
+  gem 'travis'
 end
 
 group :test do
