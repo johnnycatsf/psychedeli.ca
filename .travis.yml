@@ -3,7 +3,7 @@ env:
     - secure: aAH8czTvOa7nC9A2rtgaqZazWZPcC+1rArAGKbvbjwe7C++qBgB4RC2hOt00t6oxSITVgEHXfVp4mzs2Q6A+4H0pog7zhrenH8U0k0xJWk2ueLHgKXurRYcIqffyLqB51wRdEq3GCdjC/gT0qW5rMesRvreLZPcQCRZaFKVcSSI=
     - secure: rEN8kqMfLp59pdHzwLq/ikJyAiVbsX1vgYgdQUqyslym4pLEB1TaIbUmdnLV9Ao7ZqV9AOTfvXsf6wU4x/kiVtD15oV5F1/8F0Cw1Oyoo5Yd2Ji5F+IvlngXlEUmgugkFPNq+mAu36BG8QPHN4Ghy7bNl4uXpe3ngPtHTW0Cu3A=
     - REVISION=$(git rev-parse HEAD)
-    - TO=$RAILS_ENV
+    - TO=production
     - REPO=psychedeli.ca
     - USER=tubbo
 language: ruby
@@ -20,4 +20,4 @@ after_success:
   - heroku keys:clear
   - yes | heroku keys:add
   - yes | git push heroku master
-  - yes | bundle exec rake airbrake:deploy
+  - yes | bundle exec rake airbrake:deploy RAILS_ENV=production
