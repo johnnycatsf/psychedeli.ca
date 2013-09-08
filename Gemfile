@@ -56,4 +56,5 @@ end
 group :production do
   gem 'airbrake'
   gem 'rack-cache'
+  gem 'asset_sync'
 end
