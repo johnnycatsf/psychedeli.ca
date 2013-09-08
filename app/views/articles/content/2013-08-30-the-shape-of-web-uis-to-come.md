@@ -3,7 +3,7 @@ layout: post
 title: the shape of web uis to come
 category: code
 date: 2013-08-30
-tags: javascript, ember.js, emberscript, emblem, waxpoetic
+tags: javascript, emberjs, emberscript, emblem, waxpoetic
 ---
 
 Recently, I've been very interested in the development of the
