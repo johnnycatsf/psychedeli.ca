@@ -37,3 +37,4 @@ vendor/slash/
 
 /vendor/gems
 .rspec
+/config/aws_credentials.csv
