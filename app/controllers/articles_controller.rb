@@ -51,16 +51,6 @@ class ArticlesController < ApplicationController
     end
   end
 
-  # Clear out every HTML page in the cache, so new and updated articles
-  # can be visible in the UI. POSTed to after each deploy.
-  def clear
-    expire_page articles_url
-    ArticleDecorator.decorate_collection(Article.all).each do |article|
-      expire_page controller: 'articles', action: 'show', id: article.id
-    end
-    render text: 'You did it!', status: 200
-  end
-
 private
   def search_params
     ActiveSupport::HashWithIndifferentAccess.new \
