@@ -17,10 +17,10 @@ module ActiveCopy
   VERSION = 'alpha1'
 
   def self.content_path
-    if Rails.env.test?
-      "spec/fixtures"
+    @content_path = if ENV['RAILS_ENV'] == 'test'
+      'spec/fixtures'
     else
-      "app/views"
+      'app/views'
     end
   end
 end

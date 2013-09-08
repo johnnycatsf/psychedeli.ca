@@ -4,7 +4,7 @@ describe ArticleDecorator do
   subject { ArticleDecorator.decorate Article.find("2000-01-01-happy-new-year") }
 
   it "links to the category" do
-    link_to_cat = "<a class=\"category\" href=\"/#{subject.category}\">#{subject.category}</a>"
+    link_to_cat = "<a class=\"category\" href=\"/category/#{subject.category}\">#{subject.category}</a>"
 
     subject.category_link.should == link_to_cat
   end
