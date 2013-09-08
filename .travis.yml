@@ -1,29 +1,20 @@
 env:
   global:
-    secure: "YrDDQkvGMzT1I0I31Shmx0dL+7scjodXO7Y/EekpR7leQ0ylcU+NpXyGI9bAy0NUz6NkBm7IKyEclT6xAAYNmBqZyzuRkFGvjKb+FCwI7yXcvsr6mCzL6v/o2bR6orlxnPGAaNASwTqMHeMyHROQ8cAOCbb6kQH2pnMbepregh4"
-    secure: "V8M23FOC90lPkVqZM0Ot6gDwqJFeWpoNcUsthmrB/25P7cVGEhZPogSGTjjuwUsXeLdCMthVOM0QBq/eQEH+V7EQhX44RF8ReyHpNKluVYzNKOU224EmrQrxKqX+hLPH4lOU3ryfuYlNpKbrANIVDDo3MGxyzZ4mOU1an1h0LyE"
-
+    - secure: aAH8czTvOa7nC9A2rtgaqZazWZPcC+1rArAGKbvbjwe7C++qBgB4RC2hOt00t6oxSITVgEHXfVp4mzs2Q6A+4H0pog7zhrenH8U0k0xJWk2ueLHgKXurRYcIqffyLqB51wRdEq3GCdjC/gT0qW5rMesRvreLZPcQCRZaFKVcSSI=
+    - secure: rEN8kqMfLp59pdHzwLq/ikJyAiVbsX1vgYgdQUqyslym4pLEB1TaIbUmdnLV9Ao7ZqV9AOTfvXsf6wU4x/kiVtD15oV5F1/8F0Cw1Oyoo5Yd2Ji5F+IvlngXlEUmgugkFPNq+mAu36BG8QPHN4Ghy7bNl4uXpe3ngPtHTW0Cu3A=
+    - REVISION=$(git rev-parse HEAD)
 language: ruby
 rvm: 1.9.3
-bundler_args: "--without=development:production"
-script: "bundle exec rspec"
-
-# Deploy to heroku when a build succeeds
+bundler_args: --without=development:production
+script: bundle exec rspec
 after_success:
-  # Install the Heroku gem (or the Heroku toolbelt)
-  - "gem install heroku"
-  # Add your Heroku git repo:
-  - "git remote add heroku git@heroku.com:psychedelica.git"
-  # Turn off warnings about SSH keys:
-  - "echo 'Host heroku.com' >> ~/.ssh/config"
-  - "echo '   StrictHostKeyChecking no' >> ~/.ssh/config"
-  - "echo '   CheckHostIP no' >> ~/.ssh/config"
-  - "echo '   UserKnownHostsFile=/dev/null' >> ~/.ssh/config"
-  # Clear your current Heroku SSH keys:
-  - "heroku keys:clear"
-  # Add a new SSH key to Heroku
-  - "yes | heroku keys:add"
-  # Push to Heroku!
-  - "yes | git push heroku master"
-  # Notify Airbrake of deploy
-  - "yes | bundle exec rake airbrake:deploy API_KEY=$AIRBRAKE_API_KEY TO=$RAILS_ENV REVISION=$(git rev-parse HEAD) REPO=psychedeli.ca"
+  - gem install heroku
+  - git remote add heroku git@heroku.com:psychedelica.git
+  - echo 'Host heroku.com' >> ~/.ssh/config
+  - echo '   StrictHostKeyChecking no' >> ~/.ssh/config
+  - echo '   CheckHostIP no' >> ~/.ssh/config
+  - echo '   UserKnownHostsFile=/dev/null' >> ~/.ssh/config
+  - heroku keys:clear
+  - yes | heroku keys:add
+  - yes | git push heroku master
+  - yes | bundle exec rake airbrake:deploy
