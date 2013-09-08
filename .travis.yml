@@ -1,17 +1,21 @@
 env:
   global:
-    - secure: aAH8czTvOa7nC9A2rtgaqZazWZPcC+1rArAGKbvbjwe7C++qBgB4RC2hOt00t6oxSITVgEHXfVp4mzs2Q6A+4H0pog7zhrenH8U0k0xJWk2ueLHgKXurRYcIqffyLqB51wRdEq3GCdjC/gT0qW5rMesRvreLZPcQCRZaFKVcSSI=
+  - secure: aAH8czTvOa7nC9A2rtgaqZazWZPcC+1rArAGKbvbjwe7C++qBgB4RC2hOt00t6oxSITVgEHXfVp4mzs2Q6A+4H0pog7zhrenH8U0k0xJWk2ueLHgKXurRYcIqffyLqB51wRdEq3GCdjC/gT0qW5rMesRvreLZPcQCRZaFKVcSSI=
+  - secure: IcgR1qXENGdWzbfK5rjLOkfzDqvOW6bLsR7GXGcW0wwRkEBq1EmuLtm80VjAY/xjV0nVp6FV26+2nAvCbn0odAvi3smW2JWUTkWKpIN3oZS6Za5lmMgoLHuLB1XeBLhonoYv4G3iRHqOw/+fz/VXlcxYR4rK2iqR20AdiMbTZMI=
+  - REVISION=$(git rev-parse HEAD)
+  - TO=production
 language: ruby
 rvm: 1.9.3
 bundler_args: --without=development:production
 script: bundle exec rspec
 after_success:
-  - gem install heroku
-  - git remote add heroku git@heroku.com:psychedelica.git
-  - echo 'Host heroku.com' >> ~/.ssh/config
-  - echo '   StrictHostKeyChecking no' >> ~/.ssh/config
-  - echo '   CheckHostIP no' >> ~/.ssh/config
-  - echo '   UserKnownHostsFile=/dev/null' >> ~/.ssh/config
-  - heroku keys:clear
-  - yes | heroku keys:add
-  - git push heroku master
+- gem install heroku
+- git remote add heroku git@heroku.com:psychedelica.git
+- echo 'Host heroku.com' >> ~/.ssh/config
+- echo '   StrictHostKeyChecking no' >> ~/.ssh/config
+- echo '   CheckHostIP no' >> ~/.ssh/config
+- echo '   UserKnownHostsFile=/dev/null' >> ~/.ssh/config
+- heroku keys:clear
+- yes | heroku keys:add
+- git push heroku master
+- yes | bundle exec rake airbrake:deploy

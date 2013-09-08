@@ -6,6 +6,7 @@ gem 'pg'
 gem 'newrelic_rpm'
 gem 'puma'
 gem 'foreman'
+gem 'airbrake'
 
 group :assets do
   gem 'jquery-rails'
@@ -53,7 +54,6 @@ group :development, :test do
 end
 
 group :production do
-  gem 'airbrake'
   gem 'rack-cache'
   gem 'asset_sync'
 end
