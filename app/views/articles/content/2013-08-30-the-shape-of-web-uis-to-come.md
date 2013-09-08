@@ -183,3 +183,4 @@ though `therubyracer` is supported, so uhh...install Node.js. :)
 [emblem]: http://emblemjs.com/
 [rails]: http://rubyonrails.org/
 [ember-rails]: http://github.com/emberjs/ember-rails
+[emberscript]: http://emberscript.com
