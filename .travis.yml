@@ -9,17 +9,6 @@ branches:
     - master
 language: ruby
 rvm: 1.9.3
-bundler_args: --without=development:production
+bundler_args: --without=development
 script: bundle exec rspec
 after_success: bundle exec rake deploy
-
-#- gem install heroku
-#- git remote add heroku git@heroku.com:psychedelica.git
-#- echo 'Host heroku.com' >> ~/.ssh/config
-#- echo '   StrictHostKeyChecking no' >> ~/.ssh/config
-#- echo '   CheckHostIP no' >> ~/.ssh/config
-#- echo '   UserKnownHostsFile=/dev/null' >> ~/.ssh/config
-#- heroku keys:clear
-#- yes | heroku keys:add
-#- git push heroku master
-#- yes | bundle exec rake airbrake:deploy
