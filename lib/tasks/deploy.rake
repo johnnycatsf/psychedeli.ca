@@ -1,8 +1,4 @@
 namespace :deploy do
-  task :heroku_toolbelt do
-    sh 'gem install heroku'
-  end
-
   task :ssh_configuration do
     ssh_config = %(
     Host heroku.com
@@ -10,14 +6,14 @@ namespace :deploy do
       CheckHostIP no
       UserKnownHostsFile=/dev/null
     )
-    File.write(File.expand_path("~/.ssh.config"), 'rw+') do |f|
+    File.write(File.expand_path("~/.ssh/config"), 'rw+') do |f|
       f.puts ssh_config
     end
   end
 
   task :heroku_keys do
-    sh 'heroku keys:clear'
-    sh 'heroku keys:add'
+    sh 'yes | heroku keys:clear'
+    sh 'yes | heroku keys:add'
   end
 
   task :application_to_heroku do
@@ -28,7 +24,6 @@ end
 
 desc "Deploy to Heroku from Travis-CI"
 task :deploy => %w(
-  deploy:heroku_toolbelt
   deploy:ssh_configuration
   deploy:heroku_keys
   deploy:application_to_heroku
