@@ -3,7 +3,6 @@ namespace :deploy do
     sh 'gem install heroku'
   end
 
-
   task :ssh_configuration do
     ssh_config = %(
     Host heroku.com
@@ -16,12 +15,12 @@ namespace :deploy do
     end
   end
 
-  task :add_keys_to_heroku do
+  task :heroku_keys do
     sh 'heroku keys:clear'
     sh 'heroku keys:add'
   end
 
-  task :push_to_heroku do
+  task :application_to_heroku do
     sh 'git remote add heroku git@heroku.com:psychedelica.git'
     sh 'git push heroku master'
   end
