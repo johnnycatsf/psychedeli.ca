@@ -11,4 +11,4 @@ language: ruby
 rvm: 1.9.3
 bundler_args: --without=development
 script: bundle exec rspec --format=documentation
-after_success: bundle exec rake deploy
+after_success: bundle exec rake deploy RAILS_ENV=production
