@@ -6,9 +6,7 @@ namespace :deploy do
       CheckHostIP no
       UserKnownHostsFile=/dev/null
     )
-    File.write(File.expand_path("~/.ssh/config"), 'rw+') do |f|
-      f.puts ssh_config
-    end
+    File.write File.expand_path("~/.ssh/config"), ssh_config
   end
 
   task :heroku_keys do
