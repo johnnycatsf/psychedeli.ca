@@ -6,7 +6,6 @@ module ArticlesHelper
 
   def articles
     @articles ||= Article.latest
-
     ArticleDecorator.decorate_collection @articles
   end
 

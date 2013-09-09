@@ -1,5 +1,12 @@
 - title @category, hidden: true if @category.present?
 - title @tag, hidden: true unless @tag == "#"
 
-- articles.each do |article|
+- articles.first(5).each do |article|
   = render 'article', article: article
+
+%h2 more articles..
+
+%ul#articles
+  - articles[4..-1].each do |article|
+    %li
+      %h5= link_to article.title, articles_path(article)

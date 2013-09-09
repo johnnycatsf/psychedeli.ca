@@ -8,13 +8,8 @@ class ArticlesController < ApplicationController
   before_filter :block_rss, except: [:index]
 
   def index
-    @articles = if search_params.any?
-      @search = true
-      Article.where(search_params).reverse
-    else
-      @search = false
-      Article.latest.first 5
-    end
+    @search = search_params.any?
+    @articles = Article.where(search_params).reverse
     @category = params[:category]
     @tag = "##{params[:tag]}".strip
 
@@ -86,5 +81,4 @@ private
     respond_with 'error', alert: "Invalid format.", status: 406 \
       and return if params[:format] == 'rss'
   end
-
 end
