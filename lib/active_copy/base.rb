@@ -132,17 +132,14 @@ module ActiveCopy
     # Look for all of the matching key/value pairs in the YAML front
     # matter, and return an array of models that match them.
     def self.where query={}
-      all.reduce([]) do |results, article|
-        if article.matches?(query)
-          results << article unless article.nil?
-        end
-
+      all.reject { |a| a.nil? }.reduce([]) do |results, article|
+        results << article if article.matches? query
         results
       end
     end
 
     def matches? query
-      query.reduce true do |matches, (key, value)|
+      query.reduce(true) do |matches, (key, value)|
         matches = if key == 'tag'
           return false unless tags.present?
           tags.include? value
