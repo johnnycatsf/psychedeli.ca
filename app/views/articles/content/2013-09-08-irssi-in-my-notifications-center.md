@@ -3,7 +3,7 @@ layout: post
 title: irssi? in MY notifications center?
 category: gbs
 date: 2013-09-08
-tags: irc,irssi,notifications center,mac os x,shell
+tags: irc, irssi, osx, shell, work
 ---
 
 As I've said before, I'm constantly working in [the shell][zsh] and have
