@@ -43,31 +43,28 @@ mentions and private messages.
 First, install the necessary packages with Homebrew:
 
 ```bash
-$ brew install terminal-notifier
-$ brew install irssi
+$ brew install irssi terminal-notifier
 ```
 
-Next, install the `trigger.pl` script to your irssi config directory.
+Make sure your scripts directory is in place:
 
 ```bash
 $ mkdir -p ~/.irssi/scripts/autorun
+```
+
+Then, install the `trigger.pl` script to your irssi config directory.
+
+```bash
 $ curl 'http://scripts.irssi.org/scripts/trigger.pl' -o ~/.irssi/scripts/autorun/trigger.pl
 ```
 
-Now you can open up irssi and type:
+Now you can open up irssi and type `/LOAD trigger` to enable triggers!
 
-```
-/LOAD trigger
-```
+The triggers I used for building this feature are below. Just change the `-regexp` pattern
+to your nick instead of 'tubbo' to get it working right:
 
-to load the trigger script.
-
-The triggers I used are below. Just change the `-regexp` pattern to
-your nick instead of 'tubbo' to get it working right:
-
-```
-#Triggers file version 1.0
--privmsgs -command 'exec /usr/local/bin/terminal-notifier -message "$\M" -title "$\N"' 
+```perl
+-privmsgs -command 'exec /usr/local/bin/terminal-notifier -message "$\M" -title "$\N"'
 -publics -regexp 'tubbo' -command 'exec /usr/local/bin/terminal-notifier -message "$\M" -title "$\N ($\C)"' 
 ```
 
@@ -78,8 +75,18 @@ triggers working.
 And that should do it! Get one of your friends to `/msg` you or say your
 name in a channel!
 
+### one small caveat
+
+Currently, all spaces are escaped in the notification. Makes it a bit
+harder to read, but it still works. If anyone out there knows of a great
+solution, hit me up on Twitter ([@tubbo][twitter]) and let me know about
+it!
+
+[tn]: http://github.com/alloy/terminal-notifier
+[triggers]: http://scripts.irssi.org/html/trigger.pl.html
 [zsh]: http://zsh.org
 [dots]: http://github.com/tubbo/dots
 [freenode]: http://freenode.org
 [irssi]: http://irssi.org
 [proxy]: http://irssi.org/documentation/proxy
+[twitter]: http://twitter.com/tubbo

@@ -46,6 +46,7 @@ article {
   .highlight {
     @include panel;
     width: 700px;
+    overflow: scroll;
 
     pre {
       font-size: 14px;
