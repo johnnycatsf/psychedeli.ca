@@ -18,6 +18,11 @@ namespace :deploy do
     sh 'git remote add heroku git@heroku.com:psychedelica.git'
     sh 'git push heroku master'
   end
+
+  task :notify_airbrake do
+    rev = `git rev-parse HEAD`
+    sh %{heroku run "rake airbrake:deploy TO=production REVISION=#{rev}"}
+  end
 end
 
 desc "Deploy to Heroku from Travis-CI"
@@ -25,5 +30,5 @@ task :deploy => %w(
   deploy:ssh_configuration
   deploy:heroku_keys
   deploy:application_to_heroku
-  airbrake:deploy
+  deploy:notify_airbrake
 )
