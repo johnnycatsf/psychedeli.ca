@@ -9,7 +9,9 @@ class ArticlesController < ApplicationController
 
   def index
     @search = search_params.any?
-    @articles = Article.where(search_params).reverse
+    @articles = Article.where(search_params).sort do |p,n|
+      n.date <=> p.date
+    end
     @category = params[:category]
     @tag = "##{params[:tag]}".strip
 
