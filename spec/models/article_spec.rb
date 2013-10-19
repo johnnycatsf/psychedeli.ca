@@ -42,7 +42,7 @@ describe Article do
     end
 
     it "sorts published articles by created_at" do
-      Article.latest.map(&:id).should include(subject.id)
+      Article.latest.map(&:id).first.should eq(subject.id)
       Article.latest.map(&:id).should_not include(unpublished.id)
     end
   end
