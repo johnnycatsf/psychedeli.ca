@@ -28,7 +28,6 @@ group :views do
 end
 
 group :active_copy do
-  gem 'liquid'
   gem 'pygments.rb', '~> 0.3'
   gem 'redcarpet'
 end
@@ -39,7 +38,6 @@ end
 
 group :development do
   gem 'meta_request'
-  gem 'travis'
 end
 
 group :test do
