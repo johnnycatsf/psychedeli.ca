@@ -3,7 +3,7 @@ $LOAD_PATH << File.expand_path('../../lib', __FILE__)
 require File.expand_path('../boot', __FILE__)
 
 require 'bundler/setup'
-#require 'rails/all'
+
 require 'action_controller/railtie'
 require 'sprockets/railtie'
 
