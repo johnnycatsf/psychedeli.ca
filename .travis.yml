@@ -8,5 +8,5 @@ branches:
 language: ruby
 rvm: 2.0.0-p247
 bundler_args: --without=development:production
-script: bundle exec rspec --format=documentation
+script: bundle exec rspec --color --format=documentation
 after_success: bundle exec rake deploy
