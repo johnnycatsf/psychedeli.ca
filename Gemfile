@@ -54,4 +54,5 @@ end
 group :production do
   gem 'rack-cache'
   gem 'asset_sync'
+  gem 'rails_12factor'
 end
