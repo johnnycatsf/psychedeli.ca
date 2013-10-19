@@ -4,5 +4,5 @@ begin
   RSpec::Core::RakeTask.new :spec
 
   desc "Run RSpec and Jasmine code examples"
-  task :test => %w(spec teaspoon)
+  task :test => %w(db:test:prepare spec)
 rescue LoadError;end

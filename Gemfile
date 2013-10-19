@@ -49,7 +49,6 @@ end
 
 group :development, :test do
   gem 'pry-rails'
-  gem 'teaspoon'
 end
 
 group :production do
